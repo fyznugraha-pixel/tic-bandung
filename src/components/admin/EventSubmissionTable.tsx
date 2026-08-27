@@ -79,7 +79,7 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline"
                     >
-                      Buka Link <ExternalLink className="w-3 h-3" />
+                      Link <ExternalLink className="w-3 h-3" />
                     </a>
                   </td>
                   
