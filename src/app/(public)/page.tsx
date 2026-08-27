@@ -41,6 +41,13 @@ export default async function LandingPage() {
     },
     {
       id: 'default-2',
+      title: "Kawah Putih",
+      subtitle: "Saksikan pesona danau vulkanik berwarna putih kehijauan yang magis dan memukau.",
+      image_url: "/ASET VISUAL/Wisata Bandung/Kawah Putih/DJI_0459.JPG",
+      button_link: "/destinasi/kawah-putih"
+    },
+    {
+      id: 'default-3',
       title: "Selamat Datang di Kota Bandung",
       subtitle: "Jelajahi keindahan alam, budaya, dan kuliner legendaris Parijs van Java.",
       image_url: "https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=2000",

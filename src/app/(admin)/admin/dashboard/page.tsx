@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { MapPin, Calendar, CheckCircle2, Archive, Plus, ArrowRight, LayoutDashboard, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import EventTable from "@/components/admin/EventTable";
 
 export const metadata = {
   title: 'Dashboard | TIC Kota Bandung',
@@ -26,6 +27,29 @@ export default async function AdminDashboardPage() {
     .from('events')
     .select('*', { count: 'exact', head: true })
     .eq('status', 'PUBLISHED');
+
+  // Fetch 5 latest events for the dashboard table
+  const { data: latestEventsRaw } = await supabase
+    .from('events')
+    .select(`
+      id, title, slug, start_date, end_date, images, status, created_at, organizer,
+      destinations:destination_id (name)
+    `)
+    .order('created_at', { ascending: false })
+    .limit(5);
+    
+  const latestEvents = (latestEventsRaw || []).map((ev: any) => ({
+    id: ev.id,
+    title: ev.title,
+    slug: ev.slug,
+    start_date: ev.start_date,
+    end_date: ev.end_date,
+    images: ev.images,
+    status: ev.status,
+    created_at: ev.created_at,
+    organizer: ev.organizer,
+    destinations: ev.destinations ? (Array.isArray(ev.destinations) ? ev.destinations[0] : ev.destinations) : null
+  }));
 
   const draftDestinations = (totalDestinations || 0) - (activeDestinations || 0);
   const draftEvents = (totalEvents || 0) - (activeEvents || 0);
@@ -183,6 +207,19 @@ export default async function AdminDashboardPage() {
               Catat Agenda Event
             </Link>
           </div>
+        </section>
+
+        <section className="mt-8 mb-12">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-[#C9971E]" /> 
+              Agenda Event Terbaru
+            </h2>
+            <Link href="/admin/event" className="text-sm font-semibold text-[#3D7A5E] hover:underline">
+              Lihat Semua
+            </Link>
+          </div>
+          <EventTable initialData={latestEvents} />
         </section>
 
       </div>
