@@ -64,7 +64,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           className={`absolute inset-0 w-full h-full object-cover object-center z-0 transition-all duration-[2000ms] ease-in-out ${
             index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
           }`}
-          src={slider.image_url}
+          src={encodeURI(slider.image_url)}
         />
       ))}
       
