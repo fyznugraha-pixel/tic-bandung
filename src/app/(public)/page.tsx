@@ -6,6 +6,8 @@ import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700', '900'] });
 
+export const dynamic = 'force-dynamic';
+
 export const revalidate = 0;
 
 export default async function LandingPage() {
