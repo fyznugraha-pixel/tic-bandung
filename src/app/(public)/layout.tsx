@@ -21,7 +21,7 @@ export default function PublicLayout({
       <footer className="bg-white border-t border-slate-200 w-full pt-16">
         <div className="w-full pb-12 px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1">
-            <img src="/logo/ticlogo.png" alt="TIC Kota Bandung" className="h-12 w-auto mb-4" />
+            <img src="/logo/tictransparan.png" alt="TIC Kota Bandung" className="h-12 w-auto mb-4" />
             <p className="text-slate-600 text-base mb-6 leading-relaxed">Jelajahi keindahan, budaya, dan kuliner autentik di jantung Kota Bandung.</p>
             <div className="flex gap-4 text-slate-500">
               <Link className="hover:text-amber-700 transition-colors bg-slate-100 p-2 rounded-full" href="#"><Globe className="w-5 h-5" /></Link>

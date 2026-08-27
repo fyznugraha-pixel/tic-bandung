@@ -42,7 +42,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center w-full px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105">
-          <img src="/logo/ticlogo.png" alt="TIC Kota Bandung" className="h-10 md:h-12 w-auto" />
+          <img src="/logo/tictransparan.png" alt="TIC Kota Bandung" className="h-10 md:h-12 w-auto" />
         </Link>
         
         {/* Desktop Menu */}

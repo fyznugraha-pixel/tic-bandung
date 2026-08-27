@@ -83,7 +83,7 @@ export default function LandingPage() {
             <div className="absolute bottom-0 left-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <span className="bg-[#C9971E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block shadow-sm">Ikon Kota</span>
               <h3 className={`${montserrat.className} text-4xl font-bold text-white mb-2`}>Gedung Sate</h3>
-              <p className="text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2 max-w-md">Simbol kebanggaan masyarakat Jawa Barat yang menyimpan nilai sejarah panjang sejak era kolonial.</p>
+              <p className="text-white/80 max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 overflow-hidden transition-all duration-500 line-clamp-2 max-w-md">Simbol kebanggaan masyarakat Jawa Barat yang menyimpan nilai sejarah panjang sejak era kolonial.</p>
             </div>
           </Link>
           
