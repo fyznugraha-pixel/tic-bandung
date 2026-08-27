@@ -114,9 +114,13 @@ export default function AdminLayoutWrapper({
           </NavGroup>
 
           <NavGroup title="CMS - Kalender & Event" id="event">
-            <Link href="/admin/event" className={navLinkClass('/admin/event')}>
+            <Link href="/admin/event" className={navLinkClass('/admin/event', true)}>
               <Calendar className="w-5 h-5" />
-              <span className="font-medium text-sm">Kalender Event</span>
+              <span className="font-medium text-sm">Kalender Event (Data)</span>
+            </Link>
+            <Link href="/admin/event-submissions" className={navLinkClass('/admin/event-submissions')}>
+              <Inbox className="w-5 h-5" />
+              <span className="font-medium text-sm">Pendaftaran Masuk</span>
             </Link>
           </NavGroup>
 
