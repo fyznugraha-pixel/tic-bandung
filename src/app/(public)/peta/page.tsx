@@ -46,8 +46,8 @@ export default async function PetaPage() {
     ticket_type: dest.ticket_type,
     ticket_nominal: dest.ticket_nominal,
     category: {
-      name: dest.categories?.name || 'Uncategorized',
-      color_cluster: dest.categories?.color_cluster || 'default',
+      name: (dest.categories as any)?.name || 'Uncategorized',
+      color_cluster: (dest.categories as any)?.color_cluster || 'default',
     },
     image_url: dest.destination_images?.[0]?.image_url || null,
   }));

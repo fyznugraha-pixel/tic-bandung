@@ -42,8 +42,8 @@ export default async function AdminDashboardPage() {
     slug: dest.slug,
     status: dest.status,
     category: dest.categories ? { 
-      name: dest.categories.name, 
-      color_cluster: dest.categories.color_cluster 
+      name: (dest.categories as any).name, 
+      color_cluster: (dest.categories as any).color_cluster 
     } : null,
     image_url: dest.destination_images?.[0]?.image_url || null,
     created_at: dest.created_at,
