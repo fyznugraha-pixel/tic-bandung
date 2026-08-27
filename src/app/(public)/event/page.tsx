@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ChevronRight, CalendarDays, FileText, CheckCircle, Clock } from 'lucide-react';
+import EventSubmissionForm from "@/components/public/EventSubmissionForm";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] });
@@ -110,34 +111,7 @@ export default function EventPage() {
               <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-2`}>Daftarkan Event Anda</h3>
               <p className="text-slate-300 mb-8 text-sm leading-relaxed">Jadikan event Anda bagian dari daya tarik utama pariwisata Kota Bandung di tahun 2027.</p>
               
-              <form className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">Nama Penanggung Jawab</label>
-                  <input type="text" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500" placeholder="Nama lengkap" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">Nama Perusahaan / EO</label>
-                  <input type="text" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500" placeholder="Nama EO atau Instansi" />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Email Aktif</label>
-                    <input type="email" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500" placeholder="email@domain.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">No. WhatsApp</label>
-                    <input type="tel" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500" placeholder="0812xxxx" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">Attachment Materi Event (Link)</label>
-                  <input type="url" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500" placeholder="Link Google Drive / Dropbox materi" />
-                  <p className="text-xs text-slate-500 mt-2">*Lampirkan link folder berisi Flyer, Logo, Foto & Video event sebelumnya. Pastikan akses link terbuka (Public).</p>
-                </div>
-                <button type="button" className="w-full bg-[#C9971E] text-white font-bold py-4 rounded-xl hover:bg-amber-600 transition-colors mt-4 flex items-center justify-center gap-2">
-                  <FileText className="w-5 h-5" /> Submit Pendaftaran
-                </button>
-              </form>
+              <EventSubmissionForm />
               
               <p className="text-slate-500 text-xs text-center mt-6">Dengan mendaftar, Anda menyetujui syarat & ketentuan kurasi CoE Kota Bandung.</p>
             </div>

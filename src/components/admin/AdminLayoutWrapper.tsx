@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, MapPin, Image as ImageIcon, FileText, Settings, LogOut, Home, Camera, Plus, Calendar, Activity, Shield, User, FolderTree } from 'lucide-react';
+import { LayoutDashboard, MapPin, Image as ImageIcon, FileText, Settings, LogOut, Home, Camera, Plus, Calendar, Activity, Shield, User, FolderTree, Inbox } from 'lucide-react';
 import { signoutAction } from '@/app/actions/auth';
 
 export default function AdminLayoutWrapper({
