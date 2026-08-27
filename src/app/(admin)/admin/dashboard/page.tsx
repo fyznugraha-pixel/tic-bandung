@@ -1,119 +1,191 @@
-import { createClient } from '@/utils/supabase/server';
-import DashboardTable from '@/components/admin/DashboardTable';
-import { LayoutDashboard, CheckCircle2, FileEdit, Plus, MapPin } from 'lucide-react';
-import Link from 'next/link';
+import { createClient } from "@/utils/supabase/server";
+import { MapPin, Calendar, CheckCircle2, Archive, Plus, ArrowRight, LayoutDashboard, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 export const metadata = {
-  title: 'Dashboard Admin | TIC Kota Bandung',
+  title: 'Dashboard | TIC Kota Bandung',
 };
 
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
 
-  // Fetch all destinations with their primary image and category
-  const { data: destinations, error } = await supabase
+  const { count: totalDestinations } = await supabase
     .from('destinations')
-    .select(`
-      id,
-      name,
-      slug,
-      status,
-      created_at,
-      categories (
-        name,
-        color_cluster
-      ),
-      destination_images (
-        image_url
-      )
-    `)
-    .order('created_at', { ascending: false });
+    .select('*', { count: 'exact', head: true });
+    
+  const { count: activeDestinations } = await supabase
+    .from('destinations')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'PUBLISHED');
 
-  if (error) {
-    console.error("Dashboard Fetch Error:", error);
-  }
+  const { count: totalEvents } = await supabase
+    .from('events')
+    .select('*', { count: 'exact', head: true });
 
-  const data = destinations || [];
+  const { count: activeEvents } = await supabase
+    .from('events')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'PUBLISHED');
 
-  // Format data for the client component
-  const formattedData = data.map(dest => ({
-    id: dest.id,
-    name: dest.name,
-    slug: dest.slug,
-    status: dest.status,
-    category: dest.categories ? { 
-      name: (dest.categories as any).name, 
-      color_cluster: (dest.categories as any).color_cluster 
-    } : null,
-    image_url: dest.destination_images?.[0]?.image_url || null,
-    created_at: dest.created_at,
-  }));
-
-  // Calculate Metrics
-  const totalDestinations = formattedData.length;
-  const publishedCount = formattedData.filter(d => d.status === 'PUBLISHED').length;
-  const draftCount = formattedData.filter(d => d.status === 'DRAFT').length;
+  const draftDestinations = (totalDestinations || 0) - (activeDestinations || 0);
+  const draftEvents = (totalEvents || 0) - (activeEvents || 0);
 
   return (
-    <div className="max-w-[1200px] mx-auto w-full">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-        <div>
-          <h1 className="text-3xl font-display font-bold text-gray-900 flex items-center gap-3">
-            <LayoutDashboard className="w-8 h-8 text-[#C9971E]" />
-            Dashboard Utama
-          </h1>
-          <p className="text-gray-500 mt-2">Kelola seluruh data destinasi wisata Kota Bandung.</p>
-        </div>
+    <>
+      <div className="w-full max-w-6xl mx-auto py-4">
         
-        <Link 
-          href="/admin/destinasi/baru" 
-          className="bg-[#3D7A5E] hover:bg-[#2c5c45] text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-sm"
-        >
-          <Plus className="w-5 h-5" />
-          Tambah Destinasi Baru
-        </Link>
-      </div>
-
-      {/* Metrics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center">
-            <MapPin className="w-7 h-7 text-blue-600" />
-          </div>
+        <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">Total Destinasi</p>
-            <p className="text-3xl font-display font-bold text-gray-900">{totalDestinations}</p>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-[#3D7A5E]/10 rounded-xl flex items-center justify-center">
+                <LayoutDashboard className="w-5 h-5 text-[#3D7A5E]" />
+              </div>
+              <h1 className="text-2xl md:text-3xl font-display font-bold text-[#1b1c1a] tracking-tight">
+                Dashboard Utama
+              </h1>
+            </div>
+            <p className="text-gray-500 mt-1 text-sm md:text-base">
+              Ringkasan data destinasi wisata dan kalender kegiatan pariwisata Kota Bandung.
+            </p>
           </div>
-        </div>
+        </header>
 
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center">
-            <CheckCircle2 className="w-7 h-7 text-green-600" />
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+          {/* Destinasi Card */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#3D7A5E]/10 to-transparent rounded-bl-full opacity-50 group-hover:scale-110 transition-transform duration-500" />
+            
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#3D7A5E] to-[#2c5a45] shadow-lg shadow-[#3D7A5E]/20 flex items-center justify-center text-white">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-bold text-gray-800">Destinasi Wisata</h2>
+                    <p className="text-sm text-gray-500">Total tempat terdaftar</p>
+                  </div>
+                </div>
+                <span className="text-5xl font-display font-bold text-[#1b1c1a]">{totalDestinations || 0}</span>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+                <div className="bg-gray-50/50 rounded-xl p-4 border border-gray-50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
+                    </div>
+                    <span className="text-sm text-gray-600 font-medium">Aktif / Publik</span>
+                  </div>
+                  <p className="text-2xl font-bold text-gray-800">{activeDestinations || 0}</p>
+                </div>
+                <div className="bg-gray-50/50 rounded-xl p-4 border border-gray-50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center">
+                      <Archive className="w-3.5 h-3.5 text-orange-600" />
+                    </div>
+                    <span className="text-sm text-gray-600 font-medium">Draft / Draf</span>
+                  </div>
+                  <p className="text-2xl font-bold text-gray-800">{draftDestinations}</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 pt-6 border-t border-gray-50 relative z-10">
+              <Link 
+                href="/admin/destinasi"
+                className="inline-flex items-center text-sm font-semibold text-[#3D7A5E] hover:text-[#2c5a45] transition-colors group/link"
+              >
+                Lihat & Kelola Destinasi 
+                <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
-          <div>
-            <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">Aktif (Published)</p>
-            <p className="text-3xl font-display font-bold text-gray-900">{publishedCount}</p>
-          </div>
-        </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center">
-            <FileEdit className="w-7 h-7 text-gray-600" />
+          {/* Event Card */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#C9971E]/10 to-transparent rounded-bl-full opacity-50 group-hover:scale-110 transition-transform duration-500" />
+            
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C9971E] to-[#a67c18] shadow-lg shadow-[#C9971E]/20 flex items-center justify-center text-white">
+                    <Calendar className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-bold text-gray-800">Kalender Event</h2>
+                    <p className="text-sm text-gray-500">Total agenda pariwisata</p>
+                  </div>
+                </div>
+                <span className="text-5xl font-display font-bold text-[#1b1c1a]">{totalEvents || 0}</span>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+                <div className="bg-gray-50/50 rounded-xl p-4 border border-gray-50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
+                    </div>
+                    <span className="text-sm text-gray-600 font-medium">Aktif / Publik</span>
+                  </div>
+                  <p className="text-2xl font-bold text-gray-800">{activeEvents || 0}</p>
+                </div>
+                <div className="bg-gray-50/50 rounded-xl p-4 border border-gray-50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center">
+                      <Archive className="w-3.5 h-3.5 text-orange-600" />
+                    </div>
+                    <span className="text-sm text-gray-600 font-medium">Draft / Draf</span>
+                  </div>
+                  <p className="text-2xl font-bold text-gray-800">{draftEvents}</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 pt-6 border-t border-gray-50 relative z-10">
+              <Link 
+                href="/admin/event"
+                className="inline-flex items-center text-sm font-semibold text-[#C9971E] hover:text-[#a67c18] transition-colors group/link"
+              >
+                Lihat & Kelola Agenda 
+                <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
-          <div>
-            <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">Menunggu (Draft)</p>
-            <p className="text-3xl font-display font-bold text-gray-900">{draftCount}</p>
+        </section>
+
+        <section className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+              <TrendingUp className="w-4 h-4 text-gray-600" />
+            </div>
+            <h2 className="text-xl font-bold text-gray-800">Aksi Cepat</h2>
           </div>
-        </div>
+          
+          <div className="flex flex-wrap gap-4">
+            <Link 
+              href="/admin/destinasi/baru" 
+              className="group flex items-center gap-3 bg-[#3D7A5E] hover:bg-[#2c5a45] text-white px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg shadow-[#3D7A5E]/20 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <div className="bg-white/20 p-1 rounded-md">
+                <Plus className="w-4 h-4" />
+              </div>
+              Tambah Destinasi Baru
+            </Link>
+            
+            <Link 
+              href="/admin/event/baru" 
+              className="group flex items-center gap-3 bg-white hover:bg-gray-50 border-2 border-gray-100 text-gray-700 px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:border-gray-200 hover:-translate-y-0.5"
+            >
+              <div className="bg-gray-100 text-gray-500 p-1 rounded-md group-hover:bg-[#C9971E]/10 group-hover:text-[#C9971E] transition-colors">
+                <Plus className="w-4 h-4" />
+              </div>
+              Catat Agenda Event
+            </Link>
+          </div>
+        </section>
+
       </div>
-
-      {/* Main Table */}
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-xl font-bold text-gray-900">Daftar Destinasi</h2>
-      </div>
-      
-      <DashboardTable initialData={formattedData} />
-
-    </div>
+    </>
   );
 }

@@ -55,9 +55,29 @@ export default async function DestinationDetailPage({
   }
 
   const category = dest.categories;
-  const primaryImage = dest.destination_images?.[0];
+  const primaryImage = dest.images?.[0] || dest.destination_images?.[0]?.image_url;
+  const photoCredit = dest.source_photo_credit || dest.destination_images?.[0]?.source_photo_credit;
 
-  // Helper to get color hex
+  // Parse price_info
+  let ticketType = 'UNCONFIRMED';
+  let ticketNominal: number | null = null;
+  if (dest.price_info) {
+    try {
+      const parsed = typeof dest.price_info === 'string' ? JSON.parse(dest.price_info) : dest.price_info;
+      ticketType = parsed.type || 'UNCONFIRMED';
+      ticketNominal = parsed.nominal || null;
+    } catch { /* keep defaults */ }
+  }
+
+  // Parse opening_hours into readable format
+  let openingHoursEntries: [string, string][] = [];
+  if (dest.opening_hours) {
+    try {
+      const parsed = typeof dest.opening_hours === 'string' ? JSON.parse(dest.opening_hours) : dest.opening_hours;
+      openingHoursEntries = Object.entries(parsed) as [string, string][];
+    } catch { /* skip */ }
+  }
+
   const getCategoryColor = (cluster: string) => {
     if (cluster === 'green') return '#3D7A5E';
     if (cluster === 'gold') return '#C9971E';
@@ -74,7 +94,7 @@ export default async function DestinationDetailPage({
       {/* Hero Image Section */}
       <div className="relative w-full h-[50vh] md:h-[70vh] bg-gray-900">
         <Image
-          src={primaryImage?.image_url || 'https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=2000'}
+          src={primaryImage || 'https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=2000'}
           alt={dest.name}
           fill
           className="object-cover opacity-80"
@@ -110,9 +130,9 @@ export default async function DestinationDetailPage({
         </div>
 
         {/* NFR-11 Photo Credit */}
-        {primaryImage?.source_photo_credit && (
+        {photoCredit && (
           <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white/70 text-[10px] px-2 py-1 rounded">
-            Foto oleh: {primaryImage.source_photo_credit}
+            Foto oleh: {photoCredit}
           </div>
         )}
       </div>
@@ -121,7 +141,7 @@ export default async function DestinationDetailPage({
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* Left Column: Description */}
+          {/* Left Column: Description & Content */}
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white p-8 rounded-2xl border border-[#d3c5af]/50 shadow-sm">
               <h2 className="text-2xl font-bold text-[#1b1c1a] mb-4">Tentang {dest.name}</h2>
@@ -135,6 +155,16 @@ export default async function DestinationDetailPage({
                 )}
               </div>
             </div>
+
+            {/* Konten Detail dari CMS (Rich Text) */}
+            {dest.content && (
+              <div className="bg-white p-8 rounded-2xl border border-[#d3c5af]/50 shadow-sm">
+                <div 
+                  className="prose prose-lg max-w-none text-[#4f4635] leading-relaxed prose-headings:text-[#1b1c1a] prose-a:text-[#3D7A5E] prose-strong:text-[#1b1c1a] prose-img:rounded-xl"
+                  dangerouslySetInnerHTML={{ __html: dest.content }}
+                />
+              </div>
+            )}
           </div>
 
           {/* Right Column: Info Panel */}
@@ -145,7 +175,7 @@ export default async function DestinationDetailPage({
               <div className="space-y-6">
                 
                 {/* Harga Tiket (NFR-09) */}
-                {dest.ticket_type !== 'UNCONFIRMED' && (
+                {ticketType !== 'UNCONFIRMED' && (
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[#3D7A5E]/10 flex items-center justify-center shrink-0">
                       <Ticket className="w-5 h-5 text-[#3D7A5E]" />
@@ -153,10 +183,10 @@ export default async function DestinationDetailPage({
                     <div>
                       <p className="text-xs font-bold text-[#4f4635] uppercase tracking-wider mb-1">Harga Tiket</p>
                       <p className="font-semibold text-lg text-[#1b1c1a]">
-                        {dest.ticket_type === 'FREE' ? (
+                        {ticketType === 'FREE' ? (
                           <span className="text-[#3D7A5E]">Gratis</span>
-                        ) : dest.ticket_nominal ? (
-                          new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(dest.ticket_nominal)
+                        ) : ticketNominal ? (
+                          new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(ticketNominal)
                         ) : (
                           'Berbayar'
                         )}
@@ -166,19 +196,21 @@ export default async function DestinationDetailPage({
                 )}
 
                 {/* Jam Operasional */}
-                {dest.operating_hours && (
+                {openingHoursEntries.length > 0 && (
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
                       <Clock className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#4f4635] uppercase tracking-wider mb-1">Jam Buka</p>
-                      {/* Simple rendering for now. In a real app, parse the JSON and format it nicely */}
-                      <p className="font-medium text-sm text-[#1b1c1a] whitespace-pre-wrap">
-                        {typeof dest.operating_hours === 'string' 
-                          ? dest.operating_hours 
-                          : JSON.stringify(dest.operating_hours, null, 2).replace(/["{}]/g, '')}
-                      </p>
+                      <p className="text-xs font-bold text-[#4f4635] uppercase tracking-wider mb-2">Jam Buka</p>
+                      <div className="space-y-1">
+                        {openingHoursEntries.map(([day, time]) => (
+                          <div key={day} className="flex gap-2 text-sm">
+                            <span className="font-medium text-[#1b1c1a] w-16">{day}</span>
+                            <span className="text-[#4f4635]">{time}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -201,10 +233,10 @@ export default async function DestinationDetailPage({
               </div>
 
               {/* Action Button: Google Maps */}
-              {dest.latitude && dest.longitude && (
+              {dest.lat && dest.lng && (
                 <div className="mt-8 pt-6 border-t border-[#f6f3f0]">
                   <a 
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${dest.latitude},${dest.longitude}`}
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${dest.lat},${dest.lng}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3.5 rounded-xl text-white font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md"

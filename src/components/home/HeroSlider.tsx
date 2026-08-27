@@ -8,47 +8,27 @@ import { Montserrat } from 'next/font/google';
 // Load elegant serif font for the Hero
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
-const HERO_IMAGES = [
-  {
-    src: "/gedung-sate.webp",
-    title: "Gedung Sate",
-    desc: "Ikon bersejarah perpaduan arsitektur Eropa dan Nusantara di jantung kota.",
-    link: "/destinasi/gedung-sate",
-    position: "object-center"
-  },
-  {
-    src: "/ASET VISUAL/Wisata Bandung/Nature Destination/Curug Dago/img-20240221-171009-091b388151cd1ce340b727799e9b4d41.webp",
-    title: "Curug Dago",
-    desc: "Air terjun tersembunyi peninggalan sejarah kerajaan Thailand.",
-    link: "/destinasi/curug-dago",
-    position: "object-center"
-  },
-  {
-    src: "/ASET VISUAL/Wisata Bandung/Tourist village/The village of braga/IMG_5898.WEBP",
-    title: "Jalan Braga",
-    desc: "Jejak langkah kolonial dengan deretan kafe dan bangunan Art Deco.",
-    link: "/destinasi/braga",
-    position: "object-center"
-  },
-  {
-    src: "/ASET VISUAL/jalan-asia-afrika.jpg",
-    title: "Jalan Asia Afrika",
-    desc: "Saksi bisu Konferensi Asia Afrika dengan pesona malam yang romantis.",
-    link: "/destinasi/jalan-asia-afrika",
-    position: "object-bottom"
-  }
-];
+interface SliderData {
+  id: string;
+  title: string;
+  subtitle: string;
+  image_url: string;
+  button_link: string;
+}
 
-export default function HeroSlider() {
+export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (!sliders || sliders.length === 0) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % sliders.length);
     }, 6000); // 6 seconds per slide
 
     return () => clearInterval(timer);
-  }, []);
+  }, [sliders]);
+
+  if (!sliders || sliders.length === 0) return null;
 
   return (
     <header className="relative w-full h-[80vh] min-h-[600px] overflow-hidden bg-gray-900">
@@ -77,14 +57,14 @@ export default function HeroSlider() {
       `}} />
 
       {/* Background Images */}
-      {HERO_IMAGES.map((img, index) => (
+      {sliders.map((slider, index) => (
         <img
           key={index}
-          alt={img.title}
-          className={`absolute inset-0 w-full h-full object-cover ${img.position} z-0 transition-all duration-[2000ms] ease-in-out ${
+          alt={slider.title}
+          className={`absolute inset-0 w-full h-full object-cover object-center z-0 transition-all duration-[2000ms] ease-in-out ${
             index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
           }`}
-          src={img.src}
+          src={slider.image_url}
         />
       ))}
       
@@ -96,26 +76,30 @@ export default function HeroSlider() {
         
         {/* Right Side: Dynamic Location Card - Pinned to Top Right (Below Navbar) */}
         <div className="hidden md:block absolute top-32 right-4 lg:right-12 w-[400px] z-30">
-          {HERO_IMAGES.map((img, index) => (
+          {sliders.map((slider, index) => (
             <div 
-              key={`card-${index}`}
-              className={`absolute top-0 right-0 w-full bg-black/40 backdrop-blur-md border border-white/20 p-8 rounded-2xl transition-all duration-1000 ease-in-out transform ${
-                index === currentIndex ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12 pointer-events-none"
+              key={index}
+              className={`absolute top-0 right-0 w-full bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl transition-all duration-700 ease-in-out ${
+                index === currentIndex 
+                  ? "opacity-100 transform translate-y-0 translate-x-0" 
+                  : "opacity-0 transform -translate-y-8 translate-x-8 pointer-events-none"
               }`}
             >
-              <div className="flex items-center gap-2 mb-4">
-                <MapPin className="text-[#C9971E] w-5 h-5" />
-                <span className="text-white/90 font-bold uppercase tracking-widest text-xs">Sedang Ditampilkan</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#C9971E] flex items-center justify-center">
+                  <MapPin className="text-white w-5 h-5" />
+                </div>
+                <span className="text-white/80 font-bold uppercase tracking-wider text-xs">Lokasi Saat Ini</span>
               </div>
-              <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-3`}>{img.title}</h3>
+              <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-3`}>{slider.title}</h3>
               <p className="text-white/80 text-sm leading-relaxed mb-8">
-                {img.desc}
+                {slider.subtitle}
               </p>
               <Link 
-                href={img.link}
-                className="inline-flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider hover:text-[#f5be45] transition-colors group"
+                href={slider.button_link || '#'} 
+                className="inline-flex items-center gap-2 text-[#C9971E] font-bold text-sm uppercase tracking-wider hover:text-white transition-colors group"
               >
-                Lihat Destinasi
+                Lihat Destinasi 
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -143,7 +127,7 @@ export default function HeroSlider() {
 
         {/* Custom Slider Indicators */}
         <div className="absolute bottom-8 left-4 md:left-12 flex gap-3">
-          {HERO_IMAGES.map((_, index) => (
+          {sliders.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}

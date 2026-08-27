@@ -15,8 +15,8 @@ export default async function NewDestinationPage() {
     .order("name");
 
   return (
-    <main className="min-h-screen bg-[#fcf9f5] py-8">
-      <div className="max-w-4xl mx-auto px-4 md:px-8">
+    <>
+      <div className="w-full">
         <div className="mb-8">
           <h1 className="text-3xl font-bold font-display text-[#1b1c1a] mb-2">Tambah Destinasi Baru</h1>
           <p className="text-[#4f4635]">Isi formulir di bawah untuk mendaftarkan destinasi wisata baru ke dalam sistem.</p>
@@ -24,6 +24,6 @@ export default async function NewDestinationPage() {
 
         <DestinationForm categories={categories || []} />
       </div>
-    </main>
+    </>
   );
 }

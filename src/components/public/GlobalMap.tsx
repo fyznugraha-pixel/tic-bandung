@@ -1,10 +1,24 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Link from 'next/link';
+
+interface MapDestination {
+  id: string;
+  name: string;
+  slug: string;
+  latitude: number | null;
+  longitude: number | null;
+  category?: { name: string; cluster_color: string } | null;
+  region?: { name: string } | null;
+}
+
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 const icon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
@@ -17,7 +31,7 @@ const icon = L.icon({
 });
 
 interface GlobalMapProps {
-  destinations: any[];
+  destinations: MapDestination[];
 }
 
 function MapUpdater({ center }: { center: [number, number] }) {
@@ -29,12 +43,8 @@ function MapUpdater({ center }: { center: [number, number] }) {
 }
 
 export default function GlobalMap({ destinations }: GlobalMapProps) {
-  const [mounted, setMounted] = useState(false);
-  const [activeDest, setActiveDest] = useState<any | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [activeDest, setActiveDest] = useState<MapDestination | null>(null);
 
   if (!mounted) {
     return <div className="w-full h-full bg-gray-100 flex items-center justify-center">Memuat Peta Interaktif...</div>;
@@ -65,7 +75,7 @@ export default function GlobalMap({ destinations }: GlobalMapProps) {
                  <span 
                    className="inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded text-white"
                    style={{ backgroundColor: dest.category.cluster_color }}
-                 >
+                 >x
                    {dest.category.name}
                  </span>
               )}

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useTransition } from 'react';
-import { deleteDestinationAction, togglePublishStatusAction } from '@/app/actions/dashboard';
+import { togglePublishStatusAction } from '@/app/actions/dashboard';
+import { deleteDestinationAction } from '@/app/actions/destination';
 import { Trash2, Edit2, ExternalLink, Eye, EyeOff, AlertCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,15 +12,22 @@ interface DestinationData {
   name: string;
   slug: string;
   status: string;
-  category: { name: string; color_cluster: string } | null;
+  category: { name: string; cluster_color: string } | null;
   image_url: string | null;
   created_at: string;
 }
 
-export default function DashboardTable({ initialData }: { initialData: DestinationData[] }) {
+export default function DashboardTable({ initialData, allCategories }: { initialData: DestinationData[], allCategories: {name: string}[] }) {
   const [data, setData] = useState<DestinationData[]>(initialData);
   const [isPending, startTransition] = useTransition();
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const categoryTabs = ['Semua', ...allCategories.map(c => c.name), 'Tanpa Kategori'];
+  const [activeTab, setActiveTab] = useState('Semua');
+
+  const filteredData = activeTab === 'Semua' 
+    ? data 
+    : data.filter(item => (item.category?.name || 'Tanpa Kategori') === activeTab);
 
   const handleDelete = async (id: string, name: string) => {
     if (!window.confirm(`Peringatan! Apakah Anda yakin ingin menghapus destinasi "${name}"? Tindakan ini tidak bisa dibatalkan.`)) return;
@@ -64,6 +72,22 @@ export default function DashboardTable({ initialData }: { initialData: Destinati
         </div>
       )}
 
+      <div className="flex items-center gap-2 p-4 border-b border-gray-100 overflow-x-auto no-scrollbar">
+        {categoryTabs.map(cat => (
+          <button
+            key={cat}
+            onClick={() => setActiveTab(cat)}
+            className={`px-4 py-2 text-sm font-bold rounded-lg whitespace-nowrap transition-colors ${
+              activeTab === cat 
+                ? 'bg-[#3D7A5E] text-white shadow-sm'
+                : 'bg-gray-50 text-gray-500 hover:bg-gray-100 border border-gray-200'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
@@ -76,14 +100,14 @@ export default function DashboardTable({ initialData }: { initialData: Destinati
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
-            {data.length === 0 ? (
+            {filteredData.length === 0 ? (
               <tr>
                 <td colSpan={5} className="p-8 text-center text-gray-400">
-                  Belum ada destinasi yang ditambahkan.
+                  Belum ada destinasi yang ditambahkan di kategori ini.
                 </td>
               </tr>
             ) : (
-              data.map((item) => (
+              filteredData.map((item) => (
                 <tr key={item.id} className="hover:bg-gray-50/50 transition-colors">
                   <td className="p-4 pl-6">
                     <div className="flex items-center gap-4">
@@ -107,10 +131,10 @@ export default function DashboardTable({ initialData }: { initialData: Destinati
                         className="inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md text-white"
                         style={{ 
                           backgroundColor: 
-                            item.category.color_cluster === 'green' ? '#3D7A5E' : 
-                            item.category.color_cluster === 'gold' ? '#C9971E' :
-                            item.category.color_cluster === 'blue' ? '#2C5C8A' :
-                            item.category.color_cluster === 'teal' ? '#2C7A7A' : '#4f4635'
+                            item.category.cluster_color === 'green' ? '#3D7A5E' : 
+                            item.category.cluster_color === 'gold' ? '#C9971E' :
+                            item.category.cluster_color === 'blue' ? '#2C5C8A' :
+                            item.category.cluster_color === 'teal' ? '#2C7A7A' : '#4f4635'
                         }}
                       >
                         {item.category.name}
@@ -151,12 +175,13 @@ export default function DashboardTable({ initialData }: { initialData: Destinati
                         <ExternalLink className="w-4 h-4" />
                       </Link>
                       
-                      <button 
-                        className="p-2 text-gray-400 hover:text-[#C9971E] hover:bg-[#C9971E]/10 rounded-lg transition-colors opacity-50 cursor-not-allowed"
-                        title="Fitur Edit belum diaktifkan di fase ini"
+                      <Link 
+                        href={`/admin/destinasi/edit/${item.id}`}
+                        className="p-2 text-gray-400 hover:text-[#C9971E] hover:bg-[#C9971E]/10 rounded-lg transition-colors"
+                        title="Edit Destinasi"
                       >
                         <Edit2 className="w-4 h-4" />
-                      </button>
+                      </Link>
                       
                       <button 
                         onClick={() => handleDelete(item.id, item.name)}

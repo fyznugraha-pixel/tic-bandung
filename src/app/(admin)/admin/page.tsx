@@ -1,3 +1,5 @@
-export default function Page() {
-  return <div>src/app/(admin)/admin</div>;
+import { redirect } from 'next/navigation';
+
+export default function AdminRootPage() {
+  redirect('/admin/dashboard');
 }

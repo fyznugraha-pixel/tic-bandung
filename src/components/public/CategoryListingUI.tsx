@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { ChevronRight, Filter, Search, X } from 'lucide-react';
 import DestinationCard from '@/components/public/DestinationCard';
+import { CustomSelect } from '@/components/ui/CustomSelect';
 
 interface Destination {
   id: string;
@@ -22,6 +23,8 @@ interface Category {
   name: string;
   slug: string;
   description: string | null;
+  image_url?: string | null;
+  cluster_color?: string | null;
   color_cluster: string;
 }
 
@@ -60,22 +63,49 @@ export default function CategoryListingUI({
 
   return (
     <main className="min-h-screen bg-[#fcf9f5]">
-      {/* Header Banner - Dynamic Color Based on Category */}
+      {/* Header Banner - Hero Image with Parallax & Gradient */}
       <div 
-        className="pt-24 pb-16 relative overflow-hidden"
-        style={{ 
-          backgroundColor: 
-            category.color_cluster === 'green' ? '#3D7A5E' : 
-            category.color_cluster === 'gold' ? '#C9971E' :
-            category.color_cluster === 'blue' ? '#2C5C8A' :
-            category.color_cluster === 'teal' ? '#2C7A7A' : '#4f4635'
-        }}
+        className="pt-32 pb-24 relative overflow-hidden"
       >
-        {/* Subtle decorative circles */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+        {category.image_url ? (
+          <>
+            <img 
+              src={category.image_url} 
+              alt={category.name}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10"></div>
+          </>
+        ) : (
+          <div 
+            className="absolute inset-0 w-full h-full overflow-hidden"
+            style={{ 
+              backgroundColor: category.cluster_color || '#4f4635'
+            }}
+          >
+            {/* Top Right Abstract Overlay */}
+            <div className="absolute -top-64 -right-64 w-[800px] h-[800px] bg-white opacity-[0.03] rounded-full"></div>
+            <div className="absolute -top-32 -right-32 w-[600px] h-[600px] border border-white opacity-[0.06] rounded-full"></div>
+            <div className="absolute -top-16 -right-16 w-[400px] h-[400px] border border-white opacity-[0.1] rounded-full"></div>
 
-        <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+            {/* Bottom Left Decorative Grid/Dots */}
+            <svg className="absolute -bottom-16 -left-16 w-80 h-80 text-white opacity-[0.05]" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="2" fill="currentColor" />
+              </pattern>
+              <rect x="0" y="0" width="100" height="100" fill="url(#dots)" />
+            </svg>
+            
+            {/* Dynamic Geometric Orbs for Lighting */}
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/15 rounded-full blur-[100px] -translate-y-1/3 translate-x-1/4"></div>
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-black/40 rounded-full blur-[80px] translate-y-1/4 -translate-x-1/4"></div>
+            
+            {/* Elegant dark gradient from bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+          </div>
+        )}
+
+        <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 mt-10">
           <nav className="flex text-white/80 text-sm mb-6 items-center gap-2 font-medium">
             <Link className="hover:text-white transition-colors" href="/">Beranda</Link>
             <ChevronRight className="w-4 h-4" />
@@ -83,11 +113,11 @@ export default function CategoryListingUI({
             <ChevronRight className="w-4 h-4" />
             <span className="text-white">{category.name}</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display text-white mb-6 tracking-tight drop-shadow-md">
             {category.name}
           </h1>
           {category.description && (
-            <p className="text-white/90 text-lg max-w-2xl leading-relaxed">
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed drop-shadow-sm font-medium">
               {category.description}
             </p>
           )}
@@ -112,16 +142,14 @@ export default function CategoryListingUI({
           <div className="flex flex-wrap gap-3 w-full md:w-auto">
             <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2">
               <Filter className="w-4 h-4 text-gray-500" />
-              <select 
+              <CustomSelect 
                 value={selectedDistrict || ''} 
                 onChange={(e) => setSelectedDistrict(e.target.value || null)}
-                className="bg-transparent text-sm font-medium text-[#1b1c1a] outline-none cursor-pointer"
-              >
-                <option value="">Semua Kawasan</option>
-                {uniqueDistricts.map(d => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
+                className="bg-transparent border-none font-medium !p-0 w-36"
+                wrapperClassName="flex-1"
+                placeholder="Semua Kawasan"
+                options={uniqueDistricts.map(d => ({ label: d, value: d }))}
+              />
             </div>
 
             <div className="flex gap-2">

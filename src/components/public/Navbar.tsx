@@ -14,7 +14,6 @@ const navLinks = [
   { name: 'Calendar of Event', href: '/event' },
   { name: 'Transportasi', href: '/transportasi' },
   { name: 'Maps', href: '/peta' },
-  { name: 'Paket Wisata', href: '/paket-wisata' },
 ];
 
 export default function Navbar() {
@@ -35,8 +34,8 @@ export default function Navbar() {
     <nav 
       className={`sticky top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white shadow-sm py-2' 
-          : 'bg-white py-4 border-b border-slate-100'
+          ? 'glass py-2' 
+          : 'bg-white/80 backdrop-blur-sm py-4 border-b border-slate-100/50'
       }`}
     >
       <div className="flex justify-between items-center w-full px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto">
@@ -69,8 +68,14 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Desktop Right Side - Removed as per request */}
-        <div className="hidden md:flex items-center gap-5">
+        {/* Desktop Right Side - Paket Wisata Button */}
+        <div className="hidden lg:flex items-center gap-5">
+          <Link 
+            href="/paket-wisata"
+            className="px-6 py-2.5 bg-[#3D7A5E] hover:bg-[#2c5c45] text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2"
+          >
+            Paket Wisata
+          </Link>
         </div>
 
         {/* Mobile Toggle Button */}
@@ -108,10 +113,20 @@ export default function Navbar() {
             );
           })}
           
-          <div className="w-full h-px bg-slate-100 my-2" />
+          <div className="pt-4 mt-2 border-t border-slate-100">
+            <Link 
+              href="/paket-wisata"
+              onClick={() => setIsOpen(false)}
+              className="flex w-full justify-center px-4 py-3 bg-[#3D7A5E] text-white text-sm font-bold rounded-xl shadow-sm"
+            >
+              Paket Wisata
+            </Link>
+          </div>
 
         </div>
       </div>
     </nav>
   );
 }
+
+

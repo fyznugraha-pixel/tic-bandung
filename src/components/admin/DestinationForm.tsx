@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { UploadCloud, CheckCircle, Info } from "lucide-react";
-import { createDestinationAction } from "@/app/actions/destination";
+import { createDestinationAction, updateDestinationAction } from "@/app/actions/destination";
+import { compressImageToWebp, uploadToSupabase } from "@/utils/imageUpload";
+import { CustomSelect } from "@/components/ui/CustomSelect";
+import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+import "react-quill-new/dist/quill.snow.css";
+
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 type Category = {
   id: string;
@@ -14,27 +21,110 @@ type FormData = {
   name: string;
   category_id: string;
   description: string;
+  content: string;
   address: string;
   district: string;
-  latitude: string;
-  longitude: string;
+  lat: string;
+  lng: string;
   ticket_type: "FREE" | "PAID" | "UNCONFIRMED";
   ticket_nominal?: string;
-  operating_hours: string;
-  established_year: string;
+  opening_hours: string;
+  founded_year: string;
   source_photo_credit: string;
 };
 
-export default function DestinationForm({ categories }: { categories: Category[] }) {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>({
+export default function DestinationForm({ 
+  categories, 
+  initialData 
+}: { 
+  categories: Category[], 
+  initialData?: any 
+}) {
+  const isEditMode = !!initialData;
+  const router = useRouter();
+
+  const { register, handleSubmit, watch, reset, setValue, formState: { errors } } = useForm<FormData>({
     defaultValues: {
       ticket_type: "UNCONFIRMED",
     },
   });
 
+  const contentValue = watch("content");
+
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const DAYS = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] as const;
+  type DaySchedule = { active: boolean; open: string; close: string };
+  const [scheduleMap, setScheduleMap] = useState<Record<string, DaySchedule>>(
+    Object.fromEntries(DAYS.map(d => [d, { active: false, open: '08:00', close: '17:00' }]))
+  );
+
+  const syncScheduleToForm = (map: Record<string, DaySchedule>) => {
+    const result: Record<string, string> = {};
+    Object.entries(map).forEach(([day, sched]) => {
+      if (sched.active) result[day] = `${sched.open} - ${sched.close}`;
+    });
+    setValue('opening_hours', Object.keys(result).length > 0 ? JSON.stringify(result) : '');
+  };
+
+  const toggleDay = (day: string) => {
+    setScheduleMap(prev => {
+      const updated = { ...prev, [day]: { ...prev[day], active: !prev[day].active } };
+      syncScheduleToForm(updated);
+      return updated;
+    });
+  };
+
+  const updateTime = (day: string, field: 'open' | 'close', value: string) => {
+    setScheduleMap(prev => {
+      const updated = { ...prev, [day]: { ...prev[day], [field]: value } };
+      syncScheduleToForm(updated);
+      return updated;
+    });
+  };
+
+  useEffect(() => {
+    if (initialData) {
+      reset({
+        name: initialData.name || "",
+        category_id: initialData.category_id || "",
+        description: initialData.description || "",
+        content: initialData.content || "",
+        address: initialData.address || "",
+        district: initialData.district || "",
+        lat: initialData.lat ? initialData.lat.toString() : "",
+        lng: initialData.lng ? initialData.lng.toString() : "",
+        ticket_type: initialData.price_info ? (JSON.parse(initialData.price_info).type || "UNCONFIRMED") : "UNCONFIRMED",
+        ticket_nominal: initialData.price_info ? (JSON.parse(initialData.price_info).nominal || "") : "",
+        opening_hours: initialData.opening_hours ? (typeof initialData.opening_hours === 'string' ? initialData.opening_hours : JSON.stringify(initialData.opening_hours)) : "",
+        founded_year: initialData.founded_year ? initialData.founded_year.toString() : "",
+        source_photo_credit: initialData.source_photo_credit || "",
+      });
+
+      // Parse existing opening_hours into visual schedule map
+      if (initialData.opening_hours) {
+        try {
+          const parsed = typeof initialData.opening_hours === 'string'
+            ? JSON.parse(initialData.opening_hours)
+            : initialData.opening_hours;
+          const newMap = { ...Object.fromEntries(DAYS.map(d => [d, { active: false, open: '08:00', close: '17:00' }])) };
+          Object.entries(parsed).forEach(([day, timeRange]) => {
+            const [open, close] = (timeRange as string).split(' - ');
+            if (newMap[day]) {
+              newMap[day] = { active: true, open: open?.trim() || '08:00', close: close?.trim() || '17:00' };
+            }
+          });
+          setScheduleMap(newMap);
+        } catch { /* keep defaults */ }
+      }
+
+      if (initialData.images && initialData.images.length > 0) {
+        setImagePreview(initialData.images[0]);
+      }
+    }
+  }, [initialData, reset]);
 
   const watchTicketType = watch("ticket_type");
 
@@ -50,12 +140,21 @@ export default function DestinationForm({ categories }: { categories: Category[]
   const onSubmit = async (data: FormData, status: "DRAFT" | "PUBLISHED") => {
     setIsSubmitting(true);
     try {
-      if (!imageFile) {
-        alert("Foto wajib diunggah sesuai ketentuan (NFR-16)");
+      if (!isEditMode && !imageFile) {
+        alert("Foto utama wajib diunggah untuk destinasi baru (NFR-16).");
         setIsSubmitting(false);
         return;
       }
 
+      let finalImageUrl = "";
+
+      // 1. If there's a new image, compress to WebP and upload
+      if (imageFile) {
+        const webpFile = await compressImageToWebp(imageFile);
+        finalImageUrl = await uploadToSupabase(webpFile, 'destinations');
+      }
+
+      // 2. Prepare Payload
       const formData = new FormData();
       Object.keys(data).forEach((key) => {
         const val = data[key as keyof FormData];
@@ -64,26 +163,32 @@ export default function DestinationForm({ categories }: { categories: Category[]
         }
       });
       formData.append("status", status);
-      formData.append("image", imageFile);
+      
+      if (finalImageUrl) {
+        formData.append("image_url", finalImageUrl);
+      }
 
-      const result = await createDestinationAction(formData);
+      // 3. Submit to Action
+      let result;
+      if (isEditMode) {
+        result = await updateDestinationAction(initialData.id, formData);
+      } else {
+        result = await createDestinationAction(formData);
+      }
       
       if (result.error) {
         alert(result.error);
         return;
       }
 
-      if (result.warning) {
-        alert(result.warning);
-      } else {
-        alert(`Destinasi berhasil disimpan sebagai ${status}!`);
-      }
+      alert(`Destinasi berhasil ${isEditMode ? 'diperbarui' : 'disimpan'}!`);
       
-      window.location.reload();
+      router.push("/admin/destinasi");
+      router.refresh();
       
     } catch (error) {
       console.error(error);
-      alert("Terjadi kesalahan sistem.");
+      alert("Terjadi kesalahan sistem saat menyimpan destinasi.");
     } finally {
       setIsSubmitting(false);
     }
@@ -109,15 +214,12 @@ export default function DestinationForm({ categories }: { categories: Category[]
           
           <div>
             <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Kategori *</label>
-            <select 
+            <CustomSelect 
               {...register("category_id", { required: "Kategori wajib dipilih" })}
-              className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#3D7A5E] focus:ring-1 focus:ring-[#3D7A5E] outline-none"
-            >
-              <option value="">-- Pilih Kategori --</option>
-              {categories.map(c => (
-                <option key={c.id} value={c.id}>{c.name}</option>
-              ))}
-            </select>
+              className="w-full bg-gray-50 border-gray-200"
+              placeholder="-- Pilih Kategori --"
+              options={categories.map(c => ({ value: c.id, label: c.name }))}
+            />
             {errors.category_id && <p className="text-red-500 text-xs mt-1">{errors.category_id.message}</p>}
           </div>
 
@@ -127,8 +229,31 @@ export default function DestinationForm({ categories }: { categories: Category[]
               {...register("description")}
               rows={4}
               className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:border-[#3D7A5E] focus:ring-1 focus:ring-[#3D7A5E] outline-none" 
-              placeholder="Jelaskan daya tarik destinasi ini..."
+              placeholder="Jelaskan daya tarik destinasi ini secara singkat..."
             />
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Konten Halaman Detail</label>
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden [&_.ql-toolbar]:border-none [&_.ql-toolbar]:border-b [&_.ql-toolbar]:border-gray-200 [&_.ql-toolbar]:bg-gray-50 [&_.ql-container]:border-none [&_.ql-editor]:min-h-[300px]">
+              <ReactQuill 
+                theme="snow" 
+                value={contentValue || ""} 
+                onChange={(val) => setValue("content", val)}
+                modules={{
+                  toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['link', 'image'],
+                    ['clean']
+                  ],
+                }}
+                placeholder="Tuliskan konten lengkap untuk halaman detail destinasi..."
+              />
+            </div>
+            {/* We register the hidden input just to make sure it's part of the form errors if any, although ReactQuill manages state */}
+            <input type="hidden" {...register("content")} />
           </div>
         </div>
       </div>
@@ -163,7 +288,7 @@ export default function DestinationForm({ categories }: { categories: Category[]
           <div>
             <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Latitude *</label>
             <input 
-              {...register("latitude", { required: "Latitude wajib diisi" })} 
+              {...register("lat", { required: "Latitude wajib diisi" })} 
               type="number" step="any"
               className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg outline-none font-mono text-sm" 
               placeholder="-6.900277"
@@ -172,7 +297,7 @@ export default function DestinationForm({ categories }: { categories: Category[]
           <div>
             <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Longitude *</label>
             <input 
-              {...register("longitude", { required: "Longitude wajib diisi" })} 
+              {...register("lng", { required: "Longitude wajib diisi" })} 
               type="number" step="any"
               className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg outline-none font-mono text-sm" 
               placeholder="107.618611"
@@ -218,18 +343,48 @@ export default function DestinationForm({ categories }: { categories: Category[]
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Jam Operasional (JSON)</label>
-              <input 
-                {...register("operating_hours")} 
-                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg outline-none font-mono text-sm" 
-                placeholder='{"senin": "08:00-16:00"}'
-              />
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-[#1b1c1a] mb-4">Jam Operasional</label>
+              <div className="space-y-2">
+                {DAYS.map(day => (
+                  <div key={day} className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                    <label className="flex items-center gap-2 cursor-pointer w-28 shrink-0">
+                      <input
+                        type="checkbox"
+                        checked={scheduleMap[day].active}
+                        onChange={() => toggleDay(day)}
+                        className="w-4 h-4 rounded text-[#3D7A5E] focus:ring-[#3D7A5E]"
+                      />
+                      <span className={`text-sm font-medium ${scheduleMap[day].active ? 'text-[#1b1c1a]' : 'text-gray-400'}`}>{day}</span>
+                    </label>
+                    {scheduleMap[day].active ? (
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="time"
+                          value={scheduleMap[day].open}
+                          onChange={(e) => updateTime(day, 'open', e.target.value)}
+                          className="px-3 py-1.5 bg-white border border-gray-300 rounded-lg text-sm outline-none focus:border-[#3D7A5E]"
+                        />
+                        <span className="text-gray-400 text-sm">s/d</span>
+                        <input
+                          type="time"
+                          value={scheduleMap[day].close}
+                          onChange={(e) => updateTime(day, 'close', e.target.value)}
+                          className="px-3 py-1.5 bg-white border border-gray-300 rounded-lg text-sm outline-none focus:border-[#3D7A5E]"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-sm text-gray-400 italic">Tutup</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <input type="hidden" {...register("opening_hours")} />
             </div>
             <div>
               <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Tahun Berdiri</label>
               <input 
-                {...register("established_year")} 
+                {...register("founded_year")} 
                 type="number"
                 className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg outline-none" 
                 placeholder="Contoh: 1920"
@@ -244,23 +399,37 @@ export default function DestinationForm({ categories }: { categories: Category[]
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           
           <div>
-            <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Foto Utama *</label>
-            <div className="relative w-full h-48 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-center overflow-hidden cursor-pointer group">
-              <input 
-                type="file" 
-                accept="image/*" 
-                onChange={handleImageChange}
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-              />
-              {imagePreview ? (
-                <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
-              ) : (
+            <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Foto Utama {isEditMode ? '' : '*'}</label>
+            {imagePreview ? (
+              <div>
+                <div className="relative w-full h-48 rounded-xl overflow-hidden border border-gray-200">
+                  <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
+                </div>
+                <label className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1b1c1a] hover:bg-gray-50 transition-colors cursor-pointer">
+                  <UploadCloud className="w-4 h-4" />
+                  Ganti Foto
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    onChange={handleImageChange}
+                    className="hidden"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div className="relative w-full h-48 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-center overflow-hidden cursor-pointer group">
+                <input 
+                  type="file" 
+                  accept="image/*" 
+                  onChange={handleImageChange}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                />
                 <div className="flex flex-col items-center text-gray-400 group-hover:text-gray-500">
                   <UploadCloud className="w-8 h-8 mb-2" />
                   <span className="text-sm font-medium">Pilih atau letakkan foto</span>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
 
           <div>
@@ -284,7 +453,7 @@ export default function DestinationForm({ categories }: { categories: Category[]
           disabled={isSubmitting}
           className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
         >
-          Simpan ke Draft
+          {isSubmitting ? "Memproses..." : "Simpan ke Draft"}
         </button>
         <button 
           type="button"
@@ -293,7 +462,7 @@ export default function DestinationForm({ categories }: { categories: Category[]
           className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#3D7A5E] text-white font-bold hover:bg-[#2e5e48] transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <CheckCircle className="w-5 h-5" />
-          {isSubmitting ? "Menyimpan..." : "Publish Destinasi"}
+          {isSubmitting ? "Memproses..." : (isEditMode ? "Perbarui & Publish" : "Publish Destinasi")}
         </button>
       </div>
     </form>

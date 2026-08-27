@@ -24,5 +24,12 @@ export async function loginAction(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/admin/destinasi/baru"); // Redirect to destination input for now
+  redirect("/admin/dashboard"); // Redirect to dashboard
+}
+
+export async function signoutAction() {
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  revalidatePath("/", "layout");
+  redirect("/admin/login");
 }
