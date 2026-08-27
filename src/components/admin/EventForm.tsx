@@ -37,6 +37,7 @@ export default function EventForm({
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
 
   useEffect(() => {
     if (initialData) {
@@ -66,17 +67,21 @@ export default function EventForm({
 
   const onSubmit = async (data: FormData, status: "DRAFT" | "PUBLISHED") => {
     setIsSubmitting(true);
+    setLoadingMessage("Menyiapkan data...");
     try {
       if (!isEditMode && !imageFile) {
         alert("Poster/Foto event wajib diunggah untuk event baru.");
         setIsSubmitting(false);
+      setLoadingMessage(null);
         return;
       }
 
       let finalImageUrl = "";
 
       if (imageFile) {
+        setLoadingMessage("Mengompresi gambar (WebP)...");
         const webpFile = await compressImageToWebp(imageFile);
+        setLoadingMessage("Mengunggah gambar...");
         finalImageUrl = await uploadToSupabase(webpFile, 'events');
       }
 
@@ -224,7 +229,7 @@ export default function EventForm({
           disabled={isSubmitting}
           className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
         >
-          {isSubmitting ? "Memproses..." : "Simpan ke Draft"}
+          {isSubmitting ? (loadingMessage || "Memproses...") : "Simpan ke Draft"}
         </button>
         <button 
           type="button"
@@ -233,7 +238,7 @@ export default function EventForm({
           className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#3D7A5E] text-white font-bold hover:bg-[#2e5e48] transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <CheckCircle className="w-5 h-5" />
-          {isSubmitting ? "Memproses..." : (isEditMode ? "Perbarui & Publish" : "Publish Event")}
+          {isSubmitting ? (loadingMessage || "Memproses...") : (isEditMode ? "Perbarui & Publish" : "Publish Event")}
         </button>
       </div>
     </form>

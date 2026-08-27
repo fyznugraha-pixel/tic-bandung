@@ -12,6 +12,7 @@ export default function CategoryListClient({ categories }: { categories: any[] }
   const [searchQuery, setSearchQuery] = useState("");
   const [filterPillar, setFilterPillar] = useState("ALL");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
   const [editData, setEditData] = useState<any>(null);
 
   // Form State
@@ -40,7 +41,8 @@ export default function CategoryListClient({ categories }: { categories: any[] }
 
     setLoadingId(id);
     try {
-      const webpFile = await compressImageToWebp(file);
+      setLoadingMessage("Mengompresi gambar (WebP)...");
+        const webpFile = await compressImageToWebp(file);
       const imageUrl = await uploadToSupabase(webpFile, "categories");
 
       const updateData = new FormData();
@@ -132,6 +134,7 @@ export default function CategoryListClient({ categories }: { categories: any[] }
       alert("Error: " + err.message);
     } finally {
       setIsSubmitting(false);
+      setLoadingMessage(null);
     }
   };
 

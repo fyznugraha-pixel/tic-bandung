@@ -49,8 +49,10 @@ function GaleriFormModal({
         let finalImageUrl = initialData?.image_url || '';
         
         if (selectedFile) {
-          const webpFile = await compressImageToWebp(selectedFile);
-          finalImageUrl = await uploadToSupabase(webpFile, 'gallery');
+          setLoadingMessage("Mengompresi gambar (WebP)...");
+        const webpFile = await compressImageToWebp(selectedFile);
+          setLoadingMessage("Mengunggah gambar...");
+        finalImageUrl = await uploadToSupabase(webpFile, 'gallery');
         } else if (!initialData) {
           throw new Error('Gambar wajib diunggah');
         }

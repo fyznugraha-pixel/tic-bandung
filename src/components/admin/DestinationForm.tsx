@@ -54,6 +54,7 @@ export default function DestinationForm({
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
 
   const DAYS = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] as const;
   type DaySchedule = { active: boolean; open: string; close: string };
@@ -139,10 +140,12 @@ export default function DestinationForm({
 
   const onSubmit = async (data: FormData, status: "DRAFT" | "PUBLISHED") => {
     setIsSubmitting(true);
+    setLoadingMessage("Menyiapkan data...");
     try {
       if (!isEditMode && !imageFile) {
         alert("Foto utama wajib diunggah untuk destinasi baru (NFR-16).");
         setIsSubmitting(false);
+      setLoadingMessage(null);
         return;
       }
 
@@ -150,7 +153,9 @@ export default function DestinationForm({
 
       // 1. If there's a new image, compress to WebP and upload
       if (imageFile) {
+        setLoadingMessage("Mengompresi gambar (WebP)...");
         const webpFile = await compressImageToWebp(imageFile);
+        setLoadingMessage("Mengunggah gambar...");
         finalImageUrl = await uploadToSupabase(webpFile, 'destinations');
       }
 
@@ -453,7 +458,7 @@ export default function DestinationForm({
           disabled={isSubmitting}
           className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
         >
-          {isSubmitting ? "Memproses..." : "Simpan ke Draft"}
+          {isSubmitting ? (loadingMessage || "Memproses...") : "Simpan ke Draft"}
         </button>
         <button 
           type="button"
@@ -462,7 +467,7 @@ export default function DestinationForm({
           className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#3D7A5E] text-white font-bold hover:bg-[#2e5e48] transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <CheckCircle className="w-5 h-5" />
-          {isSubmitting ? "Memproses..." : (isEditMode ? "Perbarui & Publish" : "Publish Destinasi")}
+          {isSubmitting ? (loadingMessage || "Memproses...") : (isEditMode ? "Perbarui & Publish" : "Publish Destinasi")}
         </button>
       </div>
     </form>

@@ -51,8 +51,10 @@ function HeroSliderFormModal({
         
         // Handle image upload if a new file is selected
         if (selectedFile) {
-          const webpFile = await compressImageToWebp(selectedFile);
-          finalImageUrl = await uploadToSupabase(webpFile, 'hero');
+          setLoadingMessage("Mengompresi gambar (WebP)...");
+        const webpFile = await compressImageToWebp(selectedFile);
+          setLoadingMessage("Mengunggah gambar...");
+        finalImageUrl = await uploadToSupabase(webpFile, 'hero');
         } else if (!initialData) {
           throw new Error('Gambar wajib diunggah untuk Hero Slider baru');
         }
