@@ -68,8 +68,10 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
                   </td>
                   
                   <td className="p-4">
-                    <p className="text-sm text-gray-700">{item.email}</p>
-                    <p className="text-xs text-gray-500">{item.whatsapp}</p>
+                    <div className="flex flex-col gap-1">
+                      <a href={`mailto:${item.email}`} className="text-sm text-blue-600 hover:underline">Email</a>
+                      <a href={`https://wa.me/${item.whatsapp.replace(/[^0-9]/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-600 hover:underline">WhatsApp</a>
+                    </div>
                   </td>
                   
                   <td className="p-4">
