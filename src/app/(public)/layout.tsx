@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Search, MapPin, Mail, Phone, Globe, Camera, PlayCircle } from 'lucide-react';
+import { Search, MapPin, Mail, Phone, Globe, Camera, PlayCircle, MessageCircle } from 'lucide-react';
+import Navbar from '@/components/public/Navbar';
 
 export default function PublicLayout({
   children,
@@ -9,49 +10,18 @@ export default function PublicLayout({
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. STICKY NAVBAR */}
-      <nav className="bg-white border-b border-slate-200 w-full top-0 sticky z-50">
-        <div className="flex justify-between items-center w-full px-6 md:px-12 lg:px-16 h-20 max-w-[1600px] mx-auto">
-          <Link className="text-2xl font-bold text-amber-700 tracking-tight font-display" href="/">Pesona Kota Bandung</Link>
-          <div className="hidden lg:flex gap-8">
-            <Link className="text-slate-600 hover:text-amber-700 font-medium transition-colors" href="/kategori">Destinasi</Link>
-            <Link className="text-slate-600 hover:text-amber-700 font-medium transition-colors" href="/kategori?cluster=kuliner">Kuliner</Link>
-            <Link className="text-slate-600 hover:text-amber-700 font-medium transition-colors" href="/event">Event</Link>
-            <Link className="text-slate-600 hover:text-amber-700 font-medium transition-colors" href="/peta">Peta Interaktif</Link>
-            <Link className="text-slate-600 hover:text-amber-700 font-medium transition-colors" href="/kategori/walking-tour">Walking Tour</Link>
-            <Link className="text-slate-600 hover:text-amber-700 font-medium transition-colors" href="#">Transportasi</Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-slate-600 text-sm font-medium hidden md:block">ID/EN</span>
-            <Link href="/trip-planner" className="bg-amber-100 text-amber-900 px-5 py-2.5 text-sm font-bold rounded-lg hover:bg-amber-200 transition-colors">
-              Rencanakan Trip
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="flex-grow">
         {children}
       </div>
 
-      {/* 12. PARTNER STRIP */}
-      <section className="w-full py-12 bg-slate-50 border-y border-slate-200 mt-auto">
-        <div className="max-w-[1600px] px-6 md:px-12 lg:px-16 mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-slate-500 text-center mb-8">DIDUKUNG OLEH MITRA RESMI</p>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <span className="text-2xl font-bold font-display text-slate-800">KEMENPAREKRAF</span>
-            <span className="text-2xl font-bold font-display text-slate-800">PEMKOT BANDUNG</span>
-            <span className="text-2xl font-bold font-display text-slate-800">PHRI</span>
-            <span className="text-2xl font-bold font-display text-slate-800">ASITA</span>
-            <span className="text-2xl font-bold font-display text-slate-800">GARUDA INDONESIA</span>
-          </div>
-        </div>
-      </section>
 
       {/* 13. FOOTER */}
       <footer className="bg-white border-t border-slate-200 w-full pt-16">
         <div className="w-full pb-12 px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1">
-            <span className="text-3xl font-bold text-amber-700 font-display block mb-4">Pesona Kota Bandung</span>
+            <img src="/logo/ticlogo.png" alt="TIC Kota Bandung" className="h-12 w-auto mb-4" />
             <p className="text-slate-600 text-base mb-6 leading-relaxed">Jelajahi keindahan, budaya, dan kuliner autentik di jantung Kota Bandung.</p>
             <div className="flex gap-4 text-slate-500">
               <Link className="hover:text-amber-700 transition-colors bg-slate-100 p-2 rounded-full" href="#"><Globe className="w-5 h-5" /></Link>
@@ -79,26 +49,36 @@ export default function PublicLayout({
               <Link className="text-slate-600 hover:text-amber-700 transition-colors text-base" href="#">Syarat &amp; Ketentuan</Link>
             </div>
             <div className="flex flex-col gap-4">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">Kontak</h4>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">Kontak & Layanan Bantuan</h4>
               <p className="text-slate-600 text-base flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                <span>Jl. Asia Afrika No. 1<br/>Kota Bandung</span>
+                <span><strong>Tourist Information Center (TIC)</strong><br/>Jl. Asia Afrika No. 1<br/>Kota Bandung</span>
               </p>
-              <p className="text-slate-600 text-base flex items-center gap-3">
-                <Mail className="w-5 h-5 text-slate-400 shrink-0" />
-                <span>info@pesonabandung.id</span>
-              </p>
-              <p className="text-slate-600 text-base flex items-center gap-3">
+              <Link href="https://wa.me/628111111111" className="text-slate-600 text-base flex items-center gap-3 hover:text-green-600 transition-colors">
                 <Phone className="w-5 h-5 text-slate-400 shrink-0" />
-                <span>1500-BDG</span>
-              </p>
+                <span>WhatsApp TIC: 0811-111-1111</span>
+              </Link>
+              <div className="bg-red-50 p-4 rounded-xl border border-red-100 mt-2">
+                <h5 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-2">Nomor Darurat Kota</h5>
+                <p className="text-red-700 text-sm flex justify-between"><span>Polisi:</span> <strong>110</strong></p>
+                <p className="text-red-700 text-sm flex justify-between"><span>Ambulans:</span> <strong>119</strong></p>
+                <p className="text-red-700 text-sm flex justify-between"><span>Pemadam:</span> <strong>113</strong></p>
+              </div>
             </div>
           </div>
         </div>
         <div className="border-t border-slate-200 py-6 text-center bg-slate-50">
-          <p className="text-slate-500 text-sm">© 2024 Pemerintah Kota Bandung - Pesona Kota Bandung Official. All Rights Reserved.</p>
+          <p className="text-slate-500 text-sm">© 2026 Tourist Information Center (TIC) Kota Bandung. All Rights Reserved.</p>
         </div>
       </footer>
+      
+      {/* Floating WhatsApp Button */}
+      <a href="https://wa.me/628111111111" target="_blank" rel="noreferrer" className="fixed bottom-6 right-6 z-[9999] bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group">
+        <MessageCircle className="w-8 h-8" />
+        <span className="absolute right-full mr-4 bg-white text-slate-800 text-sm font-bold py-2 px-4 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          Chat TIC Bandung
+        </span>
+      </a>
     </div>
   );
 }

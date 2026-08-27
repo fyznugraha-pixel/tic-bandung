@@ -1,335 +1,174 @@
 import Link from 'next/link';
-import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Compass, Download, Heart } from 'lucide-react';
+import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Compass, Download, Heart, ArrowRight, Camera, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
 import HeroSlider from '@/components/home/HeroSlider';
 
-import { Playfair_Display } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700', '900'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700', '900'] });
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-[#fcf9f5] overflow-hidden">
       <HeroSlider />
 
-      {/* NEW: SEJARAH KOTA BANDUNG */}
-      <section className="w-full bg-white py-24 px-4 md:px-8 lg:px-12 relative z-30">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2">
-            <span className="text-[#C9971E] font-bold tracking-widest uppercase text-sm mb-4 block">Jejak Masa Lalu</span>
-            <h2 className={`${playfair.className} text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight`}>
-              Sejarah Singkat <br/> <span className="text-[#3D7A5E]">Parijs van Java</span>
-            </h2>
-            <div className="w-20 h-1 bg-[#C9971E] mb-8"></div>
-            <div className="space-y-4 text-slate-600 leading-relaxed text-justify">
-              <p>
-                Asal-usul nama <strong>Bandung</strong> memiliki dua akar sejarah yang memikat. Secara geologis, nama ini berasal dari kata <em>"Bendung"</em>, merujuk pada terbendungnya Sungai Citarum oleh lava letusan Gunung Tangkuban Perahu purba, yang kemudian membentuk telaga raksasa "Danau Bandung Purba". Sedangkan dalam tradisi lisan, nama ini merujuk pada <em>"Perahu Bandung"</em>, yaitu dua perahu yang diikat berdampingan yang digunakan Bupati R.A. Wiranatakusumah II menyusuri Sungai Citarum saat mencari lokasi ibu kota yang baru.
-              </p>
-              <p>
-                Jejak awal kota ini secara resmi terukir pada tanggal <strong>25 September 1810</strong>. Kala itu, Gubernur Jenderal Herman Willem Daendels mengeluarkan surat keputusan untuk memindahkan pusat pemerintahan Kabupaten Bandung dari Krapyak (Dayeuhkolot) ke kawasan hutan yang dilewati oleh proyek ambisiusnya, Jalan Raya Pos <em>(De Grote Postweg)</em>. Tanggal inilah yang hingga kini dirayakan sebagai hari jadi Kota Bandung.
-              </p>
-              <p>
-                Berkat hawanya yang sejuk bak pegunungan Eropa dan tata kota yang menawan, pada awal abad ke-20, Bandung menjelma menjadi tempat berkumpulnya para menak dan sosialita Eropa. Keindahan deretan bangunan berarsitektur Art Deco yang menghiasi jalan-jalan utamanya membuahkan julukan abadi bagi kota ini: <strong>"Parijs van Java"</strong>.
-              </p>
-            </div>
-          </div>
-          <div className="w-full md:w-1/2 relative">
-            
-            {/* Image Collage */}
-            <div className="relative h-[500px] w-full grid grid-cols-2 gap-4">
-              
-              {/* Main Image (Left) */}
-              <div className="rounded-2xl overflow-hidden shadow-xl group">
-                <img 
-                  src="/sejarah kota bandung/collectie_tropenmuseum_verkeersdrukte_op_de_groote_postweg_oost_in_de_binnenstad_van_bandoeng_tmnr_10014702.webp" 
-                  alt="De Groote Postweg Bandung" 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[#3D7A5E]/10 mix-blend-multiply pointer-events-none"></div>
-              </div>
-
-              {/* Stacked Images (Right) */}
-              <div className="flex flex-col gap-4">
-                <div className="h-1/2 rounded-2xl overflow-hidden shadow-lg group relative">
-                  <img 
-                    src="/sejarah kota bandung/bandung-masa-kolonial-tropenmuseum-wikimedia_ratio-16x9.webp" 
-                    alt="Bandung Masa Kolonial" 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[#3D7A5E]/10 mix-blend-multiply pointer-events-none"></div>
-                </div>
-                <div className="h-1/2 rounded-2xl overflow-hidden shadow-lg group relative">
-                  <img 
-                    src="/sejarah kota bandung/gedung-merdeka.webp" 
-                    alt="Gedung Merdeka" 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[#3D7A5E]/10 mix-blend-multiply pointer-events-none"></div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Decorative blocks */}
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#f5be45] rounded-2xl -z-10"></div>
-            <div className="absolute -top-6 -right-6 w-32 h-32 border-4 border-[#3D7A5E] rounded-2xl -z-10"></div>
-          </div>
+      {/* 10. BERITA & ARTIKEL WISATA (Tourism Update) */}
+      <section className="w-full pt-32 pb-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+        <div className="flex flex-col items-center mb-16">
+          <span className="text-[#C9971E] font-bold tracking-widest uppercase text-sm mb-4">Update Terkini</span>
+          <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Berita & Artikel Wisata</h2>
+          <div className="w-24 h-1.5 bg-[#C9971E] rounded-full"></div>
         </div>
-      </section>
-
-      {/* 4. "KENAPA BANDUNG" STAT STRIP (Image Background Version) */}
-      <section className="w-full relative py-32 mb-24 overflow-hidden z-20">
-        <div className="absolute inset-0 z-0">
-          <img alt="Background Asia Afrika Bandung" className="w-full h-full object-cover object-bottom brightness-50" src="/ASET VISUAL/jalan-asia-afrika.jpg" />
-        </div>
-        <div className="relative z-10 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-          <h2 className={`${playfair.className} text-4xl md:text-5xl font-bold text-white text-center mb-6 drop-shadow-md`}>Kenapa Kota Bandung?</h2>
-          <div className="w-20 h-1 bg-[#f5be45] mx-auto mb-16 rounded-full"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="backdrop-blur-md bg-white/10 p-8 rounded-2xl text-center border border-white/20 shadow-lg">
-              <span className="text-5xl font-bold text-[#f5be45] block mb-4 drop-shadow">500+</span>
-              <span className="text-sm font-bold uppercase tracking-widest text-white">Destinasi Wisata</span>
-            </div>
-            <div className="backdrop-blur-md bg-white/10 p-8 rounded-2xl text-center border border-white/20 shadow-lg">
-              <span className="text-5xl font-bold text-[#f5be45] block mb-4 drop-shadow">20°C</span>
-              <span className="text-sm font-bold uppercase tracking-widest text-white">Suhu Rata-rata</span>
-            </div>
-            <div className="backdrop-blur-md bg-white/10 p-8 rounded-2xl text-center border border-white/20 shadow-lg">
-              <span className="text-5xl font-bold text-[#f5be45] block mb-4 drop-shadow">1.2K</span>
-              <span className="text-sm font-bold uppercase tracking-widest text-white">Spot Kuliner</span>
-            </div>
-            <div className="backdrop-blur-md bg-white/10 p-8 rounded-2xl text-center border border-white/20 shadow-lg">
-              <span className="text-5xl font-bold text-[#f5be45] block mb-4 drop-shadow">#1</span>
-              <span className="text-sm font-bold uppercase tracking-widest text-white">Kota Kreatif UNESCO</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. DESTINASI POPULER */}
-      <section className="w-full pb-24 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-        <h2 className={`${playfair.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6`}>Destinasi Populer</h2>
-        <div className="w-20 h-1 bg-[#C9971E] mx-auto mb-12 rounded-full"></div>
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-[800px] md:h-[600px]">
-          <Link className="group relative rounded-2xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-md" href="/destinasi/gedung-sate">
-            <img alt="Gedung Sate" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Museum/Museum Gedung Sate/museum-gedung-sate.jpg" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-8">
-              <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Ikon Kota</span>
-              <h3 className="text-3xl font-bold text-white">Gedung Sate</h3>
-            </div>
-          </Link>
-          <Link className="group relative rounded-2xl overflow-hidden md:col-span-2 md:row-span-1 block shadow-md" href="/destinasi/alun-alun-bandung">
-            <img alt="Alun-Alun Bandung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Park Destination/Alun alun bandung/01jy5vx3njvq5xwdtxcwrjmaag.jpg" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-6">
-              <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Alam</span>
-              <h3 className="text-2xl font-bold text-white">Alun-Alun Bandung</h3>
-            </div>
-          </Link>
-          <Link className="group relative rounded-2xl overflow-hidden md:col-span-1 md:row-span-1 block shadow-md" href="/destinasi/jalan-braga">
-            <img alt="Jalan Braga" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Walking Tour/Jalan Braga/FB_IMG_1537243916962.jpg" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-6">
-              <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Warisan</span>
-              <h3 className="text-xl font-bold text-white">Jalan Braga</h3>
-            </div>
-          </Link>
-          <Link className="group relative rounded-2xl overflow-hidden md:col-span-1 md:row-span-1 block bg-amber-100 flex flex-col justify-center items-center text-center p-6 hover:bg-amber-200 transition-colors shadow-md" href="/kategori">
-            <Compass className="text-amber-700 w-12 h-12 mb-4" />
-            <h3 className="text-xl font-bold text-amber-900 mb-2">Lihat 50+ Destinasi Lainnya</h3>
-            <span className="text-xs font-bold text-amber-700 uppercase tracking-widest">Eksplor Sekarang</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* 7. KULINER PILIHAN */}
-      <section className="w-full bg-white py-24 border-y border-slate-200">
-        <div className="max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto overflow-hidden">
-          <div className="flex justify-between items-end mb-10">
-            <div>
-              <h2 className={`${playfair.className} text-4xl md:text-5xl font-bold text-slate-900 mb-4`}>Kuliner Pilihan</h2>
-              <div className="w-20 h-1 bg-[#C9971E] mb-4 rounded-full"></div>
-              <p className="text-lg text-slate-600">Cicipi ragam rasa autentik Bandung</p>
-            </div>
-          </div>
-          <div className="flex gap-6 overflow-x-auto hide-scroll pb-8 snap-x">
-            {/* Card 1: Sumber Hidangan */}
-            <div className="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
-              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-5 shadow-md">
-                <img alt="Sumber Hidangan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Bandoengsche melk centrale/caption(1).jpg" />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                  <Star className="text-amber-500 w-4 h-4 fill-amber-500" />
-                  <span className="text-sm font-bold text-slate-800">4.8</span>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">Sumber Hidangan</h3>
-              <p className="text-slate-600">Toko roti legendaris sejak 1929 dengan es krim khas Belanda</p>
-            </div>
-            
-            {/* Card 2: Braga Permai */}
-            <div className="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
-              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-5 shadow-md">
-                <img alt="Braga Permai" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Braga permai/2024-03-25-2636904789.jpg" />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                  <Star className="text-amber-500 w-4 h-4 fill-amber-500" />
-                  <span className="text-sm font-bold text-slate-800">4.9</span>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">Braga Permai</h3>
-              <p className="text-slate-600">Restoran tertua dari 1918, sedia kue sarapan ala raja Belanda</p>
-            </div>
-
-            {/* Card 3: BMC */}
-            <div className="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
-              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-5 shadow-md">
-                <img alt="Bandoengsche Melk Centrale" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Bandoengsche melk centrale/2029256078.jpeg" />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                  <Star className="text-amber-500 w-4 h-4 fill-amber-500" />
-                  <span className="text-sm font-bold text-slate-800">4.7</span>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">Bandoengsche Melk Centrale</h3>
-              <p className="text-slate-600">Wisata kuliner susu murni dengan varian rasa legendaris</p>
-            </div>
-            
-            {/* Card 4: Toko Roti Sidodadi */}
-            <div className="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
-              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-5 shadow-md">
-                <img alt="Toko Roti Sidodadi" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Toko roti sidodadi/IMG_20260810_191953.jpg" />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                  <Star className="text-amber-500 w-4 h-4 fill-amber-500" />
-                  <span className="text-sm font-bold text-slate-800">4.9</span>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">Toko Roti Sidodadi</h3>
-              <p className="text-slate-600">Toko roti legendaris dengan resep kuno tanpa bahan pengawet.</p>
-            </div>
-            
-            {/* Card 5: Kopi Purnama */}
-            <div className="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
-              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-5 shadow-md">
-                <img alt="Kopi Purnama" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Kopi purnama (JL alkateri)/1392700_720.jpg" />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                  <Star className="text-amber-500 w-4 h-4 fill-amber-500" />
-                  <span className="text-sm font-bold text-slate-800">4.8</span>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">Kopi Purnama</h3>
-              <p className="text-slate-600">Kedai kopi jadul 1930 dengan menu andalan roti selai sarikaya</p>
-            </div>
-            
-            {/* Card 6: Roti Gempol */}
-            <div className="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
-              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-5 shadow-md">
-                <img alt="Roti Gempol" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Roti Gempol/IMG_20260810_191227.jpg" />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                  <Star className="text-amber-500 w-4 h-4 fill-amber-500" />
-                  <span className="text-sm font-bold text-slate-800">4.8</span>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">Roti Gempol</h3>
-              <p className="text-slate-600">Tempat sarapan andalan sejak 1958 dengan sajian roti gandum spesial</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. KATA WISATAWAN (Solid style) */}
-      <section className="w-full py-24 px-4 md:px-8 lg:px-12 max-w-[1600px] mx-auto">
-        <h2 className={`${playfair.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6`}>Kata Wisatawan</h2>
-        <div className="w-20 h-1 bg-[#C9971E] mx-auto mb-12 rounded-full"></div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between h-full">
-            <div>
-              <div className="flex text-amber-500 mb-6 gap-1">
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-              </div>
-              <p className="text-slate-700 text-lg italic mb-8">"Suasana jalan Braga di malam hari sangat magis. Makanannya luar biasa enak dan harganya terjangkau."</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
-                <img alt="User" className="w-full h-full object-cover" src="/ASET VISUAL/Wisata Bandung/Museum/Museum geologi/IMG_1971.PNG" />
-              </div>
-              <div>
-                <span className="block font-bold text-slate-900">Budi Santoso</span>
-                <span className="block text-sm text-slate-500">Dari Jakarta</span>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between h-full">
-            <div>
-              <div className="flex text-amber-500 mb-6 gap-1">
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-              </div>
-              <p className="text-slate-700 text-lg italic mb-8">"Gedung Merdeka dan Museum Asia Afrika memberikan wawasan sejarah yang luar biasa di tengah kota."</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
-                <img alt="User" className="w-full h-full object-cover" src="/ASET VISUAL/Wisata Bandung/Museum/Museum geologi/IMG_1970.PNG" />
-              </div>
-              <div>
-                <span className="block font-bold text-slate-900">Sarah Johnson</span>
-                <span className="block text-sm text-slate-500">Dari Australia</span>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between h-full">
-            <div>
-              <div className="flex text-amber-500 mb-6 gap-1">
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 fill-amber-500" />
-                <Star className="w-5 h-5 text-slate-300" />
-              </div>
-              <p className="text-slate-700 text-lg italic mb-8">"Kuliner malamnya juara! Harus coba batagor dan mie kocok saat berkunjung ke sini."</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
-                <img alt="User" className="w-full h-full object-cover" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Braga permai/braga-permai-restaurant.jpg" />
-              </div>
-              <div>
-                <span className="block font-bold text-slate-900">Ahmad Ridwan</span>
-                <span className="block text-sm text-slate-500">Dari Surabaya</span>
-              </div>
-            </div>
-          </div>
+          {[
+            {
+              category: "Tips Liburan", color: "text-emerald-600 bg-emerald-50",
+              title: "Panduan Lengkap Wisata Keluarga di Kota Bandung Akhir Pekan",
+              date: "12 Agustus 2026"
+            },
+            {
+              category: "Tourism Update", color: "text-blue-600 bg-blue-50",
+              title: "Persiapan Kota Bandung Menyambut Konferensi Internasional 2027",
+              date: "10 Agustus 2026"
+            },
+            {
+              category: "Kuliner Lokal", color: "text-[#C9971E] bg-amber-50",
+              title: "5 Kafe Legendaris di Jalan Braga yang Wajib Anda Kunjungi",
+              date: "8 Agustus 2026"
+            }
+          ].map((item, i) => (
+             <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-slate-100/60 group cursor-pointer transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+               <div className="h-64 relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
+                 {/* Placeholder for missing image */}
+                 <ImageIcon className="w-12 h-12 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+                 
+                 <div className="absolute top-4 left-4">
+                   <span className={`text-xs font-bold ${item.color} px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm`}>{item.category}</span>
+                 </div>
+               </div>
+               <div className="p-8 flex flex-col flex-grow justify-between">
+                 <div>
+                   <h3 className={`${montserrat.className} text-xl font-bold text-slate-900 mb-4 group-hover:text-[#C9971E] transition-colors line-clamp-3 leading-snug`}>{item.title}</h3>
+                 </div>
+                 <div className="flex items-center justify-between mt-4">
+                   <span className="text-sm text-slate-500 font-medium flex items-center gap-2">
+                     <Calendar className="w-4 h-4 text-slate-400" /> {item.date}
+                   </span>
+                   <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-[#C9971E] transition-colors duration-500">
+                     <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+                   </div>
+                 </div>
+               </div>
+             </div>
+          ))}
         </div>
       </section>
 
-      {/* 11. TRIP PLANNER BANNER */}
-      <section className="w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto pb-24">
-        <div className="bg-amber-100 rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between shadow-sm">
-          <div className="p-10 md:p-16 md:w-1/2">
-            <h2 className={`${playfair.className} text-4xl md:text-5xl font-bold text-amber-900 mb-6`}>Rencanakan Perjalanan Anda</h2>
-            <div className="w-20 h-1 bg-amber-700 mb-6 rounded-full"></div>
-            <p className="text-lg text-amber-800/80 mb-8">Buat itinerary khusus, booking tiket, dan simpan wishlist destinasi Anda dalam satu aplikasi.</p>
-            <div className="flex gap-4">
-              <button className="bg-amber-900 text-amber-100 px-6 py-4 rounded-xl font-bold uppercase tracking-wider hover:bg-amber-800 transition-colors flex items-center gap-3">
-                <Download className="w-5 h-5" /> Unduh App
-              </button>
+      {/* REKOMENDASI DESTINASI WISATA */}
+      <section className="w-full pb-32 pt-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+        <div className="flex flex-col items-center mb-16">
+          <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4">Eksplorasi</span>
+          <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Rekomendasi Destinasi</h2>
+          <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full"></div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-[900px] md:h-[650px]">
+          <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
+            {/* Placeholder Background */}
+            <div className="absolute inset-0 bg-[#C9971E]/20 transition-colors duration-700 group-hover:bg-[#C9971E]/40 flex items-center justify-center">
+              <ImageIcon className="w-16 h-16 text-white/20" />
             </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+            <div className="absolute bottom-0 left-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <span className="bg-[#C9971E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block shadow-sm">Ikon Kota</span>
+              <h3 className={`${montserrat.className} text-4xl font-bold text-white mb-2`}>Gedung Sate</h3>
+              <p className="text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-2 max-w-md">Simbol kebanggaan masyarakat Jawa Barat yang menyimpan nilai sejarah panjang sejak era kolonial.</p>
+            </div>
+          </Link>
+          
+          <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/alun-alun-bandung">
+            {/* Placeholder Background */}
+            <div className="absolute inset-0 bg-[#3D7A5E]/20 transition-colors duration-700 group-hover:bg-[#3D7A5E]/40 flex items-center justify-center">
+              <ImageIcon className="w-12 h-12 text-white/20" />
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+            <div className="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+              <span className="bg-[#3D7A5E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm">Alam & Rekreasi</span>
+              <h3 className={`${montserrat.className} text-2xl font-bold text-white`}>Alun-Alun Bandung</h3>
+            </div>
+          </Link>
+          
+          <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/jalan-braga">
+            {/* Placeholder Background */}
+            <div className="absolute inset-0 bg-[#2C5C8A]/20 transition-colors duration-700 group-hover:bg-[#2C5C8A]/40 flex items-center justify-center">
+              <ImageIcon className="w-10 h-10 text-white/20" />
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+            <div className="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+              <span className="bg-[#2C5C8A] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm">Warisan Sejarah</span>
+              <h3 className={`${montserrat.className} text-xl font-bold text-white`}>Jalan Braga</h3>
+            </div>
+          </Link>
+          
+          <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block bg-[#C9971E] flex flex-col justify-center items-center text-center p-8 hover:bg-[#b08316] transition-colors duration-500 shadow-md hover:shadow-xl" href="/kategori">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
+              <Compass className="text-white w-8 h-8 group-hover:rotate-45 transition-transform duration-700" />
+            </div>
+            <h3 className={`${montserrat.className} text-2xl font-bold text-white mb-3`}>50+ Destinasi</h3>
+            <span className="text-sm font-bold text-white/90 uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all duration-300">Jelajahi <ArrowRight className="w-4 h-4" /></span>
+          </Link>
+        </div>
+      </section>
+
+      {/* 11. GALERI FOTO & GRAFIS */}
+      <section className="w-full py-32 bg-white mb-12">
+        <div className="max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <span className="text-[#2C5C8A] font-bold tracking-widest uppercase text-sm mb-4 block">Pesona Visual</span>
+              <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight`}>Galeri Kota</h2>
+              <div className="w-24 h-1.5 bg-[#2C5C8A] rounded-full"></div>
+            </div>
+            <Link href="#" className="hidden md:flex items-center gap-3 text-[#2C5C8A] font-bold hover:text-[#1e4063] transition-colors px-6 py-3 rounded-full hover:bg-slate-50 border border-transparent hover:border-[#2C5C8A]/20">
+              Lihat Semua Koleksi <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
-          <div className="md:w-1/2 relative h-[400px] w-full flex justify-center items-end bg-amber-200/50">
-            <div className="w-64 h-[350px] bg-white rounded-t-3xl border-8 border-slate-100 shadow-2xl relative overflow-hidden flex flex-col">
-              <div className="w-full h-40 bg-slate-200">
-                 <img alt="App Preview" className="w-full h-full object-cover" src="/ASET VISUAL/Wisata Bandung/Legendary Cullinary tourism in Bandung/Sumber hidangan (Braga)/Sumber-Hidangan-5-Braga-Bandung.webp" />
-              </div>
-              <div className="p-5 flex-1 flex flex-col gap-3">
-                <div className="h-4 bg-slate-200 rounded-full w-3/4"></div>
-                <div className="h-3 bg-slate-100 rounded-full w-1/2"></div>
-                <div className="mt-auto h-10 bg-amber-100 rounded-xl w-full flex items-center justify-center">
-                   <span className="h-2 w-1/2 bg-amber-200 rounded-full"></span>
-                </div>
-              </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[700px]">
+            <div className="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group shadow-md hover:shadow-2xl transition-shadow duration-500 bg-slate-200 flex items-center justify-center">
+               <ImageIcon className="w-16 h-16 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+               <div className="absolute inset-x-4 bottom-4 p-6 rounded-2xl bg-slate-900/40 backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 flex items-center gap-4">
+                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md">
+                   <Camera className="text-white w-5 h-5" />
+                 </div>
+                 <div>
+                   <span className="text-white/80 text-xs font-bold uppercase tracking-widest block mb-1">Museum</span>
+                   <span className="text-white font-bold text-xl leading-none">Museum Geologi</span>
+                 </div>
+               </div>
+            </div>
+            
+            <div className="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group shadow-md hover:shadow-xl transition-shadow duration-500 bg-slate-200 flex items-center justify-center">
+               <ImageIcon className="w-10 h-10 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+            </div>
+            
+            <div className="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group shadow-md hover:shadow-xl transition-shadow duration-500 bg-slate-200 flex items-center justify-center">
+               <ImageIcon className="w-10 h-10 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+            </div>
+            
+            <div className="md:col-span-2 md:row-span-1 rounded-3xl overflow-hidden relative group shadow-md hover:shadow-xl transition-shadow duration-500 bg-slate-200 flex items-center justify-center">
+               <ImageIcon className="w-12 h-12 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+               <div className="absolute inset-x-4 bottom-4 p-5 rounded-2xl bg-slate-900/40 backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 flex items-center gap-4">
+                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md">
+                   <Camera className="text-white w-4 h-4" />
+                 </div>
+                 <div>
+                   <span className="text-white font-bold text-lg leading-none">Malam di Asia Afrika</span>
+                 </div>
+               </div>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const hankenGrotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-han
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
-  title: "Pesona Bandung",
+  title: "TIC Kota Bandung",
   description: "Portal wisata resmi Dinas Pariwisata Kota Bandung",
 };
 

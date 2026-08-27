@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!destination) return { title: 'Destinasi Tidak Ditemukan' };
 
   return {
-    title: `${destination.name} | Pesona Bandung`,
+    title: `${destination.name} | TIC Kota Bandung`,
     description: destination.description || `Informasi lengkap mengenai ${destination.name} di Kota Bandung.`,
   };
 }

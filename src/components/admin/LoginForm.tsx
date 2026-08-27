@@ -27,7 +27,7 @@ export default function LoginForm() {
       
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold font-display text-[#1b1c1a] mb-2">Portal Admin</h1>
-        <p className="text-[#4f4635] text-sm">Masuk untuk mengelola data Pesona Bandung</p>
+        <p className="text-[#4f4635] text-sm">Masuk untuk mengelola data TIC Kota Bandung</p>
       </div>
 
       {error && (

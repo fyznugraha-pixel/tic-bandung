@@ -1,7 +1,7 @@
 import LoginForm from "@/components/admin/LoginForm";
 
 export const metadata = {
-  title: "Login Admin | Pesona Bandung",
+  title: "Login Admin | TIC Kota Bandung",
 };
 
 export default function LoginPage() {

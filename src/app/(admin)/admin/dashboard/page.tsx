@@ -4,7 +4,7 @@ import { LayoutDashboard, CheckCircle2, FileEdit, Plus, MapPin } from 'lucide-re
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Dashboard Admin | Pesona Bandung',
+  title: 'Dashboard Admin | TIC Kota Bandung',
 };
 
 export default async function AdminDashboardPage() {

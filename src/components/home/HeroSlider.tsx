@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MapPin, ArrowRight } from 'lucide-react';
-import { Playfair_Display } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
 // Load elegant serif font for the Hero
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 const HERO_IMAGES = [
   {
@@ -107,7 +107,7 @@ export default function HeroSlider() {
                 <MapPin className="text-[#C9971E] w-5 h-5" />
                 <span className="text-white/90 font-bold uppercase tracking-widest text-xs">Sedang Ditampilkan</span>
               </div>
-              <h3 className={`${playfair.className} text-3xl font-bold text-white mb-3`}>{img.title}</h3>
+              <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-3`}>{img.title}</h3>
               <p className="text-white/80 text-sm leading-relaxed mb-8">
                 {img.desc}
               </p>
@@ -126,7 +126,7 @@ export default function HeroSlider() {
           
           {/* Left Side: Huge Typography */}
           <div className="w-full md:w-1/2">
-            <h1 className={`${playfair.className} text-6xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-8 drop-shadow-xl animate-hero-title`}>
+            <h1 className={`${montserrat.className} text-6xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-8 drop-shadow-xl animate-hero-title`}>
               Bandung,<br/>
               kota penuh<br/>
               <span className="italic text-[#f5be45]">pesona.</span>

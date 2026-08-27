@@ -2,7 +2,7 @@ import DestinationForm from "@/components/admin/DestinationForm";
 import { createClient } from "@/utils/supabase/server";
 
 export const metadata = {
-  title: "Tambah Destinasi Baru | Admin Pesona Bandung",
+  title: "Tambah Destinasi Baru | Admin TIC Kota Bandung",
 };
 
 export default async function NewDestinationPage() {
