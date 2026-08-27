@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wisata Art Space di Kota Bandung</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#1b1c1a",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#483300",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#001d35",
+                      "surface-variant": "#e5e2df",
+                      "background": "#fcf9f5",
+                      "tertiary-fixed-dim": "#9dcafe",
+                      "on-tertiary-fixed-variant": "#134976",
+                      "on-secondary-container": "#306e53",
+                      "tertiary": "#32618f",
+                      "on-background": "#1b1c1a",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#31302e",
+                      "on-secondary-fixed-variant": "#0d5138",
+                      "surface-tint": "#7a5900",
+                      "inverse-on-surface": "#f3f0ed",
+                      "outline-variant": "#d3c5af",
+                      "surface-container-high": "#eae8e4",
+                      "on-primary": "#ffffff",
+                      "outline": "#817663",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#d1e4ff",
+                      "surface-container-low": "#f6f3f0",
+                      "on-primary-fixed-variant": "#5c4200",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "primary-fixed": "#ffdea2",
+                      "surface": "#fcf9f5",
+                      "primary": "#7a5900",
+                      "primary-fixed-dim": "#f5be45",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#fcf9f5",
+                      "tertiary-container": "#76a2d4",
+                      "on-surface-variant": "#4f4635",
+                      "surface-container-highest": "#e5e2df",
+                      "secondary-container": "#adeecb",
+                      "surface-container": "#f0edea",
+                      "inverse-primary": "#f5be45",
+                      "on-tertiary-container": "#003860",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#002114",
+                      "primary-container": "#c9971e",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed": "#261900",
+                      "secondary": "#2c694e",
+                      "secondary-fixed": "#b0f0ce",
+                      "surface-dim": "#dcdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Space Grotesk"
+                      ],
+                      "label-caps": [
+                              "Space Grotesk"
+                      ],
+                      "display-lg-mobile": [
+                              "Space Grotesk"
+                      ],
+                      "display-lg": [
+                              "Space Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-teal { color: #2C7A7A; }
+        .bg-teal { background-color: #2C7A7A; }
+        .border-teal { border-color: #2C7A7A; }
+        .bg-teal-light { background-color: rgba(44, 122, 122, 0.1); }
+    </style>
+</head>
+<body class="bg-[#FAF8F3] text-on-surface font-body-md antialiased pt-[88px]">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim" href="#">
+                Pesona Kota Bandung
+            </a>
+<div class="hidden md:flex space-x-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Destinasi</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Kuliner</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1" href="#">Warisan</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<button class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-primary-container text-on-tertiary font-label-caps text-label-caps rounded font-bold hover:opacity-90 transition-opacity">
+                    Mulai Jelajah
+                </button>
+</div>
+</div>
+</nav>
+<main class="w-full">
+<!-- Breadcrumb -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4">
+<nav aria-label="Breadcrumb" class="flex text-sm text-on-surface-variant">
+<ol class="inline-flex items-center space-x-1 md:space-x-3">
+<li class="inline-flex items-center">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+</li>
+<li class="">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Kategori Wisata</a>
+</div>
+</li>
+<li aria-current="page" class="">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<span class="text-on-surface font-medium">Wisata Art Space</span>
+</div>
+</li>
+</ol>
+</nav>
+</div>
+<!-- Hero Banner -->
+<div class="relative w-full h-[400px] md:h-[500px]">
+<img alt="Hero Image" class="w-full h-full object-cover" data-alt="A grand, modern outdoor sculpture in a lush green park setting, representing NuArt Sculpture Park in Bandung. High quality architectural photography, daytime, bright natural light, flat neo-modern style with subtle textures, clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXIsRqwI6jjAKCCuAxLrCfpWo0LX7djJrH6C_PzYxP0cLSP3Kd_cNbKOxJBwM2Li8DMpJ1ndqq4H7DFBrOcKCfwsYx8aPjHf_m0R6JFMP5bwPMRy-lM0kVr3efUhbaqx8Ea2qnF_ciOmo5q7QdPNI_cYfzr1TpRTyYYODCLhwj3HKYSIxWqJ73NtBjfeKpOwJe-ksOntqpciQxXYppMcu0c8mW8ncKTXyjfdT7aTf5mPCxqLwqmp78">
+<div class="absolute inset-0 bg-teal/40"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto text-on-tertiary">
+<span class="inline-block bg-teal text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-white/20">15 Lokasi</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-white">Wisata Art Space di Kota Bandung</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl">15 ruang seni, galeri, dan studio kreatif yang mewarnai ekosistem kesenian Bandung</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+<!-- Filters & Controls -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div class="w-full md:w-1/3 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-on-surface" placeholder="Cari galeri atau studio..." type="text">
+</div>
+<div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+<select class="bg-surface-container-lowest border border-outline rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none">
+<option>Terdekat</option>
+<option>A-Z</option>
+</select>
+<button class="px-4 py-2 border border-outline rounded bg-surface-container-lowest hover:bg-surface-container transition-colors text-sm font-medium">Gratis</button>
+<button class="px-4 py-2 border border-outline rounded bg-surface-container-lowest hover:bg-surface-container transition-colors text-sm font-medium">Berbayar</button>
+<button class="px-4 py-2 border border-outline rounded bg-surface-container-lowest hover:bg-surface-container transition-colors text-sm font-medium">Buka Hari Ini</button>
+<div class="flex border border-outline rounded bg-surface-container-lowest ml-auto md:ml-4">
+<button class="p-2 bg-surface-container text-on-surface" title="Grid View"><span class="material-symbols-outlined">grid_view</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container/50 transition-colors" title="Map View"><span class="material-symbols-outlined">map</span></button>
+</div>
+</div>
+</div>
+<!-- Kawasan Chips -->
+
+<!-- Grid Results -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant hover:shadow-[0px_4px_20px_rgba(42,42,40,0.05)] transition-shadow duration-300 flex flex-col h-full cursor-pointer flex-1">
+<div class="relative h-48 overflow-hidden">
+<img alt="Galeri Hegarmanah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bright, airy contemporary art gallery interior with people looking at abstract paintings on white walls. High contrast, clean lighting, minimalist design, gallery setting in Braga, Bandung." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8byMv6x5ZgsjF2rN3RrWuXIvw80aw6Mnb_gByxs3Wajqya8KzMTj9TY5x-rEZjGuyjgn1JvBgURzQ5OsAsTXq861u6py18aB7CI3xzr0rrnWeIdO6AhVBnCtI5qSaZbOLDV-TIl1TvFizKtfcqyLAHDh2cC4bZAG3GWZ23IyZzB93QQB0QysrSVOetGkk4fNar8tT-pWluoUp9sVNky6QetdkOhOdCpORwwLjjXzuJpZrmushGwwr">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface">Braga</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">Galeri Hegarmanah</h3>
+<p class="text-sm text-on-surface-variant mb-4 flex-grow">Community art hub.</p>
+<div class="flex items-center text-xs text-on-surface-variant mt-auto">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span class="">Braga, Kota Bandung</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant hover:shadow-[0px_4px_20px_rgba(42,42,40,0.05)] transition-shadow duration-300 flex flex-col h-full cursor-pointer flex-1">
+<div class="relative h-48 overflow-hidden">
+<img alt="Sanggar Olah Seni" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An outdoor art studio nestled in trees, with rustic wooden structures and large windows. Artists are painting on canvases in dappled sunlight. Natural, earthy, creative atmosphere in Dago, Bandung." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtqZLlHnEaymDJtwVCx9wgHvOO4n6-Phd1h6_Ihz1Pcuu7eRUf7n0bXRZdGKUeTJr3VwwzHeEivtn23LsdsP5Lav3qXVlcIw3wikIEQARhVXXBVVBBESrjoZV3Dgu6eKWox11RUjkSKRU7Sz5iQIxAQO9vwlvFPp8looRisiy4FpP5PhSZGVVT6qT0zCgCp3C-omz6WsQKVMK7na_j0WWWFhRVSUZJVRW2QBe86Gm_V19RRqsToxSG">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface">Dago</div>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-secondary-container px-2 py-1 rounded text-xs font-bold">Gratis</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">Sanggar Olah Seni</h3>
+<p class="text-sm text-on-surface-variant mb-4 flex-grow">Studio seni ruang terbuka.</p>
+<div class="flex items-center text-xs text-on-surface-variant mt-auto">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span class="">Dago, Kota Bandung</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant hover:shadow-[0px_4px_20px_rgba(42,42,40,0.05)] transition-shadow duration-300 flex flex-col h-full cursor-pointer flex-1">
+<div class="relative h-48 overflow-hidden">
+<img alt="Grey Art Gallery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern, somewhat industrial art gallery with exposed brick walls painted grey, featuring large-scale monochrome contemporary artworks. Sophisticated, edgy, urban aesthetic in Braga, Bandung." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_hgW35UwAD4AjquoKmGI9jAtxBzBp_evvcPneZAE5GJs_Dsl2vJhOcI0yke_Pe58psWN07KrI8-GU-S95I25175pIjQ-L8WL9CPdnhorgg75uKohebolSER6vczeg-X2NWTKGCH30O48Mb9NszVeuJav_sNMnCV5R_XrBhx8Cr9Al7lzNhbvymnwMzLT1IWsaiLYgjG020ORIFfmLPcvFejKdj-nx3yyU7t7dRzii5zFQQaIl4--W">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface">Braga</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">Grey Art Gallery</h3>
+<p class="text-sm text-on-surface-variant mb-4 flex-grow">Galeri seni kontemporer.</p>
+<div class="flex items-center text-xs text-on-surface-variant mt-auto">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span class="">Braga, Kota Bandung</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant hover:shadow-[0px_4px_20px_rgba(42,42,40,0.05)] transition-shadow duration-300 flex flex-col h-full cursor-pointer flex-1">
+<div class="relative h-48 overflow-hidden">
+<img alt="Galeri Pusat Kebudayaan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A historic Dutch colonial building serving as a cultural center. A traditional dance or art performance is happening in the courtyard. Heritage, warm lighting, lively cultural scene in Braga, Bandung." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCBalPmhACdCf0h_EUhbTsp1MQEIvBLAl7fGctoP1TcjQ0ArBV9t3vdB7k4RaamsVbmtg7nMj6_wEDkWydDNVDQ2b78MAV7dnCSCq--l2riKBs_ELfShxWTvRFaE9UEqrj0GRi53PzaRCeVYv3h3wKWuuV72mKe7mHw8yFdafjQGaFlmi3M6hVmA6SgVuOAC0C6iSIBlO8Pw9ADZ-xBrPGNGogWAobsu8BVv5krRvdK3_3F8R0Y1c2">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface">Braga</div>
+<div class="absolute top-3 right-3 bg-secondary-container text-on-secondary-container px-2 py-1 rounded text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">confirmation_number</span> Gratis, tanpa ticketing</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">Galeri Pusat Kebudayaan</h3>
+<p class="text-sm text-on-surface-variant mb-4 flex-grow">Pusat pameran budaya dan seni rupa.</p>
+<div class="flex items-center text-xs text-on-surface-variant mt-auto">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span class="">Braga, Kota Bandung</span>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant hover:shadow-[0px_4px_20px_rgba(42,42,40,0.05)] transition-shadow duration-300 flex flex-col h-full cursor-pointer flex-1">
+<div class="relative h-48 overflow-hidden">
+<img alt="Maranatha Art and Desain Center" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern university design center with sleek glass facades and student design projects displayed in the lobby. Academic, innovative, structured, clean lines, bright artificial lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGLzZGytvaC1GCeXLSXzH8V9Qe6JeYAzbglxRlt0XaNFtUAfckltFCY7epckEf_LilUHLV7vPJu7AukzOaWSFOWcqRWrjWm1jHdeye_uLuZY3FLwD1JGD2B9I8mJfIo6U21esit9F1-uVFP0JNuESi5wf4vD9oNVe1qz0lpm94GghY-R_L_1FoOePCYATiK01c4PT52zWzjtBnKJYqKyEO1GsiUHrxwbJDlltuWtsa2xh51l9bKd1o">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface">Braga</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">Maranatha Art and Desain Center</h3>
+<p class="text-sm text-on-surface-variant mb-4 flex-grow">Pusat seni dan desain edukatif.</p>
+<div class="flex items-center text-xs text-on-surface-variant mt-auto">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span class="">Braga, Kota Bandung</span>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-surface-container-lowest rounded-lg overflow-hidden border border-surface-variant hover:shadow-[0px_4px_20px_rgba(42,42,40,0.05)] transition-shadow duration-300 flex flex-col h-full cursor-pointer flex-1">
+<div class="relative h-48 overflow-hidden">
+<img alt="NuArt Sculpture Park" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A massive, striking abstract metal sculpture in a wide outdoor park. The sculpture resembles a stylized whale or organic form. Impressive scale, dramatic shadows, clear day, Bandung Barat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeqTP1CNXSRxONzUF2djnnVN_q0XvQj7dtW4Lf3dJhjBiLilIP1ssKU7NzaZ21XpX5lmcv8OReosSMbO3HkY6TjqbvUPHcG0E6_qbjDTvNo26UgknnIUuWpKbOJ6GjtQoRn8Ns2ET1JskLpBlcy97BbLn2V55Ak99hEkNGvTPFQuBleCb03nMf27hUbWzqFj5REqBInTrllRWVvL8bd5hXPUS0lhCztb8JqyLGs9me4PN7PArHvqMT">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-on-surface">Bandung Barat</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors pr-2">NuArt Sculpture Park</h3>
+<span class="text-teal font-bold text-sm whitespace-nowrap bg-teal-light px-2 py-1 rounded">Rp 50.000</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4 flex-grow">Taman patung monumental mahakarya I Nyoman Nuarta.</p>
+<div class="flex items-center text-xs text-on-surface-variant mt-auto">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span class="">Bandung Barat</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Footer Info -->
+<div class="text-center mt-12 pb-12 border-b border-outline-variant">
+<p class="text-sm text-on-surface-variant">15 dari 15 ditampilkan</p>
+</div>
+<!-- Cross-links -->
+<div class="py-12 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"><h2 class="font-headline-md text-2xl mb-6 text-center text-on-surface">Jelajahi Kategori Lain</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><a href="#" class="group relative h-48 rounded-lg overflow-hidden block"><img src="https://lh3.googleusercontent.com/aida/AP1WRLtBRPV0mNAHc6EIMD9m3L8HvS6WhGLn4TD8fuXweB0hXeYqyuJEMkvX9frC8hPjGYCDhyPimyxddJcCwu_MMWKVpTxjZt8xxpvuELJlFR0KQ_NU3O6lTCTSuKCLoS7SpzJkmjQZ6P-d2KzEez4-jiXQFo2qGYIQz5hNSTciH_nSMdhJCT5H8imEcxIot09YgTzLYGq5kO08EvHj5Lj3INfG-E63BGQUAwiZgpdjQacbFf2XCj4z0lvRcg" alt="Museum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-primary/60 flex flex-col justify-end p-4 text-white"><span class="text-xs font-bold uppercase tracking-wider mb-1">12 Lokasi</span><h3 class="font-bold text-lg">Museum</h3></div></a><a href="#" class="group relative h-48 rounded-lg overflow-hidden block"><img src="https://lh3.googleusercontent.com/aida/AP1WRLuOOkHx0VX58_roFcorjJUF74W-SfjEX14XzW8R2c4mJ8_cvl5pHs2dOqk3pLEr3vB9LRMWjQeGUP1zhCkBghoQ9Q5Paomf0yQON5agjW5wXBlSWnvYH7aKd5X0Z8RWqvt5nqbR2ATVXyPzpXNILGW_hkFMO_o25isqpth_-lv6sdDrZ5YXXvrIv0BpW1PyGTn7leL-V0iFYx3o-aT57o6c4NDNssK4y-FRLZWZrjUn6azmXRnN64O5Dg" alt="Ekonomi Kreatif" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-primary/60 flex flex-col justify-end p-4 text-white"><span class="text-xs font-bold uppercase tracking-wider mb-1">24 Lokasi</span><h3 class="font-bold text-lg">Ekonomi Kreatif</h3></div></a><a href="#" class="group relative h-48 rounded-lg overflow-hidden block"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt_NWhO4O8eDMONF-twKtXqec6u3HeInkhy15k26X8pd-_TVN_uro3z2W50IrWp_W2MPpn_qgqGiXZ8bIW4WNcKqDP9tohu8TJoZ6YJV3_2OobZqONEgJCWZ_1EfI0jHj91CMOwr1378joAuet6KepppqkJizWA8IwB1Ai_XMjqeSP9Jz32dfT-zcF2jB3IoIJ9w9d5hdLhXuysaYZwPizbcD4JVd5V9OWlOx5L7va9JdBplr6YvMzAcq0" alt="Atraksi Kesenian" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-primary/60 flex flex-col justify-end p-4 text-white"><span class="text-xs font-bold uppercase tracking-wider mb-1">18 Lokasi</span><h3 class="font-bold text-lg">Atraksi Kesenian</h3></div></a><a href="#" class="group relative h-48 rounded-lg overflow-hidden block"><img src="https://lh3.googleusercontent.com/aida/AP1WRLt3aBOVnd8HjMkftEpyoqJP1lKeaD5ILYnJC2LhIblMlIKisOiZlq_DmfJZtseZ_fxQqukdQAhZv5nrAiLPGJOF-GbFZsySxXyc4xEHmNFDF4RHAs5CKfv__hkkZDSYF9YE1I07iTzCY9VUToAJzcZ1Tme1TRxQEdj7QEebN6m_an68rizUc-cq55gWt71JdZ9IRGd22zdWNtpBde4-qbKH8xkkXjICewrZaYvPJNY9rtPENruq5JZlsJ4" alt="Wisata Alam" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-primary/60 flex flex-col justify-end p-4 text-white"><span class="text-xs font-bold uppercase tracking-wider mb-1">32 Lokasi</span><h3 class="font-bold text-lg">Wisata Alam</h3></div></a></div></div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full border-t border-outline-variant dark:border-outline mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile gap-6 text-center md:text-left">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                Pesona Kota Bandung
+            </div>
+<div class="flex flex-col md:flex-row gap-4 md:gap-8 font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">
+<a class="hover:text-primary dark:hover:text-primary-fixed underline transition-colors" href="#">Tentang Kami</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed underline transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed underline transition-colors" href="#">Kontak</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed underline transition-colors" href="#">Peta Situs</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface">
+                © 2024 Pemerintah Kota Bandung. Seluruh Hak Cipta Dilindungi.
+            </div>
+</div>
+</footer>
+
+
+
+
+
+
+</body></html>

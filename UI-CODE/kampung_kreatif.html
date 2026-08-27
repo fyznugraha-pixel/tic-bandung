@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kampung Wisata Kreatif - Pesona Bandung</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#f5be45",
+                      "background": "#fcf9f5",
+                      "surface-container-high": "#eae8e4",
+                      "on-primary-fixed-variant": "#5c4200",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e5e2df",
+                      "error-container": "#ffdad6",
+                      "primary": "#7a5900",
+                      "on-tertiary-container": "#003860",
+                      "on-secondary-container": "#306e53",
+                      "on-surface": "#1b1c1a",
+                      "error": "#ba1a1a",
+                      "tertiary": "#32618f",
+                      "tertiary-container": "#76a2d4",
+                      "surface-container-highest": "#e5e2df",
+                      "primary-fixed": "#ffdea2",
+                      "on-primary-container": "#483300",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#261900",
+                      "on-secondary-fixed-variant": "#0d5138",
+                      "outline-variant": "#d3c5af",
+                      "on-surface-variant": "#4f4635",
+                      "primary-container": "#c9971e",
+                      "inverse-on-surface": "#f3f0ed",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#3D7A5E", // Updated to the requested accent color
+                      "on-background": "#1b1c1a",
+                      "outline": "#817663",
+                      "on-tertiary-fixed-variant": "#134976",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "on-tertiary-fixed": "#001d35",
+                      "surface-container": "#f0edea",
+                      "primary-fixed-dim": "#f5be45",
+                      "surface": "#fcf9f5",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#adeecb",
+                      "surface-container-low": "#f6f3f0",
+                      "surface-dim": "#dcdad6",
+                      "tertiary-fixed-dim": "#9dcafe",
+                      "on-secondary-fixed": "#002114",
+                      "inverse-surface": "#31302e",
+                      "surface-bright": "#fcf9f5",
+                      "secondary-fixed": "#b0f0ce",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#d1e4ff",
+                      "surface-tint": "#7a5900"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1rem", // Updated to match the requested 16px
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Space Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Space Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Space Grotesk"
+                      ],
+                      "label-caps": [
+                              "Space Grotesk"
+                      ],
+                      "display-lg-mobile": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              },
+              "boxShadow": {
+                  "soft": "0px 4px 20px rgba(42, 42, 40, 0.05)"
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-surface-dim docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all" href="#">Pesona Bandung</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all" href="#">Destinasi</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all" href="#">Kuliner</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all" href="#">Warisan</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all" href="#">Budaya</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all" href="#">Event</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low transition-all rounded-full p-2">search</span>
+<button class="hidden md:block bg-primary-container text-on-primary font-bold px-4 py-2 rounded-xl hover:shadow-soft transition-all">Mulai Jelajah</button>
+<span class="material-symbols-outlined text-primary md:hidden cursor-pointer">menu</span>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Breadcrumb -->
+<div class="text-sm text-on-surface-variant mb-6 font-body-md flex items-center gap-2">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Kategori Wisata</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Kampung Wisata Kreatif</span>
+</div>
+<!-- Hero Banner -->
+<section class="relative rounded-xl overflow-hidden mb-12 h-[614px] min-h-[400px] bg-surface-container-highest border border-outline-variant">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A high-end, authentic photograph of a skilled artisan meticulously working on detailed batik patterns or intricate leather craft in a warm, naturally lit workshop space. The lighting highlights the texture of the materials and the concentration of the craftsman, conveying a sense of rich cultural heritage and community. The aesthetic is warm, inviting, and slightly cinematic, capturing the essence of a vibrant creative village in Bandung." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr9Bi6GmCJbsh1Ta6gwy7HnyIMIlZmSxGH7ZQ5JalEUbUABsWeAvHHgpWqlu0c8ZydvyHe_25coKI_TSyHoOMFkUM8aSeG48n-0X0q7GkqSrzWKrM-dJ-8OtLfDWrGq_FFvpguO_oMaQDluwyHswzVPTHcC1Jalh2XtmB2sx_5uDGUkeFJsMsbYw-W7_sY_lbLfVo2dJzo4EQdi8uUfigMaRGBQTw51bByTlwBCJNmUci3M5TqBXUz"/>
+</div>
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="relative z-20 h-full flex flex-col justify-end p-8 md:p-12">
+<div class="bg-secondary text-on-secondary font-label-caps text-label-caps px-3 py-1 rounded-full w-max mb-4 uppercase">
+                    8 Kampung
+                </div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-4">Kampung Wisata Kreatif<br/>di Kota Bandung</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl">
+                    8 kampung dengan identitas kreatif khas — dari sentra sepatu, batik, hingga kain rajut turun-temurun
+                </p>
+</div>
+</section>
+<!-- List of Kampung Wisata -->
+<section class="mb-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- 1. Cibaduyut -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Kerajinan Sepatu di Cibaduyut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSVJ7Fc2xdleKG_8U1aMsQYvCFKUSaUE8BY9alJUchn9rgGlNFlIZT7RWZxkrVdfQDc3vKzI7Fim9ZYiX1EZqxfWO__CDhq41tZqWRYGWcX1ajh6KZ1HkLGu2l4tBM39hsys7USmInwxRpyUhaDpUGfLLjbZO5-vWvRhrFG9qr5HdhSCnilw8h2Se0Z5ZMknDaa9IaWnODjSvffN_3_-ly72VCm4BmuQ20TL-blK0bYakrLh2CzLUk"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Kerajinan Sepatu</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Cibaduyut</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Cibaduyut, Kec. Bojongloa Kidul</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Sentra kerajinan sepatu kulit yang diwariskan lintas generasi pengrajin lokal.
+                </p>
+</div>
+</a>
+<!-- 2. Cinambo -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Literasi di Cinambo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD88yPiiXeskJsD8RXIckX9d78Yfogi-uchFONUHFtRPOBbu5SP1be8w2rmrKwBgGbMZe9trqKJ4TPHYFlhFCIRTHvUWpMh3HYluzFp6iukdPpWf7me4MUKG1VXm7KMSt3tFQIoL3Qm6JQtLM3ZDnbj8rxIIVeYUJ24247n9pOybUjFh_sTz4sNkHHCaJtxaL1TcWXOw-n5oSrupNCLeDPj4pfa-J7Ww7-GK3x_VOnPLKQDIlydFVAx"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Literasi &amp; Komunitas</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Cinambo</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Kel. Pakemitan, Kec. Cinambo</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Kampung literasi dengan pojok baca, kelompok mendongeng, dan kegiatan menulis yang menumbuhkan budaya literasi warga sekitar.
+                </p>
+</div>
+</a>
+<!-- 3. Gedebage -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Alam dan Satwa di Gedebage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCgyPjcS6A5LCsfm5sET0f6YCcl4NIty2MIO2j1l0T1ZZ-58UwAxvqrfKq0a598bt5G4Tr-9aE8snwCgJFq9VM9YS3ko67DIVerkKd9xPvsfM9FA2_xNIYBYDcfua-cgozqFcw-cyPl5rWJ54Z43_rnDtg14iIocyyzxP9PK7YE4BJIXHjiZaHldXemLM7ZFL4tYWFeRQZb5OVxbc4yuYVhLGRHII5JtciCPyCnnY13cWHGo8kiA5"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Alam &amp; Satwa</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Gedebage</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Rancabayawak RW.02, Cisaranten Kidul, Kec. Gedebage</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Dikenal sebagai Kampung Blekok, rumah bagi ratusan burung kuntul dan blekok yang bersarang di antara rimbunnya pohon bambu.
+                </p>
+</div>
+</a>
+<!-- 4. Pasir Kunci -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Alam di Pasir Kunci" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAca_tkTy_KP6Bkz0RjHkPNSLC1IDOeGgQWU9v3TYKvI-cEPY80PqrN8fwM2aIBbtHpmNM_dlmqEYhfxDAz0HVVTMBHj5EegMHL-a4clCt75aMgAKQf45WX02D4Tx-fcHyvlig6mX5y4qPXWanD5-M1LmWIA1EPoMs7fuUglJKb5PAE0mKU65LKrBCN4HpdvqpwQgvFl_Fx0g_AyFW7mhAUJsvFi812fI1R73QWdViOaFRAvTsrOodk"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Alam &amp; Permainan Tradisional</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Pasir Kunci</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Kel. Pasir Jati, Kec. Ujung Berung</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Berada di kaki Gunung Manglayang, menawarkan pemandangan Kota Bandung dari ketinggian 800 meter dan permainan tradisional anak-anak.
+                </p>
+</div>
+</a>
+<!-- 5. Braga -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Seni di Braga" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7eyVhksx8CCft-WbAn3t1gGWiVMUdEgBgp5g4CtCJyAbSTtwaHpsrvcs_BvsIxwPpRW5uhWT8GG37m22dR7GcKL_04-DETkrmMfvHKeCihVnpXxLcv-Cj3AVfuTY3m3n6bMciKReSAvH77hvxrV_PMo-NuQDGWhZNAJhatz0lL-rK4fpGPFlPXXwE0vEITf5okYOYDm6CpcvYLENY9mzyQLE_jsGE1bAQnPSAkd3dlA9_5GAY8PRb"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Seni &amp; Budaya</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Braga</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Jalan Affandi, Cikapundung, Braga, Kec. Sumur Bandung</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Kawasan seni dan kuliner ikonik yang ramai dikunjungi dari pagi hingga malam hari, meliputi Jalan Affandi hingga Jalan Radio.
+                </p>
+</div>
+</a>
+<!-- 6. Binong Jati -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Rajut di Binong Jati" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF1o4QjFzWqqPE3RnDkwBDu8YpRw2or9S_vb2de0k-TMdVWP31aD3aPW46sq74ehSYQdXJvF7vPdVnkyHEsRY9IqEQ6HsP9aacpuZxX2H3XkF5JRYn2EzC2P-iFx4gBwd4lkGJ8ucO_62XoVJ300dJ7O7NHskC0F12ucbDJEKhIeyXLkt_CzeyGjJnQ9zwotA6nRt5c4PgXpbQhKbWXc64cYr4ZlO6WhNklY9UuVija4Tqx9HKsEGk"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Rajut</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Binong Jati</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Jalan Binong Jati</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Sentra kain rajut yang berdiri sejak 1960-an, memproduksi jaket, cardigan, hingga syal dengan harga terjangkau.
+                </p>
+</div>
+</a>
+<!-- 7. Cigadung -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Batik di Cigadung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuSZj1FXaHFEDrorHR8Z6CFCHHWf8gPPt2xFSR5yoacfE_q0l6Tki_6tYQbedkv7FsP8MqFmdp0N2Gg5KIiWBZbFN0xg40lfiM05UZvJnHKdgBGmlRorkM9i-0SHbuCQn8FhJ9nB7KltTkB-qfmzWffa-b4GA9E4mmIHDt-x2X8QAvYgQinWPH5fOg4DlMuTSi4LSappepf4EFPof5psDGAJbbDN2-yhK3lpjT5b8pt_lybq6z_oM3"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Batik</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Cigadung</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Jl. Cigadung Raya Timur No.1, Kec. Cibeunying Kaler</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Kawasan sentra pembuatan batik, dengan beberapa pengrajin batik terkenal yang membuka proses produksinya untuk wisatawan.
+                </p>
+</div>
+</a>
+<!-- 8. Cigondewah -->
+<a class="group block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-soft transition-all duration-300 flex flex-col" href="#">
+<div class="relative h-48 overflow-hidden">
+<img alt="Tekstil di Cigondewah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWQzZWZnbW__mjtS3MZV5YHPax9v41Y0jZhXJHOJMfeR2l5UwKDX9uvXsPxOY9lOM-6GK67CnD4XwQYGZZIFqmIrJtTtElZP1leCKRQ4LW5QjVh4z5OMImxiWzQEiOe58rDAwIHpWfCPv8tm47ZWGqiTuVJ795ZUKHoMGrSQ_GAt8KKxmDJeAFElSx0j4OTGOYxrX3o2OMA_sn8eDE_YgZjh0f2kbfJIgSXUGOjtb69OBRnDs8eJ3Z"/>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<span class="inline-block bg-[#3D7A5E]/10 text-[#3D7A5E] font-label-caps text-xs px-2.5 py-1 rounded-full mb-3 w-max">Tekstil</span>
+<h3 class="font-headline-md text-xl font-semibold text-on-surface mb-2">Kampung Wisata Kreatif Cigondewah</h3>
+<div class="flex items-start gap-1 text-on-surface-variant text-sm mb-3">
+<span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+<span>Cigondewah, Kec. Bandung Kulon</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mt-auto">
+                    Pusat sentra kain terlengkap di Kota Bandung, menarik wisatawan belanja tekstil dari berbagai negara. Buka setiap hari 06.00-17.00.
+                </p>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Jelajahi Kategori Lainnya</h2>
+<p class="text-on-surface-variant font-body-md">Temukan pesona Bandung lainnya melalui ragam destinasi pilihan.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+      Lihat Semua <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Wisata Alam -->
+<div class="relative rounded-xl overflow-hidden group cursor-pointer h-64 border border-outline-variant shadow-soft">
+<img alt="Wisata Alam" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkTNPuohId33AvBzJOnHvTDnCxNd2ozO5duwbwySWIpbJrLwkbclwjtbpKhh5BDMWC9ndCMy7XxTuFt3d03trDFLXrcMdQq7YWwgn2_8r1Or0lo3kqnf_aT5X3EvJL65MaERdyk-aGgPfXmLqwCQ9HF5B_Jmd1jHe6WvvqekIjvIP7rGAwSBXvSO7PMqeV82KYUfNDl7f7PFb8MjX22yxmp1NsRitmmxpGLwoYbgyvDGUKjVJVUvof"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-2 uppercase tracking-wider border border-white/30">24 Lokasi</span>
+<h3 class="font-headline-md text-xl text-white font-bold">Wisata Alam</h3>
+</div>
+</div>
+<!-- Card 2: Museum -->
+<div class="relative rounded-xl overflow-hidden group cursor-pointer h-64 border border-outline-variant shadow-soft">
+<img alt="Museum" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuVYrcRLmVlAHeVVb47lRdQX2h47Vj36EVp9cEHQHRjxL5BktPLEBRwbfnMcr4N1tYv6KYMRVVoIwFZagge1fOWiTpA7EyF_pg8eaL9iJzfeuTvk9YauGjhBzLDBYoJtAm7PtPxceNvgW71-2y1AxyAYoO9cm4-NtRjR7dEG0QZcswcsLTCI3iB8N2M3LAX77llUguotr3hWIZpnunPwY4QnX_t4gszYQAtm0RyyzJ4aCICcDT0IG-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-2 uppercase tracking-wider border border-white/30">19 Lokasi</span>
+<h3 class="font-headline-md text-xl text-white font-bold">Museum</h3>
+</div>
+</div>
+<!-- Card 3: Wisata Art Space -->
+<div class="relative rounded-xl overflow-hidden group cursor-pointer h-64 border border-outline-variant shadow-soft">
+<img alt="Wisata Art Space" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMwpDoDecN6eNE--RbvpS1FNlgUqplcQeddq2QnXScCd0XlM5OG3Ow7Ue9GEQ_kNiZrEXkUVHoECuzF_WQbnyjSr3bkCRC1D5umcp2aXH1uBVQZLy2y5Vv-fZvxTwlLDVDFy-io-4WW4ulNGBvdxntdTOrRgSjetTMpp3mHkGx1wGWsDaa_sWI3jm2RA9HbBvhV-gSYsqwQR10D21JEd3wU9QIwe0KcCqbi0CCBSGqC00rQZ7I0Bsk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-2 uppercase tracking-wider border border-white/30">15 Lokasi</span>
+<h3 class="font-headline-md text-xl text-white font-bold">Wisata Art Space</h3>
+</div>
+</div>
+<!-- Card 4: Wisata Buatan -->
+<div class="relative rounded-xl overflow-hidden group cursor-pointer h-64 border border-outline-variant shadow-soft">
+<img alt="Wisata Buatan" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApZxaMDVUigRHON4OibWVI1hZ0gSToZxHYJELX3T9dzFcNLAfGU9pHskrHFpeGO-6T98_yRNwKyygCBkF0VSrNRCa2qJEI7bKbb9IgC-ojfEdCUCrNTCeaKIINVWcxRqRjnAe6S2LUPiwiRmEpdbrnPd02zkTqeLDtqDpkYIVLe1Fic35nLsjCoekQpswyROejDojIWDU2cX7OTFeVeST4EVzQs2WG8WByy35IrnE5yE3SC3sVd20l"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-2 uppercase tracking-wider border border-white/30">12 Lokasi</span>
+<h3 class="font-headline-md text-xl text-white font-bold">Wisata Buatan</h3>
+</div>
+</div>
+</div>
+</section><footer class="bg-surface-container-low dark:bg-surface-dim full-width border-t border-outline-variant dark:border-outline flat no shadows w-full py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-surface-bright">Pesona Bandung</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-center md:text-left">© 2024 Pemerintah Kota Bandung. Pesona Bandung: Colonial Heritage, Creative Future.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary hover:underline transition-all" href="#">Tentang Kami</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary hover:underline transition-all" href="#">Peta Situs</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary hover:underline transition-all" href="#">Kebijakan Privasi</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary hover:underline transition-all" href="#">Kontak Kami</a>
+</div>
+</footer>
+</body></html>

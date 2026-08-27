@@ -1,0 +1,501 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wisata Buatan - Bandung Creative City</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#003860",
+                        "tertiary-fixed-dim": "#9dcafe",
+                        "on-background": "#1b1c1a",
+                        "inverse-surface": "#31302e",
+                        "primary-container": "#c9971e",
+                        "surface-tint": "#7a5900",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#f5be45",
+                        "surface-container-high": "#eae8e4",
+                        "surface-container": "#f0edea",
+                        "on-primary-fixed-variant": "#5c4200",
+                        "tertiary-container": "#76a2d4",
+                        "secondary-container": "#adeecb",
+                        "outline-variant": "#d3c5af",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-primary-container": "#483300",
+                        "on-primary-fixed": "#261900",
+                        "on-secondary-fixed": "#002114",
+                        "on-secondary-fixed-variant": "#0d5138",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf9f5",
+                        "secondary-fixed": "#b0f0ce",
+                        "primary": "#7a5900",
+                        "inverse-on-surface": "#f3f0ed",
+                        "surface-variant": "#e5e2df",
+                        "surface-dim": "#dcdad6",
+                        "on-primary": "#ffffff",
+                        "outline": "#817663",
+                        "on-tertiary-fixed-variant": "#134976",
+                        "background": "#fcf9f5",
+                        "inverse-primary": "#f5be45",
+                        "surface": "#fcf9f5",
+                        "secondary": "#2c694e",
+                        "tertiary-fixed": "#d1e4ff",
+                        "primary-fixed": "#ffdea2",
+                        "surface-container-low": "#f6f3f0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#306e53",
+                        "tertiary": "#32618f",
+                        "on-surface": "#1b1c1a",
+                        "on-surface-variant": "#4f4635",
+                        "surface-container-highest": "#e5e2df",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "error-container": "#ffdad6",
+                        "brand-blue": "#2C5C8A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #FAF8F3; }
+        .neo-flat-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E2DA;
+            transition: all 0.2s ease-in-out;
+        }
+        .neo-flat-card:hover {
+            box-shadow: 0px 4px 20px rgba(42, 42, 40, 0.05);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-dim border-b border-outline-variant docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20 px-margin-mobile md:px-margin-desktop">
+<a class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight" href="#">Bandung Creative City</a>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="font-label-caps text-label-caps text-primary dark:text-inverse-primary border-b-2 border-primary font-bold pb-1 h-full flex items-center pt-1 transition-all" href="#">Destinasi</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors h-full flex items-center" href="#">Kuliner</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors h-full flex items-center" href="#">Heritage</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors h-full flex items-center" href="#">Nature</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors h-full flex items-center" href="#">Kreatif</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface">search</span>
+</button>
+<button class="hidden md:flex bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 rounded-DEFAULT hover:opacity-90 transition-opacity">
+                    Sign In
+                </button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Breadcrumb -->
+<div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-caps text-label-caps text-sm">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Kategori Wisata</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-bold">Wisata Buatan</span>
+</div>
+</div>
+<!-- Hero Section -->
+<header class="w-full relative min-h-[300px] md:min-h-[400px] flex items-center justify-center overflow-hidden mb-12">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full" data-alt="A spectacular wide-angle photo of a modern, vibrant theme park in Bandung during golden hour. The scene features glowing fountain shows, rollercoasters, and manicured city park elements. High contrast, saturated colors, editorial photography style, conveying a sense of fun and modern recreation." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAI5yQVn24tidAbnXquxS2mM3Ov62p2JoDkYYyioHw6TPdxukITOGPiJyqqfqUBAFTI0za-YhwueZTQBYrs_BSD2BslVGve7u-nxr6ku8oLXMhFamshymIDFXThtN5K9YzXLJRVLOAOgcWbBJd7sJvqpZBXf7CuH3CGlnEzJYwbx5aVPjf2i2MVGnHV6sDyF8dElYwX3TexP6rIBMW4X0dBSBa5-jrRdZ7TMeyoy8i6mIRKNy0grqun')"></div>
+<div class="absolute inset-0 bg-[#2C5C8A]/60 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center text-white flex flex-col items-center gap-4">
+<span class="font-label-caps text-label-caps bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30 uppercase tracking-widest inline-block mb-2">9 Destinasi</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-white">Wisata Buatan di Kota Bandung</h1>
+<p class="font-body-lg text-white/90 max-w-2xl mx-auto mt-2">9 destinasi rekreasi buatan, dari taman air hingga taman kota bertema untuk melengkapi liburan keluarga Anda.</p>
+</div>
+</header>
+<main class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-24">
+<!-- Filter Bar -->
+<div class="bg-white border border-outline-variant rounded-lg p-4 mb-8 flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between sticky top-[80px] z-40 shadow-sm">
+<!-- Search -->
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all font-body-md text-body-md outline-none text-on-surface placeholder:text-on-surface-variant" placeholder="Cari destinasi wisata buatan..." type="text">
+</div>
+<div class="flex flex-col md:flex-row gap-4 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
+<!-- Filters -->
+<div class="flex gap-2 items-center shrink-0">
+<span class="font-label-caps text-label-caps text-on-surface-variant mr-2">Filter:</span>
+<button class="px-4 py-1.5 rounded-full border border-outline-variant font-body-md text-sm hover:bg-surface-container-low transition-colors whitespace-nowrap">Gratis Masuk</button>
+<button class="px-4 py-1.5 rounded-full border border-brand-blue bg-[#2C5C8A]/10 text-brand-blue font-body-md text-sm font-semibold transition-colors whitespace-nowrap">Berbayar</button>
+<button class="px-4 py-1.5 rounded-full border border-outline-variant font-body-md text-sm hover:bg-surface-container-low transition-colors whitespace-nowrap">Buka Hari Ini</button>
+</div>
+<!-- Sort -->
+<div class="flex items-center gap-2 shrink-0 border-l border-outline-variant pl-4 ml-2">
+<span class="material-symbols-outlined text-on-surface-variant">sort</span>
+<select class="bg-transparent border-none font-body-md text-sm text-on-surface focus:ring-0 cursor-pointer outline-none">
+<option>Terdekat</option>
+<option>A-Z</option>
+<option>Harga Terendah</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Kawasan Chips -->
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-caps text-label-caps text-on-surface-variant self-center mr-2">Kawasan:</span>
+<button class="px-3 py-1 bg-surface-container-high rounded border border-outline-variant font-body-md text-sm hover:bg-surface-container transition-colors">Sumur Bandung</button>
+<button class="px-3 py-1 bg-surface-container-high rounded border border-outline-variant font-body-md text-sm hover:bg-surface-container transition-colors">Batununggal</button>
+<button class="px-3 py-1 bg-surface-container-high rounded border border-outline-variant font-body-md text-sm hover:bg-surface-container transition-colors">Sukajadi</button>
+<button class="px-3 py-1 bg-surface-container-high rounded border border-outline-variant font-body-md text-sm hover:bg-surface-container transition-colors">Bandung Kidul</button>
+<button class="px-3 py-1 bg-surface-container-high rounded border border-outline-variant font-body-md text-sm hover:bg-surface-container transition-colors">Lainnya</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+<!-- Card 1: Kiara Artha Park -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A brightly lit, modern city park in Bandung featuring a spectacular choreographed water fountain show at night. Colorful LED lights illuminate the water jets. Families and visitors are watching in the foreground. High-quality editorial style, clear and vibrant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJpfUUhHev4rqLz5aHEqb5j_786Dxx77AF3fYvYhdBeA3lbYtk5oEsPhF-7GemvRzcMw61Jpf9eIDo2daFKrwyLug12EU0lt-frQoToD3BSaywvtGr2_F5-01z94E0QNpVoOYKIW3QgrHL-pX0mD8qZ8rBZ4YmcuNEL_OrfRIrUalUynLy0KhsAld57I1aW-dScUMJ7I_-QHzQjYBQbOX3_SR-s0EukkW0mKQkE5ur2xAMAS3QOxcl">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase tracking-wider">Buka Sekarang</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Kiara Artha Park</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Batununggal
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A]">Rp 10.000</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            10.00-21.00
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 2: Trans Studio -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An expansive indoor theme park in Bandung, featuring a massive rollercoaster track winding through the building. The scene includes bright theatrical lighting, themed zones, and a bustling atmosphere. Premium photography style, capturing the scale and excitement of the attraction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXz6VKj7Wo6ahd5zIfb0XaPgaV3lt9G9XK9xUobklJCT9o7tRnn7Tf9ZKTa7WBFuCDb2kglijl887oIdPnUEGMH2a_0tH2olTbFVlsakHhbVN-8ZS1mCIbiaooQxLqLVTQG6ppELOUmwXq1IM59nUgXJbBLfKkWvqpcZ8b_SfIwFsW63ec8ODLRR-XNQH-SZzyophbOovD3MMcHHiff3yQsVJbmwdvPTc0en2as0giX1BQp3X3sUpB">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase tracking-wider">Buka Sekarang</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Trans Studio Bandung</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Batununggal
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A] leading-tight">Rp 200k - Rp 300k</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            10.00-21.00
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 3: Taman Lalu Lintas -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sunny day at an educational traffic park for children in Bandung. The park features miniature roads, traffic signs, and small vehicles amidst lush green trees. Families are walking around. Bright, cheerful lighting, high-resolution editorial photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHAWyMLMxf0B0Fv-fXj0pCST-q7j_lLw_T9T7VxRO3c903ZrMn4PpJ7WufMZ7gjC07Cdv1u5WbFLNitcOQyU1GFaa6Ps-h2ADODxqd7_kUaSbD9DT_Bwwo2t4q-EO-NKDvepaG_-W--RWrv7n0vU0CgquwSjOFgBIAQxhvhcYKg-qrF2w_qCsKsn7VPgm88kfnSGZh88jzGPXfQPwCycKc_vudbYFoafuvhJqquXULt9c3LCtcO64C">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-gray-400"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Tutup</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Taman Lalu Lintas</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Sumur Bandung
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A]">Rp 10.000</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            10.00-15.00
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 4: Karang Setra -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide aerial view of a classic waterpark in Bandung featuring large swimming pools, winding water slides, and recreational areas surrounded by mature trees. Bright blue water contrasting with green foliage. Clear sunny day, crisp editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDng_JZlHyx48uZBws4fTRiooxi-YVEcn0EjLjiuo22W5DSmTIlbGNAPLOLbvLt0C0bH_8wqh1Melp4szuke1uoixEmmUqBCMUErv2s4q2f1gZzUhvWf5D7R7dvV_Zs_TsyBbQlXW4DmpT8mMzMcHMXs42tPiJOS2QbGiNrkJLPwTAFprOt7lz_QD-iwOSp8yHH4ExK6W5zt3czC-itkhzNdqwlmBvdeP_G5LkCjBC0EqqQ1RyqNX84">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase tracking-wider">Buka Sekarang</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Karang Setra Waterland</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Sukajadi
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A] leading-tight">Rp 40k - Rp 45k</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            10.00-16.00
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 5: Panghegar Waterboom -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A modern waterpark facility in Bandung, showing swimming pools and colorful water playground structures. A large rock formation with a waterfall feature is visible. Clean, well-maintained area under a bright, partly cloudy sky. High quality architectural/landscape photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFM4IPnVHxq-R9BRUq8J_pL9GOQFOOnAx3Vg-HIpbJbErJzq_4HFZb8eB71_aV67e5DfuDayRC-ie9E310tt0euTgG3x30dC3Wu4zsQeUXl38lLScZPdROvXxyyT3xpYrSNcBzj5_mzd7C9K6OU89KSz3t1_UlW-hGMtfZBkODkgbyQ2cubG6bxnMO0C_roBx7i2D8SyjnYmJZftBEOtRPaLL7kRP7hT3b99m0_txfqoKMmGnJVgPh">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-gray-400"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Tutup</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Panghegar Waterboom</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Bandung Kidul
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A] leading-tight">Rp 60k - Rp 75k</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            08.00-17.00
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 6: Peta Park -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A tranquil and highly manicured urban park in Bandung, featuring a modern glass building pavilion with an A-frame roof. Landscaped gardens, a small artificial waterfall, and neat green lawns. Serene mood, natural light, premium lifestyle photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-qBxC8Ygsy-zyWuBv3K0fx6Iek0r6Zu9svqi0BKKnBSA4vU6H2tRa4D6Flkhx_GgCp_OrTEsq445TM6CFVPemTC0HExr2KpUy3lw7jF77Xiplrp2xhHrc1hzhEgvffJgDCKsIjREVB9v3FZUr6DwKtTo7z53CtnCBvmTNIl_vS4pk3UbVyV3Cs3vdCr1s8kGbSElzIlqpENe2r5UYKyyRuNB6KpEhBj7f00Bwns0W15jODxIa4Sv5">
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Peta Park</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Jl. Peta
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<span class="font-body-md text-sm text-on-surface-variant italic">Informasi detail tidak tersedia</span>
+</div>
+</div>
+</article>
+<!-- Card 7: Panama Park -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A lively indoor family entertainment center in Bandung, showing a massive indoor playground structure with slides and a snow-themed play area. Bright, playful colors, kids playing. Clear, wide-angle indoor photography capturing the scale of the facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUJ9lkfnBpaDBJtLbrJdvEHja8dbO1ENUgxnRz1sPLW8cvwUH0iEHie4Vz8K5nv-Y0QqO-Ek6nLoL68cQ_VXcAIJFU42hIAE7H6gAmqlJMyH37a52W3RxrmUKr-rbE46KcYh5s1aWe-MbUMPOuM5qIIWE4SC4BdTuy_v2pBkZKwI-1oiaRhccliqAOEOKLDOvx_rXbZUi25CUGgd0yttEjUbzqAFOfPQujIsHuahYSTt-e3O3Bt3Gg">
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Panama Park</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Bandung Kulon
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A] leading-tight">Rp 35k - Rp 95k</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 8: Margacinta Park -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A modern family recreation park building exterior in Bandung. The multi-story building features yellow and grey accents. A water play area is visible in the foreground with shallow pools. Sunny daylight, high contrast, clean architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCpG9ooprrgP8iEu_PjeCqvREVogHLcL_l5yzqAs0DTATbUajs0s615PgW2xS2Pyh70cCiF5h4yFRk8YrvLFh4wrBp6hgQV6aHFCIwux7KP56VXw8VgsKzvwI15qsQl3D_AafjrZvm6wQ2H0dXxvFYKqMiCDLtTRv5bDXrH6RtzllXeHV9qytuznL1Yud8v5jotFEi52QBLL6PB_vtIrLxOelZblLkh6L3MW9Fmx1OrTSuqXa6uREA">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-gray-400"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Tutup</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Margacinta Park</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Buahbatu
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-[#2C5C8A] leading-tight">Rp 40k - Rp 60k</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            08.00-17.00
+                        </div>
+</div>
+</div>
+</article>
+<!-- Card 9: Centrum Million Balls -->
+<article class="neo-flat-card rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="relative h-[55%] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A massive indoor ball pit installation in Bandung, filled with millions of bright orange balls. People are wading and playing in the expansive space. Industrial-style warehouse building with large windows letting in natural light. High-key, vibrant, fun editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIzrYwuCCxhIS-9VVcnHjVvXFTcX9kByU4IprL5M_IbB7cyRhBd6c1HnShcDcppNb67gi8LjKf7q6OiKHNbGEHCBmhtGOAsaQNiDLtD2nYQQv9wQR3NPhkgLJw0Eetwl48Q-eaqRSebEDV7NVLptP2bhes69d9is7G1lxNYTm0axYkS8GW6aGXeLLqO6brbTzHVwIsC96emif1PeSUhHh6Aamf2cAaXZ3nSpDoSEqBPfpsBkh5OTR5">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded border border-outline-variant flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase tracking-wider">Buka Sekarang</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-xl text-on-surface leading-tight">Centrum Million Balls</h3>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Sumur Bandung
+                        </p>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant pt-3 mt-2">
+<div class="flex flex-col">
+<span class="font-label-caps text-[11px] text-on-surface-variant uppercase">Tiket Masuk</span>
+<span class="font-body-md font-bold text-secondary bg-secondary-container/30 px-2 py-0.5 rounded inline-block mt-1">Gratis*</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm font-body-md">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                            10.00-20.00
+                        </div>
+</div>
+</div>
+</article>
+</div>
+<div class="text-center font-body-md text-on-surface-variant mb-16">9 dari 9 destinasi ditampilkan</div>
+<!-- Explore Other Categories -->
+<section class="border-t border-outline-variant pt-12">
+<h2 class="font-headline-md text-2xl mb-6">Jelajahi Kategori Lainnya</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<a class="group relative h-48 rounded-lg overflow-hidden" href="#">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A lush, dense forest landscape in the mountainous area surrounding Bandung. Tall pine trees, morning mist, and a clear blue sky. Nature tourism theme, tranquil and refreshing mood. High-quality landscape photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdyprZooMezToBVLmc5h6bywAwUuyR6eWG36I2R6vM6z2RW3vYrq8xEUcHfE_ah5oWXM1DIGYMuDAW26Kvxz9jmRYLYKJHAYTWyYpaq9_Gydh8B7EOr-J_K5RkpC61lssmPvD8XJj1JE7uvXzvEY8VcD3bohaLapUKyb9zuO7Nner1nzDxO0V8il--GWLY2lIx6XWEQ5F6NfuNNuIbRzhVkcYsnRIFo5vt_Ewsh2ccVWFPlN4gpTij">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
+<h3 class="absolute bottom-4 left-4 font-headline-md text-xl text-white">Wisata Alam</h3>
+</a>
+<a class="group relative h-48 rounded-lg overflow-hidden" href="#">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A historic city park in central Bandung featuring heritage architecture, large shady trees, and pathways. People walking leisurely. Urban green space theme, cultural and relaxed mood. Professional architectural and landscape photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5ZWysDWtWmgUbAqtTVM6BvAOTblr9NMRSslU0_ZYMdQGdFzAQ_Y4xo0GOaCmghYteqde0mLZi5vRth_B_8or7SRJESilvRRBAtUr58lNRVe4ESZ1zO3EzMC9cUfkbL1xHjinf2sZQg8jPYQ46IDEn82MdWjlT6Fe1O0C1m_pF_lslZ_m0Kzq-Rq9vHB0Q6RgWv6N0-tIW7jClbWjFLRzT1Hjehq8uO_yivTZmojl5CYoeQ3eP8ZjC">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
+<h3 class="absolute bottom-4 left-4 font-headline-md text-xl text-white">Wisata Taman Kota</h3>
+</a>
+<a class="group relative h-48 rounded-lg overflow-hidden" href="#">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A vibrant, modern public space in Bandung bustling with creative youth. Art installations, open seating areas, and a lively urban atmosphere. Modern city lifestyle theme, energetic and contemporary mood. Street photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9i3nLyEkp5j1EtCoBUKsS9hZFfrdFetjdGECvdClps2CpMgMhLDAt3KAVEr_c8W50MBpSTbUcm58HR-Sk9X1CKlu2L6AgW0ds9fZVIZZjur_zvexZ83Q2Tuqc84zHe1cTmgIyVnX2ugR7F-UqUiKZt2azh7RyqV4iRYSZ6DR7Yruno3E_GguN5GPPQpjEYL0FORJCt2ztrK4EUb-0YMkcPYO-6_ohQh_sVcK4zmwzmd3hMBvBnb-I">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
+<h3 class="absolute bottom-4 left-4 font-headline-md text-xl text-white">Public Space Area</h3>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-container-high border-t border-outline-variant full-width bottom mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full py-12 px-margin-desktop max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-8 md:gap-0">
+<div class="font-headline-md text-headline-md text-on-surface text-center md:text-left">
+                Bandung Creative City
+            </div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 Transition-all duration-300 ease-in-out" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 Transition-all duration-300 ease-in-out" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 Transition-all duration-300 ease-in-out" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 Transition-all duration-300 ease-in-out" href="#">Contact Us</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 Transition-all duration-300 ease-in-out" href="#">Sitemap</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-sm text-center md:text-right">
+                © 2024 Bandung Creative City Portal. All rights reserved.
+            </div>
+</div>
+</footer>
+
+
+</body></html>

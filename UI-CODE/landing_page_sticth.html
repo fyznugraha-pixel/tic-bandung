@@ -1,0 +1,606 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title class="">Pesona Kota Bandung - Jelajahi Keindahan Kota Kembang</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=Space+Grotesk:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-lowest": "#ffffff",
+                "on-error-container": "#93000a",
+                "primary-fixed": "#ffdea2",
+                "secondary-fixed": "#b0f0ce",
+                "secondary": "#2c694e",
+                "tertiary": "#32618f",
+                "on-secondary-fixed": "#002114",
+                "on-tertiary-fixed-variant": "#134976",
+                "tertiary-fixed": "#d1e4ff",
+                "inverse-primary": "#f5be45",
+                "on-primary-fixed-variant": "#5c4200",
+                "background": "#fcf9f5",
+                "primary": "#7a5900",
+                "surface-container-low": "#f6f3f0",
+                "secondary-fixed-dim": "#95d4b3",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e5e2df",
+                "outline": "#817663",
+                "on-error": "#ffffff",
+                "surface-bright": "#fcf9f5",
+                "surface": "#fcf9f5",
+                "inverse-on-surface": "#f3f0ed",
+                "on-secondary": "#ffffff",
+                "on-tertiary-container": "#003860",
+                "on-secondary-container": "#306e53",
+                "surface-dim": "#dcdad6",
+                "error": "#ba1a1a",
+                "on-primary-container": "#483300",
+                "surface-tint": "#7a5900",
+                "tertiary-fixed-dim": "#9dcafe",
+                "primary-container": "#c9971e",
+                "surface-variant": "#e5e2df",
+                "on-tertiary": "#ffffff",
+                "outline-variant": "#d3c5af",
+                "on-surface": "#1b1c1a",
+                "on-secondary-fixed-variant": "#0d5138",
+                "on-background": "#1b1c1a",
+                "tertiary-container": "#76a2d4",
+                "secondary-container": "#adeecb",
+                "primary-fixed-dim": "#f5be45",
+                "inverse-surface": "#31302e",
+                "surface-container": "#f0edea",
+                "on-surface-variant": "#4f4635",
+                "error-container": "#ffdad6",
+                "on-primary-fixed": "#261900",
+                "surface-container-high": "#eae8e4",
+                "on-tertiary-fixed": "#001d35"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "16px",
+                "full": "9999px"
+        },
+        "spacing": {
+                "container-max": "1280px",
+                "unit": "8px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "margin-mobile": "20px"
+        },
+        "fontFamily": {
+                "label-caps": [
+                        "Space Grotesk"
+                ],
+                "display-lg": [
+                        "Space Grotesk"
+                ],
+                "headline-md": [
+                        "Space Grotesk"
+                ],
+                "headline-lg": [
+                        "Space Grotesk"
+                ],
+                "display-lg-mobile": [
+                        "Space Grotesk"
+                ],
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "label-caps": [
+                        "14px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased">
+<!-- 1. STICKY NAVBAR -->
+<nav class="bg-surface/95 dark:bg-surface-dim/95 border-b border-outline-variant dark:border-outline w-full top-0 sticky z-50 backdrop-blur-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight" href="#">Pesona Kota Bandung</a>
+<div class="hidden md:flex gap-8">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-caps text-label-caps hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors opacity-80 transition-opacity duration-200" href="#">Destinasi</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary font-label-caps text-label-caps hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">Kuliner</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary font-label-caps text-label-caps hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">Warisan</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary font-label-caps text-label-caps hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">Alam</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary font-label-caps text-label-caps hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">Kreatif</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-label-caps text-label-caps hidden md:block">ID/EN</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-label-caps text-label-caps hover:bg-primary-container/90 transition-colors rounded">Rencanakan Trip</button>
+</div>
+</div>
+</nav>
+<!-- 2. HERO -->
+<header class="relative w-full flex items-center justify-center h-[600px]">
+<img alt="Gedung Sate" class="absolute inset-0 w-full h-full object-cover z-0" src="https://lh3.googleusercontent.com/aida/AP1WRLt1EI3ut8CN_FCGo2zbQRfree_Z1bndZ9RjG1CmYa37ZjK_-8-725I_-pQefD74WCiFJ2w1bKTP7LvKaTpZ-3hCl8_MgT6JQbO06QlP9Gu7DhIQyoVNXDiK6hRXZJz2OO1FQypcAFuh2OHArr-B_m12Av_lSmYmJSAZQq2vEXWjmP5glmoBKuQOt8KX_h7-I-UfBqL0DA4QfeIldgkuYO4xdjMALb4SiVuHVYbF-5tIGUf_olZGFjX6oQ">
+<div class="absolute inset-0 bg-on-surface/40 z-10"></div>
+<div class="relative z-20 w-full max-w-container-max px-margin-mobile md:px-margin-desktop mx-auto text-center">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-8 max-w-4xl mx-auto drop-shadow-md">Jelajahi Pesona Kota Bandung</h1>
+<div class="max-w-2xl mx-auto bg-surface p-2 rounded flex items-center shadow-lg mb-12">
+<span class="material-symbols-outlined text-outline ml-4">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface px-4 py-3 font-body-lg text-body-lg" placeholder="Cari destinasi, kuliner, atau event..." type="text">
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded font-label-caps text-label-caps hover:bg-primary/90 hover:text-on-primary transition-colors">Cari</button>
+</div>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="bg-surface/90 backdrop-blur-sm px-4 py-2 rounded flex items-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-xl">map</span>
+<span class="font-label-caps text-label-caps text-on-surface">500+ Destinasi</span>
+</div>
+<div class="bg-surface/90 backdrop-blur-sm px-4 py-2 rounded flex items-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-xl">restaurant</span>
+<span class="font-label-caps text-label-caps text-on-surface">1.2K Kuliner</span>
+</div>
+<div class="bg-surface/90 backdrop-blur-sm px-4 py-2 rounded flex items-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-tertiary text-xl">sunny</span>
+<span class="font-label-caps text-label-caps text-on-surface">24°C Cerah</span>
+</div>
+</div>
+</div>
+</header>
+<!-- 3. QUICK ACCESS ROW -->
+<section class="w-full py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-30 bg-surface -mt-20">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<a class="group relative h-32 md:h-40 rounded-xl overflow-hidden block" href="#">
+<img alt="Destinasi" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLt1EI3ut8CN_FCGo2zbQRfree_Z1bndZ9RjG1CmYa37ZjK_-8-725I_-pQefD74WCiFJ2w1bKTP7LvKaTpZ-3hCl8_MgT6JQbO06QlP9Gu7DhIQyoVNXDiK6hRXZJz2OO1FQypcAFuh2OHArr-B_m12Av_lSmYmJSAZQq2vEXWjmP5glmoBKuQOt8KX_h7-I-UfBqL0DA4QfeIldgkuYO4xdjMALb4SiVuHVYbF-5tIGUf_olZGFjX6oQ">
+<div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-on-primary text-3xl mb-2">landscape</span>
+<span class="font-label-caps text-label-caps text-on-primary">Destinasi</span>
+</div>
+</a>
+<a class="group relative h-32 md:h-40 rounded-xl overflow-hidden block" href="#">
+<img alt="Kuliner" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvQVYTPEkBVVOjNPvgJhEdbPl-LqdtKgpSk0sJqgQSDUDMPlnmTjIUpICkESjsfc3dQQ6cyxHQ7OhXG6Pccn7t4fHJuZmLVMW3-Q7GeGKQdw7H9WEu26frq2mDs5zbgxAvRN_M0-PFOIyViVGApdJKgnLj4gpic-bWzBpsYIxPakMA2_yjErkoW2eS6ah4UAReT9fwJZ6mKYYJKjilAe8HijvXv7wkT4ln6iYFZH1s3c1ilwOdYAiRDRdo">
+<div class="absolute inset-0 bg-secondary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-on-primary text-3xl mb-2">restaurant</span>
+<span class="font-label-caps text-label-caps text-on-primary">Kuliner</span>
+</div>
+</a>
+<a class="group relative h-32 md:h-40 rounded-xl overflow-hidden block" href="#">
+<img alt="Event" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLt_NWhO4O8eDMONF-twKtXqec6u3HeInkhy15k26X8pd-_TVN_uro3z2W50IrWp_W2MPpn_qgqGiXZ8bIW4WNcKqDP9tohu8TJoZ6YJV3_2OobZqONEgJCWZ_1EfI0jHj91CMOwr1378joAuet6KepppqkJizWA8IwB1Ai_XMjqeSP9Jz32dfT-zcF2jB3IoIJ9w9d5hdLhXuysaYZwPizbcD4JVd5V9OWlOx5L7va9JdBplr6YvMzAcq0">
+<div class="absolute inset-0 bg-tertiary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-on-primary text-3xl mb-2">event</span>
+<span class="font-label-caps text-label-caps text-on-primary">Event</span>
+</div>
+</a>
+<a class="group relative h-32 md:h-40 rounded-xl overflow-hidden block" href="#">
+<img alt="Peta Interaktif" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLs9V-ee8gfa9fneQI0oSRsaYFY1YPZt-PceB-rujo-QmEFFo4Dviatn1g_w5B9bQ4T1lTwhaBLUjqtO6i847R8dx8h4mhdtfd1tTIzV2Hg4ZQDhmmsHbN1KY_-N4_i4qmBvwkaAdq6JYYqjfG-RkyJSnZGE2hXjApODRMuSx1D0Y1Z9tdRQbMnp6rP4-KgMsXaiKylZzX4t7pLeN2g8LBahgxi9qmvygiTIGImsN4uEPX0Hk3lE1g5BRTw">
+<div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-on-primary text-3xl mb-2">map</span>
+<span class="font-label-caps text-label-caps text-on-primary">Peta Interaktif</span>
+</div>
+</a>
+<a class="group relative h-32 md:h-40 rounded-xl overflow-hidden block" href="#">
+<img alt="Trip Planner" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvwDi4GY0zgq51SZFzdp5fTH59HVZMR3VY-P7VEj7Mj_a-zX-zAORfzGznB6KIrZSaTwQuLy5E8ecfhYINM42yYHYzSh0USI8ID0NfXlLvs1G34jR1Za3iKn69ygEMrp_TtrDQ_OdqmbWSX8MUNGk40aCIU48mq0PsSYxA7fAnBzqF-LMCiVrgUgyINwy2DaX2x30Yt0McXwxr8nfsI2xQDJMpOm6N__vGfkspqmM3ife1dLiCKU0EPS5I">
+<div class="absolute inset-0 bg-secondary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-on-primary text-3xl mb-2">calendar_month</span>
+<span class="font-label-caps text-label-caps text-on-primary">Trip Planner</span>
+</div>
+</a>
+<a class="group relative h-32 md:h-40 rounded-xl overflow-hidden block" href="#">
+<img alt="Transportasi" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLtaVrVORNlaMx-IsBKlw6VYtMSUrpcpSVTzpUtRvt2zUWPTMMzKyZumXLb7-6m63qerhgjDvygIQDgWilai0GxfirW2NghnRNVm_HBTp4kwWbuHrltM46tL3ev6L9IAHBGvcH8wkLvESav60PqdvofzY4BgrGyk4C9vbKotYYJ0G-4PzP_VU_lkchPNBDc5EkWNvP73uHWqUsEHwfYjtS4Iql2PYAHJWaWvUpybKqp1hbae7itaXdBMuA">
+<div class="absolute inset-0 bg-tertiary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-on-primary text-3xl mb-2">directions_car</span>
+<span class="font-label-caps text-label-caps text-on-primary">Transportasi</span>
+</div>
+</a>
+</div>
+</section>
+<!-- 4. "KENAPA BANDUNG" STAT STRIP -->
+<section class="w-full relative py-40 overflow-hidden"><div class="absolute inset-0 z-0">
+<img alt="Background" class="w-full h-full object-cover blur-sm" src="https://lh3.googleusercontent.com/aida/AP1WRLt1EI3ut8CN_FCGo2zbQRfree_Z1bndZ9RjG1CmYa37ZjK_-8-725I_-pQefD74WCiFJ2w1bKTP7LvKaTpZ-3hCl8_MgT6JQbO06QlP9Gu7DhIQyoVNXDiK6hRXZJz2OO1FQypcAFuh2OHArr-B_m12Av_lSmYmJSAZQq2vEXWjmP5glmoBKuQOt8KX_h7-I-UfBqL0DA4QfeIldgkuYO4xdjMALb4SiVuHVYbF-5tIGUf_olZGFjX6oQ">
+</div>
+<div class="relative z-10 w-full max-w-container-max px-margin-mobile md:px-margin-desktop mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-white text-center mb-12 drop-shadow-md">Kenapa Kota Bandung?</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+<div class="backdrop-blur-md p-6 rounded-xl shadow-sm text-center border border-outline-variant bg-surface/40">
+<span class="font-display-lg text-display-lg text-on-primary block mb-2" style="color: rgb(255, 215, 0);">500+</span>
+<span class="font-label-caps text-label-caps text-white">Destinasi Wisata</span>
+</div>
+<div class="backdrop-blur-md p-6 rounded-xl shadow-sm text-center border border-outline-variant bg-surface/40">
+<span class="font-display-lg text-display-lg text-on-primary block mb-2" style="color: rgb(0, 255, 127);">20°C</span>
+<span class="font-label-caps text-label-caps text-white">Suhu Rata-rata</span>
+</div>
+<div class="backdrop-blur-md p-6 rounded-xl shadow-sm text-center border border-outline-variant bg-surface/40">
+<span class="font-display-lg text-display-lg text-on-primary block mb-2" style="color: rgb(0, 191, 255);">1.2K</span>
+<span class="font-label-caps text-label-caps text-white">Spot Kuliner</span>
+</div>
+<div class="backdrop-blur-md p-6 rounded-xl shadow-sm text-center border border-outline-variant bg-surface/40">
+<span class="font-display-lg text-display-lg text-on-primary block mb-2" style="color: rgb(255, 165, 0);">#1</span>
+<span class="font-label-caps text-label-caps text-white">Kota Kreatif UNESCO</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. EVENT TERDEKAT -->
+<!-- 6. DESTINASI POPULER -->
+<section class="w-full pb-20 pt-16">
+<div class="max-w-container-max px-margin-mobile md:px-margin-desktop mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-12">Destinasi Populer</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[800px] md:h-[600px]">
+<a class="group relative rounded-xl overflow-hidden md:col-span-2 md:row-span-2 block" href="#">
+<img alt="Gedung Sate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLt1EI3ut8CN_FCGo2zbQRfree_Z1bndZ9RjG1CmYa37ZjK_-8-725I_-pQefD74WCiFJ2w1bKTP7LvKaTpZ-3hCl8_MgT6JQbO06QlP9Gu7DhIQyoVNXDiK6hRXZJz2OO1FQypcAFuh2OHArr-B_m12Av_lSmYmJSAZQq2vEXWjmP5glmoBKuQOt8KX_h7-I-UfBqL0DA4QfeIldgkuYO4xdjMALb4SiVuHVYbF-5tIGUf_olZGFjX6oQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-2 block">Ikon Kota</span>
+<h3 class="font-headline-md text-headline-md text-white">Gedung Sate</h3>
+</div>
+</a>
+<a class="group relative rounded-xl overflow-hidden md:col-span-2 md:row-span-1 block" href="#">
+<img alt="Alun-Alun Bandung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLtf9QZTE7bF4kz0MnZRDLojbplX94uzgHyZnJUd0V0wo-oH7l4VKaL2G84aaUh8YTEK-Zjuxu2fjCPVlEBaAlYm7jUZW0aNxOHOlVz4LVDyeefUUKR-pmBDDJ3axJpzys5jww2NNzYBPRsRNKopElpj4LWIKuiq8eqjzmmzOynjIlORp7oBz43QDwtnJrf7McrvJUCLqje82algAQqYq2PYyJZxv4Ky1PgTl8SvmYQqB-V7bTu_oqmsuC8">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-secondary-fixed mb-2 block">Alam</span>
+<h3 class="font-headline-md text-[24px] text-white">Alun-Alun Bandung</h3>
+</div>
+</a>
+<a class="group relative rounded-xl overflow-hidden md:col-span-1 md:row-span-1 block" href="#">
+<img alt="Jalan Braga" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuMk6tFbGCeiRYDnoQswXkAnSUsOKsVlSYRlwQHByQFEVxRjJAFiqHo_CkVliT9_o6d640lJ8-Rd6AJqjuBDz2xyKHFoJ5OtIR_63Le-MqpMbsUzYAn2jUvd80AdMoyJv1PGmkIoOQyqySYRmIXs0j3pF5rxdJtkRi48i2ilbU3vFEm7AlEiDcG6BocLNa0zVE82fPaHJZhr4kwZNB1gglfK-tNeGwBlKWa08qzT9u1HMLTB4UAa4Y9xDY">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-tertiary-fixed mb-2 block">Warisan</span>
+<h3 class="font-headline-md text-[20px] text-white">Jalan Braga</h3>
+</div>
+</a>
+<a class="group relative rounded-xl overflow-hidden md:col-span-1 md:row-span-1 block bg-primary-container flex flex-col justify-center items-center text-center p-6 hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-primary-container text-4xl mb-4">explore</span>
+<h3 class="font-headline-md text-[20px] text-on-primary-container mb-2">Lihat 50+ Destinasi Lainnya</h3>
+<span class="font-label-caps text-label-caps text-on-primary-container opacity-80">Eksplor Sekarang</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 7. KULINER PILIHAN -->
+<section class="w-full py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Kuliner Pilihan</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Cicipi ragam rasa autentik</p>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scroll pb-8 snap-x">
+<!-- Item 1 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-64 md:h-80 rounded-xl overflow-hidden mb-4">
+<img alt="Batagor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvQVYTPEkBVVOjNPvgJhEdbPl-LqdtKgpSk0sJqgQSDUDMPlnmTjIUpICkESjsfc3dQQ6cyxHQ7OhXG6Pccn7t4fHJuZmLVMW3-Q7GeGKQdw7H9WEu26frq2mDs5zbgxAvRN_M0-PFOIyViVGApdJKgnLj4gpic-bWzBpsYIxPakMA2_yjErkoW2eS6ah4UAReT9fwJZ6mKYYJKjilAe8HijvXv7wkT4ln6iYFZH1s3c1ilwOdYAiRDRdo">
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.8</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-1">Batagor &amp; Siomay Asli</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Jajanan legendaris dengan saus kacang gurih</p>
+</div>
+<!-- Item 2 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-64 md:h-80 rounded-xl overflow-hidden mb-4">
+<img alt="Mie Kocok" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvWIcQ-_y7XpmnUF81EGkizCMgqsJX6Xou-X_fbS3_-0vG9EX40MMkamZLGJme6s61NlplDdXU2UUvnzVJjUpVOTkyO6e3_wH7oHhePXXWYqqQ5FgOTpZ3pJ_2v6b4ENvDNL6-Ou8d92w2_efCAy8Mr6btu_XLwVA_AdB4qQSW6qo6vSoJv2Ig5y7L0M6HOtBhtaOZT_ClLyU2ElfkFkHNtPq46ctWpTewCqMD-UfK9VA2BDo73VM5E800">
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.7</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-1">Mie Kocok Spesial</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Kuah sapi kental dengan kikil empuk</p>
+</div>
+<!-- Item 3 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-64 md:h-80 rounded-xl overflow-hidden mb-4">
+<img alt="Serabi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvNt0sKJTP8ollZKmh7JYeRJ7OP0_X8kKbnK9G1EUUmKeCkIyeBNdJGxZ35cTZVUTMN1IhyBfbiHsvhY6kyiI8q3SwtzV45Jj5Arc2Iiti_ChBPJttwLpVMyVyUOMKpwhrcgaQW-SK5B7fNkXqOqE5inCJvMF-pyc52YyQ41suWjLv3wQW8BzaRaAZOMR7by_IeZ_POCKyzTy7oVPm2YAuBfPiQZGJeN5K36PFULHr_zCR3Ds6MF915lA">
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-1">Surabi Aneka Rasa</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pancake tradisional dengan topping modern</p>
+</div>
+<!-- Item 4 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-64 md:h-80 rounded-xl overflow-hidden mb-4">
+<img alt="Kopi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvc4NlPYqU9tPCJwFEhVf4aR8siCgSQvBkIHGMCHq1Z1MFD7DKt3SmO4GtNFD2HtioqYVYMdwRvL4YUftVtCL7tf8ArasziXfLk3W_PHLy86-Vnva5sMT0E6gBFTRzW21-m7vZIL1ps7p_2mEOQKIGdJgCinpiwsWB86LAgFJsrNiEGHNm3F27B6kr92yz1Li1O2x2NYGwhQPb6FYmvqk2gbeZwt9BFieOxWq0DQw76nFoRVZ_qMePmJrQ">
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.8</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-1">Kopi Lokal Jawa Barat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Kopi aromatik dari pegunungan priangan</p>
+</div>
+</div>
+</section>
+<!-- 8. GALERI BANDUNG -->
+<section class="w-full py-20 bg-surface-container-high">
+<div class="max-w-container-max px-margin-mobile md:px-margin-desktop mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Galeri Bandung</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Momen indah yang tertangkap kamera</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden relative group h-80 md:h-auto">
+<img alt="Saung Angklung Udjo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuJ-x_oCzTtsOAbuJyCQLWyS-t_6S3yDCZT3Ngr3cI6QsatiUXFyaFqlT5H9X9rDW9s5IKQWRiR7aP6gaLpahbjHLOet1pBsxsVEMFS_JE0r-CfpnFjDi7UHJGSDrc34j_tV5rKtyvVIkPtsJpfosjtYd5AcXxSXWsdGADZGbf57buwLzNhXnRoVfRzoC3hB1d1PiSxqDibSRwC6IQDlyBlU21TPu3UbwjgRxCbabsIzZVV1BHZy3GpUA">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">favorite</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden relative group h-64 md:h-80">
+<img alt="Museum Geologi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLtBRPV0mNAHc6EIMD9m3L8HvS6WhGLn4TD8fuXweB0hXeYqyuJEMkvX9frC8hPjGYCDhyPimyxddJcCwu_MMWKVpTxjZt8xxpvuELJlFR0KQ_NU3O6lTCTSuKCLoS7SpzJkmjQZ6P-d2KzEez4-jiXQFo2qGYIQz5hNSTciH_nSMdhJCT5H8imEcxIot09YgTzLYGq5kO08EvHj5Lj3INfG-E63BGQUAwiZgpdjQacbFf2XCj4z0lvRcg">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">favorite</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden relative group h-64 md:h-80">
+<img alt="Wayang Golek" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLsywtPAGKvhlIqInxBwFf2fMdoU5Ozp-SFbc-imAPJcXbQQeJ5uqO28Il50ZiNN0znMLuTNSD_Wf9vws8pV46-IUzUJolLsEUdXfY7cda9MPR5Hb5vPnQffKkvvMHzWCvQH4p2eUJzjy1GdnCILmqrG3DKR9PZfYPhXxUEQxJwRSA44uMdpnWy-EU8l7hmk-4ZDsvKBzjyc3MgjPT4dW4o16ipm8fTuan-aX-F65ly-HcReFSeMn_cOXJM">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">favorite</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden relative group h-64 md:h-80">
+<img alt="Pesona Malam Asia Afrika" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuMk6tFbGCeiRYDnoQswXkAnSUsOKsVlSYRlwQHByQFEVxRjJAFiqHo_CkVliT9_o6d640lJ8-Rd6AJqjuBDz2xyKHFoJ5OtIR_63Le-MqpMbsUzYAn2jUvd80AdMoyJv1PGmkIoOQyqySYRmIXs0j3pF5rxdJtkRi48i2ilbU3vFEm7AlEiDcG6BocLNa0zVE82fPaHJZhr4kwZNB1gglfK-tNeGwBlKWa08qzT9u1HMLTB4UAa4Y9xDY">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">favorite</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden relative group h-64 md:h-80">
+<img alt="Hotel Savoy Homann" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLuqeYM8AR-rJKAUVJEp7DujxiZS52mdLOJNcIUSYu3Au9UBN1jQB84KapyZxrCBSwkqbEYXZyVdcuZWTYP-DADHLNESQ-6edEo4AgJuYc6-gY2NyhJpoK4kvE6z14mTKQ5h0stAPBQm8s3cyrDaPLF0zRv9I8nq19iBMbpwPDXPXVwm0q1_gufOT8r7c5I7OUPRGIdcfovv-DEBPLQzxvxOq3Qfx6aKQSOnFfNGPxUCNkOeruG59Hvjzjg">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">favorite</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden relative group h-64 md:h-80">
+<img alt="Persiapan Kopi Tubruk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvc4NlPYqU9tPCJwFEhVf4aR8siCgSQvBkIHGMCHq1Z1MFD7DKt3SmO4GtNFD2HtioqYVYMdwRvL4YUftVtCL7tf8ArasziXfLk3W_PHLy86-Vnva5sMT0E6gBFTRzW21-m7vZIL1ps7p_2mEOQKIGdJgCinpiwsWB86LAgFJsrNiEGHNm3F27B6kr92yz1Li1O2x2NYGwhQPb6FYmvqk2gbeZwt9BFieOxWq0DQw76nFoRVZ_qMePmJrQ">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">favorite</span>
+</div>
+</div>
+</div>
+<button class="mt-12 border-2 border-primary text-primary px-8 py-3 rounded font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-colors">Muat Lebih Banyak</button>
+</div>
+</section>
+<!-- 9. KATA WISATAWAN -->
+<section class="w-full py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-12">Kata Wisatawan</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="relative bg-surface rounded-xl p-8 border border-outline-variant flex flex-col justify-between h-full">
+<div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-8">"Suasana jalan Braga di malam hari sangat magis. Makanannya luar biasa enak dan harganya terjangkau."</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLs7w4qjENUvzZZ7-sua7zDehlxGPIuhHCyup7_-ZWGpSuouuX4Vt1A3wMGrBMrYVR1J5t6EJKfIdGPdsYnclWsID49US6SeWo7cjTgWsufoeCb2TuH3RUOiDw6XCRh_ogdePkzvMmxcYZJDg-FSEEiyKH4tp6hQiisc46DbrQqs_Q9AMYUUjAm8FKC4UTaxTZKUegXPpQFuHH9joTU-VgMTXEzt9UwIGFwuWzQXnzJQcdK0Ul0jZmZqPw4">
+</div>
+<div>
+<span class="block font-headline-md text-[18px] text-on-surface">Budi Santoso</span>
+<span class="block font-body-md text-sm text-on-surface-variant">Dari Jakarta</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="relative bg-surface rounded-xl p-8 border border-outline-variant flex flex-col justify-between h-full">
+<div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-8">"Gedung Merdeka dan Museum Asia Afrika memberikan wawasan sejarah yang luar biasa di tengah kota."</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLso187XZGmDd4MCjdlUQ17XB9a44L2leiLwrwafofBYqGv1EH5oh5ZkqF3H9KQVbNDLpBffnlvcKyCw9h7RYjcgsIDMpuhUB5ipdDXX_x4IVYpVD8A9mg4MrOn4DTQ9laXdYB9UBJyIg4jYmNQue7VeYbH7CC-iUMh5eVL894lonkgyOnYAJ6fBLT4w5yCRDFfBOqPeygrRjmAc52LItXxJm5MDQvB2iQt3ArcnqA-jcPMbCa2DkDDG8D0">
+</div>
+<div>
+<span class="block font-headline-md text-[18px] text-on-surface">Sarah Johnson</span>
+<span class="block font-body-md text-sm text-on-surface-variant">Dari Australia</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="relative bg-surface rounded-xl p-8 border border-outline-variant flex flex-col justify-between h-full">
+<div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-8">"Kuliner malamnya juara! Harus coba batagor dan mie kocok saat berkunjung ke sini."</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuRAKkXFSNkQRXYn60xom5cHUPruPNutBm02XA1dX-EIsFONbaWMFysLgh_uaPqO0fWD-uUd4SjnSFNXN99YVHyXKr9p_UFYCjpTImzoeiLYy6keD1PJYxSaTKpOIMNCeuqxrITUDIxtrbWoHt7TivYe1jxI9IcXPZcdV-x2S-yJ2yy7gJupwHn57V75b807ax7QLGevzBiS8xelZqN04YcA6ZRHdnDPaQDBkG6zW17uh4f6ubrW4_N0M4">
+</div>
+<div>
+<span class="block font-headline-md text-[18px] text-on-surface">Ahmad Ridwan</span>
+<span class="block font-body-md text-sm text-on-surface-variant">Dari Surabaya</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. JELAJAHI VIA PETA -->
+<section class="w-full relative h-[600px] flex items-center justify-center">
+<img alt="Map Background" class="absolute inset-0 w-full h-full object-cover z-0 filter blur-sm brightness-75" src="https://lh3.googleusercontent.com/aida/AP1WRLuFI6i1e6CKnatK0idKLIrYkCZ1UnC77CT3WZvry7wObckCVJQFfvIaEVgbTgzD7_K7jnagCHCCW7RacE56hZJrHJp17VduzFflxGJ3HnMG_BbQcW-esy3_5By7nSEYBNktlj-UpaVJnrNSVWhwO3b2U_ate_4D9Y1tMPDIex-gHU-qMNlqelGZ7V2tM37op5gARQxbaGTIb02NutAUJUyb4I-v4-O-xssvc0KUsLeh4QAprfdhYI_toe8">
+<div class="relative z-10 bg-surface p-10 rounded-xl shadow-xl max-w-xl text-center border border-outline-variant mx-4">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">map</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Jelajahi Lewat Peta</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Temukan rute terbaik, area parkir, dan fasilitas umum di sekitar destinasi wisata favorit Anda.</p>
+<button class="bg-primary text-on-primary px-8 py-4 rounded font-label-caps text-label-caps hover:bg-primary/90 transition-colors w-full sm:w-auto">Buka Peta Interaktif</button>
+</div>
+</section>
+<!-- 11. TRIP PLANNER BANNER -->
+<section class="w-full max-w-container-max px-margin-mobile md:px-margin-desktop mx-auto py-20">
+<div class="bg-primary-container rounded-xl overflow-hidden flex flex-col md:flex-row items-center justify-between">
+<div class="p-10 md:p-16 md:w-1/2">
+<h2 class="font-headline-lg text-headline-lg text-on-primary-container mb-4">Rencanakan Perjalanan Anda</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container/80 mb-8">Buat itinerary khusus, booking tiket, dan simpan wishlist destinasi Anda dalam satu aplikasi.</p>
+<div class="flex gap-4">
+<button class="bg-on-primary-container text-primary-container px-6 py-3 rounded font-label-caps text-label-caps hover:bg-on-primary-container/90 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">download</span> Unduh App
+                </button>
+</div>
+</div>
+<div class="md:w-1/2 relative h-[400px] w-full flex justify-center items-end bg-primary-fixed">
+<!-- Mockup representation -->
+<div class="w-64 h-[350px] bg-surface rounded-t-3xl border-8 border-surface-variant shadow-2xl relative overflow-hidden">
+<img alt="App Preview" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLt1EI3ut8CN_FCGo2zbQRfree_Z1bndZ9RjG1CmYa37ZjK_-8-725I_-pQefD74WCiFJ2w1bKTP7LvKaTpZ-3hCl8_MgT6JQbO06QlP9Gu7DhIQyoVNXDiK6hRXZJz2OO1FQypcAFuh2OHArr-B_m12Av_lSmYmJSAZQq2vEXWjmP5glmoBKuQOt8KX_h7-I-UfBqL0DA4QfeIldgkuYO4xdjMALb4SiVuHVYbF-5tIGUf_olZGFjX6oQ">
+<div class="p-4">
+<div class="h-4 bg-surface-container-highest rounded w-3/4 mb-3"></div>
+<div class="h-3 bg-surface-container-highest rounded w-1/2 mb-6"></div>
+<div class="h-10 bg-primary-container rounded w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 12. PARTNER STRIP -->
+<section class="w-full py-12 bg-surface-container-lowest border-y border-outline-variant">
+<div class="max-w-container-max px-margin-mobile md:px-margin-desktop mx-auto">
+<p class="font-label-caps text-label-caps text-on-surface-variant text-center mb-8">DIDUKUNG OLEH MITRA RESMI</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<span class="font-headline-md text-2xl font-bold">KEMENPAREKRAF</span>
+<span class="font-headline-md text-2xl font-bold">PEMKOT BANDUNG</span>
+<span class="font-headline-md text-2xl font-bold">PHRI</span>
+<span class="font-headline-md text-2xl font-bold">ASITA</span>
+<span class="font-headline-md text-2xl font-bold">GARUDA INDONESIA</span>
+</div>
+</div>
+</section>
+<!-- 13. FOOTER -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline w-full relative pt-16">
+<div class="w-full pb-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-[32px] font-bold text-on-surface dark:text-inverse-on-surface block mb-4 leading-none text-primary">Pesona Kota Bandung</span>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md mb-6">Jelajahi keindahan, budaya, dan kuliner autentik di jantung Kota Bandung.</p>
+<div class="flex gap-4 text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">Pesona Kota Bandung</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">Pesona Kota Bandung</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">Pesona Kota Bandung</span></a>
+</div>
+</div>
+<div class="col-span-1 md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-2">EKSPLOR</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Destinasi</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Kuliner</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Event &amp; Festival</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-2">LAYANAN</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Trip Planner</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Peta Interaktif</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Pusat Bantuan</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-2">INFORMASI</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Tentang Kami</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-surface font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-2">KONTAK</h4>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">Pesona Kota Bandung</span> Jl. Asia Afrika No. 1</p>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">Pesona Kota Bandung</span> info@pesonabandung.id</p>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">Pesona Kota Bandung</span> 1500-BDG</p>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant dark:border-outline py-6 text-center bg-surface-container">
+<p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md">© 2024 Pemerintah Kota Bandung - Pesona Kota Bandung Official. All Rights Reserved.</p>
+</div>
+</footer>
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wisata Alam di Kota Bandung - Pesona Bandung</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#003860",
+                        "primary-fixed-dim": "#f5be45",
+                        "surface-container": "#f0edea",
+                        "inverse-on-surface": "#f3f0ed",
+                        "tertiary": "#32618f",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "on-tertiary-fixed": "#001d35",
+                        "primary-fixed": "#ffdea2",
+                        "surface-bright": "#fcf9f5",
+                        "on-secondary-container": "#306e53",
+                        "on-surface-variant": "#4f4635",
+                        "on-secondary-fixed-variant": "#0d5138",
+                        "outline-variant": "#d3c5af",
+                        "secondary-container": "#adeecb",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d1e4ff",
+                        "primary-container": "#c9971e",
+                        "on-surface": "#1b1c1a",
+                        "surface-tint": "#7a5900",
+                        "secondary-fixed": "#b0f0ce",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#261900",
+                        "surface-dim": "#dcdad6",
+                        "surface-variant": "#e5e2df",
+                        "on-primary-container": "#483300",
+                        "error": "#ba1a1a",
+                        "on-background": "#1b1c1a",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f5be45",
+                        "surface-container-highest": "#e5e2df",
+                        "tertiary-fixed-dim": "#9dcafe",
+                        "secondary": "#2c694e",
+                        "surface-container-high": "#eae8e4",
+                        "primary": "#7a5900",
+                        "tertiary-container": "#76a2d4",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f0",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#5c4200",
+                        "on-secondary-fixed": "#002114",
+                        "outline": "#817663",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf9f5",
+                        "background": "#fcf9f5",
+                        "on-tertiary-fixed-variant": "#134976",
+                        "brand-green": "#3D7A5E"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "display-lg-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label-caps": ["14px", { lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-shadow {
+            box-shadow: 0px 4px 20px rgba(42, 42, 40, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-surface/95 dark:bg-surface-dim/95 docked full-width top-0 sticky border-b border-outline-variant dark:border-outline z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight" href="#">Pesona Bandung</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Destinasi</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Kuliner</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Warisan</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="#">Alam</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Kreatif</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors">ID/EN</button>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps py-3 px-6 rounded-full hover:bg-surface-tint hover:text-white transition-colors">Rencanakan Trip</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-24">
+<!-- Breadcrumb -->
+<div class="py-6 flex items-center gap-2 text-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Kategori Wisata</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-background font-semibold">Wisata Alam</span>
+</div>
+<!-- Hero Banner -->
+<div class="relative w-full h-[400px] rounded-2xl overflow-hidden mb-12 soft-shadow flex items-end">
+<img alt="Hero Wisata Alam" class="absolute inset-0 w-full h-full object-cover" data-alt="A sweeping, lush wide-angle shot of a hidden tropical waterfall in a dense green forest, vibrant natural light filtering through the canopy, establishing a serene, organic, and highly detailed high-end photography aesthetic for a tourism website." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByloJwbMJpEF2uMfVKi1_7Df1ObGl_6XkWFWVDPqeqday-1YPXq1wmwpqaUvzCR6hXzUnoJyyIexlSmiIWFEHf1bMFacHhSvrWf80W6oY7JFWm5GMzPL0pNocL2zNgLVisUOrlMl_UrWGWdwEyou6DwvEMIufkLbLhSbCB1ZMRxsh0UIP4Qydpkvu3yMFRioiaJ1e16XSRK6PNAaoWEFzKD_Bf4aEdEH64PGYRyvYRvdd9VyfC9OIV">
+<div class="absolute inset-0 bg-brand-green/40 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="relative z-10 p-8 md:p-12 w-full">
+<div class="inline-block bg-white/20 backdrop-blur-sm border border-white/30 text-white font-label-caps text-label-caps py-1.5 px-4 rounded-full mb-4">6 Destinasi</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-white mb-2">Wisata Alam di Kota Bandung</h1>
+<p class="font-body-lg text-white/90 max-w-2xl">6 destinasi alam tersembunyi, dari air terjun hingga agrowisata petik buah</p>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10 pb-6 border-b border-outline-variant">
+<div class="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-full text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all placeholder:text-on-surface-variant" placeholder="Cari destinasi alam..." type="text">
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant rounded-full py-3 pl-6 pr-12 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all">
+<option>Terdekat</option>
+<option>A-Z</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3 w-full lg:w-auto flex-1 lg:justify-center">
+<button class="bg-brand-green text-white font-label-caps text-label-caps py-2 px-5 rounded-full shadow-sm">Cidadap</button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:border-primary-container hover:text-primary-container font-label-caps text-label-caps py-2 px-5 rounded-full transition-colors shadow-sm">Coblong</button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:border-primary-container hover:text-primary-container font-label-caps text-label-caps py-2 px-5 rounded-full transition-colors shadow-sm">Sukasari</button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:border-primary-container hover:text-primary-container font-label-caps text-label-caps py-2 px-5 rounded-full transition-colors shadow-sm">Ujung Berung</button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:border-primary-container hover:text-primary-container font-label-caps text-label-caps py-2 px-5 rounded-full transition-colors shadow-sm hidden md:block">Panyileukan</button>
+</div>
+<div class="flex items-center gap-2 border border-outline-variant rounded-full p-1 bg-surface-container-lowest shadow-sm">
+<button class="p-2 bg-surface-variant rounded-full text-on-surface flex items-center justify-center"><span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span></button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface rounded-full flex items-center justify-center transition-colors"><span class="material-symbols-outlined">map</span></button>
+</div>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-16">
+<!-- Card 1 -->
+<a class="group bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden soft-shadow flex flex-col h-[500px] transition-transform hover:-translate-y-1 duration-300" href="#">
+<div class="relative h-[70%] overflow-hidden">
+<img alt="Curug Dago" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A breathtaking view of Curug Dago waterfall surrounded by lush green foliage and rocky cliffs in Bandung, cinematic natural lighting, sharp and detailed high-resolution travel photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6uzRSFth5_Gsl4Zq6-ssPvYxrXxI9BgbE33zrty3ltrDNcunsMMkiqc2tpj2wA9YXawfJAG7joSNKR6YAVQrdON4tN2GoO2BQr1VAObwBTGFeTEcLbALFVlEZwpNo6VOTwmfXVW4yBTJ1AOTIb3dU_DXg3HyNYWy5B4cc8uo24wjM7-MfEIDClpzHNwSRR6KfQCenMhEITF7xCR7FodCCCmIiUqhF_kXywERuqu2e36CswNv7rYQP">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-on-surface font-label-caps text-[12px] py-1 px-3 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Coblong
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-center bg-white">
+<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-brand-green transition-colors">Curug Dago</h3>
+<p class="text-on-surface-variant line-clamp-3">Air terjun tersembunyi di kawasan Bukit Dago, di dalam Taman Hutan Raya Jalan Ir. H. Djuanda.</p>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="group bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden soft-shadow flex flex-col h-[500px] transition-transform hover:-translate-y-1 duration-300" href="#">
+<div class="relative h-[70%] overflow-hidden">
+<img alt="Gedong Tjai" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A historic white colonial water facility building known as Gedong Tjai in Bandung, surrounded by mature trees, clear bright day, architectural photography style highlighting heritage and nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi-RSxcubQOeuBLRHZ4kMR3vhwMny0WE1W8nhZWiBDi5MnF5RoZDiOosRvBNIy-eS8-3SlAsy6NW4Fg2ZJWLpJVhL7qcpLbnlAjMuMdCKq9APdj19o9zuu9DCserICDDd5-XR0vqCbkkFQmU6gTyW9wC3El8DwTMg5UgpW7Hi3nHaxz6s2aClUHZPFj2V2U8b_oXbjMwEWcZOjmxEyUQAVRbn7EKwJSHpituXnKy_i_IJ1kdy9F8gp">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-on-surface font-label-caps text-[12px] py-1 px-3 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Cidadap
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-center bg-white">
+<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-brand-green transition-colors">Gedong Tjai</h3>
+<p class="text-on-surface-variant line-clamp-3">Bangunan sumber air Kota Bandung sejak 1921, saksi sejarah penyediaan air bersih kolonial.</p>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="group bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden soft-shadow flex flex-col h-[500px] transition-transform hover:-translate-y-1 duration-300" href="#">
+<div class="relative h-[70%] overflow-hidden">
+<img alt="Kampung Tjibarani" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene view of an eco-tourism village along a clear irrigation canal, surrounded by organic gardens and rustic bamboo structures in Bandung, showcasing sustainable community tourism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVeOZFt4AcMKQ9S31TwnX0d4OqHEB351520g6pxr80nS9PpAxgc6GwMEBXCHseZbFIEiQv7Gu03oWagq44yivVzfbaXPmJMU86bPXDvy-MtYQpioz3u0Qdenu7KHw5LJ5-yffTW9Xcqcv-brUU28xa9Yq4xjwGs0cquDdIqhV_KdINI4AVXea93mokn674nzFvxTiWyNttmoK4j7rd4zDTirM0KqgwiTV7wzZfc_YwxQMbO0SxjkF5">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-on-surface font-label-caps text-[12px] py-1 px-3 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Cidadap
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-center bg-white">
+<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-brand-green transition-colors">Kampung Tjibarani</h3>
+<p class="text-on-surface-variant line-clamp-3">Kampung eco-tourism kreatif di sepanjang Kanal Irigasi Cibarani, dengan kebun organik dan budidaya ikan.</p>
+</div>
+</a>
+<!-- Card 4 -->
+<a class="group bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden soft-shadow flex flex-col h-[500px] transition-transform hover:-translate-y-1 duration-300" href="#">
+<div class="relative h-[70%] overflow-hidden">
+<img alt="Sein Farm Sekemala" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high vantage point looking over an educational farm integrated with nature, featuring neatly planted vegetable beds and rustic farm buildings overlooking the city of Bandung in the distance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1Lgo1RNiUEbHfzX3XRS_qXHEq0aE6Ai0FEnzyh8WZBD5E_L-hYX5prb3HP_2qExL7fkV9hXEej68gdkXqq1VCo2ZP0xFh_2V1tw3X41YWrvlvb_w9BmIL3pRL4hW_XYuZtZXI8hVQH6JieM-yvbD2hWFR07lloZW4jdMz09M1jzsoe9R-P93YAz74Fhu6eIJzjVdW56VPib-qYeQ3fxQ0ZnFibYVPGyxN5A5KyBOSbfMDuTM1DMl6">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-on-surface font-label-caps text-[12px] py-1 px-3 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Ujung Berung
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-center bg-white">
+<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-brand-green transition-colors">Sein Farm Sekemala</h3>
+<p class="text-on-surface-variant line-clamp-3">Wisata edukasi pertanian dan peternakan sambil menikmati keindahan alam Kota Bandung dari ketinggian.</p>
+</div>
+</a>
+<!-- Card 5 -->
+<a class="group bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden soft-shadow flex flex-col h-[500px] transition-transform hover:-translate-y-1 duration-300" href="#">
+<div class="relative h-[70%] overflow-hidden">
+<img alt="Mupu Jeruk" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sunny citrus orchard filled with bright orange dekopon oranges ready for picking, visitors enjoying the agricultural tourism experience amidst rows of healthy fruit trees." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDklQOZY5zBGYMI5QCdPTaK86hN8BFL_Tu8EB03wx_2pI_F22umyN_F2DuPvgZnM95bt2Qk_gRCbQvuWePdxxSHyRNN32glIZlIk8yIELh1TpmAszP20lhgglyaw8qXV_TCPLByOQLtLqklbzD_mchoXE1aO5Qdn5uXw1wTnbG4LurwrA8DyFNUe1zZaXEQQq3-ykUTgwGOX3HClJb5ItB5i3c3yo1uiay9EyJc-lhh6KTOUVtzweYb">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-on-surface font-label-caps text-[12px] py-1 px-3 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Sukasari
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-center bg-white">
+<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-brand-green transition-colors">Mupu Jeruk</h3>
+<p class="text-on-surface-variant line-clamp-3">Agrowisata petik jeruk dekopon di lahan 3 hektar dengan lebih dari 1.000 pohon.</p>
+</div>
+</a>
+<!-- Card 6 -->
+<a class="group bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden soft-shadow flex flex-col h-[500px] transition-transform hover:-translate-y-1 duration-300" href="#">
+<div class="relative h-[70%] overflow-hidden">
+<img alt="Wisata Petik Anggur" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A lush vineyard with heavy clusters of green and purple grapes hanging from vines, dappled sunlight filtering through the large grape leaves, agricultural tourism setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJxTaKlwG3ajNR8PlTFyCPU2Vyvfefihd7zgdF2NB8a1OymFabGhoj5PG0kxPiyca1r59H-SCskyRr0ESu7w4behRqeiEDBpt9S6roAkbVuoOty_E4PEzilulmaK2gBbmRajjK2yTtN7Ha-3g3AUgZ9IRZAjnfXZ92GN3Tka0FCl5_f03PzFgvQdOGTG8aPzCt2nW4yOpEKMfBNIi3rnceFDr6LindRt7IKKaf0FuT-HPj9kmBpzUA">
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-on-surface font-label-caps text-[12px] py-1 px-3 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Panyileukan
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-center bg-white">
+<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-brand-green transition-colors">Wisata Petik Anggur</h3>
+<p class="text-on-surface-variant line-clamp-3">Agrowisata anggur dengan sekitar 70 jenis anggur, dari pembibitan hingga petik langsung.</p>
+</div>
+</a>
+</div>
+<div class="text-center text-on-surface-variant mb-16">
+<p class="">6 dari 6 ditampilkan</p>
+</div>
+<!-- Cross-links -->
+<div class="mb-12">
+<h4 class="font-headline-md text-xl mb-6">Jelajahi Kategori Lain</h4>
+<div class="flex flex-wrap gap-4"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+    <!-- Taman Kota Card -->
+    <a href="#" class="relative h-48 rounded-xl overflow-hidden group cursor-pointer border border-outline-variant soft-shadow">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBL_TtZ7BIx76Oi4tT5hgK9tNo0MC1u11Pmu1iQUDL0TIy5yuspc3Y5gbS0YQjp8oyD1VP2H0J5SyaQ1F8SjtZnNYCFRpM6YgY25R3EFOOnioDoLqFLDsJCsgC_2FcFFiLAwIvhuVbNxkS1ZZKcSWCZlTe0BnOkBlcMXy5bGixeUHCRe2SFl8UzkFSNr6Vp7gB5EMjjtqwQ8qLsB0fiQDnBbEv6p-Cha7YEopttufdnNtggz5PmBIV7')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#3D7A5E]/90 via-[#3D7A5E]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+        <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <h3 class="font-headline-md text-white font-bold leading-tight text-lg">Taman Kota</h3>
+        </div>
+    </a>
+    <!-- Kampung Kreatif Card -->
+    <a href="#" class="relative h-48 rounded-xl overflow-hidden group cursor-pointer border border-outline-variant soft-shadow">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFB_HVyzXFMIU5cY7K-YHTq3Dvy1KkvLze8qbLYhMbv8HGV4DxdgLR6t-PB5azVfZcIb2Cx9OUCKKg4oDWAgwbsbMV1rPQ-xV_wVdbfZsUMunGqkrbDBoGw-YMhWbvTUlbMieWgQ5jKJ0nQTDc2Cb7JmXIxCNGqlnVszyL48EhHd9YnDKFPVJ6B4YP9GsUF5WoTrg6MgiVjvnBDmu1faMoYlM3KfWtd3JAyVFf66S_L4NI2NFCnRPs')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#3D7A5E]/90 via-[#3D7A5E]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+        <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <h3 class="font-headline-md text-white font-bold leading-tight text-lg">Kampung Kreatif</h3>
+        </div>
+    </a>
+    <!-- Museum Card -->
+    <a href="#" class="relative h-48 rounded-xl overflow-hidden group cursor-pointer border border-outline-variant soft-shadow">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuVYrcRLmVlAHeVVb47lRdQX2h47Vj36EVp9cEHQHRjxL5BktPLEBRwbfnMcr4N1tYv6KYMRVVoIwFZagge1fOWiTpA7EyF_pg8eaL9iJzfeuTvk9YauGjhBzLDBYoJtAm7PtPxceNvgW71-2y1AxyAYoO9cm4-NtRjR7dEG0QZcswcsLTCI3iB8N2M3LAX77llUguotr3hWIZpnunPwY4QnX_t4gszYQAtm0RyyzJ4aCICcDT0IG-')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#C9971E]/90 via-[#C9971E]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+        <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <h3 class="font-headline-md text-white font-bold leading-tight text-lg">Museum</h3>
+        </div>
+    </a>
+    <!-- Wisata Art Space Card -->
+    <a href="#" class="relative h-48 rounded-xl overflow-hidden group cursor-pointer border border-outline-variant soft-shadow">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMwpDoDecN6eNE--RbvpS1FNlgUqplcQeddq2QnXScCd0XlM5OG3Ow7Ue9GEQ_kNiZrEXkUVHoECuzF_WQbnyjSr3bkCRC1D5umcp2aXH1uBVQZLy2y5Vv-fZvxTwlLDVDFy-io-4WW4ulNGBvdxntdTOrRgSjetTMpp3mHkGx1wGWsDaa_sWI3jm2RA9HbBvhV-gSYsqwQR10D21JEd3wU9QIwe0KcCqbi0CCBSGqC00rQZ7I0Bsk')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#2C7A7A]/90 via-[#2C7A7A]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+        <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <h3 class="font-headline-md text-white font-bold leading-tight text-lg">Art Space</h3>
+        </div>
+    </a>
+</div></div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full py-12 px-margin-mobile md:px-margin-desktop border-t border-outline-variant dark:border-outline">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface mb-6">Pesona Bandung</div>
+<p class="text-sm text-on-surface-variant dark:text-surface-variant">© 2024 Pesona Bandung Official Tourism. All Rights Reserved.</p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Tentang Kami</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Pusat Bantuan</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Kebijakan Privasi</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Kontak Kami</a>
+</div>
+<div>
+<!-- Spacer for grid alignment -->
+</div>
+</div>
+</footer>
+
+
+
+
+</body></html>
