@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -21,6 +21,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  // Reset scroll state on navigation to prevent navbar jump/flicker
+  useEffect(() => {
+    setScrolled(window.scrollY > 20);
+  }, [pathname]);
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -34,8 +39,8 @@ export default function Navbar() {
     <nav 
       className={`sticky top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'glass py-2' 
-          : 'bg-white/80 backdrop-blur-sm py-4 border-b border-slate-100/50'
+          ? 'bg-white/90 backdrop-blur-md py-3 border-b border-slate-200 shadow-sm' 
+          : 'bg-transparent py-3 border-b border-transparent'
       }`}
     >
       <div className="flex justify-between items-center w-full px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto">
@@ -128,5 +133,8 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+
 
 
