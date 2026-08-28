@@ -1,9 +1,9 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, MapPin, Image as ImageIcon, FileText, Settings, LogOut, Home, Camera, Plus, Calendar, Activity, Shield, User, FolderTree, Inbox } from 'lucide-react';
+import { LayoutDashboard, MapPin, BookOpen, Image as ImageIcon, FileText, Settings, LogOut, Home, Camera, Plus, Calendar, Activity, Shield, User, FolderTree, Inbox } from 'lucide-react';
 import { signoutAction } from '@/app/actions/auth';
 
 export default function AdminLayoutWrapper({
@@ -82,6 +82,10 @@ export default function AdminLayoutWrapper({
 
         <nav className="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-1 sidebar-scrollbar">
           <div className="text-[11px] font-bold text-[#C9971E] uppercase tracking-widest mb-2 px-4">Menu Utama</div>
+          <Link href="/admin/panduan" className={navLinkClass('/admin/panduan')}>
+              <BookOpen className="w-5 h-5" />
+              <span className="font-medium text-sm">Panduan CMS</span>
+            </Link>
           <Link href="/admin/dashboard" className={navLinkClass('/admin/dashboard')}>
             <LayoutDashboard className="w-5 h-5" />
             <span className="font-medium text-sm">Dashboard Utama</span>
@@ -179,4 +183,5 @@ export default function AdminLayoutWrapper({
     </div>
   );
 }
+
 

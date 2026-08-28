@@ -1,7 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { getAdminLogs } from '@/app/actions/log';
 import { Clock, User, Activity, FileText } from 'lucide-react';
-import { formatDistanceToNow } from 'date-fns';
+import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 
 export default async function AdminLogsPage() {
@@ -77,7 +77,7 @@ export default async function AdminLogsPage() {
                         <div className="flex items-center gap-2 text-gray-600">
                           <Clock className="w-4 h-4 text-gray-400" />
                           <span>
-                            {formatDistanceToNow(new Date(log.created_at), { addSuffix: true, locale: id })}
+                            {format(new Date(log.created_at), 'dd MMM yyyy, HH:mm', { locale: id }) + ' WIB'}
                           </span>
                         </div>
                       </td>
@@ -113,3 +113,4 @@ export default async function AdminLogsPage() {
     </>
   );
 }
+
