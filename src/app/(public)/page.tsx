@@ -9,6 +9,7 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700'
 export const dynamic = 'force-dynamic';
 
 export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 
 export default async function LandingPage() {
   const supabase = await createClient();
@@ -34,7 +35,7 @@ export default async function LandingPage() {
     .order('sort_order', { ascending: true })
     .limit(4);
 
-  // Default fallback data for hero if empty
+  // Default sliders sebagai fallback dengan gambar yang valid!
   const defaultSliders = [
     {
       id: 'default-1',
@@ -45,20 +46,28 @@ export default async function LandingPage() {
     },
     {
       id: 'default-2',
-      title: "Kawah Putih",
-      subtitle: "Saksikan pesona danau vulkanik berwarna putih kehijauan yang magis dan memukau.",
-      image_url: "/ASET VISUAL/Wisata Bandung/Kawah Putih/DJI_0459.JPG",
-      button_link: "/destinasi/kawah-putih"
+      title: "Jalan Asia Afrika",
+      subtitle: "Saksi bisu Konferensi Asia Afrika dengan pesona malam yang romantis.",
+      image_url: "/ASET VISUAL/jalan-asia-afrika.jpg",
+      button_link: "/destinasi/jalan-asia-afrika"
     },
     {
       id: 'default-3',
-      title: "Selamat Datang di Kota Bandung",
+      title: "Bandros",
       subtitle: "Jelajahi keindahan alam, budaya, dan kuliner legendaris Parijs van Java.",
-      image_url: "https://images.unsplash.com/photo-1549473889-14f410d83298?q=80&w=2000",
+      image_url: "/ASET VISUAL/bandros.jpg",
       button_link: "/kategori"
+    },
+    {
+      id: 'default-4',
+      title: "Boseh",
+      subtitle: "Nikmati udara segar dan keindahan kota Bandung dengan bersepeda santai.",
+      image_url: "/ASET VISUAL/boseh.jpg",
+      button_link: "/transportasi"
     }
   ];
 
+  // Gunakan data dari CMS jika ada, jika tidak gunakan default
   const activeSliders = (heroSliders && heroSliders.length > 0) ? heroSliders : defaultSliders;
 
   // Default fallback data for news if empty
