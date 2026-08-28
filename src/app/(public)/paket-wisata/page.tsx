@@ -1,6 +1,8 @@
 ﻿import { Montserrat } from 'next/font/google';
 import Link from 'next/link';
-import { ChevronRight, ExternalLink, ShieldCheck, MapPin, Compass, Users, CheckCircle2, Building, TreePine, Camera } from 'lucide-react';
+import Image from 'next/image';
+import { ModernHero } from '@/components/ui/ModernHero';
+import { ChevronRight, ExternalLink, ShieldCheck, Compass, Users, CheckCircle2, Building, TreePine, Camera } from 'lucide-react';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] });
 
@@ -12,7 +14,7 @@ export const metadata = {
 export default function PaketWisataPage() {
   return (
     <main className="w-full bg-[#fcf9f5] min-h-screen overflow-hidden">
-      <style dangerouslySetInnerHTML={�__html: `
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(40px); }
           to { opacity: 1; transform: translateY(0); }
@@ -48,9 +50,9 @@ export default function PaketWisataPage() {
         }
       `}} />
 
-      (* Modern Hero Section *)
-      <section className="relative w-full h-[65vh] min-h-[500px] flex items-center justify-center pt-20">
-        (* Abstract Background Elements *)
+      {/* Modern Hero Section */}
+      <section className="relative w-full min-h-[550px] flex items-center justify-center pt-8 pb-32">
+        {/* Abstract Background Elements */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C9971E]/10 rounded-full blur-[100px] opacity-70 animate-blob mix-blend-multiply translate-x-1/3 -translate-y-1/3"></div>
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#3D7A5E]/10 rounded-full blur-[100px] opacity-70 animate-blob-delay mix-blend-multiply -translate-x-1/3 translate-y-1/3"></div>
@@ -75,21 +77,21 @@ export default function PaketWisataPage() {
         </div>
       </section>
 
-      {(* Association Cards Section *)}
-      <section className="relative z-20 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto pb-32 -mt-16">
+      {/* Association Cards Section */}
+      <section className="relative z-20 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto pb-32 -mt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           
-          {(* ASITA Card *)}
-          <div className="group relative bg-white/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-variable animate-fade-up-delay-1">
-            ${(* Decorative background logo/icon *)}
+          {/* ASITA Card */}
+          <div className="group relative bg-white/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full animate-fade-up-delay-1">
+            {/* Decorative background logo/icon */}
             <Compass className="absolute -bottom-10 -right-10 w-64 h-64 text-blue-500/5 group-hover:text-blue-500/10 group-hover:scale-110 transition-all duration-700 pointer-events-none rotate-12" />
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/20 rounded-full blur-[50px]"></div>
 
             <div className="relative z-10 flex-grow">
               <div className="flex items-start justify-between mb-8">
                 <div className="flex items-center gap-5">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl flex items-center justify-center p-4 shadow-lg shadow-blue-500/30 group-hover:rotate-6 transition-transform duration-500">
-                    <ShieldCheck className="w-10 h-10 text-white" />
+                  <div className="w-24 h-24 bg-white/80 backdrop-blur-md rounded-3xl flex items-center justify-center p-3 shadow-lg shadow-blue-500/10 border border-white/60 group-hover:rotate-3 group-hover:scale-105 transition-all duration-500">
+                    <Image src="/logo/asita-logo.png" alt="ASITA Logo" width={80} height={80} className="object-contain" />
                   </div>
                   <div>
                     <h2 className={`${montserrat.className} text-3xl font-bold text-slate-900 mb-1`}>ASITA</h2>
@@ -121,32 +123,32 @@ export default function PaketWisataPage() {
             </div>
 
             <Link 
-              href="https://asita.or.id/" 
+              href="https://www.asita-jabar.org/" 
               target="_blank"
               className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
             >
               <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-500 ease-in-out"></div>
               <span className="relative z-10">Lihat Katalog ASITA</span>
-              <div className="relative z-10 w-10 h-10 bg-white/20 rounded-full flex/items-center justify-center group-hover/btn:bg-white group-hover/btn:text-blue-600 transition-colors duration-500">
+              <div className="relative z-10 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-blue-600 transition-colors duration-500">
                 <ExternalLink className="w-5 h-5 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
               </div>
             </Link>
           </div>
 
-          {(* ASTINDO Card *)}
+          {/* ASTINDO Card */}
           <div className="group relative bg-white/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full animate-fade-up-delay-2">
-            {(* Decorative background logo/icon *)}
+            {/* Decorative background logo/icon */}
             <Users className="absolute -bottom-10 -right-10 w-64 h-64 text-emerald-500/5 group-hover:text-emerald-500/10 group-hover:scale-110 transition-all duration-700 pointer-events-none -rotate-12" />
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-400/20 rounded-full blur-[50px]"></div>
 
             <div className="relative z-10 flex-grow">
               <div className="flex items-start justify-between mb-8">
                 <div className="flex items-center gap-5">
-                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-3xl flex items-center justify-center p-4 shadow-lg shadow-emerald-500/30 group-hover:-rotate-6 transition-transform duration-500">
-                    <ShieldCheck className="w-10 h-10 text-white" />
+                  <div className="w-24 h-24 bg-white/80 backdrop-blur-md rounded-3xl flex items-center justify-center p-3 shadow-lg shadow-emerald-500/10 border border-white/60 group-hover:-rotate-3 group-hover:scale-105 transition-all duration-500">
+                    <Image src="/logo/astindo.png" alt="ASTINDO Logo" width={80} height={80} className="object-contain" />
                   </div>
                   <div>
-                    <h2 className={`${montserrat.className} text-3|e font-bold text-slate-900 mb-1`}>ASTINDO</h2>
+                    <h2 className={`${montserrat.className} text-3xl font-bold text-slate-900 mb-1`}>ASTINDO</h2>
                     <span className="text-sm font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">Nasional</span>
                   </div>
                 </div>
@@ -161,7 +163,7 @@ export default function PaketWisataPage() {
                   <CheckCircle2 className="w-5 h-5 text-[#C9971E]" />
                   <span className="text-slate-700 font-medium text-sm">Paket Wisata Keluarga Premium</span>
                 </div>
-                <div className="flex/items-center gap-3 bg-white/80 p-3 rounded-xl border border-slate-100">
+                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-xl border border-slate-100">
                   <CheckCircle2 className="w-5 h-5 text-[#C9971E]" />
                   <span className="text-slate-700 font-medium text-sm">Perjalanan Bisnis & Corporate Gathering</span>
                 </div>
@@ -173,14 +175,14 @@ export default function PaketWisataPage() {
             </div>
 
             <Link 
-              href="https://astindo.or.id/" 
+              href="https://astindo.org/" 
               target="_blank"
-              className="relative z-10 flex/items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
+              className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
             >
               <div className="absolute inset-0 bg-emerald-600 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-500 ease-in-out"></div>
               <span className="relative z-10">Lihat Katalog ASTINDO</span>
               <div className="relative z-10 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-emerald-600 transition-colors duration-500">
-                <ExternalLink className="w-5 h-5 group-hover/btn:translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                <ExternalLink className="w-5 h-5 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
               </div>
             </Link>
           </div>
@@ -188,7 +190,7 @@ export default function PaketWisataPage() {
         </div>
       </section>
 
-      {(* CTA Bottom *)}
+      {/* CTA Bottom */}
       <section className="w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto pb-32">
         <div className="bg-slate-900 rounded-[3rem] overflow-hidden relative flex flex-col md:flex-row items-center justify-between p-12 md:p-16 lg:px-24">
           <div className="absolute inset-0 z-0">
@@ -227,4 +229,8 @@ export default function PaketWisataPage() {
     </main>
   );
 }
+
+
+
+
 

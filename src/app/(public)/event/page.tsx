@@ -1,4 +1,5 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
+import { ModernHero } from '@/components/ui/ModernHero';
 import { ChevronRight, CalendarDays, FileText, CheckCircle, Clock } from 'lucide-react';
 import EventSubmissionForm from "@/components/public/EventSubmissionForm";
 import { Montserrat } from 'next/font/google';
@@ -12,19 +13,15 @@ export const metadata = {
 
 export default function EventPage() {
   return (
-    <main className="w-full bg-[#fcf9f5] min-h-screen">
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12">
-        {/* Breadcrumb & Header */}
-        <div className="mb-16">
-          <nav className="flex text-[#4f4635] text-sm mb-6 items-center gap-2 font-medium">
-            <Link className="hover:text-[#7a5900] transition-colors" href="/">Home</Link>
-            <ChevronRight className="w-4 h-4 text-[#4f4635]" />
-            <span className="text-[#1b1c1a]">Calendar of Events</span>
-          </nav>
-          <h1 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-[#1b1c1a] mb-6 tracking-tight`}>Calendar of Events (COE)</h1>
-          <div className="w-20 h-1 bg-[#C9971E] mb-6"></div>
-          <p className="text-lg text-[#4f4635] max-w-3xl">Agenda tahunan yang mengkurasi acara-acara terbaik di Kota Bandung. Temukan ragam festival, pertunjukan seni, dan perayaan budaya sepanjang tahun.</p>
-        </div>
+    <main className="w-full bg-[#fcf9f5] min-h-screen overflow-x-hidden">
+<ModernHero 
+        breadcrumbText="Calendar of Events"
+        title="Calendar of Events"
+        highlightText="(COE)"
+        highlightGradient="from-amber-600 to-amber-400"
+        description="Agenda tahunan yang mengkurasi acara-acara terbaik di Kota Bandung. Temukan ragam festival, pertunjukan seni, dan perayaan budaya sepanjang tahun."
+      />
+      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pb-24">
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Column: Info & Timeline */}
@@ -43,7 +40,7 @@ export default function EventPage() {
                 <div className="relative">
                   <div className="absolute -left-[35px] bg-amber-500 w-4 h-4 rounded-full border-4 border-white shadow"></div>
                   <div className="pl-6">
-                    <span className="text-sm font-bold text-amber-600 block mb-1">1 – 15 September 2026</span>
+                    <span className="text-sm font-bold text-amber-600 block mb-1">1 â€“ 15 September 2026</span>
                     <h3 className="text-xl font-bold text-slate-800">Pendaftaran & Pengumpulan Berkas</h3>
                     <p className="text-slate-600 mt-2">Penyelenggara menyerahkan proposal dan dokumen pendukung.</p>
                   </div>
@@ -51,7 +48,7 @@ export default function EventPage() {
                 <div className="relative">
                   <div className="absolute -left-[35px] bg-slate-300 w-4 h-4 rounded-full border-4 border-white shadow"></div>
                   <div className="pl-6">
-                    <span className="text-sm font-bold text-slate-500 block mb-1">11 – 17 Oktober 2026</span>
+                    <span className="text-sm font-bold text-slate-500 block mb-1">11 â€“ 17 Oktober 2026</span>
                     <h3 className="text-xl font-bold text-slate-800">Tahap Kurasi CoE</h3>
                     <p className="text-slate-600 mt-2">Penilaian oleh dewan kurator profesional.</p>
                   </div>
@@ -59,7 +56,7 @@ export default function EventPage() {
                 <div className="relative">
                   <div className="absolute -left-[35px] bg-slate-300 w-4 h-4 rounded-full border-4 border-white shadow"></div>
                   <div className="pl-6">
-                    <span className="text-sm font-bold text-slate-500 block mb-1">18 – 31 Oktober 2026</span>
+                    <span className="text-sm font-bold text-slate-500 block mb-1">18 â€“ 31 Oktober 2026</span>
                     <h3 className="text-xl font-bold text-slate-800">Tahap Persiapan (Preparation)</h3>
                     <p className="text-slate-600 mt-2">Finalisasi konsep untuk event terpilih.</p>
                   </div>
@@ -122,3 +119,5 @@ export default function EventPage() {
     </main>
   );
 }
+
+

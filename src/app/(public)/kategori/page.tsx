@@ -1,4 +1,5 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
+import { ModernHero } from '@/components/ui/ModernHero';
 import { ChevronRight, Bed, Map, Coffee } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
 
@@ -35,18 +36,14 @@ export default async function KategoriPage() {
   };
 
   return (
-    <main className="w-full bg-[#fcf9f5] min-h-screen">
-      {/* Header Section */}
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pt-16 pb-8">
-        <nav className="flex text-slate-500 text-sm mb-6 items-center gap-2 font-medium">
-          <Link className="hover:text-[#3D7A5E] transition-colors" href="/">Home</Link>
-          <ChevronRight className="w-4 h-4 text-slate-400" />
-          <span className="text-slate-900 font-bold">Destinasi Wisata</span>
-        </nav>
-        <h1 className={`${montserrat.className} text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight`}>Eksplorasi Kota Bandung</h1>
-        <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full mb-8"></div>
-        <p className="text-lg text-slate-600 max-w-3xl leading-relaxed">Temukan beragam pesona Kota Bandung melalui panduan destinasi pilihan kami yang terbagi dalam tiga pilar utama pengalaman wisata.</p>
-      </div>
+    <main className="w-full bg-[#fcf9f5] min-h-screen overflow-x-hidden">
+      <ModernHero 
+        breadcrumbText="Destinasi Wisata"
+        title="Eksplorasi Kota"
+        highlightText="Bandung"
+        highlightGradient="from-[#3D7A5E] to-[#519f7b]"
+        description="Temukan beragam pesona Kota Bandung melalui panduan destinasi pilihan kami yang terbagi dalam tiga pilar utama pengalaman wisata."
+      />
 
       {/* Elegant Separator */}
       <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
@@ -143,4 +140,8 @@ export default async function KategoriPage() {
     </main>
   );
 }
+
+
+
+
 

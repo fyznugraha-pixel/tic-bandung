@@ -1,4 +1,5 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
+import { ModernHero } from '@/components/ui/ModernHero';
 import { ArrowRight, Bus, Train, Plane, Bike, CarTaxiFront, ExternalLink, Map, Info, ChevronRight } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
 
@@ -13,31 +14,13 @@ export default function TransportasiPage() {
   return (
     <main className="w-full bg-[#f8f9fa] min-h-screen pb-32 overflow-hidden selection:bg-blue-100">
       
-      {/* Fresh Minimalist Hero */}
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 pt-12 pb-12 relative">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 -z-10"></div>
-        <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-emerald-50/50 rounded-full blur-3xl -translate-x-1/2 -z-10"></div>
-        
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm font-medium text-slate-500 mb-8">
-          <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-          <ChevronRight className="w-4 h-4" />
-          <span className="text-slate-900">Transportasi</span>
-        </nav>
-        
-        <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-600 font-semibold rounded-full text-sm mb-6 border border-blue-100">
-          Panduan Mobilitas 2026
-        </div>
-        <h1 className={`${montserrat.className} text-5xl md:text-7xl lg:text-[5rem] font-extrabold text-slate-900 mb-8 tracking-tighter leading-[1.1]`}>
-          Jelajahi Bandung <br className="hidden md:block" />
-          <span className="text-[#3D7A5E]">
-            Tanpa Batas.
-          </span>
-        </h1>
-        <p className="text-xl text-slate-500 max-w-2xl font-medium leading-relaxed">
-          Sistem transportasi terintegrasi untuk kenyamanan perjalanan Anda. Dari kereta cepat hingga sepeda santai keliling kota.
-        </p>
-      </div>
+<ModernHero 
+        breadcrumbText="Transportasi"
+        title="Jelajahi Bandung"
+        highlightText="Tanpa Batas."
+        highlightGradient="from-blue-600 to-blue-400"
+        description="Sistem transportasi terintegrasi untuk kenyamanan perjalanan Anda. Dari kereta cepat hingga sepeda santai keliling kota."
+      />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
@@ -151,3 +134,5 @@ export default function TransportasiPage() {
     </main>
   );
 }
+
+
