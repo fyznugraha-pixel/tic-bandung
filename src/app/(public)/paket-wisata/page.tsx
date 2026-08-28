@@ -1,6 +1,6 @@
-import { Montserrat } from 'next/font/google';
+﻿import { Montserrat } from 'next/font/google';
 import Link from 'next/link';
-import { ChevronRight, ExternalLink, ShieldCheck, MapPin } from 'lucide-react';
+import { ChevronRight, ExternalLink, ShieldCheck, MapPin, Compass, Users, CheckCircle2, Building, TreePine, Camera } from 'lucide-react';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] });
 
@@ -11,98 +11,220 @@ export const metadata = {
 
 export default function PaketWisataPage() {
   return (
-    <main className="w-full bg-[#fcf9f5] min-h-screen">
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12">
-        {/* Breadcrumb & Header */}
-        <div className="mb-16">
-          <nav className="flex text-[#4f4635] text-sm mb-6 items-center gap-2 font-medium">
-            <Link className="hover:text-[#7a5900] transition-colors" href="/">Home</Link>
-            <ChevronRight className="w-4 h-4 text-[#4f4635]" />
-            <span className="text-[#1b1c1a]">Paket Wisata</span>
-          </nav>
-          <h1 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-[#1b1c1a] mb-6 tracking-tight`}>
-            Paket Wisata Bandung Raya
-          </h1>
-          <div className="w-20 h-1 bg-[#C9971E] mb-6"></div>
-          <p className="text-lg text-[#4f4635] max-w-2xl">
-            Nikmati kemudahan menjelajahi Kota Bandung dan sekitarnya dengan pilihan paket wisata terpercaya dan bersertifikat dari asosiasi resmi.
-          </p>
+    <main className="w-full bg-[#fcf9f5] min-h-screen overflow-hidden">
+      <style dangerouslySetInnerHTML={�__html: `
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeRight {
+          from { opacity: 0; transform: translateX(-40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes blobBounce {
+          0%, 100% { transform: translateY(0) scale(1); }
+          50% { transform: translateY(-20px) scale(1.05); }
+        }
+        .animate-fade-up {
+          animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-fade-up-delay-1 {
+          animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+          opacity: 0;
+        }
+        .animate-fade-up-delay-2 {
+          animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+          opacity: 0;
+        }
+        .animate-fade-right {
+          animation: fadeRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+          opacity: 0;
+        }
+        .animate-blob {
+          animation: blobBounce 8s infinite ease-in-out;
+        }
+        .animate-blob-delay {
+          animation: blobBounce 8s infinite ease-in-out 4s;
+        }
+      `}} />
+
+      (* Modern Hero Section *)
+      <section className="relative w-full h-[65vh] min-h-[500px] flex items-center justify-center pt-20">
+        (* Abstract Background Elements *)
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C9971E]/10 rounded-full blur-[100px] opacity-70 animate-blob mix-blend-multiply translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#3D7A5E]/10 rounded-full blur-[100px] opacity-70 animate-blob-delay mix-blend-multiply -translate-x-1/3 translate-y-1/3"></div>
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div className="relative z-10 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto flex flex-col items-center text-center">
+          <nav className="flex text-slate-500 text-sm mb-8 items-center gap-2 font-medium bg-white/60 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm animate-fade-up border border-white/50">
+            <Link className="hover:text-[#C9971E] transition-colors" href="/">Home</Link>
+            <ChevronRight className="w-4 h-4" />
+            <span className="text-[#C9971E] font-bold">Paket Wisata</span>
+          </nav>
           
-          {/* ASITA Card */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col h-full group hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center p-3">
-                <ShieldCheck className="w-8 h-8 text-blue-600" />
+          <h1 className={`${montserrat.className} text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 tracking-tight animate-fade-up-delay-1 leading-[1.1]`}>
+            Jelajahi Bandung <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9971E] to-[#e6b437]">Tanpa Beban.</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl font-light leading-relaxed animate-fade-up-delay-2">
+            Nikmati kemudahan menjelajahi Kota Bandung dengan pilihan paket wisata eksklusif, terpercaya, dan bersertifikat dari asosiasi resmi pariwisata.
+          </p>
+        </div>
+      </section>
+
+      {(* Association Cards Section *)}
+      <section className="relative z-20 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto pb-32 -mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          
+          {(* ASITA Card *)}
+          <div className="group relative bg-white/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-variable animate-fade-up-delay-1">
+            ${(* Decorative background logo/icon *)}
+            <Compass className="absolute -bottom-10 -right-10 w-64 h-64 text-blue-500/5 group-hover:text-blue-500/10 group-hover:scale-110 transition-all duration-700 pointer-events-none rotate-12" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/20 rounded-full blur-[50px]"></div>
+
+            <div className="relative z-10 flex-grow">
+              <div className="flex items-start justify-between mb-8">
+                <div className="flex items-center gap-5">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl flex items-center justify-center p-4 shadow-lg shadow-blue-500/30 group-hover:rotate-6 transition-transform duration-500">
+                    <ShieldCheck className="w-10 h-10 text-white" />
+                  </div>
+                  <div>
+                    <h2 className={`${montserrat.className} text-3xl font-bold text-slate-900 mb-1`}>ASITA</h2>
+                    <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Jawa Barat</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h2 className={`${montserrat.className} text-2xl font-bold text-slate-900`}>ASITA Jabar</h2>
-                <span className="text-sm font-semibold text-blue-600">Association of The Indonesian Tours and Travel Agencies</span>
+              
+              <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                Temukan beragam paket perjalanan wisata menarik yang diselenggarakan oleh agen perjalanan terpercaya di bawah naungan ASITA. Mulai dari city tour, wisata alam, hingga wisata edukasi.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                <div className="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-3">
+                  <Building className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm mb-1">City & Heritage Tour</h4>
+                    <p className="text-xs text-slate-500">Jelajahi sejarah di Kota Bandung</p>
+                  </div>
+                </div>
+                <div className="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-3">
+                  <TreePine className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm mb-1">Nature Gateway</h4>
+                    <p className="text-xs text-slate-500">Lembang, Ciwidey & Pangalengan</p>
+                  </div>
+                </div>
               </div>
-            </div>
-            
-            <p className="text-slate-600 leading-relaxed mb-8 flex-grow">
-              Temukan beragam paket perjalanan wisata menarik yang diselenggarakan oleh agen perjalanan terpercaya di bawah naungan ASITA Jawa Barat. Mulai dari city tour, wisata alam, hingga wisata edukasi.
-            </p>
-            
-            <div className="bg-slate-50 p-6 rounded-2xl mb-8">
-              <h3 className="font-bold text-slate-900 mb-3 flex items-center gap-2"><MapPin className="w-5 h-5 text-slate-400"/> Destinasi Cakupan:</h3>
-              <ul className="text-sm text-slate-600 space-y-2 font-medium">
-                <li>• Kota Bandung (Heritage & City Tour)</li>
-                <li>• Bandung Utara (Lembang & Tangkuban Perahu)</li>
-                <li>• Bandung Selatan (Ciwidey & Pangalengan)</li>
-              </ul>
             </div>
 
             <Link 
               href="https://asita.or.id/" 
               target="_blank"
-              className="flex items-center justify-center gap-2 bg-slate-900 text-white w-full py-4 rounded-xl font-bold hover:bg-slate-800 transition-colors"
+              className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
             >
-              Lihat Katalog Paket ASITA
-              <ExternalLink className="w-5 h-5" />
+              <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+              <span className="relative z-10">Lihat Katalog ASITA</span>
+              <div className="relative z-10 w-10 h-10 bg-white/20 rounded-full flex/items-center justify-center group-hover/btn:bg-white group-hover/btn:text-blue-600 transition-colors duration-500">
+                <ExternalLink className="w-5 h-5 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+              </div>
             </Link>
           </div>
 
-          {/* ASTINDO Card */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col h-full group hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center p-3">
-                <ShieldCheck className="w-8 h-8 text-emerald-600" />
+          {(* ASTINDO Card *)}
+          <div className="group relative bg-white/70 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full animate-fade-up-delay-2">
+            {(* Decorative background logo/icon *)}
+            <Users className="absolute -bottom-10 -right-10 w-64 h-64 text-emerald-500/5 group-hover:text-emerald-500/10 group-hover:scale-110 transition-all duration-700 pointer-events-none -rotate-12" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-400/20 rounded-full blur-[50px]"></div>
+
+            <div className="relative z-10 flex-grow">
+              <div className="flex items-start justify-between mb-8">
+                <div className="flex items-center gap-5">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-3xl flex items-center justify-center p-4 shadow-lg shadow-emerald-500/30 group-hover:-rotate-6 transition-transform duration-500">
+                    <ShieldCheck className="w-10 h-10 text-white" />
+                  </div>
+                  <div>
+                    <h2 className={`${montserrat.className} text-3|e font-bold text-slate-900 mb-1`}>ASTINDO</h2>
+                    <span className="text-sm font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">Nasional</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h2 className={`${montserrat.className} text-2xl font-bold text-slate-900`}>ASTINDO</h2>
-                <span className="text-sm font-semibold text-emerald-600">Asosiasi Travel Agent Indonesia</span>
+              
+              <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                Pilihan paket tur eksklusif, perjalanan korporat, hingga kegiatan MICE (Meeting, Incentive, Convention, Exhibition) dari jaringan travel agent profesional tersertifikasi ASTINDO.
+              </p>
+              
+              <div className="flex flex-col gap-3 mb-10">
+                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-xl border border-slate-100">
+                  <CheckCircle2 className="w-5 h-5 text-[#C9971E]" />
+                  <span className="text-slate-700 font-medium text-sm">Paket Wisata Keluarga Premium</span>
+                </div>
+                <div className="flex/items-center gap-3 bg-white/80 p-3 rounded-xl border border-slate-100">
+                  <CheckCircle2 className="w-5 h-5 text-[#C9971E]" />
+                  <span className="text-slate-700 font-medium text-sm">Perjalanan Bisnis & Corporate Gathering</span>
+                </div>
+                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-xl border border-slate-100">
+                  <CheckCircle2 className="w-5 h-5 text-[#C9971E]" />
+                  <span className="text-slate-700 font-medium text-sm">Customized Tour & MICE Packages</span>
+                </div>
               </div>
-            </div>
-            
-            <p className="text-slate-600 leading-relaxed mb-8 flex-grow">
-              Pilihan paket tur eksklusif, perjalanan korporat, hingga MICE (Meeting, Incentive, Convention, Exhibition) dari travel agent profesional tersertifikasi ASTINDO.
-            </p>
-            
-            <div className="bg-slate-50 p-6 rounded-2xl mb-8">
-              <h3 className="font-bold text-slate-900 mb-3 flex items-center gap-2"><MapPin className="w-5 h-5 text-slate-400"/> Spesialisasi Layanan:</h3>
-              <ul className="text-sm text-slate-600 space-y-2 font-medium">
-                <li>• Paket Wisata Keluarga Premium</li>
-                <li>• Perjalanan Bisnis & Corporate Gathering</li>
-                <li>• Customized Tour Packages</li>
-              </ul>
             </div>
 
             <Link 
               href="https://astindo.or.id/" 
               target="_blank"
-              className="flex items-center justify-center gap-2 bg-slate-900 text-white w-full py-4 rounded-xl font-bold hover:bg-slate-800 transition-colors"
+              className="relative z-10 flex/items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
             >
-              Lihat Katalog Paket ASTINDO
-              <ExternalLink className="w-5 h-5" />
+              <div className="absolute inset-0 bg-emerald-600 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+              <span className="relative z-10">Lihat Katalog ASTINDO</span>
+              <div className="relative z-10 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-emerald-600 transition-colors duration-500">
+                <ExternalLink className="w-5 h-5 group-hover/btn:translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+              </div>
             </Link>
           </div>
 
         </div>
-      </div>
+      </section>
+
+      {(* CTA Bottom *)}
+      <section className="w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto pb-32">
+        <div className="bg-slate-900 rounded-[3rem] overflow-hidden relative flex flex-col md:flex-row items-center justify-between p-12 md:p-16 lg:px-24">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C9971E]/20 rounded-full blur-[100px] mix-blend-screen -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#3D7A5E]/20 rounded-full blur-[100px] mix-blend-screen translate-y-1/2 -translate-x-1/2"></div>
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+          </div>
+          
+          <div className="relative z-10 max-w-2xl text-center md:text-left mb-10 md:mb-0">
+            <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-white mb-6 leading-tight`}>
+              Butuh panduan destinasi <br/> sebelum memesan?
+            </h2>
+            <p className="text-slate-300 text-lg md:text-xl font-light">
+              Temukan referensi tempat wisata terbaik, galeri visual, dan kalender acara di Kota Bandung.
+            </p>
+          </div>
+          
+          <div className="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+            <Link 
+              href="/destinasi" 
+              className="bg-[#C9971E] hover:bg-[#b0831a] text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#C9971E]/30"
+            >
+              Jelajahi Destinasi
+              <ChevronRight className="w-5 h-5" />
+            </Link>
+            <Link 
+              href="/galeri" 
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors backdrop-blur-md"
+            >
+              <Camera className="w-5 h-5" />
+              Lihat Galeri
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
+
