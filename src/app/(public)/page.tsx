@@ -9,7 +9,6 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700'
 export const dynamic = 'force-dynamic';
 
 export const revalidate = 0;
-export const dynamic = 'force-dynamic';
 
 export default async function LandingPage() {
   const supabase = await createClient();
