@@ -39,6 +39,7 @@ export async function getAdminLogs() {
   const { data, error } = await supabase
     .from('admin_logs')
     .select('*')
+    .neq('entity', 'ADMIN')
     .order('created_at', { ascending: false })
     .limit(100);
     
