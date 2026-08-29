@@ -42,7 +42,7 @@ export default async function DestinationDetailPage({
       categories (
         name,
         slug,
-        color_cluster
+        cluster_color
       )
     `)
     .eq('slug', slug)
@@ -84,7 +84,7 @@ export default async function DestinationDetailPage({
     return '#4f4635';
   };
 
-  const themeColor = getCategoryColor(category?.color_cluster || '');
+  const themeColor = getCategoryColor(category?.cluster_color || '');
 
   return (
     <main className="w-full bg-[#fcf9f5] min-h-screen">
@@ -101,7 +101,7 @@ export default async function DestinationDetailPage({
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         
         <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 lg:p-16 flex flex-col justify-end">
-          <div className="max-w-[1200px] mx-auto w-full">
+          <div className="max-w-[1600px] mx-auto w-full">
             {/* Breadcrumb */}
             <nav className="flex text-white/80 text-sm mb-4 items-center gap-2 font-medium">
               <Link className="hover:text-white transition-colors" href="/">Beranda</Link>
@@ -136,7 +136,7 @@ export default async function DestinationDetailPage({
       </div>
 
       {/* Content Container */}
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12">
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Left Column: Description & Content */}
@@ -213,6 +213,22 @@ export default async function DestinationDetailPage({
                   </div>
                 )}
 
+                
+                {/* Tahun Berdiri */}
+                {dest.founded_year && (
+                  <div className="flex gap-4">
+                    <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center shrink-0">
+                      <Clock className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-[#4f4635] uppercase tracking-wider mb-1">Tahun Berdiri</p>
+                      <p className="font-medium text-lg text-[#1b1c1a]">
+                        {dest.founded_year}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
                 {/* Alamat Lanjutan */}
                 {dest.address && (
                   <div className="flex gap-4">

@@ -77,7 +77,7 @@ export default async function KategoriPage() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[250px]">
             {categories?.filter(c => c.pillar === 'stay').map(cat => (
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-slate-800">
                 {renderBg(cat.slug)}
