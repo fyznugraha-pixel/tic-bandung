@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { CheckCircle2, Calendar, MapPin, User, Phone, Mail, AtSign, Star, FileText, Send, Building, Target, UploadCloud } from 'lucide-react';
+import { CheckCircle2, Calendar, MapPin, User, Phone, Mail, AtSign, Star, FileText, Send, Building, Target, UploadCloud, Download } from 'lucide-react';
 import { submitEventFormAction } from '@/app/actions/eventSubmission';
 
 export default function EventSubmissionForm() {
@@ -154,10 +154,10 @@ export default function EventSubmissionForm() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">8. Akun Instagram Acara</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">8. Akun Instagram Acara *</label>
             <div className="relative">
               <AtSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
-              <input type="text" name="instagram" placeholder="@namainstagram" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
+              <input type="text" name="instagram" required placeholder="@namainstagram" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
             </div>
           </div>
 
@@ -219,6 +219,9 @@ export default function EventSubmissionForm() {
             <div className="relative">
               <input type="url" name="commitment_letter_link" required placeholder="https://..." className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-emerald-500 transition-colors" />
             </div>
+            <a href="/template-surat-laporan-kegiatan.docx" download className="mt-4 inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg text-xs text-slate-300 font-medium transition-colors">
+              <Download className="w-4 h-4" /> Unduh Template Surat Laporan
+            </a>
           </div>
         </div>
       </div>
