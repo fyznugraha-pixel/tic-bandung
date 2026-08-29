@@ -74,12 +74,12 @@ export default function EventSubmissionForm() {
 
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-2">2a. Tanggal Mulai *</label>
-            <input type="date" name="start_date" required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white outline-none focus:border-amber-500 transition-colors" />
+            <input type="date" name="start_date" required style={{ colorScheme: 'dark' }} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-2">2b. Tanggal Selesai *</label>
-            <input type="date" name="end_date" required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white outline-none focus:border-amber-500 transition-colors" />
+            <input type="date" name="end_date" required style={{ colorScheme: 'dark' }} className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div className="md:col-span-2">
