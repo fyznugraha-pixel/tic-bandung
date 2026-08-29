@@ -139,32 +139,34 @@ export default function CategoryListingUI({
             />
           </div>
 
-          <div className="flex flex-wrap gap-3 w-full md:w-auto">
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2">
-              <Filter className="w-4 h-4 text-gray-500" />
-              <CustomSelect 
-                value={selectedDistrict || ''} 
-                onChange={(e) => setSelectedDistrict(e.target.value || null)}
-                className="bg-transparent border-none font-medium !p-0 w-36"
-                wrapperClassName="flex-1"
-                placeholder="Semua Kawasan"
-                options={uniqueDistricts.map(d => ({ label: d, value: d }))}
-              />
-            </div>
+          <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto">
+            <div className="grid grid-cols-2 gap-2 md:gap-3 w-full md:w-auto">
+              <div className="flex items-center gap-1.5 md:gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 md:px-4 py-2">
+                <Filter className="w-4 h-4 text-gray-500 shrink-0" />
+                <CustomSelect 
+                  value={selectedDistrict || ''} 
+                  onChange={(e) => setSelectedDistrict(e.target.value || null)}
+                  className="bg-transparent border-none font-medium !p-0 w-full min-w-[100px]"
+                  wrapperClassName="flex-1 min-w-0"
+                  placeholder="Kawasan"
+                  options={uniqueDistricts.map(d => ({ label: d, value: d }))}
+                />
+              </div>
 
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2">
-              <span className="text-[#3D7A5E] font-bold text-sm">Rp</span>
-              <CustomSelect 
-                value={selectedPrice || ''} 
-                onChange={(e) => setSelectedPrice(e.target.value as 'FREE' | 'PAID' | null)}
-                className="bg-transparent border-none font-medium !p-0 w-28"
-                wrapperClassName="flex-1"
-                placeholder="Semua Harga"
-                options={[
-                  { label: 'Gratis', value: 'FREE' },
-                  { label: 'Berbayar', value: 'PAID' }
-                ]}
-              />
+              <div className="flex items-center gap-1.5 md:gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 md:px-4 py-2">
+                <span className="text-[#3D7A5E] font-bold text-sm shrink-0">Rp</span>
+                <CustomSelect 
+                  value={selectedPrice || ''} 
+                  onChange={(e) => setSelectedPrice(e.target.value as 'FREE' | 'PAID' | null)}
+                  className="bg-transparent border-none font-medium !p-0 w-full min-w-[80px]"
+                  wrapperClassName="flex-1 min-w-0"
+                  placeholder="Harga"
+                  options={[
+                    { label: 'Gratis', value: 'FREE' },
+                    { label: 'Berbayar', value: 'PAID' }
+                  ]}
+                />
+              </div>
             </div>
 
             {(selectedDistrict || selectedPrice || searchQuery) && (
@@ -174,7 +176,7 @@ export default function CategoryListingUI({
                   setSelectedPrice(null);
                   setSearchQuery('');
                 }}
-                className="p-2 text-red-500 hover:bg-red-50 rounded-xl transition-colors ml-auto md:ml-0"
+                className="p-2 text-red-500 hover:bg-red-50 rounded-xl transition-colors shrink-0 self-end md:self-auto"
                 title="Reset Filters"
               >
                 <X className="w-5 h-5" />
