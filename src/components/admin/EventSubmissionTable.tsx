@@ -158,7 +158,7 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
               ${item.commitment_letter_link ? `
               <a href="${item.commitment_letter_link}" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: white; border: 1px solid #bbf7d0; border-radius: 8px; color: #166534; text-decoration: none; font-weight: 600; font-size: 13px;">
                 <span>Surat Kesediaan</span>
-                <span>Buka &rarr;</span>
+                <span>Unduh &darr;</span>
               </a>` : ''}
             </div>
           </div>
