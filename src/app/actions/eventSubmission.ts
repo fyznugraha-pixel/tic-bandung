@@ -3,8 +3,14 @@
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+
 export async function submitEventFormAction(formData: FormData) {
-  const supabase = await createClient();
+  // Use service role for public submission to bypass RLS issues if user is logged in as an admin testing the public page
+  const supabase = createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
 
   try {
     const title = formData.get("title") as string;
