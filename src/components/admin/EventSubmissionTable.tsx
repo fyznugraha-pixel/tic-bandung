@@ -60,39 +60,87 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
     });
   };
 
+  
   const showDetail = (item: SubmissionData) => {
     Swal.fire({
-      title: 'Detail Pengajuan Event',
+      title: '<span style="font-size: 1.25rem; font-weight: 700; color: #111827;">Detail Pengajuan Event</span>',
       html: `
-        <div style="text-align: left; font-size: 14px; max-height: 60vh; overflow-y: auto; padding: 10px;">
-          <h4 style="margin-top:0; color:#3D7A5E; font-weight:bold;">1. Informasi Acara</h4>
-          <p><b>Judul:</b> ${item.title || '-'}</p>
-          <p><b>Tanggal Mulai:</b> ${item.start_date ? new Date(item.start_date).toLocaleDateString() : '-'}</p>
-          <p><b>Tanggal Selesai:</b> ${item.end_date ? new Date(item.end_date).toLocaleDateString() : '-'}</p>
-          <p><b>Lokasi:</b> ${item.location || '-'}</p>
-          <p><b>Deskripsi:</b> ${item.description || '-'}</p>
+        <div style="text-align: left; font-size: 14px; max-height: 65vh; overflow-y: auto; padding: 5px; color: #374151; display: flex; flex-direction: column; gap: 16px;">
           
-          <h4 style="margin-top:20px; color:#3D7A5E; font-weight:bold;">2. Pelaksana & PIC</h4>
-          <p><b>EO/Komunitas:</b> ${item.eo_name || '-'}</p>
-          <p><b>PIC:</b> ${item.pic_name || '-'}</p>
-          <p><b>Email:</b> ${item.email || '-'}</p>
-          <p><b>WhatsApp:</b> ${item.whatsapp || '-'}</p>
+          <!-- Section 1 -->
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+            <h4 style="margin: 0 0 12px 0; color: #0f172a; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+              <span style="background: #e2e8f0; color: #475569; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px;">1</span>
+              Informasi Acara
+            </h4>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Judul</span><strong style="color: #0f172a;">${item.title || '-'}</strong></div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <div><span style="color: #64748b; font-size: 12px; display: block;">Tanggal Mulai</span><strong style="color: #0f172a;">${item.start_date ? new Date(item.start_date).toLocaleDateString('id-ID') : '-'}</strong></div>
+                <div><span style="color: #64748b; font-size: 12px; display: block;">Tanggal Selesai</span><strong style="color: #0f172a;">${item.end_date ? new Date(item.end_date).toLocaleDateString('id-ID') : '-'}</strong></div>
+              </div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Lokasi</span><strong style="color: #0f172a;">${item.location || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Deskripsi</span><span style="color: #334155; line-height: 1.5; display: block; margin-top: 4px;">${item.description || '-'}</span></div>
+            </div>
+          </div>
 
-          <h4 style="margin-top:20px; color:#3D7A5E; font-weight:bold;">3. Detail & Promosi</h4>
-          <p><b>Instagram:</b> ${item.instagram || '-'}</p>
-          <p><b>KOL:</b> ${item.kol_partner || '-'}</p>
-          <p><b>Line Up Artis:</b> ${item.artist_performance || '-'}</p>
-          <p><b>Nilai Jual Unik (USP):</b> ${item.usp || '-'}</p>
-          <p><b>Target Pengunjung:</b> ${item.target_visitors || '-'}</p>
-          <p><b>Pelaksanaan Ke-:</b> ${item.execution_count || '-'}</p>
+          <!-- Section 2 -->
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+            <h4 style="margin: 0 0 12px 0; color: #0f172a; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+              <span style="background: #e2e8f0; color: #475569; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px;">2</span>
+              Pelaksana & PIC
+            </h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div><span style="color: #64748b; font-size: 12px; display: block;">EO/Komunitas</span><strong style="color: #0f172a;">${item.eo_name || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Nama PIC</span><strong style="color: #0f172a;">${item.pic_name || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Email</span><strong style="color: #0f172a;">${item.email || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">WhatsApp</span><strong style="color: #0f172a;">${item.whatsapp || '-'}</strong></div>
+            </div>
+          </div>
 
-          <h4 style="margin-top:20px; color:#3D7A5E; font-weight:bold;">4. Lampiran</h4>
-          <p><b>Media Promosi:</b> <a href="${item.promotion_media || '#'}" target="_blank" style="color: blue;">Lihat Media</a></p>
-          <p><b>Proposal/Poster:</b> ${item.attachment_link ? `<a href="${item.attachment_link}" target="_blank" style="color: blue;">Unduh Proposal</a>` : 'Tidak ada'}</p>
-          <p><b>Surat Kesediaan:</b> ${item.commitment_letter_link ? `<a href="${item.commitment_letter_link}" target="_blank" style="color: blue;">Unduh Surat</a>` : 'Tidak ada'}</p>
+          <!-- Section 3 -->
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+            <h4 style="margin: 0 0 12px 0; color: #0f172a; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+              <span style="background: #e2e8f0; color: #475569; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px;">3</span>
+              Detail Tambahan
+            </h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Instagram</span><strong style="color: #0f172a;">${item.instagram || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">KOL</span><strong style="color: #0f172a;">${item.kol_partner || '-'}</strong></div>
+              <div style="grid-column: span 2;"><span style="color: #64748b; font-size: 12px; display: block;">Line Up Artis</span><strong style="color: #0f172a;">${item.artist_performance || '-'}</strong></div>
+              <div style="grid-column: span 2;"><span style="color: #64748b; font-size: 12px; display: block;">Nilai Jual Unik (USP)</span><span style="color: #334155; line-height: 1.5; display: block; margin-top: 4px;">${item.usp || '-'}</span></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Target Pengunjung</span><strong style="color: #0f172a;">${item.target_visitors || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Pelaksanaan Ke-</span><strong style="color: #0f172a;">${item.execution_count || '-'}</strong></div>
+            </div>
+          </div>
+
+          <!-- Section 4 -->
+          <div style="background: #f0fdf4; border: 1px dashed #4ade80; border-radius: 12px; padding: 16px;">
+            <h4 style="margin: 0 0 12px 0; color: #166534; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+              <span style="background: #dcfce7; color: #166534; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px;">4</span>
+              Berkas Lampiran
+            </h4>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="${item.promotion_media || '#'}" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: white; border: 1px solid #bbf7d0; border-radius: 8px; color: #166534; text-decoration: none; font-weight: 600; font-size: 13px;">
+                <span>Media Promosi (Drive)</span>
+                <span>Buka &rarr;</span>
+              </a>
+              ${item.attachment_link ? `
+              <a href="${item.attachment_link}" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: white; border: 1px solid #bbf7d0; border-radius: 8px; color: #166534; text-decoration: none; font-weight: 600; font-size: 13px;">
+                <span>Proposal/Poster</span>
+                <span>Buka &rarr;</span>
+              </a>` : ''}
+              ${item.commitment_letter_link ? `
+              <a href="${item.commitment_letter_link}" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: white; border: 1px solid #bbf7d0; border-radius: 8px; color: #166534; text-decoration: none; font-weight: 600; font-size: 13px;">
+                <span>Surat Kesediaan</span>
+                <span>Buka &rarr;</span>
+              </a>` : ''}
+            </div>
+          </div>
+
         </div>
       `,
-      width: 600,
+      width: 650,
       showCloseButton: true,
       showConfirmButton: item.status === 'PENDING',
       showDenyButton: item.status === 'PENDING',
@@ -129,7 +177,17 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
     XLSX.writeFile(wb, "Data_Pendaftaran_Event.xlsx");
   };
 
-  return (    <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-end">
+        <button 
+          onClick={exportToExcel}
+          className="px-4 py-2 bg-[#217346] hover:bg-[#1e6b41] text-white font-bold rounded-lg text-sm flex items-center gap-2 shadow-sm transition-colors"
+        >
+          <Download className="w-4 h-4" /> Export Excel
+        </button>
+      </div>
+      <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
@@ -190,8 +248,9 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
               ))
             )}
           </tbody>
-        </table>
-          </div>
+                </table>
+      </div>
+    </div>
     </div>
   );
 }
