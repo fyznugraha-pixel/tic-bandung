@@ -118,8 +118,8 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
               <div><span style="color: #64748b; font-size: 12px; display: block;">EO/Komunitas</span><strong style="color: #0f172a;">${item.eo_name || '-'}</strong></div>
               <div><span style="color: #64748b; font-size: 12px; display: block;">Nama PIC</span><strong style="color: #0f172a;">${item.pic_name || '-'}</strong></div>
-              <div><span style="color: #64748b; font-size: 12px; display: block;">Email</span><strong style="color: #0f172a;">${item.email || '-'}</strong></div>
-              <div><span style="color: #64748b; font-size: 12px; display: block;">WhatsApp</span><strong style="color: #0f172a;">${item.whatsapp || '-'}</strong></div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">Email</span>${item.email ? `<a href="mailto:${item.email}" style="color: #2563eb; font-weight: bold; text-decoration: underline;">${item.email}</a>` : `<strong style="color: #0f172a;">-</strong>`}</div>
+              <div><span style="color: #64748b; font-size: 12px; display: block;">WhatsApp</span>${item.whatsapp ? `<a href="https://wa.me/${item.whatsapp.replace(/[^0-9]/g, '').replace(/^0/, '62')}" target="_blank" style="color: #16a34a; font-weight: bold; text-decoration: underline;">${item.whatsapp}</a>` : `<strong style="color: #0f172a;">-</strong>`}</div>
             </div>
           </div>
 
