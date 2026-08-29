@@ -78,7 +78,7 @@ export default function EventSubmissionForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-slate-300 mb-2">1. Nama Acara <span className="text-red-500">*</span></label>
-            <input type="text" name="title" required placeholder="Contoh: Bandung Berisik 2026" className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
+            <input type="text" name="title" required placeholder="Contoh: Asia Africa Festival 2026" className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div>
