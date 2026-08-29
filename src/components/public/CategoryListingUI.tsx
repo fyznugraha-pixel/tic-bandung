@@ -126,7 +126,7 @@ export default function CategoryListingUI({
 
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12">
         {/* Filter Bar (FR-03) */}
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-[#d3c5af]/50 mb-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between sticky top-4 z-20">
+        <div className="bg-white p-4 rounded-2xl shadow-sm border border-[#d3c5af]/50 mb-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between sticky top-[80px] z-40">
           
           <div className="relative w-full md:w-96">
             <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -152,27 +152,19 @@ export default function CategoryListingUI({
               />
             </div>
 
-            <div className="flex gap-2">
-              <button 
-                onClick={() => setSelectedPrice(selectedPrice === 'FREE' ? null : 'FREE')}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors border ${
-                  selectedPrice === 'FREE' 
-                    ? 'bg-[#3D7A5E] text-white border-[#3D7A5E]' 
-                    : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100'
-                }`}
-              >
-                Gratis
-              </button>
-              <button 
-                onClick={() => setSelectedPrice(selectedPrice === 'PAID' ? null : 'PAID')}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors border ${
-                  selectedPrice === 'PAID' 
-                    ? 'bg-[#C9971E] text-white border-[#C9971E]' 
-                    : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100'
-                }`}
-              >
-                Berbayar
-              </button>
+            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2">
+              <span className="text-[#3D7A5E] font-bold text-sm">Rp</span>
+              <CustomSelect 
+                value={selectedPrice || ''} 
+                onChange={(e) => setSelectedPrice(e.target.value as 'FREE' | 'PAID' | null)}
+                className="bg-transparent border-none font-medium !p-0 w-28"
+                wrapperClassName="flex-1"
+                placeholder="Semua Harga"
+                options={[
+                  { label: 'Gratis', value: 'FREE' },
+                  { label: 'Berbayar', value: 'PAID' }
+                ]}
+              />
             </div>
 
             {(selectedDistrict || selectedPrice || searchQuery) && (
