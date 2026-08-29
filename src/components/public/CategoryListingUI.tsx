@@ -139,14 +139,14 @@ export default function CategoryListingUI({
             />
           </div>
 
-          <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto">
-            <div className="grid grid-cols-2 gap-2 md:gap-3 w-full md:w-auto">
+          <div className="flex flex-row gap-2 md:gap-3 w-full md:w-auto">
+            <div className="grid grid-cols-2 gap-2 md:gap-3 flex-1 md:w-auto">
               <div className="flex items-center gap-1.5 md:gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 md:px-4 py-2">
                 <Filter className="w-4 h-4 text-gray-500 shrink-0" />
                 <CustomSelect 
                   value={selectedDistrict || ''} 
                   onChange={(e) => setSelectedDistrict(e.target.value || null)}
-                  className="bg-transparent border-none font-medium !p-0 w-full min-w-[100px]"
+                  className="bg-transparent border-none font-medium !p-0 w-full min-w-[10px]"
                   wrapperClassName="flex-1 min-w-0"
                   placeholder="Kawasan"
                   options={uniqueDistricts.map(d => ({ label: d, value: d }))}
@@ -158,7 +158,7 @@ export default function CategoryListingUI({
                 <CustomSelect 
                   value={selectedPrice || ''} 
                   onChange={(e) => setSelectedPrice(e.target.value as 'FREE' | 'PAID' | null)}
-                  className="bg-transparent border-none font-medium !p-0 w-full min-w-[80px]"
+                  className="bg-transparent border-none font-medium !p-0 w-full min-w-[10px]"
                   wrapperClassName="flex-1 min-w-0"
                   placeholder="Harga"
                   options={[
@@ -176,7 +176,7 @@ export default function CategoryListingUI({
                   setSelectedPrice(null);
                   setSearchQuery('');
                 }}
-                className="p-2 text-red-500 hover:bg-red-50 rounded-xl transition-colors shrink-0 self-end md:self-auto"
+                className="p-3 text-red-500 bg-red-50 hover:bg-red-100 rounded-xl transition-colors shrink-0 flex items-center justify-center"
                 title="Reset Filters"
               >
                 <X className="w-5 h-5" />

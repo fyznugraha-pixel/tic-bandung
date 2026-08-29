@@ -37,6 +37,17 @@ export default async function LandingPage() {
     .order('sort_order', { ascending: true })
     .limit(4);
 
+  // Fetch specific destinations to integrate images dynamically while keeping layout static
+  const { data: staticDests } = await supabase
+    .from('destinations')
+    .select('slug, images')
+    .in('slug', ['gedung-sate', 'alun-alun-bandung', 'jalan-braga']);
+
+  const getDestImg = (slug: string) => {
+    const dest = staticDests?.find((d) => d.slug === slug);
+    return dest && dest.images && dest.images.length > 0 ? dest.images[0] : null;
+  };
+
   // Default sliders sebagai fallback dengan gambar yang valid!
   const defaultSliders = [
     {
@@ -118,33 +129,33 @@ export default async function LandingPage() {
           {activeNews && activeNews.length > 0 ? (
             activeNews.map((item, i) => (
                <ScrollReveal key={item.id} delay={i * 0.1} className="h-full">
-<div className="clay-card group cursor-pointer flex flex-col h-full overflow-hidden">
-                 <div className="h-64 relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
-                   {item.image_url ? (
-                     <img src={item.image_url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" alt={item.title} />
-                   ) : (
-                     <ImageIcon className="w-12 h-12 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
-                   )}
-                   
-                   <div className="absolute top-4 left-4">
-                     <span className={`text-xs font-bold text-white bg-${item.color_theme || 'blue'}-600 px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm`}>{item.category}</span>
-                   </div>
-                 </div>
-                 <div className="p-8 flex flex-col flex-grow justify-between">
-                   <div>
-                     <h3 className={`${montserrat.className} text-xl font-bold text-slate-900 mb-4 group-hover:text-[#C9971E] transition-colors line-clamp-3 leading-snug`}>{item.title}</h3>
-                   </div>
-                   <div className="flex items-center justify-between mt-4">
-                     <span className="text-sm text-slate-500 font-medium flex items-center gap-2">
-                       <Calendar className="w-4 h-4 text-slate-400" /> {new Date(item.date_published).toLocaleDateString('id-ID', {day: 'numeric', month: 'long', year: 'numeric'})}
-                     </span>
-                     <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-[#C9971E] transition-colors duration-500">
-                       <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+                 <Link href={`/berita/${item.slug || '#'}`} className="clay-card group cursor-pointer flex flex-col h-full overflow-hidden block">
+                   <div className="h-64 relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
+                     {item.image_url ? (
+                       <img src={item.image_url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" alt={item.title} />
+                     ) : (
+                       <ImageIcon className="w-12 h-12 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
+                     )}
+                     
+                     <div className="absolute top-4 left-4">
+                       <span className={`text-xs font-bold text-white bg-${item.color_theme || 'blue'}-600 px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm`}>{item.category}</span>
                      </div>
                    </div>
-                 </div>
-               </div>
-</ScrollReveal>
+                   <div className="p-8 flex flex-col flex-grow justify-between">
+                     <div>
+                       <h3 className={`${montserrat.className} text-xl font-bold text-slate-900 mb-4 group-hover:text-[#C9971E] transition-colors line-clamp-3 leading-snug`}>{item.title}</h3>
+                     </div>
+                     <div className="flex items-center justify-between mt-4">
+                       <span className="text-sm text-slate-500 font-medium flex items-center gap-2">
+                         <Calendar className="w-4 h-4 text-slate-400" /> {new Date(item.date_published).toLocaleDateString('id-ID', {day: 'numeric', month: 'long', year: 'numeric'})}
+                       </span>
+                       <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-[#C9971E] transition-colors duration-500">
+                         <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+                       </div>
+                     </div>
+                   </div>
+                 </Link>
+               </ScrollReveal>
             ))
           ) : (
             <div className="col-span-3 text-center py-12 text-slate-500">Belum ada berita wisata terbaru.</div>
@@ -162,9 +173,13 @@ export default async function LandingPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-[900px] md:h-[650px]">
           <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
-            <div className="absolute inset-0 bg-[#C9971E]/20 transition-colors duration-700 group-hover:bg-[#C9971E]/40 flex items-center justify-center">
-              <ImageIcon className="w-16 h-16 text-white/20" />
-            </div>
+            {getDestImg('gedung-sate') ? (
+              <img src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            ) : (
+              <div className="absolute inset-0 bg-[#C9971E]/20 transition-colors duration-700 group-hover:bg-[#C9971E]/40 flex items-center justify-center">
+                <ImageIcon className="w-16 h-16 text-white/20" />
+              </div>
+            )}
             
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -175,9 +190,13 @@ export default async function LandingPage() {
           </Link>
           
           <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/alun-alun-bandung">
-            <div className="absolute inset-0 bg-[#3D7A5E]/20 transition-colors duration-700 group-hover:bg-[#3D7A5E]/40 flex items-center justify-center">
-              <ImageIcon className="w-12 h-12 text-white/20" />
-            </div>
+            {getDestImg('alun-alun-bandung') ? (
+              <img src={getDestImg('alun-alun-bandung')!} alt="Alun-Alun Bandung" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            ) : (
+              <div className="absolute inset-0 bg-[#3D7A5E]/20 transition-colors duration-700 group-hover:bg-[#3D7A5E]/40 flex items-center justify-center">
+                <ImageIcon className="w-12 h-12 text-white/20" />
+              </div>
+            )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
@@ -187,9 +206,13 @@ export default async function LandingPage() {
           </Link>
           
           <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/jalan-braga">
-            <div className="absolute inset-0 bg-[#2C5C8A]/20 transition-colors duration-700 group-hover:bg-[#2C5C8A]/40 flex items-center justify-center">
-              <ImageIcon className="w-10 h-10 text-white/20" />
-            </div>
+            {getDestImg('jalan-braga') ? (
+              <img src={getDestImg('jalan-braga')!} alt="Jalan Braga" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            ) : (
+              <div className="absolute inset-0 bg-[#2C5C8A]/20 transition-colors duration-700 group-hover:bg-[#2C5C8A]/40 flex items-center justify-center">
+                <ImageIcon className="w-10 h-10 text-white/20" />
+              </div>
+            )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">

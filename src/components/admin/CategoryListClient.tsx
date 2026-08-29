@@ -15,6 +15,56 @@ export default function CategoryListClient({ categories }: { categories: any[] }
   const [filterPillar, setFilterPillar] = useState("ALL");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
+  const [cropModalOpen, setCropModalOpen] = useState(false);
+  const [cropTargetFile, setCropTargetFile] = useState<File | null>(null);
+  const [cropTargetId, setCropTargetId] = useState<string | null>(null);
+
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setCropTargetFile(file);
+      setCropTargetId(id);
+      setCropModalOpen(true);
+      e.target.value = ''; // reset
+    }
+  };
+
+  const handleCropComplete = async (croppedBlob: Blob) => {
+    const file = new File([croppedBlob], cropTargetFile?.name || 'cropped.jpg', { type: 'image/jpeg' });
+    setCropModalOpen(false);
+    setCropTargetFile(null);
+    
+    if (cropTargetId) {
+      setLoadingId(cropTargetId);
+      try {
+        setLoadingMessage("Mengompresi gambar (WebP)...");
+        const webpFile = await compressImageToWebp(file);
+        const imageUrl = await uploadToSupabase(webpFile, "categories");
+
+        const updateData = new FormData();
+        updateData.append("image_url", imageUrl);
+
+        const result = await updateCategoryAction(cropTargetId, updateData);
+        if (result.error) {
+          toast.error(result.error);
+        } else {
+          toast.success("Thumbnail kategori berhasil diperbarui!");
+        }
+      } catch (err: any) {
+        toast.error("Gagal mengupload gambar: " + err.message);
+      } finally {
+        setLoadingId(null);
+        setCropTargetId(null);
+      }
+    }
+  };
+
+  const handleCropCancel = () => {
+    setCropTargetFile(null);
+    setCropTargetId(null);
+    setCropModalOpen(false);
+  };
+
   const [editData, setEditData] = useState<any>(null);
 
   // Form State

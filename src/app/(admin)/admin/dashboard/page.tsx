@@ -1,7 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
-import { MapPin, Calendar, CheckCircle2, Archive, Plus, ArrowRight, LayoutDashboard, TrendingUp } from "lucide-react";
+import { MapPin, Calendar, CheckCircle2, Archive, Plus, ArrowRight, LayoutDashboard, TrendingUp, Settings, Server, Clock } from "lucide-react";
 import Link from "next/link";
 import EventTable from "@/components/admin/EventTable";
+import SystemInfoCard from "@/components/admin/cms/SystemInfoCard";
+import { checkIsSuperAdmin } from "@/app/actions/admin";
 
 export const metadata = {
   title: 'Dashboard | TIC Kota Bandung',
@@ -14,6 +16,17 @@ export default async function AdminDashboardPage() {
     .from('destinations')
     .select('*', { count: 'exact', head: true });
     
+  const isSuperAdmin = await checkIsSuperAdmin();
+  
+  const { data: siteSettings } = await supabase.from('site_settings').select('*').limit(1).single();
+  const systemInfo = {
+    cms_version: siteSettings?.cms_version || 'v1.0.0',
+    cms_status: siteSettings?.cms_status || 'Sistem berjalan normal',
+    maintenance_date: siteSettings?.maintenance_date || 'Belum dijadwalkan',
+    maintenance_time: siteSettings?.maintenance_time || '-',
+    update_notes: siteSettings?.update_notes || ''
+  };
+
   const { count: activeDestinations } = await supabase
     .from('destinations')
     .select('*', { count: 'exact', head: true })
@@ -73,6 +86,9 @@ export default async function AdminDashboardPage() {
             </p>
           </div>
         </header>
+
+        <SystemInfoCard info={systemInfo} isSuperAdmin={isSuperAdmin} />
+
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
           {/* Destinasi Card */}
@@ -221,6 +237,9 @@ export default async function AdminDashboardPage() {
           </div>
           <EventTable initialData={latestEvents} />
         </section>
+
+
+
 
       </div>
     </>

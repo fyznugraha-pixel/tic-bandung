@@ -39,11 +39,11 @@ export default async function EditDestinationPage({ params }: { params: Promise<
     <div className="w-full">
       <div className="mb-8">
         <Link 
-          href="/admin/dashboard"
+          href="/admin/destinasi"
           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 mb-4 transition-colors font-medium"
         >
           <ArrowLeft className="w-4 h-4" />
-          Kembali ke Dashboard
+          Kembali ke Data Destinasi
         </Link>
         
         <h1 className="text-3xl font-display font-bold text-gray-900 flex items-center gap-3">

@@ -52,12 +52,21 @@ export async function deleteHeroSlider(id: string) {
 
 export async function createNewsArticle(formData: FormData) {
   const supabase = await createClient();
+  const title = formData.get('title') as string;
+  let slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+  
+  // Append a random string to avoid duplicate slugs easily
+  slug = `${slug}-${Math.random().toString(36).substring(2, 7)}`;
+
   const { error } = await supabase.from('news_articles').insert([{
-    title: formData.get('title'),
+    title,
     category: formData.get('category'),
     date_published: formData.get('date_published'),
     image_url: formData.get('image_url'),
-    color_theme: formData.get('color_theme')
+    color_theme: formData.get('color_theme'),
+    content: formData.get('content'),
+    slug: slug,
+    images: formData.get('images') ? JSON.parse(formData.get('images') as string) : []
   }]);
   if (error) return { error: error.message };
   revalidatePath('/admin/berita');
@@ -68,12 +77,16 @@ export async function createNewsArticle(formData: FormData) {
 
 export async function updateNewsArticle(id: string, formData: FormData) {
   const supabase = await createClient();
+  const title = formData.get('title') as string;
+
   const { error } = await supabase.from('news_articles').update({
-    title: formData.get('title'),
+    title,
     category: formData.get('category'),
     date_published: formData.get('date_published'),
     image_url: formData.get('image_url'),
-    color_theme: formData.get('color_theme')
+    color_theme: formData.get('color_theme'),
+    content: formData.get('content'),
+    images: formData.get('images') ? JSON.parse(formData.get('images') as string) : []
   }).eq('id', id);
   if (error) return { error: error.message };
   revalidatePath('/admin/berita');
@@ -202,4 +215,45 @@ export async function toggleGalleryStatus(id: string, currentStatus: string) {
   revalidatePath('/');
   await logAdminAction('UPDATE', 'GALLERY_STATUS', "ID:  to ");
   return { success: true, newStatus };
+}
+
+export async function updateSystemInfo(formData: FormData) {
+  const supabase = await createClient();
+  
+  const cms_version = formData.get('cms_version') as string;
+  const cms_status = formData.get('cms_status') as string;
+  const maintenance_date = formData.get('maintenance_date') as string;
+  const maintenance_time = formData.get('maintenance_time') as string;
+  const update_notes = formData.get('update_notes') as string;
+  
+  // We assume there is only one row in site_settings.
+  // First, let's fetch its ID.
+  const { data: settings } = await supabase.from('site_settings').select('id').limit(1).single();
+  
+  let error;
+  if (settings) {
+    const { error: updateError } = await supabase.from('site_settings').update({
+      cms_version,
+      cms_status,
+      maintenance_date,
+      maintenance_time,
+      update_notes
+    }).eq('id', settings.id);
+    error = updateError;
+  } else {
+    const { error: insertError } = await supabase.from('site_settings').insert([{
+      cms_version,
+      cms_status,
+      maintenance_date,
+      maintenance_time,
+      update_notes
+    }]);
+    error = insertError;
+  }
+  
+  if (error) return { error: error.message };
+  
+  revalidatePath('/admin/dashboard');
+  await logAdminAction('UPDATE', 'SETTINGS', 'System Information & Maintenance Schedule');
+  return { success: true };
 }

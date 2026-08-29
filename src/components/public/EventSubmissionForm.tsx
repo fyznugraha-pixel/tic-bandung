@@ -24,6 +24,15 @@ export default function EventSubmissionForm() {
     setErrorMsg("");
 
     const formData = new FormData(e.currentTarget);
+    
+    // Validasi Ukuran File (Max 2MB)
+    const file = formData.get('commitment_letter_file') as File;
+    if (file && file.size > 2 * 1024 * 1024) {
+      setErrorMsg("Gagal: Ukuran file Surat Kesediaan maksimal 2 MB.");
+      setIsSubmitting(false);
+      return;
+    }
+
     const result = await submitEventFormAction(formData);
 
     setIsSubmitting(false);

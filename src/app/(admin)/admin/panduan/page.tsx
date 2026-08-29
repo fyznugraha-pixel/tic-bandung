@@ -1,11 +1,13 @@
 import React from 'react';
-import { BookOpen, ImageIcon, FileText, Camera, MapPin, Calendar, HelpCircle, AlertCircle, CheckCircle2, ChevronRight } from 'lucide-react';
+import { BookOpen, ImageIcon, FileText, Camera, MapPin, Calendar, HelpCircle, AlertCircle, CheckCircle2, ChevronRight, Shield } from 'lucide-react';
+import { checkIsSuperAdmin } from '@/app/actions/admin';
 
 export const metadata = {
   title: 'Panduan Penggunaan CMS | Admin TIC',
 };
 
-export default function PanduanCMSPage() {
+export default async function PanduanCMSPage() {
+  const isSuperAdmin = await checkIsSuperAdmin();
   return (
     <div className="p-6 md:p-8 w-full max-w-[1600px] mx-auto space-y-8">
       
@@ -80,11 +82,15 @@ export default function PanduanCMSPage() {
             <ul className="space-y-3">
               <li className="flex gap-3 text-sm text-slate-700">
                 <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                <span><strong>Rich Text Editor:</strong> Gunakan editor untuk format teks (tebal, miring, daftar, kutipan) seperti di Word.</span>
+                <span><strong>Identitas Penulis:</strong> Anda bisa menambahkan nama penulis (Author) dan perannya (misal: "Tim Redaksi") pada setiap berita.</span>
               </li>
               <li className="flex gap-3 text-sm text-slate-700">
                 <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                <span><strong>Thumbnail:</strong> Gambar sampul wajib diunggah agar artikel tampil cantik di daftar publik.</span>
+                <span><strong>Rich Text Editor:</strong> Tersedia pilihan "Normal" untuk membuat Heading (Judul/Sub-judul) yang proporsional tanpa perlu mengatur ukuran font manual.</span>
+              </li>
+              <li className="flex gap-3 text-sm text-slate-700">
+                <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+                <span><strong>Fitur Interaktif:</strong> Pengunjung publik sekarang dapat langsung membagikan atau menyalin tautan artikel Anda melalui tombol aksi di halaman berita.</span>
               </li>
             </ul>
           </div>
@@ -158,6 +164,32 @@ export default function PanduanCMSPage() {
         </div>
       </div>
 
+
+      {/* Super Admin & Hak Akses (Full Width) */}
+      {isSuperAdmin && (
+        <div className="bg-slate-900 rounded-3xl shadow-sm border border-slate-800 p-8 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-8 items-center mt-6">
+        <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center shrink-0">
+          <Shield className="w-8 h-8 text-blue-400" />
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">Fitur Khusus Super Admin</h2>
+          <p className="text-slate-400 text-sm mb-4">
+            Sistem dilengkapi dengan pembagian hak akses. Hanya pemegang akun <strong>Super Admin</strong> yang memiliki kendali atas sistem inti, meliputi:
+          </p>
+          <ul className="space-y-2">
+            <li className="flex items-center gap-2 text-sm text-blue-300">
+              <CheckCircle2 className="w-4 h-4" />
+              <span><strong>Edit Informasi Sistem:</strong> Mengubah Versi CMS, Status Sistem, Jadwal Maintenance, dan Catatan Pembaruan (Update Notes) langsung dari halaman Dashboard Utama.</span>
+            </li>
+            <li className="flex items-center gap-2 text-sm text-blue-300">
+              <CheckCircle2 className="w-4 h-4" />
+              <span><strong>Pembersihan Riwayat (Log):</strong> Kemampuan untuk menghapus seluruh riwayat aktivitas admin di menu Pengaturan - Log Aktivitas.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      )}
       {/* Tips / Best Practices */}
       <div className="bg-amber-50 rounded-3xl border border-amber-200 p-8 mt-8">
         <div className="flex flex-col md:flex-row gap-8 items-start">

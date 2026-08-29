@@ -2,10 +2,13 @@
 import { getAdminLogs } from '@/app/actions/log';
 import { Clock, User, Activity, FileText } from 'lucide-react';
 import { format } from 'date-fns';
+import { checkIsSuperAdmin } from '@/app/actions/admin';
+import ClearLogsButton from '@/components/admin/cms/ClearLogsButton';
 import { id } from 'date-fns/locale';
 
 export default async function AdminLogsPage() {
   const { data: logs, error } = await getAdminLogs();
+  const isSuperAdmin = await checkIsSuperAdmin();
 
   const getActionBadge = (action: string) => {
     switch (action) {
@@ -42,9 +45,12 @@ export default async function AdminLogsPage() {
   return (
     <>
       <div className="w-full max-w-6xl mx-auto py-4">
-        <header className="mb-10">
-          <h1 className="text-2xl md:text-3xl font-display font-medium text-[#2d2a26] tracking-tight">Riwayat Aktivitas Admin</h1>
-          <p className="text-[#8a857e] mt-1 text-sm md:text-base">Pantau semua perubahan data yang dilakukan oleh administrator di sistem.</p>
+        <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-display font-medium text-[#2d2a26] tracking-tight">Riwayat Aktivitas Admin</h1>
+            <p className="text-[#8a857e] mt-1 text-sm md:text-base">Pantau semua perubahan data yang dilakukan oleh administrator di sistem.</p>
+          </div>
+          {isSuperAdmin && <ClearLogsButton />}
         </header>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">

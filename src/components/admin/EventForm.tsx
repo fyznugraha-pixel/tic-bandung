@@ -52,6 +52,31 @@ export default function EventForm({
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
+  const [cropModalOpen, setCropModalOpen] = useState(false);
+  const [cropTargetFile, setCropTargetFile] = useState<File | null>(null);
+
+  const handleMainImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setCropTargetFile(file);
+      setCropModalOpen(true);
+      e.target.value = ''; // reset
+    }
+  };
+
+  const handleCropComplete = (croppedBlob: Blob) => {
+    const file = new File([croppedBlob], cropTargetFile?.name || 'cropped.jpg', { type: 'image/jpeg' });
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+    setCropModalOpen(false);
+    setCropTargetFile(null);
+  };
+
+  const handleCropCancel = () => {
+    setCropTargetFile(null);
+    setCropModalOpen(false);
+  };
+
 
   useEffect(() => {
     if (initialData) {

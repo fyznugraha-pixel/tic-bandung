@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { LayoutDashboard, MapPin, BookOpen, Image as ImageIcon, FileText, Settings, LogOut, Home, Camera, Plus, Calendar, Activity, Shield, User, FolderTree, Inbox } from 'lucide-react';
 import { signoutAction } from '@/app/actions/auth';
+import { updateLastSeen } from '@/app/actions/admin';
+import { useEffect } from 'react';
 
 export default function AdminLayoutWrapper({
   children,
@@ -17,11 +19,23 @@ export default function AdminLayoutWrapper({
 }) {
   const pathname = usePathname();
 
+  useEffect(() => {
+    // Initial ping
+    updateLastSeen();
+    
+    // Ping every 1 minute
+    const interval = setInterval(() => {
+      updateLastSeen();
+    }, 60000);
+    
+    return () => clearInterval(interval);
+  }, [pathname]);
+
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
-    home: false,
-    destinasi: false,
-    event: false,
-    pengaturan: false
+    home: true,
+    destinasi: true,
+    event: true,
+    pengaturan: true
   });
 
   const toggleGroup = (group: string) => {

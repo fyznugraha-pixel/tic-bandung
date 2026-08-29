@@ -26,7 +26,7 @@ export default async function KategoriPage() {
 
   const renderBg = (slug: string) => {
     const img = getImage(slug);
-    if (img) return <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 group-hover:opacity-60 transition-opacity duration-700" />;
+    if (img) return <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />;
     return null;
   };
   

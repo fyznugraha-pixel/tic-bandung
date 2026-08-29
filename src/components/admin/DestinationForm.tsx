@@ -7,6 +7,7 @@ import { UploadCloud, CheckCircle, Info, X } from "lucide-react";
 import { createDestinationAction, updateDestinationAction } from "@/app/actions/destination";
 import { compressImageToWebp, uploadToSupabase } from "@/utils/imageUpload";
 import { CustomSelect } from "@/components/ui/CustomSelect";
+import ImageCropperModal from "@/components/ui/ImageCropperModal";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
@@ -60,6 +61,66 @@ export default function DestinationForm({
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
+  const [cropModalOpen, setCropModalOpen] = useState(false);
+  const [cropTargetFile, setCropTargetFile] = useState<File | null>(null);
+  const [cropTargetType, setCropTargetType] = useState<'main' | 'gallery'>('main');
+  const [cropQueue, setCropQueue] = useState<File[]>([]);
+  const [cropAspectRatio, setCropAspectRatio] = useState<number | undefined>(16/9);
+
+  const handleMainImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setCropTargetFile(file);
+      setCropTargetType('main');
+      setCropAspectRatio(16/9);
+      setCropModalOpen(true);
+    }
+  };
+
+  const handleCropComplete = (croppedBlob: Blob) => {
+    // Convert Blob back to File
+    const file = new File([croppedBlob], cropTargetFile?.name || 'cropped.jpg', { type: 'image/jpeg' });
+    
+    if (cropTargetType === 'main') {
+      setImageFile(file);
+      setImagePreview(URL.createObjectURL(file));
+      setCropModalOpen(false);
+      setCropTargetFile(null);
+    } else if (cropTargetType === 'gallery') {
+      setGalleryFiles(prev => [...prev, file]);
+      setGalleryPreviews(prev => [...prev, URL.createObjectURL(file)]);
+      
+      const nextQueue = [...cropQueue];
+      nextQueue.shift(); // remove the one we just processed
+      if (nextQueue.length > 0) {
+        setCropQueue(nextQueue);
+        setCropTargetFile(nextQueue[0]);
+      } else {
+        setCropQueue([]);
+        setCropTargetFile(null);
+        setCropModalOpen(false);
+      }
+    }
+  };
+
+  const handleCropCancel = () => {
+    if (cropTargetType === 'gallery') {
+      const nextQueue = [...cropQueue];
+      nextQueue.shift();
+      if (nextQueue.length > 0) {
+        setCropQueue(nextQueue);
+        setCropTargetFile(nextQueue[0]);
+      } else {
+        setCropQueue([]);
+        setCropTargetFile(null);
+        setCropModalOpen(false);
+      }
+    } else {
+      setCropTargetFile(null);
+      setCropModalOpen(false);
+    }
+  };
+
 
   const DAYS = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] as const;
   type DaySchedule = { active: boolean; open: string; close: string };

@@ -5,6 +5,8 @@ import { toast } from 'react-hot-toast';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Trash2, UserPlus, Shield, User, Loader2, AlertCircle } from 'lucide-react';
+import { formatDistanceToNow, differenceInMinutes } from 'date-fns';
+import { id } from 'date-fns/locale';
 import { createNewAdmin, deleteAdmin } from '@/app/actions/admin';
 import { useRouter } from 'next/navigation';
 
@@ -14,6 +16,7 @@ type AdminUser = {
   email: string;
   role: string;
   created_at: string;
+  last_seen?: string;
 };
 
 export default function AdminManagementClient({ admins, currentUserEmail }: { admins: AdminUser[], currentUserEmail: string }) {
@@ -151,6 +154,8 @@ export default function AdminManagementClient({ admins, currentUserEmail }: { ad
                 <th className="px-6 py-4 font-semibold tracking-wider">Email</th>
                 <th className="px-6 py-4 font-semibold tracking-wider">Peran (Role)</th>
                 <th className="px-6 py-4 font-semibold tracking-wider">Tanggal Bergabung</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Status</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Terakhir Dilihat</th>
                 <th className="px-6 py-4 font-semibold tracking-wider text-right">Aksi</th>
               </tr>
             </thead>
@@ -182,6 +187,24 @@ export default function AdminManagementClient({ admins, currentUserEmail }: { ad
                   <td className="px-6 py-4 whitespace-nowrap text-gray-500">
                     {new Date(admin.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
                   </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {admin.last_seen && differenceInMinutes(new Date(), new Date(admin.last_seen)) <= 2 ? (
+                      <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Online
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1.5 text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                        Offline
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-xs">
+                    {admin.last_seen 
+                      ? formatDistanceToNow(new Date(admin.last_seen), { addSuffix: true, locale: id })
+                      : 'Belum pernah login'}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right">
                     {admin.email !== currentUserEmail && (
                       <button 
@@ -198,7 +221,7 @@ export default function AdminManagementClient({ admins, currentUserEmail }: { ad
               
               {admins.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="px-6 py-12 text-center text-gray-500">
+                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
                     Belum ada data admin ditemukan.
                   </td>
                 </tr>
