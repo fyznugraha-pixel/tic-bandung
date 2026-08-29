@@ -237,9 +237,31 @@ export default async function DestinationDetailPage({
                     </div>
                     <div>
                       <p className="text-xs font-bold text-[#4f4635] uppercase tracking-wider mb-1">Alamat Lokasi</p>
-                      <p className="font-medium text-sm text-[#1b1c1a] leading-relaxed">
+                      <p className="font-medium text-sm text-[#1b1c1a] leading-relaxed mb-3">
                         {dest.address}
                       </p>
+                      {dest.lat && dest.lng && (
+                        <div className="flex gap-2">
+                          <a 
+                            href={`https://maps.google.com/?q=${dest.lat},${dest.lng}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] font-bold px-3 py-1.5 bg-blue-50 text-blue-700 rounded-md hover:bg-blue-100 transition-colors flex items-center gap-1.5"
+                          >
+                            <Navigation className="w-3 h-3" />
+                            Google Maps
+                          </a>
+                          <a 
+                            href={`http://maps.apple.com/?q=${dest.lat},${dest.lng}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] font-bold px-3 py-1.5 bg-slate-100 text-slate-700 rounded-md hover:bg-slate-200 transition-colors flex items-center gap-1.5"
+                          >
+                            <MapPin className="w-3 h-3" />
+                            Apple Maps
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
@@ -260,18 +282,7 @@ export default async function DestinationDetailPage({
                     Download Leaflet
                   </a>
                 )}
-                {dest.lat && dest.lng && (
-                  <a 
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${dest.lat},${dest.lng}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3.5 rounded-xl text-white font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md"
-                    style={{ backgroundColor: themeColor }}
-                  >
-                    <Navigation className="w-5 h-5" />
-                    Petunjuk Arah (Maps)
-                  </a>
-                )}
+                
               </div>
             </div>
           </div>
