@@ -56,6 +56,7 @@ export default function TransportasiPage() {
               </Link>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* Card 2: Bandros (Image Card) */}
           <div className="md:col-span-2 bg-slate-900 rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] group relative">
@@ -145,5 +146,6 @@ export default function TransportasiPage() {
     </main>
   );
 }
+
 
 

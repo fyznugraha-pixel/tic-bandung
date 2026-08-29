@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Compass, Download, Heart, ArrowRight, Camera, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
 import HeroSlider from '@/components/home/HeroSlider';
 import { createClient } from '@/utils/supabase/server';
@@ -266,7 +266,8 @@ export default async function LandingPage() {
           </div>
         </div>
       </section>
-
+      </ScrollReveal>
     </main>
   );
 }
+

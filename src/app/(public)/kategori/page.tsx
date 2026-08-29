@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { ModernHero } from '@/components/ui/ModernHero';
 import { ChevronRight, Bed, Map, Coffee, Compass } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
@@ -90,10 +90,12 @@ export default async function KategoriPage() {
             ))}
           </div>
         </section>
+        </ScrollReveal>
         )}
 
         {/* PILLAR 2: Things to Do & Explore */}
         {categories && categories.filter(c => c.pillar === 'explore').length > 0 && (
+        <ScrollReveal delay={0.1}>
         <section className="mb-20">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-12 bg-[#3D7A5E]/10 rounded-xl flex items-center justify-center">
@@ -118,6 +120,7 @@ export default async function KategoriPage() {
             ))}
           </div>
         </section>
+        </ScrollReveal>
         )}
 
         {/* PILLAR 3: Lifestyle, Eat & Space */}
@@ -143,7 +146,7 @@ export default async function KategoriPage() {
                   <h3 className="text-2xl font-bold text-white">{cat.name}</h3>
                 </div>
               </Link>
-            ))}
+            ))} 
           </div>
         </section>
         )}
@@ -151,6 +154,7 @@ export default async function KategoriPage() {
     </main>
   );
 }
+
 
 
 

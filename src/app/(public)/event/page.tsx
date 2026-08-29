@@ -101,7 +101,7 @@ export default function EventPage() {
                 </li>
               </ul>
             </section>
-
+            </ScrollReveal>
           </div>
 
           {/* Right Column: Registration Form */}
@@ -121,6 +121,7 @@ export default function EventPage() {
     </main>
   );
 }
+
 
 
 

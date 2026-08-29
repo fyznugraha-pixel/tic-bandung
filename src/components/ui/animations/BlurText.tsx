@@ -20,7 +20,7 @@ export function BlurText({ text, delay = 0, className = "" }: BlurTextProps) {
     }),
   };
 
-  const child = {
+  const child: any = {
     visible: {
       opacity: 1,
       filter: 'blur(0px)',
@@ -57,3 +57,4 @@ export function BlurText({ text, delay = 0, className = "" }: BlurTextProps) {
     </motion.span>
   );
 }
+
