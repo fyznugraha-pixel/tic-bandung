@@ -1,4 +1,5 @@
 "use client";
+import { toast } from 'react-hot-toast';
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -143,7 +144,7 @@ export default function DestinationForm({
     setLoadingMessage("Menyiapkan data...");
     try {
       if (!isEditMode && !imageFile) {
-        alert("Foto utama wajib diunggah untuk destinasi baru (NFR-16).");
+        toast.error("Foto utama wajib diunggah untuk destinasi baru (NFR-16).");
         setIsSubmitting(false);
       setLoadingMessage(null);
         return;
@@ -182,18 +183,18 @@ export default function DestinationForm({
       }
       
       if (result.error) {
-        alert(result.error);
+        toast.error(result.error);
         return;
       }
 
-      alert(`Destinasi berhasil ${isEditMode ? 'diperbarui' : 'disimpan'}!`);
+      toast.success(`Destinasi berhasil ${isEditMode ? 'diperbarui' : 'disimpan'}!`);
       
       router.push("/admin/destinasi");
       router.refresh();
       
     } catch (error) {
       console.error(error);
-      alert("Terjadi kesalahan sistem saat menyimpan destinasi.");
+      toast.error("Terjadi kesalahan sistem saat menyimpan destinasi.");
     } finally {
       setIsSubmitting(false);
     }

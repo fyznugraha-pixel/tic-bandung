@@ -1,4 +1,5 @@
 "use client";
+import { toast } from 'react-hot-toast';
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -70,7 +71,7 @@ export default function EventForm({
     setLoadingMessage("Menyiapkan data...");
     try {
       if (!isEditMode && !imageFile) {
-        alert("Poster/Foto event wajib diunggah untuk event baru.");
+        toast.error("Poster/Foto event wajib diunggah untuk event baru.");
         setIsSubmitting(false);
       setLoadingMessage(null);
         return;
@@ -106,18 +107,18 @@ export default function EventForm({
       }
       
       if (result.error) {
-        alert(result.error);
+        toast.error(result.error);
         return;
       }
 
-      alert(`Event berhasil ${isEditMode ? 'diperbarui' : 'disimpan'}!`);
+      toast.success(`Event berhasil ${isEditMode ? 'diperbarui' : 'disimpan'}!`);
       
       router.push("/admin/event");
       router.refresh();
       
     } catch (error) {
       console.error(error);
-      alert("Terjadi kesalahan sistem saat menyimpan event.");
+      toast.error("Terjadi kesalahan sistem saat menyimpan event.");
     } finally {
       setIsSubmitting(false);
     }

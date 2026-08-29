@@ -1,4 +1,5 @@
 "use client";
+import Swal from 'sweetalert2';
 
 import { useState, useTransition } from 'react';
 import { togglePublishStatusAction } from '@/app/actions/dashboard';
@@ -30,9 +31,17 @@ export default function DashboardTable({ initialData, allCategories }: { initial
     : data.filter(item => (item.category?.name || 'Tanpa Kategori') === activeTab);
 
   const handleDelete = async (id: string, name: string) => {
-    if (!window.confirm(`Peringatan! Apakah Anda yakin ingin menghapus destinasi "${name}"? Tindakan ini tidak bisa dibatalkan.`)) return;
-    
-    // Optimistic UI update
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Peringatan! Apakah Anda yakin ingin menghapus destinasi "${name}"? Tindakan ini tidak bisa dibatalkan.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (!confirmResult.isConfirmed) return;// Optimistic UI update
     setData(prev => prev.filter(item => item.id !== id));
     
     startTransition(async () => {

@@ -1,4 +1,6 @@
 "use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import { useState, useTransition } from 'react';
 import { deleteEventAction, toggleEventStatusAction } from '@/app/actions/event';
@@ -24,12 +26,20 @@ export default function EventTable({ initialData }: { initialData: EventData[] }
   const [isPending, startTransition] = useTransition();
 
   const handleDelete = async (id: string, title: string) => {
-    if (!window.confirm(`Peringatan! Apakah Anda yakin ingin menghapus event "${title}"? Tindakan ini tidak bisa dibatalkan.`)) return;
-    
-    startTransition(async () => {
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Peringatan! Apakah Anda yakin ingin menghapus event "${title}"? Tindakan ini tidak bisa dibatalkan.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (!confirmResult.isConfirmed) return;startTransition(async () => {
       const result = await deleteEventAction(id);
       if (result.error) {
-        alert(result.error);
+        toast.error(result.error);
       } else {
         setData(prev => prev.filter(item => item.id !== id));
       }
@@ -40,7 +50,7 @@ export default function EventTable({ initialData }: { initialData: EventData[] }
     startTransition(async () => {
       const result = await toggleEventStatusAction(id, currentStatus);
       if (result.error) {
-        alert(result.error);
+        toast.error(result.error);
       } else {
         setData(prev => prev.map(item => 
           item.id === id ? { ...item, status: result.status as string } : item

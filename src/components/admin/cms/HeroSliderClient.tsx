@@ -1,4 +1,6 @@
-'use client';
+"use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import { useState, useTransition, useRef } from 'react';
 import { Plus, Edit, Trash2, X, Loader2, UploadCloud } from 'lucide-react';
@@ -236,12 +238,22 @@ export function EditHeroButton({ slider }: { slider: HeroSlider }) {
 export function DeleteHeroButton({ id, title }: { id: string; title: string }) {
   const [isPending, startTransition] = useTransition();
 
-  const handleDelete = () => {
-    if (confirm(`Apakah Anda yakin ingin menghapus slider "${title}"?`)) {
+  const handleDelete = async () => {
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Apakah Anda yakin ingin menghapus slider "${title}"?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (confirmResult.isConfirmed) {
       startTransition(async () => {
         const result = await deleteHeroSlider(id);
         if (result?.error) {
-          alert(`Error: ${result.error}`);
+          toast.error(`Error: ${result.error}`);
         }
       });
     }

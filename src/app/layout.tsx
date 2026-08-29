@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { Toaster } from 'react-hot-toast';
 
 const hankenGrotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-hanken-grotesk" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${hankenGrotesk.variable} ${spaceGrotesk.variable} bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen`}
       >
         {children}
+        <Toaster position="bottom-right" toastOptions={{ duration: 4000, style: { background: '#363636', color: '#fff' } }} />
       </body>
     </html>
   );

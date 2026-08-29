@@ -1,4 +1,6 @@
 "use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import { useState, useTransition } from 'react';
 import { updateSubmissionStatusAction } from '@/app/actions/eventSubmission';
@@ -20,12 +22,20 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
   const [isPending, startTransition] = useTransition();
 
   const handleUpdateStatus = async (id: string, status: "APPROVED" | "REJECTED") => {
-    if (!window.confirm(`Apakah Anda yakin ingin mengubah status menjadi ${status}?`)) return;
-    
-    startTransition(async () => {
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi',
+      text: `Apakah Anda yakin ingin mengubah status menjadi ${status}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Lanjutkan',
+      cancelButtonText: 'Batal'
+    });
+    if (!confirmResult.isConfirmed) return;startTransition(async () => {
       const result = await updateSubmissionStatusAction(id, status);
       if (result.error) {
-        alert(result.error);
+        toast.error(result.error);
       } else {
         setData(prev => prev.map(item => 
           item.id === id ? { ...item, status: status } : item

@@ -1,8 +1,10 @@
-'use client';
+"use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import { useState, useTransition, useRef } from 'react';
-import { Plus, Edit, Trash2, X, Loader2, UploadCloud } from 'lucide-react';
-import { createGallery, updateGallery, deleteGallery } from '@/app/actions/cmsActions';
+import { Plus, Edit, Trash2, X, Loader2, UploadCloud, Eye, EyeOff } from 'lucide-react';
+import { createGallery, updateGallery, deleteGallery, toggleGalleryStatus } from '@/app/actions/cmsActions';
 import { compressImageToWebp, uploadToSupabase } from '@/utils/imageUpload';
 
 type Gallery = {
@@ -11,6 +13,7 @@ type Gallery = {
   category: string | null;
   image_url: string;
   is_featured: boolean;
+  status?: string;
 };
 
 // Form Modal Component
@@ -222,12 +225,22 @@ export function EditGaleriButton({ gallery }: { gallery: Gallery }) {
 export function DeleteGaleriButton({ id, title }: { id: string; title: string }) {
   const [isPending, startTransition] = useTransition();
 
-  const handleDelete = () => {
-    if (confirm(`Apakah Anda yakin ingin menghapus foto "${title}"?`)) {
+  const handleDelete = async () => {
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Apakah Anda yakin ingin menghapus foto "${title}"?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (confirmResult.isConfirmed) {
       startTransition(async () => {
         const result = await deleteGallery(id);
         if (result?.error) {
-          alert(`Error: ${result.error}`);
+          toast.error(`Error: ${result.error}`);
         }
       });
     }

@@ -1,8 +1,10 @@
-'use client';
+"use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import { useState, useTransition, useRef } from 'react';
-import { Plus, Edit, Trash2, X, Loader2, UploadCloud } from 'lucide-react';
-import { createNewsArticle, updateNewsArticle, deleteNewsArticle } from '@/app/actions/cmsActions';
+import { Plus, Edit, Trash2, X, Loader2, UploadCloud, Eye, EyeOff } from 'lucide-react';
+import { createNewsArticle, updateNewsArticle, deleteNewsArticle, toggleNewsStatus } from '@/app/actions/cmsActions';
 import { compressImageToWebp, uploadToSupabase } from '@/utils/imageUpload';
 import { CustomSelect } from '@/components/ui/CustomSelect';
 
@@ -15,6 +17,7 @@ type NewsArticle = {
   color_theme: string;
   link: string | null;
   is_featured: boolean;
+  status?: string;
 };
 
 // Form Modal Component
@@ -253,12 +256,22 @@ export function EditBeritaButton({ article }: { article: NewsArticle }) {
 export function DeleteBeritaButton({ id, title }: { id: string; title: string }) {
   const [isPending, startTransition] = useTransition();
 
-  const handleDelete = () => {
-    if (confirm(`Apakah Anda yakin ingin menghapus berita "${title}"?`)) {
+  const handleDelete = async () => {
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Apakah Anda yakin ingin menghapus berita "${title}"?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (confirmResult.isConfirmed) {
       startTransition(async () => {
         const result = await deleteNewsArticle(id);
         if (result?.error) {
-          alert(`Error: ${result.error}`);
+          toast.error(`Error: ${result.error}`);
         }
       });
     }

@@ -1,4 +1,6 @@
 "use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -45,10 +47,20 @@ export default function AdminManagementClient({ admins, currentUserEmail }: { ad
   };
 
   const handleDelete = async (userId: string, email: string) => {
-    if (confirm(`Yakin ingin menghapus admin ${email}?`)) {
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Yakin ingin menghapus admin ${email}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (confirmResult.isConfirmed) {
       const res = await deleteAdmin(userId, email);
       if (res?.error) {
-        alert(res.error);
+        toast.error(res.error);
       } else {
         router.refresh();
       }

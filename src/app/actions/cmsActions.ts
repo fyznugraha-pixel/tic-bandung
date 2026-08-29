@@ -1,4 +1,4 @@
-'use server';
+﻿'use server';
 
 import { createClient } from '@/utils/supabase/server';
 import { revalidatePath } from 'next/cache';
@@ -180,4 +180,26 @@ export async function updateSiteSettings(formData: FormData) {
   revalidatePath('/admin/pengaturan');
   await logAdminAction('UPDATE', 'SETTINGS', 'Pengaturan Website');
   return { success: true };
+}
+
+export async function toggleNewsStatus(id: string, currentStatus: string) {
+  const supabase = await createClient();
+  const newStatus = currentStatus === 'published' ? 'draft' : 'published';
+  const { error } = await supabase.from('news_articles').update({ status: newStatus }).eq('id', id);
+  if (error) return { error: error.message };
+  revalidatePath('/admin/berita');
+  revalidatePath('/');
+  await logAdminAction('UPDATE', 'NEWS_STATUS', "ID:  to ");
+  return { success: true, newStatus };
+}
+
+export async function toggleGalleryStatus(id: string, currentStatus: string) {
+  const supabase = await createClient();
+  const newStatus = currentStatus === 'published' ? 'draft' : 'published';
+  const { error } = await supabase.from('galleries').update({ status: newStatus }).eq('id', id);
+  if (error) return { error: error.message };
+  revalidatePath('/admin/galeri');
+  revalidatePath('/');
+  await logAdminAction('UPDATE', 'GALLERY_STATUS', "ID:  to ");
+  return { success: true, newStatus };
 }

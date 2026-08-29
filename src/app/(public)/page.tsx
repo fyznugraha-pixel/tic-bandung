@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Compass, Download, Heart, ArrowRight, Camera, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
 import HeroSlider from '@/components/home/HeroSlider';
 import { createClient } from '@/utils/supabase/server';
@@ -25,6 +25,7 @@ export default async function LandingPage() {
   const { data: newsArticles } = await supabase
     .from('news_articles')
     .select('*')
+    .eq('status', 'published')
     .order('date_published', { ascending: false })
     .limit(3);
 
@@ -32,6 +33,7 @@ export default async function LandingPage() {
   const { data: galleries } = await supabase
     .from('galleries')
     .select('*')
+    .eq('status', 'published')
     .order('sort_order', { ascending: true })
     .limit(4);
 

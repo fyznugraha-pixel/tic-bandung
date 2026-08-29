@@ -1,4 +1,6 @@
 "use client";
+import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 import { useState } from "react";
 import { UploadCloud, Edit2, Trash2, Plus, X, Search } from "lucide-react";
@@ -50,30 +52,38 @@ export default function CategoryListClient({ categories }: { categories: any[] }
 
       const result = await updateCategoryAction(id, updateData);
       if (result.error) {
-        alert(result.error);
+        toast.error(result.error);
       } else {
-        alert("Thumbnail kategori berhasil diperbarui!");
+        toast.success("Thumbnail kategori berhasil diperbarui!");
       }
     } catch (err: any) {
-      alert("Gagal mengupload gambar: " + err.message);
+      toast.error("Gagal mengupload gambar: " + err.message);
     } finally {
       setLoadingId(null);
     }
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (!confirm(`Yakin ingin menghapus kategori "${name}"? Pastikan tidak ada destinasi yang menggunakan kategori ini.`)) {
-      return;
-    }
+    const confirmResult = await Swal.fire({
+      title: 'Konfirmasi Hapus',
+      text: `Yakin ingin menghapus kategori "${name}"? Pastikan tidak ada destinasi yang menggunakan kategori ini.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (!confirmResult.isConfirmed) return;
     
     setLoadingId(id);
     try {
       const res = await deleteCategoryAction(id);
       if (res.error) {
-        alert(res.error);
+        toast.error(res.error);
       }
     } catch (err: any) {
-      alert("Terjadi kesalahan: " + err.message);
+      toast.error("Terjadi kesalahan: " + err.message);
     } finally {
       setLoadingId(null);
     }
@@ -123,15 +133,15 @@ export default function CategoryListClient({ categories }: { categories: any[] }
 
       if (editData) {
         const res = await updateCategoryAction(editData.id, form);
-        if (res.error) alert(res.error);
+        if (res.error) toast.error(res.error);
         else setIsModalOpen(false);
       } else {
         const res = await createCategoryAction(form);
-        if (res.error) alert(res.error);
+        if (res.error) toast.error(res.error);
         else setIsModalOpen(false);
       }
     } catch (err: any) {
-      alert("Error: " + err.message);
+      toast.error("Error: " + err.message);
     } finally {
       setIsSubmitting(false);
       setLoadingMessage(null);
