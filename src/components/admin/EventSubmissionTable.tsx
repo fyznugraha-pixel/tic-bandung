@@ -4,7 +4,8 @@ import { toast } from 'react-hot-toast';
 
 import { useState, useTransition } from 'react';
 import { updateSubmissionStatusAction } from '@/app/actions/eventSubmission';
-import { ExternalLink, CheckCircle, XCircle, Clock, Eye } from 'lucide-react';
+import { ExternalLink, CheckCircle, XCircle, Clock, Eye, Download } from 'lucide-react';
+import * as XLSX from 'xlsx';
 
 type SubmissionData = {
   id: string;
@@ -107,9 +108,28 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
       }
     });
   };
+  const exportToExcel = () => {
+    const ws = XLSX.utils.json_to_sheet(data.map(item => ({
+      'Tanggal Masuk': new Date(item.created_at).toLocaleDateString('id-ID'),
+      'Judul Acara': item.title,
+      'Tanggal Mulai': item.start_date,
+      'Tanggal Selesai': item.end_date,
+      'Lokasi': item.location,
+      'EO / Komunitas': item.eo_name,
+      'Nama PIC': item.pic_name,
+      'Email': item.email,
+      'WhatsApp': item.whatsapp,
+      'Instagram': item.instagram,
+      'KOL': item.kol_partner,
+      'Artis': item.artist_performance,
+      'Status': item.status
+    })));
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Pendaftaran Event");
+    XLSX.writeFile(wb, "Data_Pendaftaran_Event.xlsx");
+  };
 
-  return (
-    <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+  return (    <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
@@ -171,7 +191,7 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
             )}
           </tbody>
         </table>
-      </div>
+          </div>
     </div>
   );
 }
