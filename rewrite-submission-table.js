@@ -1,4 +1,5 @@
-"use client";
+﻿const fs = require('fs');
+const content = `"use client";
 import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
 
@@ -37,7 +38,7 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
   const handleUpdateStatus = async (id: string, status: "APPROVED" | "REJECTED") => {
     const confirmResult = await Swal.fire({
       title: 'Konfirmasi',
-      text: `Apakah Anda yakin ingin mengubah status menjadi ${status}?`,
+      text: \`Apakah Anda yakin ingin mengubah status menjadi \${status}?\`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
@@ -62,35 +63,35 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
   const showDetail = (item: SubmissionData) => {
     Swal.fire({
       title: 'Detail Pengajuan Event',
-      html: `
+      html: \`
         <div style="text-align: left; font-size: 14px; max-height: 60vh; overflow-y: auto; padding: 10px;">
           <h4 style="margin-top:0; color:#3D7A5E; font-weight:bold;">1. Informasi Acara</h4>
-          <p><b>Judul:</b> ${item.title || '-'}</p>
-          <p><b>Tanggal Mulai:</b> ${item.start_date ? new Date(item.start_date).toLocaleDateString() : '-'}</p>
-          <p><b>Tanggal Selesai:</b> ${item.end_date ? new Date(item.end_date).toLocaleDateString() : '-'}</p>
-          <p><b>Lokasi:</b> ${item.location || '-'}</p>
-          <p><b>Deskripsi:</b> ${item.description || '-'}</p>
+          <p><b>Judul:</b> \${item.title || '-'}</p>
+          <p><b>Tanggal Mulai:</b> \${item.start_date ? new Date(item.start_date).toLocaleDateString() : '-'}</p>
+          <p><b>Tanggal Selesai:</b> \${item.end_date ? new Date(item.end_date).toLocaleDateString() : '-'}</p>
+          <p><b>Lokasi:</b> \${item.location || '-'}</p>
+          <p><b>Deskripsi:</b> \${item.description || '-'}</p>
           
           <h4 style="margin-top:20px; color:#3D7A5E; font-weight:bold;">2. Pelaksana & PIC</h4>
-          <p><b>EO/Komunitas:</b> ${item.eo_name || '-'}</p>
-          <p><b>PIC:</b> ${item.pic_name || '-'}</p>
-          <p><b>Email:</b> ${item.email || '-'}</p>
-          <p><b>WhatsApp:</b> ${item.whatsapp || '-'}</p>
+          <p><b>EO/Komunitas:</b> \${item.eo_name || '-'}</p>
+          <p><b>PIC:</b> \${item.pic_name || '-'}</p>
+          <p><b>Email:</b> \${item.email || '-'}</p>
+          <p><b>WhatsApp:</b> \${item.whatsapp || '-'}</p>
 
           <h4 style="margin-top:20px; color:#3D7A5E; font-weight:bold;">3. Detail & Promosi</h4>
-          <p><b>Instagram:</b> ${item.instagram || '-'}</p>
-          <p><b>KOL:</b> ${item.kol_partner || '-'}</p>
-          <p><b>Line Up Artis:</b> ${item.artist_performance || '-'}</p>
-          <p><b>Nilai Jual Unik (USP):</b> ${item.usp || '-'}</p>
-          <p><b>Target Pengunjung:</b> ${item.target_visitors || '-'}</p>
-          <p><b>Pelaksanaan Ke-:</b> ${item.execution_count || '-'}</p>
+          <p><b>Instagram:</b> \${item.instagram || '-'}</p>
+          <p><b>KOL:</b> \${item.kol_partner || '-'}</p>
+          <p><b>Line Up Artis:</b> \${item.artist_performance || '-'}</p>
+          <p><b>Nilai Jual Unik (USP):</b> \${item.usp || '-'}</p>
+          <p><b>Target Pengunjung:</b> \${item.target_visitors || '-'}</p>
+          <p><b>Pelaksanaan Ke-:</b> \${item.execution_count || '-'}</p>
 
           <h4 style="margin-top:20px; color:#3D7A5E; font-weight:bold;">4. Lampiran</h4>
-          <p><b>Media Promosi:</b> <a href="${item.promotion_media || '#'}" target="_blank" style="color: blue;">Lihat Media</a></p>
-          <p><b>Proposal/Poster:</b> ${item.attachment_link ? `<a href="${item.attachment_link}" target="_blank" style="color: blue;">Unduh Proposal</a>` : 'Tidak ada'}</p>
-          <p><b>Surat Kesediaan:</b> ${item.commitment_letter_link ? `<a href="${item.commitment_letter_link}" target="_blank" style="color: blue;">Unduh Surat</a>` : 'Tidak ada'}</p>
+          <p><b>Media Promosi:</b> <a href="\${item.promotion_media || '#'}" target="_blank" style="color: blue;">Lihat Media</a></p>
+          <p><b>Proposal/Poster:</b> \${item.attachment_link ? \`<a href="\${item.attachment_link}" target="_blank" style="color: blue;">Unduh Proposal</a>\` : 'Tidak ada'}</p>
+          <p><b>Surat Kesediaan:</b> \${item.commitment_letter_link ? \`<a href="\${item.commitment_letter_link}" target="_blank" style="color: blue;">Unduh Surat</a>\` : 'Tidak ada'}</p>
         </div>
-      `,
+      \`,
       width: 600,
       showCloseButton: true,
       showConfirmButton: item.status === 'PENDING',
@@ -146,11 +147,11 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
                   </td>
                   
                   <td className="p-4">
-                    <span className={`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md ${
+                    <span className={\`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md \${
                       item.status === 'APPROVED' ? 'bg-green-100 text-green-700' :
                       item.status === 'REJECTED' ? 'bg-red-100 text-red-700' :
                       'bg-amber-100 text-amber-700'
-                    }`}>
+                    }\`}>
                       {item.status === 'APPROVED' && <CheckCircle className="w-3 h-3" />}
                       {item.status === 'REJECTED' && <XCircle className="w-3 h-3" />}
                       {item.status === 'PENDING' && <Clock className="w-3 h-3" />}
@@ -175,3 +176,6 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/components/admin/EventSubmissionTable.tsx', content);

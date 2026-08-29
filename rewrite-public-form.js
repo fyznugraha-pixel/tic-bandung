@@ -1,7 +1,9 @@
-"use client";
+﻿const fs = require('fs');
+
+const content = `"use client";
 
 import { useState } from 'react';
-import { CheckCircle2, Calendar, MapPin, User, Phone, Mail, AtSign, Star, FileText, Send, Building, Target, UploadCloud } from 'lucide-react';
+import { CheckCircle2, Calendar, MapPin, User, Phone, Mail, Instagram, Star, FileText, Send, Building, Target, UploadCloud } from 'lucide-react';
 import { submitEventFormAction } from '@/app/actions/eventSubmission';
 
 export default function EventSubmissionForm() {
@@ -147,7 +149,7 @@ export default function EventSubmissionForm() {
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-2">8. Akun Instagram Acara</label>
             <div className="relative">
-              <AtSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+              <Instagram className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="text" name="instagram" placeholder="@namainstagram" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
             </div>
           </div>
@@ -236,3 +238,6 @@ export default function EventSubmissionForm() {
     </form>
   );
 }
+`;
+
+fs.writeFileSync('src/components/public/EventSubmissionForm.tsx', content);

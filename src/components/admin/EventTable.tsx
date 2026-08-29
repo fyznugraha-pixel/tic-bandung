@@ -37,7 +37,7 @@ export default function EventTable({ initialData }: { initialData: EventData[] }
       cancelButtonText: 'Batal'
     });
     if (!confirmResult.isConfirmed) return;startTransition(async () => {
-      const result = await deleteEventAction(id);
+      const result = await deleteEventAction(id, title);
       if (result.error) {
         toast.error(result.error);
       } else {
@@ -53,7 +53,7 @@ export default function EventTable({ initialData }: { initialData: EventData[] }
         toast.error(result.error);
       } else {
         setData(prev => prev.map(item => 
-          item.id === id ? { ...item, status: result.status as string } : item
+          item.id === id ? { ...item, status: result.newStatus as string } : item
         ));
       }
     });

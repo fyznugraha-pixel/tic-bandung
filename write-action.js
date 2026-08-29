@@ -1,4 +1,5 @@
-"use server";
+﻿const fs = require('fs');
+const content = `"use server";
 
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
@@ -33,7 +34,7 @@ export async function submitEventFormAction(formData: FormData) {
     // Upload Proposal
     if (proposalFile && proposalFile.size > 0) {
       const fileExt = proposalFile.name.split('.').pop();
-      const fileName = `proposal_${Date.now()}.${fileExt}`;
+      const fileName = \`proposal_\${Date.now()}.\${fileExt}\`;
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from('event_submissions')
         .upload(fileName, proposalFile, {
@@ -51,7 +52,7 @@ export async function submitEventFormAction(formData: FormData) {
     // Upload Commitment Letter
     if (commitmentFile && commitmentFile.size > 0) {
       const fileExt = commitmentFile.name.split('.').pop();
-      const fileName = `commitment_${Date.now()}.${fileExt}`;
+      const fileName = \`commitment_\${Date.now()}.\${fileExt}\`;
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from('event_submissions')
         .upload(fileName, commitmentFile, {
@@ -167,3 +168,5 @@ export async function updateSubmissionStatusAction(id: string, status: "APPROVED
   revalidatePath("/event");
   return { success: true, status };
 }
+`;
+fs.writeFileSync('src/app/actions/eventSubmission.ts', content);

@@ -1,4 +1,6 @@
-"use server";
+﻿const fs = require('fs');
+
+const content = `"use server";
 
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
@@ -210,3 +212,6 @@ export async function toggleEventStatusAction(id: string, currentStatus: string)
   revalidatePath('/event');
   return { success: true, newStatus };
 }
+`;
+
+fs.writeFileSync('src/app/actions/event.ts', content);
