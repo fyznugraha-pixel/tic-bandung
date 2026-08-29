@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { UploadCloud, CheckCircle, Info } from "lucide-react";
+import { UploadCloud, CheckCircle, Info, X } from "lucide-react";
 import { createDestinationAction, updateDestinationAction } from "@/app/actions/destination";
 import { compressImageToWebp, uploadToSupabase } from "@/utils/imageUpload";
 import { CustomSelect } from "@/components/ui/CustomSelect";
@@ -54,6 +54,9 @@ export default function DestinationForm({
   const contentValue = watch("content");
 
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [galleryFiles, setGalleryFiles] = useState<File[]>([]);
+  const [galleryPreviews, setGalleryPreviews] = useState<string[]>([]);
+  const [existingGallery, setExistingGallery] = useState<string[]>([]);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState<string | null>(null);
@@ -126,11 +129,32 @@ export default function DestinationForm({
 
       if (initialData.images && initialData.images.length > 0) {
         setImagePreview(initialData.images[0]);
+        if (initialData.images.length > 1) {
+          setExistingGallery(initialData.images.slice(1));
+        }
       }
     }
   }, [initialData, reset]);
 
   const watchTicketType = watch("ticket_type");
+
+  const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    if (files.length > 0) {
+      setGalleryFiles(prev => [...prev, ...files]);
+      const newPreviews = files.map(f => URL.createObjectURL(f));
+      setGalleryPreviews(prev => [...prev, ...newPreviews]);
+    }
+  };
+
+  const removeExistingGallery = (index: number) => {
+    setExistingGallery(prev => prev.filter((_, i) => i !== index));
+  };
+  
+  const removeNewGallery = (index: number) => {
+    setGalleryFiles(prev => prev.filter((_, i) => i !== index));
+    setGalleryPreviews(prev => prev.filter((_, i) => i !== index));
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -153,13 +177,25 @@ export default function DestinationForm({
       }
 
       let finalImageUrl = "";
+      let uploadedGalleryUrls: string[] = [];
 
       // 1. If there's a new image, compress to WebP and upload
       if (imageFile) {
-        setLoadingMessage("Mengompresi gambar (WebP)...");
+        setLoadingMessage("Mengompresi foto utama (WebP)...");
         const webpFile = await compressImageToWebp(imageFile);
-        setLoadingMessage("Mengunggah gambar...");
+        setLoadingMessage("Mengunggah foto utama...");
         finalImageUrl = await uploadToSupabase(webpFile, 'destinations');
+      }
+
+      // 1b. Upload gallery files
+      if (galleryFiles.length > 0) {
+        setLoadingMessage(`Mengompresi ${galleryFiles.length} foto galeri (WebP)...`);
+        for (let i = 0; i < galleryFiles.length; i++) {
+          const wFile = await compressImageToWebp(galleryFiles[i]);
+          setLoadingMessage(`Mengunggah galeri ${i+1} dari ${galleryFiles.length}...`);
+          const gUrl = await uploadToSupabase(wFile, 'destinations');
+          uploadedGalleryUrls.push(gUrl);
+        }
       }
 
       // 2. Prepare Payload
@@ -174,6 +210,11 @@ export default function DestinationForm({
       
       if (finalImageUrl) {
         formData.append("image_url", finalImageUrl);
+      }
+      
+      const finalGalleryUrls = [...existingGallery, ...uploadedGalleryUrls];
+      if (finalGalleryUrls.length > 0) {
+        formData.append("gallery_urls", JSON.stringify(finalGalleryUrls));
       }
 
       // 3. Submit to Action

@@ -163,6 +163,25 @@ export default async function DestinationDetailPage({
                 />
               </div>
             )}
+
+            {/* Galeri Foto */}
+            {dest.images && dest.images.length > 1 && (
+              <div className="bg-white p-8 rounded-2xl border border-[#d3c5af]/50 shadow-sm mt-8">
+                <h3 className="text-2xl font-bold text-[#1b1c1a] mb-6">Galeri Foto</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {dest.images.slice(1).map((imgUrl: string, idx: number) => (
+                    <div key={idx} className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer border border-[#f6f3f0]">
+                      <img 
+                        src={imgUrl} 
+                        alt={`${dest.name} - Gallery ${idx + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right Column: Info Panel */}

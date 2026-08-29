@@ -29,11 +29,22 @@ export async function createDestinationAction(formData: FormData) {
     const status = formData.get("status") as string;
     const imageUrl = formData.get("image_url") as string;
     const leafletUrl = formData.get("leaflet_url") as string;
+    const galleryUrlsStr = formData.get("gallery_urls") as string;
 
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
     
     // Save image into images JSONB array
-    const imagesArray = imageUrl ? [imageUrl] : [];
+    let imagesArray = imageUrl ? [imageUrl] : [];
+    if (galleryUrlsStr) {
+      try {
+        const galleryUrls = JSON.parse(galleryUrlsStr);
+        if (Array.isArray(galleryUrls)) {
+          imagesArray = [...imagesArray, ...galleryUrls];
+        }
+      } catch (e) {
+        console.error("Failed to parse gallery_urls", e);
+      }
+    }
 
     const { data: destData, error: destError } = await supabase
       .from("destinations")
