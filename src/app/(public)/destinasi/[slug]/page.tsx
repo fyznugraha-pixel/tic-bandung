@@ -23,6 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+export const revalidate = 0;
+
 export default async function DestinationDetailPage({
   params,
 }: {
@@ -41,10 +43,6 @@ export default async function DestinationDetailPage({
         name,
         slug,
         color_cluster
-      ),
-      destination_images (
-        image_url,
-        source_photo_credit
       )
     `)
     .eq('slug', slug)
