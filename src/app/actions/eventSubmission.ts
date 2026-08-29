@@ -173,7 +173,12 @@ export async function deleteSubmissionAction(id: string) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Unauthorized." };
 
-  const { error } = await supabase
+  const adminSupabase = createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+
+  const { error } = await adminSupabase
     .from("event_submissions")
     .delete()
     .eq("id", id);
