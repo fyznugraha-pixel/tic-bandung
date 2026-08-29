@@ -28,6 +28,7 @@ export async function createDestinationAction(formData: FormData) {
     const source_photo_credit = formData.get("source_photo_credit") as string;
     const status = formData.get("status") as string;
     const imageUrl = formData.get("image_url") as string;
+    const leafletUrl = formData.get("leaflet_url") as string;
 
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
     
@@ -50,7 +51,8 @@ export async function createDestinationAction(formData: FormData) {
         founded_year,
         status,
         images: imagesArray,
-        source_photo_credit
+        source_photo_credit,
+        leaflet_url: leafletUrl || null
       })
       .select()
       .single();
@@ -100,6 +102,7 @@ export async function updateDestinationAction(id: string, formData: FormData) {
     const source_photo_credit = formData.get("source_photo_credit") as string;
     const status = formData.get("status") as string;
     const imageUrl = formData.get("image_url") as string;
+    const leafletUrl = formData.get("leaflet_url") as string;
 
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
 
@@ -117,6 +120,7 @@ export async function updateDestinationAction(id: string, formData: FormData) {
       founded_year,
       status,
       source_photo_credit,
+      leaflet_url: leafletUrl || null,
       updated_at: new Date().toISOString()
     };
 

@@ -2,7 +2,7 @@ import { createClient } from '@/utils/supabase/server';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Clock, Ticket, ChevronRight, Navigation } from 'lucide-react';
+import { MapPin, Clock, Ticket, ChevronRight, Navigation, Download } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
@@ -232,9 +232,21 @@ export default async function DestinationDetailPage({
 
               </div>
 
-              {/* Action Button: Google Maps */}
-              {dest.lat && dest.lng && (
-                <div className="mt-8 pt-6 border-t border-[#f6f3f0]">
+              {/* Action Button: Google Maps & Leaflet */}
+              <div className="mt-8 pt-6 border-t border-[#f6f3f0] space-y-3">
+                {dest.leaflet_url && (
+                  <a 
+                    href={dest.leaflet_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3.5 rounded-xl bg-white border-2 text-[#1b1c1a] font-bold flex items-center justify-center gap-2 transition-all hover:bg-gray-50 active:scale-[0.98]"
+                    style={{ borderColor: themeColor }}
+                  >
+                    <Download className="w-5 h-5" style={{ color: themeColor }} />
+                    Download Leaflet
+                  </a>
+                )}
+                {dest.lat && dest.lng && (
                   <a 
                     href={`https://www.google.com/maps/dir/?api=1&destination=${dest.lat},${dest.lng}`}
                     target="_blank"
@@ -245,8 +257,8 @@ export default async function DestinationDetailPage({
                     <Navigation className="w-5 h-5" />
                     Petunjuk Arah (Maps)
                   </a>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
 

@@ -32,6 +32,7 @@ type FormData = {
   opening_hours: string;
   founded_year: string;
   source_photo_credit: string;
+  leaflet_url: string;
 };
 
 export default function DestinationForm({ 
@@ -103,6 +104,7 @@ export default function DestinationForm({
         opening_hours: initialData.opening_hours ? (typeof initialData.opening_hours === 'string' ? initialData.opening_hours : JSON.stringify(initialData.opening_hours)) : "",
         founded_year: initialData.founded_year ? initialData.founded_year.toString() : "",
         source_photo_credit: initialData.source_photo_credit || "",
+        leaflet_url: initialData.leaflet_url || "",
       });
 
       // Parse existing opening_hours into visual schedule map
@@ -394,6 +396,15 @@ export default function DestinationForm({
                 type="number"
                 className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg outline-none" 
                 placeholder="Contoh: 1920"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Link Google Drive Leaflet (Opsional)</label>
+              <input 
+                {...register("leaflet_url")} 
+                type="url"
+                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg outline-none" 
+                placeholder="https://drive.google.com/file/d/..."
               />
             </div>
           </div>
