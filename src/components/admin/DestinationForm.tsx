@@ -141,8 +141,18 @@ export default function DestinationForm({
   const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (files.length > 0) {
-      setGalleryFiles(prev => [...prev, ...files]);
-      const newPreviews = files.map(f => URL.createObjectURL(f));
+      const totalUpcoming = existingGallery.length + galleryFiles.length + files.length;
+      let allowedFiles = files;
+      
+      if (totalUpcoming > 10) {
+        toast.error("Maksimal 10 foto galeri diperbolehkan.");
+        const allowedCount = Math.max(0, 10 - (existingGallery.length + galleryFiles.length));
+        if (allowedCount === 0) return;
+        allowedFiles = files.slice(0, allowedCount);
+      }
+      
+      setGalleryFiles(prev => [...prev, ...allowedFiles]);
+      const newPreviews = allowedFiles.map(f => URL.createObjectURL(f));
       setGalleryPreviews(prev => [...prev, ...newPreviews]);
     }
   };
@@ -489,6 +499,41 @@ export default function DestinationForm({
               </div>
             )}
           </div>
+
+            <div className="md:col-span-2 mt-4">
+              <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Galeri Foto Tambahan</label>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                {existingGallery.map((url, idx) => (
+                  <div key={`exist-${idx}`} className="relative w-full h-24 rounded-xl overflow-hidden border border-gray-200 group">
+                    <img src={url} alt="Gallery" className="w-full h-full object-cover" />
+                    <button type="button" onClick={() => removeExistingGallery(idx)} className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+                {galleryPreviews.map((url, idx) => (
+                  <div key={`new-${idx}`} className="relative w-full h-24 rounded-xl overflow-hidden border border-gray-200 group">
+                    <img src={url} alt="Gallery" className="w-full h-full object-cover" />
+                    <button type="button" onClick={() => removeNewGallery(idx)} className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+                
+                <label className="relative w-full h-24 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors flex flex-col items-center justify-center cursor-pointer text-gray-400 hover:text-gray-500">
+                  <UploadCloud className="w-5 h-5 mb-1" />
+                  <span className="text-[10px] font-medium">Tambah Foto</span>
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    multiple
+                    onChange={handleGalleryChange}
+                    className="hidden"
+                  />
+                </label>
+              </div>
+            </div>
 
           <div>
             <label className="block text-sm font-medium text-[#1b1c1a] mb-2">Kredit / Sumber Foto *</label>
