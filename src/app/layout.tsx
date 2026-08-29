@@ -9,6 +9,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 export const metadata: Metadata = {
   title: "TIC Kota Bandung",
   description: "Portal wisata resmi Dinas Pariwisata Kota Bandung",
+  icons: {
+    icon: '/icon.png',
+  }
 };
 
 export default function RootLayout({
