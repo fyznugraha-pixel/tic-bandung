@@ -26,9 +26,9 @@ export default function EventPage() {
 
         <div className="flex flex-col gap-16">
           {/* Left Column: Info & Timeline */}
-          <div className="w-full space-y-12">
-            
+          <div className="w-full">
             <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Timeline Section */}
             <section className="bg-white rounded-2xl p-8 border border-[#d3c5af]/50 shadow-sm">
               <div className="flex items-center gap-4 mb-8">
@@ -101,6 +101,7 @@ export default function EventPage() {
                 </li>
               </ul>
             </section>
+            </div>
             </ScrollReveal>
           </div>
           {/* Bottom Row: Registration Form */}
