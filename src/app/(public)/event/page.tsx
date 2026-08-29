@@ -26,7 +26,7 @@ export default function EventPage() {
 
         <div className="flex flex-col gap-16">
           {/* Left Column: Info & Timeline */}
-          <div className="w-full max-w-4xl mx-auto space-y-12">
+          <div className="w-full space-y-12">
             
             <ScrollReveal>
             {/* Timeline Section */}
@@ -104,7 +104,7 @@ export default function EventPage() {
             </ScrollReveal>
           </div>
           {/* Bottom Row: Registration Form */}
-          <div className="w-full max-w-5xl mx-auto">
+          <div className="w-full mt-12">
             <div className="bg-[#1b1c1a] rounded-3xl p-8  shadow-xl">
               <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-2`}>Daftarkan Event Anda</h3>
               <p className="text-slate-300 mb-8 text-sm leading-relaxed">Jadikan event Anda bagian dari daya tarik utama pariwisata Kota Bandung di tahun 2027.</p>
