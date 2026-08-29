@@ -62,6 +62,9 @@ export async function submitEventFormAction(formData: FormData) {
       return { error: "Gagal mengirim formulir. Silakan coba lagi." };
     }
 
+    revalidatePath('/admin/event-submissions');
+    revalidatePath('/admin/dashboard');
+
     return { success: true };
   } catch (error) {
     console.error("Submit error:", error);
