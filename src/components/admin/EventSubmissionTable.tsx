@@ -3,8 +3,8 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
 
 import { useState, useTransition } from 'react';
-import { updateSubmissionStatusAction } from '@/app/actions/eventSubmission';
-import { ExternalLink, CheckCircle, XCircle, Clock, Eye, Download } from 'lucide-react';
+import { updateSubmissionStatusAction, deleteSubmissionAction } from '@/app/actions/eventSubmission';
+import { ExternalLink, CheckCircle, XCircle, Clock, Eye, Download, Trash2 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
 type SubmissionData = {
@@ -61,6 +61,31 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
   };
 
   
+  
+  const handleDelete = async (id: string) => {
+    const confirmResult = await Swal.fire({
+      title: 'Hapus Pengajuan?',
+      text: "Data yang dihapus tidak dapat dikembalikan!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#ef4444',
+      cancelButtonColor: '#858796',
+      confirmButtonText: 'Ya, Hapus',
+      cancelButtonText: 'Batal'
+    });
+    if (!confirmResult.isConfirmed) return;
+    
+    startTransition(async () => {
+      const result = await deleteSubmissionAction(id);
+      if (result.error) {
+        toast.error(result.error);
+      } else {
+        toast.success("Berhasil menghapus pengajuan!");
+        setData(prev => prev.filter(item => item.id !== id));
+      }
+    });
+  };
+
   const showDetail = (item: SubmissionData) => {
     Swal.fire({
       title: '<span style="font-size: 1.25rem; font-weight: 700; color: #111827;">Detail Pengajuan Event</span>',
@@ -237,12 +262,22 @@ export default function EventSubmissionTable({ initialData }: { initialData: Sub
                   </td>
                   
                   <td className="p-4 pr-6 text-right">
-                    <button 
-                      onClick={() => showDetail(item)}
-                      className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold rounded-lg transition-colors border border-blue-200 flex items-center justify-center gap-1 ml-auto"
-                    >
-                      <Eye className="w-3 h-3" /> Lihat Detail
-                    </button>
+                    
+                    <div className="flex items-center justify-end gap-2">
+                      <button 
+                        onClick={() => showDetail(item)}
+                        className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold rounded-lg transition-colors border border-blue-200 flex items-center justify-center gap-1"
+                      >
+                        <Eye className="w-3 h-3" /> Lihat Detail
+                      </button>
+                      <button 
+                        onClick={() => handleDelete(item.id)}
+                        className="px-2 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg transition-colors border border-red-200 flex items-center justify-center"
+                        title="Hapus Data"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))
