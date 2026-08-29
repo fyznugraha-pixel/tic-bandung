@@ -25,6 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 import EkonomiKreatifUI from '@/components/public/EkonomiKreatifUI';
 import WalkingTourUI from '@/components/public/WalkingTourUI';
 
+export const revalidate = 0;
+
 export default async function CategoryPage({
   params,
 }: {
@@ -55,23 +57,45 @@ export default async function CategoryPage({
 
   // 2. Fetch all PUBLISHED destinations for this category
   // We use supabase relational query to get images
-  const { data: destinations, error } = await supabase
+  const { data: rawDestinations, error } = await supabase
     .from('destinations')
     .select(`
       id, 
       name, 
       slug, 
       description, 
-      district,
-      ticket_type,
-      ticket_nominal,
-      operating_hours,
-      destination_images (
-        image_url
-      )
+      address,
+      price_info,
+      opening_hours,
+      images
     `)
     .eq('category_id', category.id)
     .eq('status', 'published');
+
+  // Transform raw data to match CategoryListingUI interface
+  let destinations: any[] = [];
+  if (rawDestinations) {
+    destinations = rawDestinations.map((d: any) => {
+      let ticket_type = 'UNCONFIRMED';
+      let ticket_nominal = null;
+      if (d.price_info && typeof d.price_info === 'object') {
+         ticket_type = d.price_info.type || 'UNCONFIRMED';
+         ticket_nominal = d.price_info.nominal || null;
+      }
+      
+      return {
+        id: d.id,
+        name: d.name,
+        slug: d.slug,
+        description: d.description,
+        district: d.address || null, // Using address as district for filtering
+        ticket_type: ticket_type,
+        ticket_nominal: ticket_nominal,
+        operating_hours: d.opening_hours ? JSON.stringify(d.opening_hours) : null,
+        destination_images: d.images && Array.isArray(d.images) ? d.images.map((img: string) => ({ image_url: img })) : []
+      };
+    });
+  }
 
   if (error) {
     console.error("Supabase Fetch Error:", error);
