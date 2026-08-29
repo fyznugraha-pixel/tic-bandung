@@ -77,22 +77,22 @@ export default function EventSubmissionForm() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">1. Nama Acara *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">1. Nama Acara <span className="text-red-500">*</span></label>
             <input type="text" name="title" required placeholder="Contoh: Bandung Berisik 2026" className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">2a. Tanggal Mulai *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">2a. Tanggal Mulai <span className="text-red-500">*</span></label>
             <input type="date" name="start_date" required style={{ colorScheme: 'dark' }} className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">2b. Tanggal Selesai *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">2b. Tanggal Selesai <span className="text-red-500">*</span></label>
             <input type="date" name="end_date" required style={{ colorScheme: 'dark' }} className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">3. Nama Pelaksana Acara (EO/Komunitas) *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">3. Nama Pelaksana Acara (EO/Komunitas) <span className="text-red-500">*</span></label>
             <div className="relative">
               <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="text" name="eo_name" required placeholder="Nama organisasi/komunitas pelaksana" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -100,7 +100,7 @@ export default function EventSubmissionForm() {
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">4. Tempat Acara *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">4. Tempat Acara <span className="text-red-500">*</span></label>
             <div className="relative">
               <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="text" name="location" required placeholder="Contoh: Kiara Artha Park, Bandung" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -108,7 +108,7 @@ export default function EventSubmissionForm() {
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">5. Deskripsi Acara *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">5. Deskripsi Acara <span className="text-red-500">*</span></label>
             <textarea name="description" required rows={4} placeholder="Jelaskan secara singkat namun padat mengenai acara Anda..." className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
           </div>
         </div>
@@ -123,12 +123,12 @@ export default function EventSubmissionForm() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">6. Nama Penanggung Jawab Acara *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">6. Nama Penanggung Jawab Acara <span className="text-red-500">*</span></label>
             <input type="text" name="pic_name" required placeholder="Nama lengkap PIC" className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">7. Nomor WhatsApp PIC *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">7. Nomor WhatsApp PIC <span className="text-red-500">*</span></label>
             <div className="relative">
               <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="tel" name="whatsapp" required placeholder="08xxxxxxxxxx" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -136,7 +136,7 @@ export default function EventSubmissionForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Email PIC *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Email PIC <span className="text-red-500">*</span></label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="email" name="email" required placeholder="email@contoh.com" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -154,7 +154,7 @@ export default function EventSubmissionForm() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">8. Akun Instagram Acara *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">8. Akun Instagram Acara <span className="text-red-500">*</span></label>
             <div className="relative">
               <AtSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="text" name="instagram" required placeholder="@namainstagram" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -172,12 +172,12 @@ export default function EventSubmissionForm() {
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">11. Nilai Jual Unik (Unique Selling Point) *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">11. Nilai Jual Unik (Unique Selling Point) <span className="text-red-500">*</span></label>
             <textarea name="usp" required rows={3} placeholder="Apa yang membedakan acara ini dari yang lain?" className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">12. Target Jumlah Pengunjung *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">12. Target Jumlah Pengunjung <span className="text-red-500">*</span></label>
             <div className="relative">
               <Target className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input type="number" name="target_visitors" required placeholder="Contoh: 5000" className="w-full pl-12 pr-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -185,7 +185,7 @@ export default function EventSubmissionForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">13. Pelaksanaan Ke-berapa Tahun Ini? *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">13. Pelaksanaan Ke-berapa Tahun Ini? <span className="text-red-500">*</span></label>
             <input type="number" name="execution_count" required placeholder="Contoh: 3" className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
           </div>
         </div>
@@ -200,13 +200,13 @@ export default function EventSubmissionForm() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-300 mb-2">15. Media Promosi (Google Drive Link) *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">15. Media Promosi (Google Drive Link) <span className="text-red-500">*</span></label>
             <p className="text-xs text-slate-400 mb-3">Mohon berikan tautan Google Drive berisi Flyer, foto, video, dan logo acara.</p>
             <input type="url" name="promotion_media" required placeholder="https://drive.google.com/..." className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
           </div>
 
           <div className="bg-slate-900/30 p-5 rounded-xl border border-slate-700 border-dashed hover:border-amber-500/50 transition-colors">
-            <label className="block text-sm font-medium text-slate-300 mb-2">14. Proposal, Poster, atau Berkas Penunjang *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">14. Proposal, Poster, atau Berkas Penunjang <span className="text-red-500">*</span></label>
             <p className="text-xs text-slate-400 mb-4">Mohon cantumkan link Google Drive/Dropbox.</p>
             <div className="relative">
               <input type="url" name="attachment_link" required placeholder="https://..." className="w-full px-4 py-3 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors" />
@@ -214,7 +214,7 @@ export default function EventSubmissionForm() {
           </div>
 
           <div className="bg-slate-900/30 p-5 rounded-xl border border-slate-700 border-dashed hover:border-amber-500/50 transition-colors">
-            <label className="block text-sm font-medium text-slate-300 mb-2">16. Surat Kesediaan Laporan Pasca Event *</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">16. Surat Kesediaan Laporan Pasca Event <span className="text-red-500">*</span></label>
             <p className="text-xs text-slate-400 mb-4">Mohon unggah file surat kesediaan (PDF/DOCX).</p>
             <div className="relative">
               <input type="file" name="commitment_letter_file" accept=".pdf,.doc,.docx" required className="w-full px-4 py-2.5 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-amber-500 file:text-slate-900 hover:file:bg-amber-600 cursor-pointer" />
