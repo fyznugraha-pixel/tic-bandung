@@ -24,9 +24,9 @@ export default function EventPage() {
       />
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pb-24">
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col gap-16">
           {/* Left Column: Info & Timeline */}
-          <div className="w-full lg:w-2/3 space-y-12">
+          <div className="w-full max-w-4xl mx-auto space-y-12">
             
             <ScrollReveal>
             {/* Timeline Section */}
@@ -103,10 +103,9 @@ export default function EventPage() {
             </section>
             </ScrollReveal>
           </div>
-
-          {/* Right Column: Registration Form */}
-          <div className="w-full lg:w-1/3">
-            <div className="bg-[#1b1c1a] rounded-3xl p-8 sticky top-28 shadow-xl">
+          {/* Bottom Row: Registration Form */}
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="bg-[#1b1c1a] rounded-3xl p-8  shadow-xl">
               <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-2`}>Daftarkan Event Anda</h3>
               <p className="text-slate-300 mb-8 text-sm leading-relaxed">Jadikan event Anda bagian dari daya tarik utama pariwisata Kota Bandung di tahun 2027.</p>
               

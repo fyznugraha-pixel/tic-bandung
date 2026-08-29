@@ -24,47 +24,8 @@ export async function submitEventFormAction(formData: FormData) {
     const execution_count = formData.get("execution_count") ? parseInt(formData.get("execution_count") as string) : null;
     const promotion_media = formData.get("promotion_media") as string;
 
-    const proposalFile = formData.get("proposal_file") as File | null;
-    const commitmentFile = formData.get("commitment_file") as File | null;
-
-    let attachment_link = null;
-    let commitment_letter_link = null;
-
-    // Upload Proposal
-    if (proposalFile && proposalFile.size > 0) {
-      const fileExt = proposalFile.name.split('.').pop();
-      const fileName = `proposal_${Date.now()}.${fileExt}`;
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('event_submissions')
-        .upload(fileName, proposalFile, {
-          upsert: true,
-        });
-      
-      if (!uploadError && uploadData) {
-        const { data: publicUrlData } = supabase.storage
-          .from('event_submissions')
-          .getPublicUrl(uploadData.path);
-        attachment_link = publicUrlData.publicUrl;
-      }
-    }
-
-    // Upload Commitment Letter
-    if (commitmentFile && commitmentFile.size > 0) {
-      const fileExt = commitmentFile.name.split('.').pop();
-      const fileName = `commitment_${Date.now()}.${fileExt}`;
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('event_submissions')
-        .upload(fileName, commitmentFile, {
-          upsert: true,
-        });
-      
-      if (!uploadError && uploadData) {
-        const { data: publicUrlData } = supabase.storage
-          .from('event_submissions')
-          .getPublicUrl(uploadData.path);
-        commitment_letter_link = publicUrlData.publicUrl;
-      }
-    }
+    const attachment_link = formData.get("attachment_link") as string;
+    const commitment_letter_link = formData.get("commitment_letter_link") as string;
 
     const { error } = await supabase
       .from("event_submissions")
