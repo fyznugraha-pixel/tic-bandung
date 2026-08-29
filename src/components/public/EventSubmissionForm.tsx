@@ -10,7 +10,7 @@ export default function EventSubmissionForm() {
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLFormElement>) => {
-    const target = e.target as HTMLInputElement | HTMLTextAreaElement;
+    const target = e.target as unknown as HTMLInputElement | HTMLTextAreaElement;
     if (target.value) {
       target.setAttribute('data-filled', 'true');
     } else {
