@@ -3,6 +3,7 @@ import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Comp
 import HeroSlider from '@/components/home/HeroSlider';
 import { createClient } from '@/utils/supabase/server';
 import { Montserrat } from 'next/font/google';
+import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700', '900'] });
 
@@ -105,16 +106,17 @@ export default async function LandingPage() {
 
       {/* 10. BERITA & ARTIKEL WISATA (Tourism Update) */}
       <section className="w-full pt-32 pb-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-        <div className="flex flex-col items-center mb-16">
+        <ScrollReveal className="flex flex-col items-center mb-16">
           <span className="text-[#C9971E] font-bold tracking-widest uppercase text-sm mb-4">Update Terkini</span>
           <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Berita & Artikel Wisata</h2>
           <div className="w-24 h-1.5 bg-[#C9971E] rounded-full"></div>
-        </div>
+        </ScrollReveal>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {activeNews && activeNews.length > 0 ? (
             activeNews.map((item, i) => (
-               <div key={item.id} className="clay-card group cursor-pointer flex flex-col h-full overflow-hidden">
+               <ScrollReveal key={item.id} delay={i * 0.1} className="h-full">
+<div className="clay-card group cursor-pointer flex flex-col h-full overflow-hidden">
                  <div className="h-64 relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
                    {item.image_url ? (
                      <img src={item.image_url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" alt={item.title} />
@@ -140,6 +142,7 @@ export default async function LandingPage() {
                    </div>
                  </div>
                </div>
+</ScrollReveal>
             ))
           ) : (
             <div className="col-span-3 text-center py-12 text-slate-500">Belum ada berita wisata terbaru.</div>
@@ -204,6 +207,7 @@ export default async function LandingPage() {
       </section>
 
             {/* 11. BENTO GRID GALERI FOTO */}
+      <ScrollReveal>
       <section className="w-full py-24 md:py-32 bg-[#fcf9f5]">
         <div className="max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">

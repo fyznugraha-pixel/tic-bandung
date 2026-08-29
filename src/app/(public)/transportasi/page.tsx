@@ -2,6 +2,7 @@
 import { ModernHero } from '@/components/ui/ModernHero';
 import { ArrowRight, Bus, Train, Plane, Bike, CarTaxiFront, ExternalLink, Map, Info, ChevronRight } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
+import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 
@@ -37,7 +38,8 @@ export default function TransportasiPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[300px]">
           
           {/* Card 1: Whoosh (Image Card) */}
-          <div className="md:col-span-2 bg-slate-900 rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] group relative">
+          <ScrollReveal className="md:col-span-2 h-full">
+          <div className="bg-slate-900 h-full rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] group relative">
             <img src="/ASET VISUAL/Whoosh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Kereta Cepat Whoosh" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
             

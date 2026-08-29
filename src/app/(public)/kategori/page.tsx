@@ -2,6 +2,7 @@
 import { ModernHero } from '@/components/ui/ModernHero';
 import { ChevronRight, Bed, Map, Coffee, Compass } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
+import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] });
 
@@ -64,7 +65,8 @@ export default async function KategoriPage() {
 
                 {/* PILLAR 1: Where to Stay & Relax */}
         {categories && categories.filter(c => c.pillar === 'stay').length > 0 && (
-        <section className="mb-20">
+        <ScrollReveal>
+<section className="mb-20">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-12 bg-[#2C5C8A]/10 rounded-xl flex items-center justify-center">
               <Bed className="w-6 h-6 text-[#2C5C8A]" />

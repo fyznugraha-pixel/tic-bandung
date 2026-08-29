@@ -142,13 +142,13 @@ export default function EventTable({ initialData }: { initialData: EventData[] }
                       onClick={() => handleToggleStatus(item.id, item.status)}
                       disabled={isPending}
                       className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-md border transition-all ${
-                        item.status === 'PUBLISHED' 
+                        item.status === 'published' 
                           ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' 
                           : 'bg-gray-100 text-gray-500 border-gray-200 hover:bg-gray-200'
                       }`}
                       title="Klik untuk mengubah status"
                     >
-                      {item.status === 'PUBLISHED' ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
+                      {item.status === 'published' ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
                       {item.status}
                     </button>
                   </td>

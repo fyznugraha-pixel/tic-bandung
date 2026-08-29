@@ -60,7 +60,7 @@ export async function togglePublishStatusAction(id: string, currentStatus: strin
     return { error: 'Unauthorized' };
   }
 
-  const newStatus = currentStatus === 'PUBLISHED' ? 'DRAFT' : 'PUBLISHED';
+  const newStatus = currentStatus === 'published' ? 'draft' : 'published';
 
   const { error } = await supabase
     .from('destinations')

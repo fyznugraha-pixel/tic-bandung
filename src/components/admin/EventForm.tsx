@@ -65,7 +65,7 @@ export default function EventForm({
     }
   };
 
-  const onSubmit = async (data: FormData, status: "DRAFT" | "PUBLISHED") => {
+  const onSubmit = async (data: FormData, status: "draft" | "published") => {
     setIsSubmitting(true);
     setLoadingMessage("Menyiapkan data...");
     try {
@@ -225,7 +225,7 @@ export default function EventForm({
       <div className="flex flex-col sm:flex-row items-center justify-end gap-4 pt-6 border-t border-gray-200">
         <button 
           type="button"
-          onClick={handleSubmit((data) => onSubmit(data, "DRAFT"))}
+          onClick={handleSubmit((data) => onSubmit(data, "draft"))}
           disabled={isSubmitting}
           className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
         >
@@ -233,7 +233,7 @@ export default function EventForm({
         </button>
         <button 
           type="button"
-          onClick={handleSubmit((data) => onSubmit(data, "PUBLISHED"))}
+          onClick={handleSubmit((data) => onSubmit(data, "published"))}
           disabled={isSubmitting}
           className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#3D7A5E] text-white font-bold hover:bg-[#2e5e48] transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >

@@ -31,7 +31,7 @@ export default async function PetaPage() {
         image_url
       )
     `)
-    .eq('status', 'PUBLISHED')
+    .eq('status', 'published')
     .not('latitude', 'is', null)
     .not('longitude', 'is', null);
 

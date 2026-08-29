@@ -3,6 +3,7 @@ import { ModernHero } from '@/components/ui/ModernHero';
 import { ChevronRight, CalendarDays, FileText, CheckCircle, Clock } from 'lucide-react';
 import EventSubmissionForm from "@/components/public/EventSubmissionForm";
 import { Montserrat } from 'next/font/google';
+import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] });
 
@@ -27,6 +28,7 @@ export default function EventPage() {
           {/* Left Column: Info & Timeline */}
           <div className="w-full lg:w-2/3 space-y-12">
             
+            <ScrollReveal>
             {/* Timeline Section */}
             <section className="bg-white rounded-2xl p-8 border border-[#d3c5af]/50 shadow-sm">
               <div className="flex items-center gap-4 mb-8">

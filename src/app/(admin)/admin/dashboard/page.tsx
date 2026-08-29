@@ -17,7 +17,7 @@ export default async function AdminDashboardPage() {
   const { count: activeDestinations } = await supabase
     .from('destinations')
     .select('*', { count: 'exact', head: true })
-    .eq('status', 'PUBLISHED');
+    .eq('status', 'published');
 
   const { count: totalEvents } = await supabase
     .from('events')
@@ -26,7 +26,7 @@ export default async function AdminDashboardPage() {
   const { count: activeEvents } = await supabase
     .from('events')
     .select('*', { count: 'exact', head: true })
-    .eq('status', 'PUBLISHED');
+    .eq('status', 'published');
 
   // Fetch 5 latest events for the dashboard table
   const { data: latestEventsRaw } = await supabase

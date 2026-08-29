@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
+import { BlurText } from '@/components/ui/animations/BlurText';
 
 // Load elegant serif font for the Hero
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
@@ -110,10 +111,12 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           
           {/* Left Side: Huge Typography */}
           <div className="w-full md:w-1/2">
-            <h1 className={`${montserrat.className} text-6xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-8 drop-shadow-xl animate-hero-title`}>
-              Bandung,<br/>
-              kota penuh<br/>
-              <span className="italic text-[#f5be45]">pesona.</span>
+            <h1 className={`${montserrat.className} text-6xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-8 drop-shadow-xl`}>
+              <BlurText text="Bandung," delay={0} className="block" />
+              <BlurText text="kota penuh" delay={0.2} className="block" />
+              <span className="italic text-[#f5be45] block">
+                <BlurText text="pesona." delay={0.4} />
+              </span>
             </h1>
             
             <div className="w-24 h-1 bg-[#f5be45] mb-8 animate-hero-line rounded-full"></div>

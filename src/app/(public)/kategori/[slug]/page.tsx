@@ -71,7 +71,7 @@ export default async function CategoryPage({
       )
     `)
     .eq('category_id', category.id)
-    .eq('status', 'PUBLISHED');
+    .eq('status', 'published');
 
   if (error) {
     console.error("Supabase Fetch Error:", error);

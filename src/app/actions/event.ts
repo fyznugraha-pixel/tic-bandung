@@ -157,7 +157,7 @@ export async function toggleEventStatusAction(id: string, currentStatus: string)
     return { error: "Unauthorized." };
   }
 
-  const newStatus = currentStatus === 'PUBLISHED' ? 'DRAFT' : 'PUBLISHED';
+  const newStatus = currentStatus === 'published' ? 'draft' : 'published';
 
   const { error } = await supabase
     .from('events')

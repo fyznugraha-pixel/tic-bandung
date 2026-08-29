@@ -1,4 +1,5 @@
 ﻿import { Montserrat } from 'next/font/google';
+import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ModernHero } from '@/components/ui/ModernHero';
