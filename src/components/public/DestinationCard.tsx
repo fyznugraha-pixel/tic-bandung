@@ -31,12 +31,7 @@ export default function DestinationCard({ destination }: { destination: Destinat
             className="object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          {destination.district && (
-            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1b1c1a] px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 shadow-sm">
-              <MapPin className="w-3.5 h-3.5 text-[#C9971E]" />
-              {destination.district}
-            </div>
-          )}
+
         </div>
 
         {/* Content Section */}
@@ -59,9 +54,16 @@ export default function DestinationCard({ destination }: { destination: Destinat
             </div>
           )}
           
-          <h3 className="font-display text-lg font-bold text-[#1b1c1a] mb-2 line-clamp-1 group-hover:text-[#7a5900] transition-colors">
+          <h3 className="font-display text-lg font-bold text-[#1b1c1a] mb-1 line-clamp-1 group-hover:text-[#7a5900] transition-colors">
             {destination.name}
           </h3>
+          
+          {destination.district && (
+            <div className="flex items-start gap-1 mb-3 text-[#4f4635] text-xs">
+              <MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#C9971E]" />
+              <span className="line-clamp-2">{destination.district}</span>
+            </div>
+          )}
           
           {destination.description && (
             <p className="text-[#4f4635] text-sm line-clamp-3 mb-4 flex-grow">
