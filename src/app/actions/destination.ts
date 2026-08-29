@@ -114,6 +114,7 @@ export async function updateDestinationAction(id: string, formData: FormData) {
     const status = formData.get("status") as string;
     const imageUrl = formData.get("image_url") as string;
     const leafletUrl = formData.get("leaflet_url") as string;
+    const galleryUrlsStr = formData.get("gallery_urls") as string;
 
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
 
@@ -135,8 +136,45 @@ export async function updateDestinationAction(id: string, formData: FormData) {
       updated_at: new Date().toISOString()
     };
 
-    if (imageUrl) {
-      updatePayload.images = [imageUrl];
+    // Fetch existing dest to get old images
+    const { data: existingDest } = await supabase.from('destinations').select('images').eq('id', id).single();
+    const oldImages = existingDest?.images || [];
+
+    let currentImages: string[] = [];
+    if (!imageUrl && galleryUrlsStr) {
+      if (oldImages.length > 0) currentImages = [oldImages[0]];
+    } else if (imageUrl) {
+      currentImages = [imageUrl];
+    } else if (oldImages.length > 0) {
+      currentImages = [oldImages[0]];
+    }
+
+    let galleryUrls: string[] = [];
+    if (galleryUrlsStr) {
+      try {
+        galleryUrls = JSON.parse(galleryUrlsStr);
+      } catch (e) {
+        console.error("Failed to parse gallery_urls", e);
+      }
+    } else if (!imageUrl && oldImages.length > 1) {
+      // if no new gallery data, keep existing if any
+      galleryUrls = oldImages.slice(1);
+    }
+    
+    updatePayload.images = [...currentImages, ...galleryUrls];
+
+    // GARBAGE COLLECTION
+    const orphanedImages = oldImages.filter((oldUrl: string) => !updatePayload.images.includes(oldUrl));
+    if (orphanedImages.length > 0) {
+      const pathsToRemove = orphanedImages.map((url: string) => {
+        // extract path after /destinations/
+        const parts = url.split('/destinations/');
+        return parts.length > 1 ? parts[1] : null;
+      }).filter(Boolean);
+      
+      if (pathsToRemove.length > 0) {
+        await supabase.storage.from('destinations').remove(pathsToRemove);
+      }
     }
 
     const { data: destData, error: destError } = await supabase
@@ -164,6 +202,7 @@ export async function updateDestinationAction(id: string, formData: FormData) {
   }
 }
 
+
 // DELETE DESTINATION
 export async function deleteDestinationAction(id: string) {
   const supabase = await createClient();
@@ -176,9 +215,27 @@ export async function deleteDestinationAction(id: string) {
   try {
     const { data: target, error: fetchError } = await supabase
       .from("destinations")
-      .select("name")
+      .select("name, slug, images, leaflet_url")
       .eq("id", id)
       .single();
+
+    if (target?.images && target.images.length > 0) {
+      const pathsToRemove = target.images.map((url: string) => {
+        const parts = url.split('/destinations/');
+        return parts.length > 1 ? parts[1] : null;
+      }).filter(Boolean);
+      
+      if (pathsToRemove.length > 0) {
+        await supabase.storage.from('destinations').remove(pathsToRemove);
+      }
+    }
+
+    if (target?.leaflet_url) {
+        const parts = target.leaflet_url.split('/destinations/');
+        if (parts.length > 1) {
+            await supabase.storage.from('destinations').remove([parts[1]]);
+        }
+    }
 
     const { error } = await supabase
       .from("destinations")
@@ -191,6 +248,9 @@ export async function deleteDestinationAction(id: string) {
 
     revalidatePath("/kategori");
     revalidatePath("/admin/dashboard");
+    if (target?.slug) {
+      revalidatePath(`/destinasi/${target.slug}`);
+    }
     
     await logAdminAction('DELETE', 'DESTINATION', target?.name || id);
     return { success: true };

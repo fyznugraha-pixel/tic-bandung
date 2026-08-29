@@ -7,11 +7,20 @@ export const metadata = {
   title: 'Manajemen Destinasi | TIC Kota Bandung',
 };
 
-export default async function AdminDestinasiPage() {
+export default async function AdminDestinasiPage({ searchParams }: { searchParams: { page?: string, category?: string } }) {
   const supabase = await createClient();
+  
+  const page = parseInt(searchParams?.page || '1');
+  const limit = 20;
+  const currentCategory = searchParams?.category || 'Semua';
 
-  // Fetch destinations
-  const { data: destinations, error } = await supabase
+  // 1. Get all categories for tabs
+  const { data: allCategories } = await supabase
+    .from('categories')
+    .select('id, name')
+    .order('name');
+    
+  let query = supabase
     .from('destinations')
     .select(`
       id,
@@ -20,22 +29,32 @@ export default async function AdminDestinasiPage() {
       status,
       images,
       created_at,
-      categories (
+      category_id,
+      categories!left (
         name,
         cluster_color
       )
-    `)
-    .order('created_at', { ascending: false });
+    `, { count: 'exact' });
+
+  if (currentCategory === 'Tanpa Kategori') {
+    query = query.is('category_id', null);
+  } else if (currentCategory !== 'Semua') {
+    const matchedCat = (allCategories || []).find(c => c.name === currentCategory);
+    if (matchedCat) {
+      query = query.eq('category_id', matchedCat.id);
+    }
+  }
+
+  // Pagination
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  query = query.order('created_at', { ascending: false }).range(from, to);
+
+  const { data: destinations, count, error } = await query;
 
   if (error) {
     console.error("Destinasi Fetch Error:", error);
   }
-
-  // Fetch all categories for the tabs
-  const { data: allCategories, error: catError } = await supabase
-    .from('categories')
-    .select('name')
-    .order('name');
 
   const formattedData = (destinations || []).map((dest: any) => ({
     id: dest.id,
@@ -49,6 +68,8 @@ export default async function AdminDestinasiPage() {
     image_url: dest.images && dest.images.length > 0 ? dest.images[0] : null,
     created_at: dest.created_at
   }));
+
+  const totalPages = count ? Math.ceil(count / limit) : 1;
 
   return (
     <>
@@ -75,7 +96,13 @@ export default async function AdminDestinasiPage() {
           </Link>
         </div>
         
-        <DashboardTable initialData={formattedData} allCategories={allCategories || []} />
+        <DashboardTable 
+          initialData={formattedData} 
+          allCategories={allCategories || []} 
+          currentPage={page}
+          totalPages={totalPages}
+          currentCategory={currentCategory}
+        />
 
       </div>
     </>
