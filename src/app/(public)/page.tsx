@@ -171,7 +171,7 @@ export default async function LandingPage() {
           <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full mx-auto md:mx-0"></div>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-[360px] sm:h-[600px] md:h-[650px]">
+        <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 aspect-square sm:aspect-auto sm:h-[600px] md:h-[650px]">
           <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
             {getDestImg('gedung-sate') ? (
               <img src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
