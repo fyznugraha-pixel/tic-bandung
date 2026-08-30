@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Compass, Download, Heart, ArrowRight, Camera, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
 import HeroSlider from '@/components/home/HeroSlider';
 import { createClient } from '@/utils/supabase/server';
@@ -132,7 +133,7 @@ export default async function LandingPage() {
                  <Link href={`/berita/${item.slug || '#'}`} className="clay-card group cursor-pointer flex flex-col h-full overflow-hidden block">
                    <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
                      {item.image_url ? (
-                       <img src={item.image_url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" alt={item.title} />
+                       <Image fill sizes="(max-width: 768px) 100vw, 50vw" src={item.image_url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" alt={item.title} />
                      ) : (
                        <ImageIcon className="w-12 h-12 text-slate-400 opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out" />
                      )}
@@ -174,7 +175,7 @@ export default async function LandingPage() {
         <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 aspect-square sm:aspect-auto sm:h-[600px] md:h-[650px]">
           <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
             {getDestImg('gedung-sate') ? (
-              <img src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              <Image fill sizes="(max-width: 768px) 100vw, 50vw" src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             ) : (
               <div className="absolute inset-0 bg-[#C9971E]/20 transition-colors duration-700 group-hover:bg-[#C9971E]/40 flex items-center justify-center">
                 <ImageIcon className="w-16 h-16 text-white/20" />
@@ -191,7 +192,7 @@ export default async function LandingPage() {
           
           <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-2 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/alun-alun-bandung">
             {getDestImg('alun-alun-bandung') ? (
-              <img src={getDestImg('alun-alun-bandung')!} alt="Alun-Alun Bandung" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              <Image fill sizes="(max-width: 768px) 100vw, 50vw" src={getDestImg('alun-alun-bandung')!} alt="Alun-Alun Bandung" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             ) : (
               <div className="absolute inset-0 bg-[#3D7A5E]/20 transition-colors duration-700 group-hover:bg-[#3D7A5E]/40 flex items-center justify-center">
                 <ImageIcon className="w-12 h-12 text-white/20" />
@@ -207,7 +208,7 @@ export default async function LandingPage() {
           
           <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/jalan-braga">
             {getDestImg('jalan-braga') ? (
-              <img src={getDestImg('jalan-braga')!} alt="Jalan Braga" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              <Image fill sizes="(max-width: 768px) 100vw, 50vw" src={getDestImg('jalan-braga')!} alt="Jalan Braga" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             ) : (
               <div className="absolute inset-0 bg-[#2C5C8A]/20 transition-colors duration-700 group-hover:bg-[#2C5C8A]/40 flex items-center justify-center">
                 <ImageIcon className="w-10 h-10 text-white/20" />
@@ -269,7 +270,7 @@ export default async function LandingPage() {
 
                  return (
                    <div key={gallery.id} className={`${bentoClass} rounded-lg md:rounded-3xl overflow-hidden relative group shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
-                     <img src={gallery.image_url} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt={gallery.title} />
+                     <Image fill sizes="(max-width: 768px) 100vw, 50vw" src={gallery.image_url} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt={gallery.title} />
                      
                      {/* Overlay exactly like destinations */}
                      <div className="absolute inset-0 bg-[#3D7A5E]/20 transition-colors duration-700 group-hover:bg-[#3D7A5E]/40 opacity-0 group-hover:opacity-100"></div>

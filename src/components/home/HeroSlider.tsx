@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
 import { BlurText } from '@/components/ui/animations/BlurText';
@@ -59,10 +60,13 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
 
       {/* Background Images */}
       {sliders.map((slider, index) => (
-        <img
+        <Image
           key={index}
           alt={slider.title}
-          className={`absolute inset-0 w-full h-full object-cover object-center z-0 transition-all duration-[2000ms] ease-in-out ${
+          fill
+          priority={index === 0}
+          sizes="100vw"
+          className={`object-cover object-center z-0 transition-all duration-[2000ms] ease-in-out ${
             index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
           }`}
           src={encodeURI(slider.image_url)}

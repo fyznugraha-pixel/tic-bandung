@@ -1,4 +1,5 @@
 ﻿import Link from 'next/link';
+import Image from 'next/image';
 import { ModernHero } from '@/components/ui/ModernHero';
 import { ArrowRight, Bus, Train, Plane, Bike, CarTaxiFront, ExternalLink, Map, Info, ChevronRight } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
@@ -40,7 +41,7 @@ export default function TransportasiPage() {
           {/* Card 1: Whoosh (Image Card) */}
           <ScrollReveal className="md:col-span-2 h-full">
           <div className="bg-slate-900 h-full rounded-lg md:rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] group relative">
-            <img src="/ASET VISUAL/Whoosh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Kereta Cepat Whoosh" />
+            <Image fill sizes="(max-width: 768px) 100vw, 50vw" src="/ASET VISUAL/Whoosh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Kereta Cepat Whoosh" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
             
             <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end">
@@ -60,7 +61,7 @@ export default function TransportasiPage() {
 
           {/* Card 2: Bandros (Image Card) */}
           <div className="md:col-span-2 bg-slate-900 rounded-lg md:rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] group relative">
-            <img src="/ASET VISUAL/bandros.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Bandros" />
+            <Image fill sizes="(max-width: 768px) 100vw, 50vw" src="/ASET VISUAL/bandros.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Bandros" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
             
             <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end">
@@ -79,7 +80,7 @@ export default function TransportasiPage() {
 
           {/* Card 3: Transportasi Online (Image Card) */}
           <div className="lg:col-span-1 bg-slate-900 rounded-lg md:rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group relative">
-            <img src="/ASET VISUAL/transportasi-online.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Transportasi Online" />
+            <Image fill sizes="(max-width: 768px) 100vw, 50vw" src="/ASET VISUAL/transportasi-online.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Transportasi Online" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
             
             <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
@@ -95,7 +96,7 @@ export default function TransportasiPage() {
 
           {/* Card 4: Boseh (Image Card) */}
           <div className="lg:col-span-1 bg-slate-900 rounded-lg md:rounded-[32px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group relative">
-            <img src="/ASET VISUAL/boseh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Boseh Bike Sharing" />
+            <Image fill sizes="(max-width: 768px) 100vw, 50vw" src="/ASET VISUAL/boseh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Boseh Bike Sharing" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
             
             <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
