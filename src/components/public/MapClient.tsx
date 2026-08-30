@@ -71,7 +71,7 @@ export default function MapClient({ destinations }: { destinations: DestinationP
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         
-        <ZoomControl position="bottomright" />
+        <ZoomControl position="bottomleft" />
 
         {destinations.map((dest) => (
           <Marker 

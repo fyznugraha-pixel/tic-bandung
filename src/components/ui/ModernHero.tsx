@@ -109,7 +109,7 @@ export function ModernHero({
               <span className="text-[#C9971E] font-bold">{breadcrumbText}</span>
             </nav>
             
-            <h1 className={`${montserrat.className} text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 tracking-tight animate-fade-up-delay-1 leading-[1.1]`}>
+            <h1 className={`${montserrat.className} text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight animate-fade-up-delay-1 leading-[1.1]`}>
               <BlurText text={typeof title === 'string' ? title : ''} /> 
               {highlightText && (
                 <>
@@ -119,7 +119,7 @@ export function ModernHero({
               )}
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl font-light leading-relaxed animate-fade-up-delay-2">
+            <p className="text-sm md:text-xl text-slate-600 max-w-2xl font-light leading-relaxed animate-fade-up-delay-2">
               {description}
             </p>
           </div>

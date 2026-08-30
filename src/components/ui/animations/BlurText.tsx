@@ -44,13 +44,13 @@ export function BlurText({ text, delay = 0, className = "" }: BlurTextProps) {
 
   return (
     <motion.span
-      className={`inline-flex flex-wrap ${className}`}
+      className={`inline-block ${className}`}
       variants={container}
       initial="hidden"
       animate="visible"
     >
       {words.map((word, index) => (
-        <motion.span variants={child} key={index} className="mr-[0.25em]">
+        <motion.span variants={child} key={index} className="inline-block mr-[0.25em]">
           {word}
         </motion.span>
       ))}

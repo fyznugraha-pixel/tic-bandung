@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Search, MapPin, Mail, Phone, Globe, Camera, PlayCircle, MessageCircle } from 'lucide-react';
 import Navbar from '@/components/public/Navbar';
+import FooterWrapper from '@/components/public/FooterWrapper';
 import { getSiteSettings } from '@/app/actions/cmsActions';
 
 export default async function PublicLayout({
@@ -20,6 +21,7 @@ export default async function PublicLayout({
       </div>
 
       {/* 13. FOOTER */}
+      <FooterWrapper>
       <footer className="bg-white border-t border-slate-200 w-full pt-16">
         <div className="w-full pb-12 px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1">
@@ -81,7 +83,8 @@ export default async function PublicLayout({
           <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Tourist Information Center (TIC) Kota Bandung. All Rights Reserved.</p>
         </div>
       </footer>
-      
+      </FooterWrapper>
+
       {/* Floating WhatsApp Button */}
       <a href={`https://wa.me/${settings?.whatsapp_number || '628111111111'}`} target="_blank" rel="noreferrer" className="fixed bottom-6 right-6 z-[9999] bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group">
         <MessageCircle className="w-8 h-8" />
