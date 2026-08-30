@@ -125,7 +125,7 @@ export default async function LandingPage() {
           <div className="w-24 h-1.5 bg-[#C9971E] rounded-full"></div>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {activeNews && activeNews.length > 0 ? (
             activeNews.map((item, i) => (
                <ScrollReveal key={item.id} delay={i * 0.1} className="h-full">
@@ -171,7 +171,7 @@ export default async function LandingPage() {
           <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-[900px] md:h-[650px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-[600px] sm:h-[900px] md:h-[650px]">
           <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
             {getDestImg('gedung-sate') ? (
               <img src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
@@ -248,7 +248,7 @@ export default async function LandingPage() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 h-auto md:h-[650px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-auto md:h-[650px]">
             {true ? (
                Array.from({ length: 4 }).map((_, index) => {
                  const gallery = galleries && galleries[index];
