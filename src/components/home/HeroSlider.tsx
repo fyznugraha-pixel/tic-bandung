@@ -107,10 +107,10 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 -mt-20">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-12 -mt-20">
           
           {/* Left Side: Huge Typography */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
             <h1 className={`${montserrat.className} text-3xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-4 md:mb-8 drop-shadow-xl`}>
               <BlurText text="Bandung," delay={0} className="block" />
               <BlurText text="kota penuh" delay={0.2} className="block" />
@@ -119,7 +119,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
               </span>
             </h1>
             
-            <div className="w-16 md:w-24 h-1 bg-[#f5be45] mb-4 md:mb-8 animate-hero-line rounded-full"></div>
+            <div className="w-16 md:w-24 h-1 bg-[#f5be45] mb-4 md:mb-8 animate-hero-line rounded-full mx-auto md:mx-0"></div>
             
             <p className="text-sm md:text-xl text-white/90 max-w-md font-light leading-relaxed drop-shadow-md animate-hero-desc">
               Temukan harmoni antara megahnya warisan sejarah, kesejukan alam tropis, dan denyut nadi kreativitas tanpa batas.
