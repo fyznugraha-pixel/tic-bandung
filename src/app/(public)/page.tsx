@@ -138,12 +138,12 @@ export default async function LandingPage() {
                      )}
                      
                      <div className="absolute top-4 left-4">
-                       <span className={`text-xs font-bold text-white bg-${item.color_theme || 'blue'}-600 px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm`}>{item.category}</span>
+                       <span className={`text-[10px] md:text-xs font-bold text-white bg-${item.color_theme || 'blue'}-600 px-3 py-1 md:px-4 md:py-1.5 rounded-full uppercase tracking-wider shadow-sm`}>{item.category}</span>
                      </div>
                    </div>
                    <div className="p-4 md:p-8 flex flex-col flex-grow justify-between">
                      <div>
-                       <h3 className={`${montserrat.className} text-xl font-bold text-slate-900 mb-4 group-hover:text-[#C9971E] transition-colors line-clamp-3 leading-snug`}>{item.title}</h3>
+                       <h3 className={`${montserrat.className} text-base md:text-xl font-bold text-slate-900 mb-4 group-hover:text-[#C9971E] transition-colors line-clamp-3 leading-snug`}>{item.title}</h3>
                      </div>
                      <div className="flex items-center justify-between mt-4">
                        <span className="text-sm text-slate-500 font-medium flex items-center gap-2">
@@ -183,9 +183,9 @@ export default async function LandingPage() {
             
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-4 md:p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <span className="bg-[#C9971E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block shadow-sm">Ikon Kota</span>
-              <h3 className={`${montserrat.className} text-4xl font-bold text-white mb-2`}>Gedung Sate</h3>
-              <p className="text-white/80 max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 overflow-hidden transition-all duration-500 line-clamp-2 max-w-md">Simbol kebanggaan masyarakat Jawa Barat yang menyimpan nilai sejarah panjang sejak era kolonial.</p>
+              <span className="bg-[#C9971E] text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full uppercase tracking-wider mb-2 md:mb-4 inline-block shadow-sm">Ikon Kota</span>
+              <h3 className={`${montserrat.className} text-lg md:text-4xl font-bold text-white mb-1 md:mb-2`}>Gedung Sate</h3>
+              <p className="text-white/80 max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 overflow-hidden transition-all duration-500 line-clamp-2 max-w-md text-xs md:text-base">Simbol kebanggaan masyarakat Jawa Barat yang menyimpan nilai sejarah panjang sejak era kolonial.</p>
             </div>
           </Link>
           
@@ -200,8 +200,8 @@ export default async function LandingPage() {
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-4 md:p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-              <span className="bg-[#3D7A5E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm">Alam & Rekreasi</span>
-              <h3 className={`${montserrat.className} text-2xl font-bold text-white`}>Alun-Alun Bandung</h3>
+              <span className="bg-[#3D7A5E] text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full uppercase tracking-wider mb-1 md:mb-3 inline-block shadow-sm">Alam & Rekreasi</span>
+              <h3 className={`${montserrat.className} text-base md:text-2xl font-bold text-white`}>Alun-Alun Bandung</h3>
             </div>
           </Link>
           
@@ -216,8 +216,8 @@ export default async function LandingPage() {
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-4 md:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-              <span className="bg-[#2C5C8A] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm">Warisan Sejarah</span>
-              <h3 className={`${montserrat.className} text-xl font-bold text-white`}>Jalan Braga</h3>
+              <span className="bg-[#2C5C8A] text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full uppercase tracking-wider mb-1 md:mb-3 inline-block shadow-sm">Warisan Sejarah</span>
+              <h3 className={`${montserrat.className} text-base md:text-xl font-bold text-white`}>Jalan Braga</h3>
             </div>
           </Link>
           
@@ -226,7 +226,7 @@ export default async function LandingPage() {
               <Compass className="text-white w-5 h-5 md:w-8 md:h-8 group-hover:rotate-45 transition-transform duration-700" />
             </div>
             <h3 className={`${montserrat.className} text-2xl font-bold text-white mb-3`}>50+ Destinasi</h3>
-            <span className="text-sm font-bold text-white/90 uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all duration-300">Jelajahi <ArrowRight className="w-4 h-4" /></span>
+            <span className="text-[10px] md:text-sm font-bold text-white/90 uppercase tracking-widest flex items-center gap-1 md:gap-2 group-hover:gap-2 md:group-hover:gap-4 transition-all duration-300">Jelajahi <ArrowRight className="w-4 h-4" /></span>
           </Link>
         </div>
       </section>
@@ -276,11 +276,11 @@ export default async function LandingPage() {
                      <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
                      
                      {/* Content styled like destinations */}
-                     <div className="absolute bottom-0 left-0 p-8 md:p-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 w-full text-left">
-                       <span className="bg-[#3D7A5E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 md:mb-4 inline-block shadow-sm">
+                     <div className="absolute bottom-0 left-0 p-4 md:p-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 w-full text-left">
+                       <span className="bg-[#3D7A5E] text-white text-[10px] md:text-xs font-bold px-3 py-1 md:px-4 md:py-1.5 rounded-full uppercase tracking-wider mb-1 md:mb-4 inline-block shadow-sm">
                          {gallery.category}
                        </span>
-                       <h3 className={`${montserrat.className} ${index === 0 ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'} font-bold text-white leading-tight`}>
+                       <h3 className={`${montserrat.className} ${index === 0 ? 'text-lg md:text-4xl' : 'text-base md:text-2xl'} font-bold text-white leading-tight`}>
                          {gallery.title}
                        </h3>
                      </div>
