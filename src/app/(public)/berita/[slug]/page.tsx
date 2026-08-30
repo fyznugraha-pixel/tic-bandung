@@ -109,7 +109,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
 
           <ScrollReveal delay={0.2}>
             <article 
-              className="prose prose-lg prose-slate max-w-none break-words overflow-x-hidden w-full [&_*]:!whitespace-normal [&_*]:!max-w-full prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-[#3D7A5E] prose-img:rounded-2xl prose-img:shadow-md prose-p:leading-relaxed prose-p:mb-6 first-letter:text-6xl first-letter:font-black first-letter:text-[#3D7A5E] first-letter:mr-2 first-letter:float-left first-letter:leading-none"
+              className="prose prose-lg prose-slate max-w-none break-words overflow-x-hidden w-full [&_*]:!whitespace-normal [&_*]:!max-w-full prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-[#3D7A5E] prose-img:rounded-2xl prose-img:shadow-md prose-p:leading-relaxed prose-p:mb-6 first-letter:text-6xl first-letter:font-black first-letter:text-[#3D7A5E] first-letter:mr-2 first-letter:float-left first-letter:leading-none [&_p:empty]:min-h-[1.5rem] [&_p:empty]:block [&_p:has(>br)]:min-h-[1.5rem]"
               dangerouslySetInnerHTML={{ __html: cleanHTML }}
             />
           </ScrollReveal>
