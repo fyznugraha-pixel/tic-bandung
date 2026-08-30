@@ -433,7 +433,7 @@ export default function BeritaForm({
 
             <div className="flex flex-col flex-1 min-h-[500px] mb-8">
               <label className="block text-sm font-medium text-gray-700 mb-1">Isi Berita/Artikel</label>
-              <div className="flex-1 bg-white rounded-xl overflow-hidden border border-gray-200 focus-within:ring-2 focus-within:ring-[#3D7A5E] focus-within:border-[#3D7A5E] transition-all">
+              <div className="flex-1 bg-white rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#3D7A5E] focus-within:border-[#3D7A5E] transition-all [&_.ql-toolbar]:sticky [&_.ql-toolbar]:top-0 [&_.ql-toolbar]:z-50 [&_.ql-toolbar]:bg-gray-50 [&_.ql-toolbar]:rounded-t-xl [&_.ql-container]:rounded-b-xl">
                 <ReactQuillAny 
                   ref={quillRef}
                   theme="snow" 
