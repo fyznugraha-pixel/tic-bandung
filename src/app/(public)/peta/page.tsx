@@ -53,7 +53,7 @@ export default async function PetaPage() {
   }));
 
   return (
-    <main className="w-full flex-grow relative flex flex-col">
+    <main className="w-full h-[calc(100dvh-70px)] relative flex flex-col">
       {/* Floating Header */}
       <div className="absolute top-4 left-4 right-4 z-[1000] pointer-events-none flex justify-between items-start">
         <div className="pointer-events-auto flex flex-col gap-3">
