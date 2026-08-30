@@ -48,10 +48,10 @@ export default function TransportasiPage() {
                 Kereta Cepat
               </div>
               <h2 className="text-lg md:text-3xl font-bold text-white mb-1 md:mb-2 tracking-tight">Whoosh</h2>
-              <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base line-clamp-2 md:line-clamp-none">
+              <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base hidden md:block">
                 Jakarta - Bandung dalam 45 menit. Terkoneksi langsung dengan KA Feeder ke pusat kota.
               </p>
-              <Link href="https://kcic.co.id" className="inline-flex items-center gap-2 text-white font-bold mt-4 group-hover:gap-3 transition-all hover:text-blue-300">
+              <Link href="https://kcic.co.id" className="inline-flex items-center gap-1 md:gap-2 text-white font-bold mt-1 md:mt-4 text-[10px] md:text-base group-hover:gap-3 transition-all hover:text-blue-300">
                 Jadwal & Tiket <ArrowRight className="w-5 h-5"/>
               </Link>
             </div>
@@ -68,7 +68,7 @@ export default function TransportasiPage() {
                 Ikonik
               </div>
               <h2 className="text-lg md:text-3xl font-bold text-white mb-1 md:mb-2 tracking-tight">Bandros</h2>
-              <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base line-clamp-2 md:line-clamp-none">
+              <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base hidden md:block">
                 Bus wisata tematik untuk berkeliling landmark bersejarah Kota Bandung.
               </p>
               <Link href="https://uptangkutan-bandung.id/bandros/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 md:gap-2 text-white font-bold mt-2 md:mt-4 text-[10px] md:text-base group-hover:gap-3 transition-all hover:text-amber-300">
