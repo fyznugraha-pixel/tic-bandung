@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export const revalidate = 0;
+export const revalidate = 3600; // Cache for 1 hour
 
 export default async function DestinationDetailPage({
   params,

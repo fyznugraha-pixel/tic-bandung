@@ -7,9 +7,9 @@ import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '700', '900'] });
 
-export const dynamic = 'force-dynamic';
 
-export const revalidate = 0;
+
+export const revalidate = 3600; // Cache for 1 hour
 
 export default async function LandingPage() {
   const supabase = await createClient();

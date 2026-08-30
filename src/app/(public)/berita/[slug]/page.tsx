@@ -1,5 +1,5 @@
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+
+export const revalidate = 3600; // Cache for 1 hour
 
 import { createClient } from "@/utils/supabase/server";
 import { notFound } from "next/navigation";

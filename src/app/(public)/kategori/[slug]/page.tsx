@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 import EkonomiKreatifUI from '@/components/public/EkonomiKreatifUI';
 import WalkingTourUI from '@/components/public/WalkingTourUI';
 
-export const revalidate = 0;
+export const revalidate = 3600; // Cache for 1 hour
 
 export default async function CategoryPage({
   params,
