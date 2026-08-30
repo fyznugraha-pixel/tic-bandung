@@ -107,7 +107,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-12 -mt-20">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-12 mt-0 md:-mt-20">
           
           {/* Left Side: Huge Typography */}
           <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
