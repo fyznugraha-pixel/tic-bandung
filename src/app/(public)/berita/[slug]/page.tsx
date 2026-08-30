@@ -8,7 +8,6 @@ import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import { ChevronRight, Calendar, ArrowLeft, User, Share2, MessageCircle, Link as LinkIcon } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/animations/ScrollReveal";
-import DOMPurify from 'isomorphic-dompurify';
 import BeritaActionButtons from "@/components/public/BeritaActionButtons";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700", "900"] });
@@ -37,7 +36,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
-  const cleanHTML = DOMPurify.sanitize(news.content || "");
+  const cleanHTML = news.content || "";
   const formattedDate = new Date(news.date_published).toLocaleDateString('id-ID', {
     day: 'numeric', month: 'long', year: 'numeric'
   });
