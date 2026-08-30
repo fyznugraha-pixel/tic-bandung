@@ -212,6 +212,14 @@ export default function BeritaForm({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
+    
+    // Mencegah Base64 Image (Copy Paste / Drag Drop)
+    // Base64 memicu Vercel 500 Error (Payload Too Large) dan memberatkan database
+    if (contentHtml.includes('data:image/')) {
+      setError("DILARANG COPY-PASTE GAMBAR! ❌ Mohon hapus gambar yang baru saja Anda masukkan. Gunakan ikon 'Gambar' pada menu toolbar di atas untuk mengunggah foto dengan benar.");
+      return;
+    }
+
     const formData = new FormData(e.currentTarget);
     
     // Convert datetime-local to ISO string or format required by DB
