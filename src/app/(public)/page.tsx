@@ -118,8 +118,8 @@ export default async function LandingPage() {
       <HeroSlider sliders={activeSliders} />
 
       {/* 10. BERITA & ARTIKEL WISATA (Tourism Update) */}
-      <section className="w-full pt-32 pb-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-        <ScrollReveal className="flex flex-col items-center mb-16">
+      <section className="w-full pt-16 md:pt-32 pb-8 md:pb-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+        <ScrollReveal className="flex flex-col items-center mb-8 md:mb-16">
           <span className="text-[#C9971E] font-bold tracking-widest uppercase text-sm mb-4">Update Terkini</span>
           <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Berita & Artikel Wisata</h2>
           <div className="w-24 h-1.5 bg-[#C9971E] rounded-full"></div>
@@ -164,8 +164,8 @@ export default async function LandingPage() {
       </section>
 
       {/* REKOMENDASI DESTINASI WISATA (Still Hardcoded to destinations logic - skipping for CMS home content) */}
-      <section className="w-full pb-32 pt-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-        <div className="flex flex-col items-center mb-16">
+      <section className="w-full pb-16 md:pb-32 pt-8 md:pt-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+        <div className="flex flex-col items-center mb-8 md:mb-16">
           <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4">Eksplorasi</span>
           <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Rekomendasi Destinasi</h2>
           <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full mx-auto md:mx-0"></div>
@@ -233,9 +233,9 @@ export default async function LandingPage() {
 
             {/* 11. BENTO GRID GALERI FOTO */}
       <ScrollReveal>
-      <section className="w-full py-24 md:py-32 bg-[#fcf9f5]">
+      <section className="w-full py-12 md:py-32 bg-[#fcf9f5]">
         <div className="max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 md:mb-16 gap-4 md:gap-6 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start">
               <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4 flex items-center justify-center md:justify-start gap-2">
                 <Camera className="w-4 h-4" /> Pesona Visual
