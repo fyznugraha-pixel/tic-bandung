@@ -44,7 +44,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
   return (
     <main className="w-full bg-[#fcf9f5] min-h-screen">
       {/* Hero Banner */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] bg-black">
+      <section className="relative w-full h-[45vh] md:h-[70vh] bg-black">
         <Image
           src={news.image_url || "/hero-bg.webp"}
           alt={news.title || "Berita"}
@@ -54,9 +54,9 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#fcf9f5] via-[#fcf9f5]/90 via-30% to-black/40"></div>
         
-        <div className="absolute inset-0 flex flex-col justify-end pb-16 md:pb-24">
+        <div className="absolute inset-0 flex flex-col justify-end pb-8 md:pb-24">
           <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 w-full">
-            <nav className="flex text-white/80 text-sm mb-6 items-center gap-2 font-medium z-10 relative drop-shadow-md">
+            <nav className="flex text-white/80 text-xs md:text-sm mb-3 md:mb-6 items-center gap-1 md:gap-2 font-medium z-10 relative drop-shadow-md flex-wrap">
               <Link className="hover:text-white transition-colors" href="/">Beranda</Link>
               <ChevronRight className="w-4 h-4" />
               <Link className="hover:text-white transition-colors" href="/#berita">Berita & Artikel</Link>
@@ -65,7 +65,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
             </nav>
 
             <ScrollReveal>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-6 flex-wrap">
                 <span className="bg-[#3D7A5E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
                   {news.category}
                 </span>
@@ -74,7 +74,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
                   {formattedDate}
                 </span>
               </div>
-              <h1 className={`${montserrat.className} text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 tracking-tight drop-shadow-md leading-tight max-w-4xl drop-shadow-lg`}>
+              <h1 className={`${montserrat.className} text-2xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 tracking-tight drop-shadow-md leading-tight max-w-4xl drop-shadow-lg`}>
                 {news.title}
               </h1>
             </ScrollReveal>
@@ -83,7 +83,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Content Section */}
-      <section className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <section className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
         
         {/* Left Column: Article */}
         <div className="lg:col-span-8 w-full">
@@ -109,7 +109,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
 
           <ScrollReveal delay={0.2}>
             <article 
-              lang="ms" className="prose prose-lg prose-slate max-w-none break-words hyphens-auto overflow-x-hidden w-full [&_p]:whitespace-pre-wrap [&_*]:!max-w-full prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-[#3D7A5E] prose-img:rounded-2xl prose-img:shadow-md prose-p:leading-relaxed prose-p:mb-6 first-letter:text-6xl first-letter:font-black first-letter:text-[#3D7A5E] first-letter:mr-2 first-letter:float-left first-letter:leading-none [&_p:empty]:min-h-[1.5rem] [&_p:empty]:block [&_p:has(>br)]:min-h-[1.5rem] [&_.ql-indent-1]:pl-[3rem] [&_.ql-indent-2]:pl-[6rem] [&_.ql-indent-3]:pl-[9rem] [&_.ql-indent-4]:pl-[12rem]"
+              lang="ms" className="prose prose-base md:prose-lg prose-slate max-w-none break-words hyphens-auto overflow-x-hidden w-full [&_p]:whitespace-pre-wrap [&_*]:!max-w-full prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-[#3D7A5E] prose-img:rounded-2xl prose-img:shadow-md prose-p:leading-relaxed prose-p:mb-6 first-letter:text-4xl md:first-letter:text-6xl first-letter:font-black first-letter:text-[#3D7A5E] first-letter:mr-2 first-letter:float-left first-letter:leading-none [&_p:empty]:min-h-[1.5rem] [&_p:empty]:block [&_p:has(>br)]:min-h-[1.5rem] [&_.ql-indent-1]:pl-[3rem] [&_.ql-indent-2]:pl-[6rem] [&_.ql-indent-3]:pl-[9rem] [&_.ql-indent-4]:pl-[12rem]"
               dangerouslySetInnerHTML={{ __html: cleanHTML }}
             />
           </ScrollReveal>
@@ -147,7 +147,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
           <div className="sticky top-24">
             
             {/* Newsletter / CTA Box */}
-            <div className="bg-[#3D7A5E] rounded-3xl p-8 text-white mb-10 shadow-lg relative overflow-hidden">
+            <div className="bg-[#3D7A5E] rounded-xl md:rounded-3xl p-5 md:p-8 text-white mb-6 md:mb-10 shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
               <h3 className={`${montserrat.className} text-xl font-bold mb-3 relative z-10`}>Jelajahi Bandung!</h3>
               <p className="text-white/80 text-sm mb-6 relative z-10 leading-relaxed">Temukan destinasi wisata terbaik dan nikmati pengalaman liburan tak terlupakan di Kota Kembang.</p>
