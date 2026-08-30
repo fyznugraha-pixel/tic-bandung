@@ -118,7 +118,7 @@ export default async function LandingPage() {
       <HeroSlider sliders={activeSliders} />
 
       {/* 10. BERITA & ARTIKEL WISATA (Tourism Update) */}
-      <section className="w-full pt-16 md:pt-32 pb-8 md:pb-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+      <section className="w-full py-12 md:py-24 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
         <ScrollReveal className="flex flex-col items-center mb-8 md:mb-16">
           <span className="text-[#C9971E] font-bold tracking-widest uppercase text-sm mb-4">Update Terkini</span>
           <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Berita & Artikel Wisata</h2>
@@ -164,7 +164,7 @@ export default async function LandingPage() {
       </section>
 
       {/* REKOMENDASI DESTINASI WISATA (Still Hardcoded to destinations logic - skipping for CMS home content) */}
-      <section className="w-full pb-16 md:pb-32 pt-8 md:pt-16 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
+      <section className="w-full py-12 md:py-24 max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
         <div className="flex flex-col items-center mb-8 md:mb-16">
           <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4">Eksplorasi</span>
           <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Rekomendasi Destinasi</h2>
@@ -233,7 +233,7 @@ export default async function LandingPage() {
 
             {/* 11. BENTO GRID GALERI FOTO */}
       <ScrollReveal>
-      <section className="w-full py-12 md:py-32 bg-[#fcf9f5]">
+      <section className="w-full py-12 md:py-24 bg-[#fcf9f5]">
         <div className="max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 md:mb-16 gap-4 md:gap-6 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start">
