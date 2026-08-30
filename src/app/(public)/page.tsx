@@ -172,7 +172,7 @@ export default async function LandingPage() {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-[360px] sm:h-[600px] md:h-[650px]">
-          <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
+          <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
             {getDestImg('gedung-sate') ? (
               <img src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             ) : (
@@ -189,7 +189,7 @@ export default async function LandingPage() {
             </div>
           </Link>
           
-          <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/alun-alun-bandung">
+          <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-2 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/alun-alun-bandung">
             {getDestImg('alun-alun-bandung') ? (
               <img src={getDestImg('alun-alun-bandung')!} alt="Alun-Alun Bandung" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             ) : (
@@ -205,7 +205,7 @@ export default async function LandingPage() {
             </div>
           </Link>
           
-          <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/jalan-braga">
+          <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/jalan-braga">
             {getDestImg('jalan-braga') ? (
               <img src={getDestImg('jalan-braga')!} alt="Jalan Braga" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             ) : (
@@ -221,7 +221,7 @@ export default async function LandingPage() {
             </div>
           </Link>
           
-          <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block bg-[#C9971E] flex flex-col justify-center items-center text-center p-4 md:p-8 hover:bg-[#b08316] transition-colors duration-500 shadow-md hover:shadow-xl" href="/kategori">
+          <Link className="group relative rounded-lg md:rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block bg-[#C9971E] flex flex-col justify-center items-center text-center p-4 md:p-8 hover:bg-[#b08316] transition-colors duration-500 shadow-md hover:shadow-xl" href="/kategori">
             <div className="w-10 h-10 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
               <Compass className="text-white w-5 h-5 md:w-8 md:h-8 group-hover:rotate-45 transition-transform duration-700" />
             </div>
@@ -261,14 +261,14 @@ export default async function LandingPage() {
 
                  if (!gallery) {
                    return (
-                     <div key={`dummy-${index}`} className={`${bentoClass} rounded-3xl overflow-hidden relative group shadow-lg bg-slate-200 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
+                     <div key={`dummy-${index}`} className={`${bentoClass} rounded-lg md:rounded-3xl overflow-hidden relative group shadow-lg bg-slate-200 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
                        <ImageIcon className="w-12 h-12 text-slate-400 opacity-50" />
                      </div>
                    );
                  }
 
                  return (
-                   <div key={gallery.id} className={`${bentoClass} rounded-3xl overflow-hidden relative group shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
+                   <div key={gallery.id} className={`${bentoClass} rounded-lg md:rounded-3xl overflow-hidden relative group shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
                      <img src={gallery.image_url} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt={gallery.title} />
                      
                      {/* Overlay exactly like destinations */}

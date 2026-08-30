@@ -79,7 +79,7 @@ export default async function KategoriPage() {
           
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[160px] md:auto-rows-[250px]">
             {categories?.filter(c => c.pillar === 'stay').map(cat => (
-              <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-slate-800">
+              <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-lg md:rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-slate-800">
                 {renderBg(cat.slug)}
                 <div className="absolute inset-0 bg-[#2C5C8A]/20 transition-colors duration-700 group-hover:bg-[#2C5C8A]/40"></div>
                 <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end z-10">
@@ -109,7 +109,7 @@ export default async function KategoriPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[150px] md:auto-rows-[220px]">
             {categories?.filter(c => c.pillar === 'explore').map(cat => (
-              <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#1b1c1a]">
+              <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-lg md:rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#1b1c1a]">
                 {renderBg(cat.slug)}
                 <div className="absolute inset-0 bg-[#3D7A5E]/30 transition-colors duration-700 group-hover:bg-[#3D7A5E]/50"></div>
                 <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end z-10">
@@ -138,7 +138,7 @@ export default async function KategoriPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[180px] md:auto-rows-[280px]">
             {categories?.filter(c => c.pillar === 'lifestyle').map(cat => (
-              <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#3a352a]">
+              <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-lg md:rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#3a352a]">
                 {renderBg(cat.slug)}
                 <div className="absolute inset-0 bg-[#2b271d]/40 transition-colors duration-700 group-hover:bg-[#1b1c1a]/60"></div>
                 <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end z-10">
