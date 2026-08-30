@@ -16,7 +16,7 @@ export default async function PublicLayout({
       {/* 1. STICKY NAVBAR */}
       <Navbar />
 
-      <div className="flex-grow">
+      <div className="flex-grow flex flex-col">
         {children}
       </div>
 
