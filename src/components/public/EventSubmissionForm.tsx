@@ -65,7 +65,7 @@ export default function EventSubmissionForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onChange={handleChange} className="bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-700 shadow-2xl space-y-10 relative overflow-hidden">
+    <form onSubmit={handleSubmit} onChange={handleChange} className="space-y-10 relative">
       
       {/* Decorative Blur */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -235,11 +235,11 @@ export default function EventSubmissionForm() {
         </div>
       </div>
 
-      <div className="pt-6 mt-6 border-t border-slate-700">
+      <div className="pt-6 mt-6 border-t border-slate-700 flex justify-end">
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full sm:w-auto px-10 py-4 bg-amber-500 hover:bg-amber-600 active:scale-95 text-slate-900 font-bold rounded-xl transition-all shadow-lg flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-8 py-3 bg-amber-500 hover:bg-amber-600 active:scale-95 text-slate-900 font-bold rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>
