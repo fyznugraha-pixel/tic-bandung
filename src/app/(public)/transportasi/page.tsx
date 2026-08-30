@@ -43,12 +43,12 @@ export default function TransportasiPage() {
             <img src="/ASET VISUAL/Whoosh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Kereta Cepat Whoosh" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
             
-            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
-              <div className="inline-flex items-center justify-center w-max px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">
+            <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end">
+              <div className="inline-flex items-center justify-center w-max px-2 py-0.5 md:px-3 md:py-1 bg-blue-600 text-white text-[9px] md:text-xs font-bold rounded-full mb-2 md:mb-4 uppercase tracking-wider">
                 Kereta Cepat
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">Whoosh</h2>
-              <p className="text-slate-300 font-medium leading-relaxed max-w-md">
+              <h2 className="text-lg md:text-3xl font-bold text-white mb-1 md:mb-2 tracking-tight">Whoosh</h2>
+              <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base line-clamp-2 md:line-clamp-none">
                 Jakarta - Bandung dalam 45 menit. Terkoneksi langsung dengan KA Feeder ke pusat kota.
               </p>
               <Link href="https://kcic.co.id" className="inline-flex items-center gap-2 text-white font-bold mt-4 group-hover:gap-3 transition-all hover:text-blue-300">
@@ -63,12 +63,12 @@ export default function TransportasiPage() {
             <img src="/ASET VISUAL/bandros.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Bandros" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
             
-            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+            <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end">
               <div className="inline-flex items-center justify-center w-max px-3 py-1 bg-amber-500 text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">
                 Ikonik
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">Bandros</h2>
-              <p className="text-slate-300 font-medium leading-relaxed max-w-md">
+              <h2 className="text-lg md:text-3xl font-bold text-white mb-1 md:mb-2 tracking-tight">Bandros</h2>
+              <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base line-clamp-2 md:line-clamp-none">
                 Bus wisata tematik untuk berkeliling landmark bersejarah Kota Bandung.
               </p>
               <Link href="https://uptangkutan-bandung.id/bandros/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-bold mt-4 group-hover:gap-3 transition-all hover:text-amber-300">

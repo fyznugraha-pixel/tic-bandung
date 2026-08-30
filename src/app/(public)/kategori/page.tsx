@@ -82,9 +82,9 @@ export default async function KategoriPage() {
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-slate-800">
                 {renderBg(cat.slug)}
                 <div className="absolute inset-0 bg-[#2C5C8A]/20 transition-colors duration-700 group-hover:bg-[#2C5C8A]/40"></div>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-                  <span className="bg-[#2C5C8A] text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-2">{getCount(cat.slug, '0 Lokasi')}</span>
-                  <h3 className="text-2xl font-bold text-white">{cat.name}</h3>
+                <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end z-10">
+                  <span className="bg-[#2C5C8A] text-white text-[9px] md:text-xs font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full w-max mb-1 md:mb-2">{getCount(cat.slug, '0 Lokasi')}</span>
+                  <h3 className="text-sm md:text-2xl font-bold text-white leading-tight">{cat.name}</h3>
                 </div>
               </Link>
             ))}
@@ -112,9 +112,9 @@ export default async function KategoriPage() {
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#1b1c1a]">
                 {renderBg(cat.slug)}
                 <div className="absolute inset-0 bg-[#3D7A5E]/30 transition-colors duration-700 group-hover:bg-[#3D7A5E]/50"></div>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-                  <span className="bg-[#3D7A5E] text-white text-xs font-bold px-3 py-1 rounded-full w-max mb-2">{getCount(cat.slug, '0 Lokasi')}</span>
-                  <h3 className="text-xl font-bold text-white">{cat.name}</h3>
+                <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end z-10">
+                  <span className="bg-[#3D7A5E] text-white text-[9px] md:text-xs font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full w-max mb-1 md:mb-2">{getCount(cat.slug, '0 Lokasi')}</span>
+                  <h3 className="text-sm md:text-xl font-bold text-white leading-tight">{cat.name}</h3>
                 </div>
               </Link>
             ))}
@@ -141,9 +141,9 @@ export default async function KategoriPage() {
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#3a352a]">
                 {renderBg(cat.slug)}
                 <div className="absolute inset-0 bg-[#2b271d]/40 transition-colors duration-700 group-hover:bg-[#1b1c1a]/60"></div>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
+                <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-end z-10">
                   <span className="bg-[#C9971E] text-[#1b1c1a] text-xs font-bold px-3 py-1 rounded-full w-max mb-2">{getCount(cat.slug, '0 Lokasi')}</span>
-                  <h3 className="text-2xl font-bold text-white">{cat.name}</h3>
+                  <h3 className="text-sm md:text-2xl font-bold text-white leading-tight">{cat.name}</h3>
                 </div>
               </Link>
             ))} 
