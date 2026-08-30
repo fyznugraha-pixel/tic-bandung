@@ -32,7 +32,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
   if (!sliders || sliders.length === 0) return null;
 
   return (
-    <header className="relative w-full h-[80vh] min-h-[600px] overflow-hidden bg-gray-900">
+    <header className="relative w-full h-[65vh] min-h-[450px] md:h-[80vh] md:min-h-[600px] overflow-hidden bg-gray-900">
       
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeUp {
@@ -111,7 +111,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           
           {/* Left Side: Huge Typography */}
           <div className="w-full md:w-1/2">
-            <h1 className={`${montserrat.className} text-6xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-8 drop-shadow-xl`}>
+            <h1 className={`${montserrat.className} text-5xl md:text-7xl lg:text-[100px] font-bold text-white leading-[1.05] mb-8 drop-shadow-xl`}>
               <BlurText text="Bandung," delay={0} className="block" />
               <BlurText text="kota penuh" delay={0.2} className="block" />
               <span className="italic text-[#f5be45] block">
@@ -121,7 +121,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
             
             <div className="w-24 h-1 bg-[#f5be45] mb-8 animate-hero-line rounded-full"></div>
             
-            <p className="text-lg md:text-xl text-white/90 max-w-md font-light leading-relaxed drop-shadow-md animate-hero-desc">
+            <p className="text-sm md:text-xl text-white/90 max-w-md font-light leading-relaxed drop-shadow-md animate-hero-desc">
               Temukan harmoni antara megahnya warisan sejarah, kesejukan alam tropis, dan denyut nadi kreativitas tanpa batas.
             </p>
           </div>
