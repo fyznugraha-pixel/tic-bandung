@@ -130,7 +130,7 @@ export default async function LandingPage() {
             activeNews.map((item, i) => (
                <ScrollReveal key={item.id} delay={i * 0.1} className="h-full">
                  <Link href={`/berita/${item.slug || '#'}`} className="clay-card group cursor-pointer flex flex-col h-full overflow-hidden block">
-                   <div className="h-64 relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
+                   <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-200 flex flex-col items-center justify-center">
                      {item.image_url ? (
                        <img src={item.image_url} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" alt={item.title} />
                      ) : (
@@ -141,7 +141,7 @@ export default async function LandingPage() {
                        <span className={`text-xs font-bold text-white bg-${item.color_theme || 'blue'}-600 px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm`}>{item.category}</span>
                      </div>
                    </div>
-                   <div className="p-8 flex flex-col flex-grow justify-between">
+                   <div className="p-4 md:p-8 flex flex-col flex-grow justify-between">
                      <div>
                        <h3 className={`${montserrat.className} text-xl font-bold text-slate-900 mb-4 group-hover:text-[#C9971E] transition-colors line-clamp-3 leading-snug`}>{item.title}</h3>
                      </div>
@@ -171,7 +171,7 @@ export default async function LandingPage() {
           <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full"></div>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-[600px] sm:h-[900px] md:h-[650px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-[360px] sm:h-[600px] md:h-[650px]">
           <Link className="group relative rounded-3xl overflow-hidden md:col-span-2 md:row-span-2 block shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800" href="/destinasi/gedung-sate">
             {getDestImg('gedung-sate') ? (
               <img src={getDestImg('gedung-sate')!} alt="Gedung Sate" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
@@ -182,7 +182,7 @@ export default async function LandingPage() {
             )}
             
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
-            <div className="absolute bottom-0 left-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div className="absolute bottom-0 left-0 p-4 md:p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <span className="bg-[#C9971E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block shadow-sm">Ikon Kota</span>
               <h3 className={`${montserrat.className} text-4xl font-bold text-white mb-2`}>Gedung Sate</h3>
               <p className="text-white/80 max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 overflow-hidden transition-all duration-500 line-clamp-2 max-w-md">Simbol kebanggaan masyarakat Jawa Barat yang menyimpan nilai sejarah panjang sejak era kolonial.</p>
@@ -199,7 +199,7 @@ export default async function LandingPage() {
             )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
-            <div className="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+            <div className="absolute bottom-0 left-0 p-4 md:p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
               <span className="bg-[#3D7A5E] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm">Alam & Rekreasi</span>
               <h3 className={`${montserrat.className} text-2xl font-bold text-white`}>Alun-Alun Bandung</h3>
             </div>
@@ -215,15 +215,15 @@ export default async function LandingPage() {
             )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1a]/90 via-[#1b1c1a]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
-            <div className="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+            <div className="absolute bottom-0 left-0 p-4 md:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
               <span className="bg-[#2C5C8A] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block shadow-sm">Warisan Sejarah</span>
               <h3 className={`${montserrat.className} text-xl font-bold text-white`}>Jalan Braga</h3>
             </div>
           </Link>
           
-          <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block bg-[#C9971E] flex flex-col justify-center items-center text-center p-8 hover:bg-[#b08316] transition-colors duration-500 shadow-md hover:shadow-xl" href="/kategori">
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
-              <Compass className="text-white w-8 h-8 group-hover:rotate-45 transition-transform duration-700" />
+          <Link className="group relative rounded-3xl overflow-hidden md:col-span-1 md:row-span-1 block bg-[#C9971E] flex flex-col justify-center items-center text-center p-4 md:p-8 hover:bg-[#b08316] transition-colors duration-500 shadow-md hover:shadow-xl" href="/kategori">
+            <div className="w-10 h-10 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
+              <Compass className="text-white w-5 h-5 md:w-8 md:h-8 group-hover:rotate-45 transition-transform duration-700" />
             </div>
             <h3 className={`${montserrat.className} text-2xl font-bold text-white mb-3`}>50+ Destinasi</h3>
             <span className="text-sm font-bold text-white/90 uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all duration-300">Jelajahi <ArrowRight className="w-4 h-4" /></span>
@@ -261,14 +261,14 @@ export default async function LandingPage() {
 
                  if (!gallery) {
                    return (
-                     <div key={`dummy-${index}`} className={`${bentoClass} rounded-3xl overflow-hidden relative group shadow-lg bg-slate-200 flex items-center justify-center min-h-[250px]`}>
+                     <div key={`dummy-${index}`} className={`${bentoClass} rounded-3xl overflow-hidden relative group shadow-lg bg-slate-200 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
                        <ImageIcon className="w-12 h-12 text-slate-400 opacity-50" />
                      </div>
                    );
                  }
 
                  return (
-                   <div key={gallery.id} className={`${bentoClass} rounded-3xl overflow-hidden relative group shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800 flex items-center justify-center min-h-[250px]`}>
+                   <div key={gallery.id} className={`${bentoClass} rounded-3xl overflow-hidden relative group shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-slate-800 flex items-center justify-center min-h-[160px] md:min-h-[250px]`}>
                      <img src={gallery.image_url} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt={gallery.title} />
                      
                      {/* Overlay exactly like destinations */}

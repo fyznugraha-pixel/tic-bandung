@@ -35,7 +35,7 @@ export default function TransportasiPage() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Modern Bento Grid Layout */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 auto-rows-[200px] md:auto-rows-[300px]">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 auto-rows-[160px] md:auto-rows-[300px]">
           
           {/* Card 1: Whoosh (Image Card) */}
           <ScrollReveal className="md:col-span-2 h-full">

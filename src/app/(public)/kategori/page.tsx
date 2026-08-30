@@ -77,7 +77,7 @@ export default async function KategoriPage() {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[250px]">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[160px] md:auto-rows-[250px]">
             {categories?.filter(c => c.pillar === 'stay').map(cat => (
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-slate-800">
                 {renderBg(cat.slug)}
@@ -107,7 +107,7 @@ export default async function KategoriPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[220px]">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[150px] md:auto-rows-[220px]">
             {categories?.filter(c => c.pillar === 'explore').map(cat => (
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#1b1c1a]">
                 {renderBg(cat.slug)}
@@ -136,7 +136,7 @@ export default async function KategoriPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[280px]">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-[180px] md:auto-rows-[280px]">
             {categories?.filter(c => c.pillar === 'lifestyle').map(cat => (
               <Link key={cat.id} href={`/kategori/${cat.slug}`} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm bg-[#3a352a]">
                 {renderBg(cat.slug)}
