@@ -64,14 +64,14 @@ export default function TransportasiPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
             
             <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end">
-              <div className="inline-flex items-center justify-center w-max px-3 py-1 bg-amber-500 text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider">
+              <div className="inline-flex items-center justify-center w-max px-2 py-0.5 md:px-3 md:py-1 bg-amber-500 text-white text-[9px] md:text-xs font-bold rounded-full mb-1 md:mb-4 uppercase tracking-wider">
                 Ikonik
               </div>
               <h2 className="text-lg md:text-3xl font-bold text-white mb-1 md:mb-2 tracking-tight">Bandros</h2>
               <p className="text-slate-300 font-medium leading-relaxed max-w-md text-[10px] md:text-base line-clamp-2 md:line-clamp-none">
                 Bus wisata tematik untuk berkeliling landmark bersejarah Kota Bandung.
               </p>
-              <Link href="https://uptangkutan-bandung.id/bandros/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-bold mt-4 group-hover:gap-3 transition-all hover:text-amber-300">
+              <Link href="https://uptangkutan-bandung.id/bandros/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 md:gap-2 text-white font-bold mt-2 md:mt-4 text-[10px] md:text-base group-hover:gap-3 transition-all hover:text-amber-300">
                 Jadwal & Rute <ArrowRight className="w-5 h-5"/>
               </Link>
             </div>
@@ -82,11 +82,11 @@ export default function TransportasiPage() {
             <img src="/ASET VISUAL/transportasi-online.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Transportasi Online" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
             
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="inline-flex items-center justify-center w-max px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+            <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
+              <div className="inline-flex items-center justify-center w-max px-2 py-0.5 md:px-3 md:py-1 bg-emerald-600 text-white text-[9px] md:text-xs font-bold rounded-full mb-1 md:mb-3 uppercase tracking-wider">
                 Ride Hailing
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 leading-tight">Transportasi Online</h3>
+              <h3 className="text-sm md:text-xl font-bold text-white mb-1 md:mb-2 leading-tight">Transportasi Online</h3>
               <p className="text-slate-300 text-sm leading-relaxed hidden md:block">
                 Tersedia 24 jam. Patuhi aturan titik jemput khusus (Shelter) di stasiun.
               </p>
@@ -98,33 +98,33 @@ export default function TransportasiPage() {
             <img src="/ASET VISUAL/boseh.jpg" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Boseh Bike Sharing" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
             
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="inline-flex items-center justify-center w-max px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+            <div className="absolute inset-0 p-4 md:p-8 flex flex-col justify-end">
+              <div className="inline-flex items-center justify-center w-max px-2 py-0.5 md:px-3 md:py-1 bg-purple-600 text-white text-[9px] md:text-xs font-bold rounded-full mb-1 md:mb-3 uppercase tracking-wider">
                 Sepeda Publik
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Boseh</h3>
+              <h3 className="text-sm md:text-xl font-bold text-white mb-1 md:mb-2">Boseh</h3>
               <p className="text-slate-300 text-sm leading-relaxed hidden md:block">
                 Sewa sepeda di titik strategis. Cara terseru menikmati kota.
               </p>
-              <Link href="https://uptangkutan-bandung.id/boseh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-bold mt-4 group-hover:gap-3 transition-all hover:text-purple-300 text-sm">
+              <Link href="https://uptangkutan-bandung.id/boseh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 md:gap-2 text-white font-bold mt-1 md:mt-4 text-[10px] md:text-sm group-hover:gap-3 transition-all hover:text-purple-300">
                 Info Lengkap <ArrowRight className="w-5 h-5"/>
               </Link>
             </div>
           </div>
 
           {/* Card 5: DAMRI & Angkot */}
-          <div className="md:col-span-2 bg-white rounded-[32px] p-8 md:p-10 border border-slate-100/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 relative overflow-hidden group">
+          <div className="col-span-2 md:col-span-2 bg-white rounded-[32px] p-5 md:p-10 border border-slate-100/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-50 rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110"></div>
             <div className="flex flex-col h-full justify-between">
               <div>
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-8">
                   <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center">
                     <Bus className="w-6 h-6"/>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">DAMRI & Angkot</h3>
+                  <h3 className="text-lg md:text-2xl font-bold text-slate-900">DAMRI & Angkot</h3>
                 </div>
                 
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-8">
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">Trans Metro Bandung</h4>
                     <p className="text-slate-500 text-sm leading-relaxed">Bus koridor utama berbasis non-tunai (QRIS/E-Money) antar pusat keramaian.</p>
