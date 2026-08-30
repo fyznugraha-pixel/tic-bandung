@@ -168,7 +168,7 @@ export default async function LandingPage() {
         <div className="flex flex-col items-center mb-16">
           <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4">Eksplorasi</span>
           <h2 className={`${montserrat.className} text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6 tracking-tight`}>Rekomendasi Destinasi</h2>
-          <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full"></div>
+          <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full mx-auto md:mx-0"></div>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:gap-6 h-[360px] sm:h-[600px] md:h-[650px]">
@@ -235,13 +235,13 @@ export default async function LandingPage() {
       <ScrollReveal>
       <section className="w-full py-24 md:py-32 bg-[#fcf9f5]">
         <div className="max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-              <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-2">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start">
+              <span className="text-[#3D7A5E] font-bold tracking-widest uppercase text-sm mb-4 flex items-center justify-center md:justify-start gap-2">
                 <Camera className="w-4 h-4" /> Pesona Visual
               </span>
               <h2 className={`${montserrat.className} text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight`}>Galeri Kota</h2>
-              <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full"></div>
+              <div className="w-24 h-1.5 bg-[#3D7A5E] rounded-full mx-auto md:mx-0"></div>
             </div>
             <Link href="#" className="hidden md:flex items-center gap-3 text-slate-600 font-bold hover:text-[#3D7A5E] transition-colors px-6 py-3 rounded-full bg-white shadow-sm border border-slate-200 hover:border-[#3D7A5E]/30 hover:shadow-md">
               Jelajahi Semua <ArrowRight className="w-5 h-5" />
