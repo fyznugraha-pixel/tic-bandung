@@ -35,12 +35,12 @@ export function ModernHero({
 
   const containerClass = isCenter 
     ? "relative z-10 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto flex flex-col items-center text-center"
-    : "relative z-10 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center";
+    : "relative z-10 w-full max-w-[1600px] px-4 md:px-8 lg:px-12 mx-auto flex flex-col items-center text-center lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center";
 
-  const textAlignmentClass = isCenter ? "items-center text-center" : (isRight ? "items-end text-right lg:order-2" : "items-start text-left");
+  const textAlignmentClass = isCenter ? "items-center text-center" : (isRight ? "items-center text-center lg:items-end lg:text-right lg:order-2" : "items-center text-center lg:items-start lg:text-left");
   
   // Breadcrumb alignment
-  const navAlignClass = isCenter ? "justify-center" : (isRight ? "justify-end" : "justify-start");
+  const navAlignClass = isCenter ? "justify-center" : (isRight ? "justify-center lg:justify-end" : "justify-center lg:justify-start");
   
   // Animation for illustration
   const illusAnimClass = isRight ? "animate-fade-right" : "animate-fade-up-delay-2";
@@ -91,7 +91,7 @@ export function ModernHero({
         }
       `}} />
 
-      <section className="relative w-full min-h-[550px] flex items-center justify-center pt-0 pb-12 lg:pb-16">
+      <section className="relative w-full min-h-[350px] md:min-h-[550px] flex items-center justify-center pt-8 md:pt-0 pb-8 md:pb-12 lg:pb-16">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className={`absolute top-0 ${isRight ? 'left-0 -translate-x-1/3' : 'right-0 translate-x-1/3'} w-[600px] h-[600px] bg-[#C9971E]/10 rounded-full blur-[100px] opacity-70 animate-blob mix-blend-multiply -translate-y-1/3`}></div>
