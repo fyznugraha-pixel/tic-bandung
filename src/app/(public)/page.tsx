@@ -117,6 +117,7 @@ export default async function LandingPage() {
 
   return (
     <main className="min-h-screen bg-[#fcf9f5] overflow-hidden">
+      <PromoPopup />
       <HeroSlider sliders={activeSliders} />
 
       {/* 10. BERITA & ARTIKEL WISATA (Tourism Update) */}
