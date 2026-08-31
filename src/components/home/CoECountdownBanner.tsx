@@ -47,7 +47,7 @@ export default function CoECountdownBanner() {
   if (!isMounted) return null; // Avoid hydration mismatch
 
   return (
-    <section className="w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] bg-white relative overflow-hidden py-8 md:py-10 border border-slate-100 rounded-2xl md:rounded-3xl shadow-2xl max-w-[1400px] mx-auto -mt-16 md:-mt-24 z-40">
+    <section className="w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] bg-white relative overflow-hidden py-8 md:py-10 border border-slate-100 rounded-lg md:rounded-lg shadow-2xl max-w-[1400px] mx-auto -mt-16 md:-mt-24 z-40">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#C9971E]/10 rounded-full blur-[80px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#3D7A5E]/10 rounded-full blur-[80px] pointer-events-none"></div>
@@ -79,7 +79,7 @@ export default function CoECountdownBanner() {
         </div>
 
         {/* Right side: Countdown Timer Box */}
-        <div className="w-full lg:w-auto shrink-0 bg-[#fcf9f5] border border-slate-200 p-4 md:p-8 rounded-2xl md:rounded-3xl shadow-xl relative">
+        <div className="w-full lg:w-auto shrink-0 bg-[#fcf9f5] border border-slate-200 p-4 md:p-8 rounded-lg md:rounded-lg shadow-xl relative">
           <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-600 font-bold mb-6">
             <Clock className="w-5 h-5 text-[#C9971E]" />
             <span>Batas Waktu Pendaftaran:</span>
@@ -88,7 +88,7 @@ export default function CoECountdownBanner() {
           {/* Countdown Grid */}
           <div className="flex justify-center gap-2 md:gap-6">
             <div className="flex flex-col items-center">
-              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-xl md:text-4xl font-bold text-[#C9971E] shadow-sm border border-slate-200">
+              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-lg flex items-center justify-center text-xl md:text-4xl font-bold text-[#C9971E] shadow-sm border border-slate-200">
                 {String(timeLeft.days).padStart(2, '0')}
               </div>
               <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Hari</span>
@@ -97,7 +97,7 @@ export default function CoECountdownBanner() {
             <div className="text-xl md:text-4xl font-bold text-slate-300 mt-4 md:mt-5">:</div>
             
             <div className="flex flex-col items-center">
-              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-xl md:text-4xl font-bold text-slate-800 shadow-sm border border-slate-200">
+              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-lg flex items-center justify-center text-xl md:text-4xl font-bold text-slate-800 shadow-sm border border-slate-200">
                 {String(timeLeft.hours).padStart(2, '0')}
               </div>
               <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Jam</span>
@@ -106,7 +106,7 @@ export default function CoECountdownBanner() {
             <div className="text-xl md:text-4xl font-bold text-slate-300 mt-4 md:mt-5">:</div>
 
             <div className="flex flex-col items-center">
-              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-xl md:text-4xl font-bold text-slate-800 shadow-sm border border-slate-200">
+              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-lg flex items-center justify-center text-xl md:text-4xl font-bold text-slate-800 shadow-sm border border-slate-200">
                 {String(timeLeft.minutes).padStart(2, '0')}
               </div>
               <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Menit</span>
@@ -115,7 +115,7 @@ export default function CoECountdownBanner() {
             <div className="text-xl md:text-4xl font-bold text-slate-300 mt-4 md:mt-5">:</div>
 
             <div className="flex flex-col items-center">
-              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-xl md:text-4xl font-bold text-[#3D7A5E] shadow-sm border border-slate-200">
+              <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-lg flex items-center justify-center text-xl md:text-4xl font-bold text-[#3D7A5E] shadow-sm border border-slate-200">
                 {String(timeLeft.seconds).padStart(2, '0')}
               </div>
               <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Detik</span>

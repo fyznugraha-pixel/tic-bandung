@@ -84,7 +84,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           {sliders.map((slider, index) => (
             <div 
               key={index}
-              className={`absolute top-0 right-0 w-full bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl transition-all duration-700 ease-in-out ${
+              className={`absolute top-0 right-0 w-full bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg transition-all duration-700 ease-in-out ${
                 index === currentIndex 
                   ? "opacity-100 transform translate-y-0 translate-x-0" 
                   : "opacity-0 transform -translate-y-8 translate-x-8 pointer-events-none"
@@ -133,7 +133,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
         </div>
 
         {/* Custom Slider Indicators */}
-        <div className="absolute bottom-8 left-4 md:left-12 flex gap-3">
+        <div className="absolute bottom-20 md:bottom-32 left-4 md:left-12 flex gap-3">
           {sliders.map((_, index) => (
             <button
               key={index}

@@ -39,7 +39,7 @@ export default function PromoPopup() {
       ></div>
 
       {/* Popup Content */}
-      <div className="relative bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl animate-fade-up">
+      <div className="relative bg-white rounded-lg w-full max-w-lg overflow-hidden shadow-2xl animate-fade-up">
         {/* Close Button */}
         <button 
           onClick={handleClose}

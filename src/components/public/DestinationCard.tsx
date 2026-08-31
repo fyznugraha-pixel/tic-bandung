@@ -20,7 +20,7 @@ export default function DestinationCard({ destination }: { destination: Destinat
 
   return (
     <Link href={`/destinasi/${destination.slug}`} className="block group h-full">
-      <div className="bg-white rounded-2xl border border-[#d3c5af]/50 shadow-[0_4px_20px_rgba(42,42,40,0.04)] overflow-hidden h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(42,42,40,0.08)]">
+      <div className="bg-white rounded-lg border border-[#d3c5af]/50 shadow-[0_4px_20px_rgba(42,42,40,0.04)] overflow-hidden h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(42,42,40,0.08)]">
         
         {/* Image Section */}
         <div className="relative h-48 w-full bg-gray-100 overflow-hidden">

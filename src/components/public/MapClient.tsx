@@ -79,7 +79,7 @@ export default function MapClient({ destinations }: { destinations: DestinationP
             position={[dest.latitude, dest.longitude]} 
             icon={createCustomIcon(dest.category.color_cluster)}
           >
-            <Popup className="destination-popup rounded-2xl overflow-hidden p-0 border-0 shadow-lg">
+            <Popup className="destination-popup rounded-lg overflow-hidden p-0 border-0 shadow-lg">
               <div className="w-64">
                 <div className="relative h-32 w-full bg-gray-100">
                   <Image

@@ -30,7 +30,7 @@ export default function EventPage() {
             <ScrollReveal>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Timeline Section */}
-            <section className="bg-white rounded-2xl p-8 border border-[#d3c5af]/50 shadow-sm">
+            <section className="bg-white rounded-lg p-8 border border-[#d3c5af]/50 shadow-sm">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
                   <Clock className="w-6 h-6 text-amber-700" />
@@ -75,7 +75,7 @@ export default function EventPage() {
             </section>
 
             {/* Kriteria Section */}
-            <section className="bg-white rounded-2xl p-8 border border-[#d3c5af]/50 shadow-sm">
+            <section className="bg-white rounded-lg p-8 border border-[#d3c5af]/50 shadow-sm">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-6 h-6 text-emerald-700" />
@@ -106,7 +106,7 @@ export default function EventPage() {
           </div>
           {/* Bottom Row: Registration Form */}
           <div className="w-full">
-            <div className="bg-[#1b1c1a] rounded-3xl p-8  shadow-xl">
+            <div className="bg-[#1b1c1a] rounded-lg p-8  shadow-xl">
               <h3 className={`${montserrat.className} text-3xl font-bold text-white mb-2`}>Daftarkan Event Anda</h3>
               <p className="text-slate-300 mb-8 text-sm leading-relaxed">Jadikan event Anda bagian dari daya tarik utama pariwisata Kota Bandung di tahun 2027.</p>
               

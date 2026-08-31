@@ -37,7 +37,7 @@ export default function PaketWisataPage() {
             <div className="relative z-10 flex-grow">
               <div className="flex items-start justify-between mb-8">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-white/80 backdrop-blur-md rounded-2xl md:rounded-3xl flex items-center justify-center p-3 shadow-lg shadow-blue-500/10 border border-white/60 group-hover:rotate-3 group-hover:scale-105 transition-all duration-500">
+                  <div className="w-16 h-16 md:w-24 md:h-24 bg-white/80 backdrop-blur-md rounded-lg md:rounded-lg flex items-center justify-center p-3 shadow-lg shadow-blue-500/10 border border-white/60 group-hover:rotate-3 group-hover:scale-105 transition-all duration-500">
                     <Image src="/logo/asita-logo.png" alt="ASITA Logo" width={80} height={80} className="object-contain" />
                   </div>
                   <div>
@@ -52,14 +52,14 @@ export default function PaketWisataPage() {
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 md:mb-10">
-                <div className="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-3">
+                <div className="bg-white/80 p-5 rounded-lg border border-slate-100 shadow-sm flex items-start gap-3">
                   <Building className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm mb-1">City & Heritage Tour</h4>
                     <p className="text-xs text-slate-500">Jelajahi sejarah di Kota Bandung</p>
                   </div>
                 </div>
-                <div className="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-3">
+                <div className="bg-white/80 p-5 rounded-lg border border-slate-100 shadow-sm flex items-start gap-3">
                   <TreePine className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm mb-1">Nature Gateway</h4>
@@ -72,7 +72,7 @@ export default function PaketWisataPage() {
             <Link 
               href="https://www.asita-jabar.org/" 
               target="_blank"
-              className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
+              className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-lg font-bold overflow-hidden group/btn"
             >
               <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-500 ease-in-out"></div>
               <span className="relative z-10">Lihat Katalog ASITA</span>
@@ -91,7 +91,7 @@ export default function PaketWisataPage() {
             <div className="relative z-10 flex-grow">
               <div className="flex items-start justify-between mb-8">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-white/80 backdrop-blur-md rounded-2xl md:rounded-3xl flex items-center justify-center p-3 shadow-lg shadow-emerald-500/10 border border-white/60 group-hover:-rotate-3 group-hover:scale-105 transition-all duration-500">
+                  <div className="w-16 h-16 md:w-24 md:h-24 bg-white/80 backdrop-blur-md rounded-lg md:rounded-lg flex items-center justify-center p-3 shadow-lg shadow-emerald-500/10 border border-white/60 group-hover:-rotate-3 group-hover:scale-105 transition-all duration-500">
                     <Image src="/logo/astindo.png" alt="ASTINDO Logo" width={80} height={80} className="object-contain" />
                   </div>
                   <div>
@@ -124,7 +124,7 @@ export default function PaketWisataPage() {
             <Link 
               href="https://astindo.org/" 
               target="_blank"
-              className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-2xl font-bold overflow-hidden group/btn"
+              className="relative z-10 flex items-center justify-between bg-slate-900 text-white w-full px-8 py-5 rounded-lg font-bold overflow-hidden group/btn"
             >
               <div className="absolute inset-0 bg-emerald-600 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-500 ease-in-out"></div>
               <span className="relative z-10">Lihat Katalog ASTINDO</span>

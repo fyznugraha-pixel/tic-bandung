@@ -126,7 +126,7 @@ export default function CategoryListingUI({
 
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12">
         {/* Filter Bar (FR-03) */}
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-[#d3c5af]/50 mb-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between sticky top-[80px] z-40">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-[#d3c5af]/50 mb-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between sticky top-[80px] z-40">
           
           <div className="relative w-full md:w-96">
             <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -215,7 +215,7 @@ export default function CategoryListingUI({
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-[#d3c5af]">
+          <div className="text-center py-20 bg-white rounded-lg border border-dashed border-[#d3c5af]">
             <p className="text-xl text-[#4f4635] mb-2">Pencarian Tidak Ditemukan</p>
             <p className="text-[#4f4635]/70">Coba ubah kata kunci atau hapus filter kawasan/harga.</p>
           </div>

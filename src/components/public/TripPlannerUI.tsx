@@ -152,7 +152,7 @@ export default function TripPlannerUI() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 -mt-8 relative z-30 mb-20">
         
         {/* Theme Selector (Tabs) */}
-        <div className="bg-white rounded-2xl shadow-xl p-2 md:p-4 border border-[#d3c5af]/50 flex flex-col md:flex-row gap-2 mb-12">
+        <div className="bg-white rounded-lg shadow-xl p-2 md:p-4 border border-[#d3c5af]/50 flex flex-col md:flex-row gap-2 mb-12">
           {ITINERARIES.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -179,9 +179,9 @@ export default function TripPlannerUI() {
           
           {/* Left: Summary */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="sticky top-24 bg-white p-8 rounded-3xl shadow-sm border border-[#d3c5af]/50">
+            <div className="sticky top-24 bg-white p-8 rounded-lg shadow-sm border border-[#d3c5af]/50">
               <div 
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-inner"
+                className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 text-white shadow-inner"
                 style={{ backgroundColor: activeItinerary.color }}
               >
                 <activeItinerary.icon className="w-8 h-8" />
@@ -244,7 +244,7 @@ export default function TripPlannerUI() {
                         </div>
 
                         {/* Activity Card */}
-                        <Link href={`/destinasi/${activity.slug}`} className="flex-1 bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(42,42,40,0.04)] border border-[#d3c5af]/30 hover:border-[#C9971E] hover:shadow-[0_8px_30px_rgba(42,42,40,0.08)] transition-all flex flex-col md:flex-row gap-6 justify-between items-start md:items-center cursor-pointer group/card">
+                        <Link href={`/destinasi/${activity.slug}`} className="flex-1 bg-white p-6 rounded-lg shadow-[0_4px_20px_rgba(42,42,40,0.04)] border border-[#d3c5af]/30 hover:border-[#C9971E] hover:shadow-[0_8px_30px_rgba(42,42,40,0.08)] transition-all flex flex-col md:flex-row gap-6 justify-between items-start md:items-center cursor-pointer group/card">
                           <div>
                             <h4 className="text-lg font-bold text-[#1b1c1a] mb-2 group-hover/card:text-[#7a5900] transition-colors">
                               {activity.title}

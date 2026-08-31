@@ -56,7 +56,7 @@ export default function GlobalMap({ destinations }: GlobalMapProps) {
   return (
     <div className="relative w-full h-[calc(100vh-80px)] flex">
       {/* Sidebar Overlay (Desktop) or Bottom Sheet (Mobile) */}
-      <div className="absolute top-4 left-4 z-[400] w-[350px] bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col max-h-[calc(100vh-120px)]">
+      <div className="absolute top-4 left-4 z-[400] w-[350px] bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden flex flex-col max-h-[calc(100vh-120px)]">
         <div className="p-4 bg-primary text-white font-bold text-lg">
           Peta Interaktif Bandung
         </div>

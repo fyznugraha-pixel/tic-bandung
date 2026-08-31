@@ -141,7 +141,7 @@ export default async function DestinationDetailPage({
           
           {/* Left Column: Description & Content */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white p-5 md:p-8 rounded-2xl border border-[#d3c5af]/50 shadow-sm">
+            <div className="bg-white p-5 md:p-8 rounded-lg border border-[#d3c5af]/50 shadow-sm">
               <h2 className="text-2xl font-bold text-[#1b1c1a] mb-4">Tentang {dest.name}</h2>
               <div className="prose prose-lg text-[#4f4635] leading-relaxed max-w-none">
                 {dest.description ? (
@@ -156,7 +156,7 @@ export default async function DestinationDetailPage({
 
             {/* Konten Detail dari CMS (Rich Text) */}
             {dest.content && (
-              <div className="bg-white p-5 md:p-8 rounded-2xl border border-[#d3c5af]/50 shadow-sm">
+              <div className="bg-white p-5 md:p-8 rounded-lg border border-[#d3c5af]/50 shadow-sm">
                 <div 
                   className="prose prose-lg max-w-none text-[#4f4635] leading-relaxed prose-headings:text-[#1b1c1a] prose-a:text-[#3D7A5E] prose-strong:text-[#1b1c1a] prose-img:rounded-xl"
                   dangerouslySetInnerHTML={{ __html: dest.content }}
@@ -166,7 +166,7 @@ export default async function DestinationDetailPage({
 
             {/* Galeri Foto */}
             {dest.images && dest.images.length > 1 && (
-              <div className="bg-white p-5 md:p-8 rounded-2xl border border-[#d3c5af]/50 shadow-sm mt-8">
+              <div className="bg-white p-5 md:p-8 rounded-lg border border-[#d3c5af]/50 shadow-sm mt-8">
                 <h3 className="text-2xl font-bold text-[#1b1c1a] mb-6">Galeri Foto</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {dest.images.slice(1).map((imgUrl: string, idx: number) => (
@@ -186,7 +186,7 @@ export default async function DestinationDetailPage({
 
           {/* Right Column: Info Panel */}
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-2xl border border-[#d3c5af]/50 shadow-sm sticky top-24">
+            <div className="bg-white p-6 rounded-lg border border-[#d3c5af]/50 shadow-sm sticky top-24">
               <h3 className="text-lg font-bold text-[#1b1c1a] mb-6 border-b border-[#f6f3f0] pb-4">Informasi Penting</h3>
               
               <div className="space-y-6">

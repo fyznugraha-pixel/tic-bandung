@@ -109,7 +109,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
 
           <ScrollReveal delay={0.2}>
             <article 
-              lang="ms" className="prose prose-base md:prose-lg prose-slate max-w-none break-words hyphens-auto overflow-x-hidden w-full [&_p]:whitespace-pre-wrap [&_*]:!max-w-full prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-[#3D7A5E] prose-img:rounded-2xl prose-img:shadow-md prose-p:leading-relaxed prose-p:mb-6 first-letter:text-4xl md:first-letter:text-6xl first-letter:font-black first-letter:text-[#3D7A5E] first-letter:mr-2 first-letter:float-left first-letter:leading-none [&_p:empty]:min-h-[1.5rem] [&_p:empty]:block [&_p:has(>br)]:min-h-[1.5rem] [&_.ql-indent-1]:pl-[3rem] [&_.ql-indent-2]:pl-[6rem] [&_.ql-indent-3]:pl-[9rem] [&_.ql-indent-4]:pl-[12rem]"
+              lang="ms" className="prose prose-base md:prose-lg prose-slate max-w-none break-words hyphens-auto overflow-x-hidden w-full [&_p]:whitespace-pre-wrap [&_*]:!max-w-full prose-headings:font-display prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-[#3D7A5E] prose-img:rounded-lg prose-img:shadow-md prose-p:leading-relaxed prose-p:mb-6 first-letter:text-4xl md:first-letter:text-6xl first-letter:font-black first-letter:text-[#3D7A5E] first-letter:mr-2 first-letter:float-left first-letter:leading-none [&_p:empty]:min-h-[1.5rem] [&_p:empty]:block [&_p:has(>br)]:min-h-[1.5rem] [&_.ql-indent-1]:pl-[3rem] [&_.ql-indent-2]:pl-[6rem] [&_.ql-indent-3]:pl-[9rem] [&_.ql-indent-4]:pl-[12rem]"
               dangerouslySetInnerHTML={{ __html: cleanHTML }}
             />
           </ScrollReveal>
@@ -121,7 +121,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {news.images.map((img: string, i: number) => (
                   <ScrollReveal key={i} delay={i * 0.1}>
-                    <div className="relative aspect-square rounded-2xl overflow-hidden group shadow-sm hover:shadow-lg transition-shadow cursor-zoom-in">
+                    <div className="relative aspect-square rounded-lg overflow-hidden group shadow-sm hover:shadow-lg transition-shadow cursor-zoom-in">
                       <Image 
                         src={img} 
                         alt={`Galeri ${i+1}`} 
@@ -147,7 +147,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
           <div className="sticky top-24">
             
             {/* Newsletter / CTA Box */}
-            <div className="bg-[#3D7A5E] rounded-xl md:rounded-3xl p-5 md:p-8 text-white mb-6 md:mb-10 shadow-lg relative overflow-hidden">
+            <div className="bg-[#3D7A5E] rounded-xl md:rounded-lg p-5 md:p-8 text-white mb-6 md:mb-10 shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
               <h3 className={`${montserrat.className} text-xl font-bold mb-3 relative z-10`}>Jelajahi Bandung!</h3>
               <p className="text-white/80 text-sm mb-6 relative z-10 leading-relaxed">Temukan destinasi wisata terbaik dan nikmati pengalaman liburan tak terlupakan di Kota Kembang.</p>
@@ -163,7 +163,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
             
             <div className="flex flex-col gap-6">
               {otherNews && otherNews.map((item, i) => (
-                <Link href={`/berita/${item.slug}`} key={i} className="group flex gap-4 items-center bg-white p-3 rounded-2xl shadow-sm border border-[#d3c5af]/30 hover:shadow-md transition-all">
+                <Link href={`/berita/${item.slug}`} key={i} className="group flex gap-4 items-center bg-white p-3 rounded-lg shadow-sm border border-[#d3c5af]/30 hover:shadow-md transition-all">
                   <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0">
                     <Image 
                       src={item.image_url || "/hero-bg.webp"} 
