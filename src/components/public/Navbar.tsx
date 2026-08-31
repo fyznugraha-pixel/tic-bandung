@@ -47,11 +47,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105 flex items-center gap-2 md:gap-3">
           <img src="/logo/tictransparan.png" alt="TIC Kota Bandung" className="h-10 md:h-12 w-auto" />
-          <div className="flex flex-col">
-            <span className={`text-sm md:text-lg font-bold leading-tight ${scrolled ? 'text-slate-900' : 'text-white'}`}>
+          <div className="flex flex-col drop-shadow-md">
+            <span className="text-sm md:text-lg font-bold leading-tight text-slate-900">
               KOTA BANDUNG
             </span>
-            <span className={`text-[8px] md:text-[10px] font-bold tracking-[0.15em] ${scrolled ? 'text-[#3D7A5E]' : 'text-white/80'}`}>
+            <span className="text-[8px] md:text-[10px] font-bold tracking-[0.15em] text-[#3D7A5E]">
               TOURIST INFORMATION CENTER
             </span>
           </div>
