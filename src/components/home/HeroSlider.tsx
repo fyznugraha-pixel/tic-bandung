@@ -84,7 +84,7 @@ export default function HeroSlider({ sliders }: { sliders: SliderData[] }) {
           {sliders.map((slider, index) => (
             <div 
               key={index}
-              className={`absolute top-0 right-0 w-full bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg transition-all duration-700 ease-in-out ${
+              className={`absolute top-0 right-0 w-full bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-sm transition-all duration-700 ease-in-out ${
                 index === currentIndex 
                   ? "opacity-100 transform translate-y-0 translate-x-0" 
                   : "opacity-0 transform -translate-y-8 translate-x-8 pointer-events-none"

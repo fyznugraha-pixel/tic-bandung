@@ -72,7 +72,7 @@ export default function WalkingTourUI() {
         </nav>
 
         {/* Route Details */}
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 border border-[#d3c5af]/50">
+        <div className="bg-white rounded-sm shadow-xl p-8 md:p-12 border border-[#d3c5af]/50">
           
           <div className="text-center mb-16 border-b border-[#f6f3f0] pb-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-[#1b1c1a] mb-4">{route.title}</h2>
@@ -103,7 +103,7 @@ export default function WalkingTourUI() {
 
                   {/* Visual (Image) */}
                   <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${isEven ? 'md:pl-16' : 'md:pr-16'}`}>
-                    <div className="relative h-64 w-full rounded-lg overflow-hidden shadow-[0_8px_30px_rgba(42,42,40,0.08)] group">
+                    <div className="relative h-64 w-full rounded-sm overflow-hidden shadow-[0_8px_30px_rgba(42,42,40,0.08)] group">
                       <Image
                         src={stop.imageUrl}
                         alt={stop.title}

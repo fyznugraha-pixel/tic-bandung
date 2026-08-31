@@ -126,7 +126,7 @@ export default function ImageCropperModal({
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/80 backdrop-blur-sm p-4">
-      <div className="bg-white rounded-lg w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col animate-in fade-in zoom-in duration-300">
+      <div className="bg-white rounded-sm w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col animate-in fade-in zoom-in duration-300">
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-white">
           <div className="flex items-center gap-3 text-slate-800">
             <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
@@ -167,7 +167,7 @@ export default function ImageCropperModal({
               onChange={(e) => {
                 setZoom(Number(e.target.value));
               }}
-              className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+              className="w-full h-2 bg-slate-200 rounded-sm appearance-none cursor-pointer accent-amber-500"
             />
             <ZoomIn className="w-5 h-5 text-slate-400" />
           </div>

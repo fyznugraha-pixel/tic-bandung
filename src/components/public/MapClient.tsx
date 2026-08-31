@@ -79,7 +79,7 @@ export default function MapClient({ destinations }: { destinations: DestinationP
             position={[dest.latitude, dest.longitude]} 
             icon={createCustomIcon(dest.category.color_cluster)}
           >
-            <Popup className="destination-popup rounded-lg overflow-hidden p-0 border-0 shadow-lg">
+            <Popup className="destination-popup rounded-sm overflow-hidden p-0 border-0 shadow-lg">
               <div className="w-64">
                 <div className="relative h-32 w-full bg-gray-100">
                   <Image
@@ -108,7 +108,7 @@ export default function MapClient({ destinations }: { destinations: DestinationP
                     </div>
                   )}
 
-                  <Link href={`/destinasi/${dest.slug}`} className="block w-full text-center bg-[#f6f3f0] hover:bg-[#eadecc] text-[#1b1c1a] text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-1 group">
+                  <Link href={`/destinasi/${dest.slug}`} className="block w-full text-center bg-[#f6f3f0] hover:bg-[#eadecc] text-[#1b1c1a] text-xs font-bold py-2 rounded-sm transition-colors flex items-center justify-center gap-1 group">
                     Lihat Detail
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   </Link>

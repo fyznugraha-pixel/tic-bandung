@@ -30,7 +30,7 @@ export default function DestinationMap({ latitude, longitude, name }: Destinatio
   }, []);
 
   if (!mounted) {
-    return <div className="w-full h-full bg-gray-100 animate-pulse rounded-lg flex items-center justify-center text-text-muted">Memuat peta...</div>;
+    return <div className="w-full h-full bg-gray-100 animate-pulse rounded-sm flex items-center justify-center text-text-muted">Memuat peta...</div>;
   }
 
   // Default to Bandung center if no coordinates
@@ -38,7 +38,7 @@ export default function DestinationMap({ latitude, longitude, name }: Destinatio
   const lng = longitude || 107.6191;
 
   return (
-    <div className="w-full h-full rounded-lg overflow-hidden shadow-soft border border-gray-100">
+    <div className="w-full h-full rounded-sm overflow-hidden shadow-soft border border-gray-100">
       <MapContainer 
         center={[lat, lng]} 
         zoom={15} 

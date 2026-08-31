@@ -90,7 +90,7 @@ export default function EkonomiKreatifUI() {
               return (
                 <div 
                   key={index} 
-                  className="bg-white aspect-square rounded-lg flex flex-col items-center justify-center p-4 text-center border border-[#d3c5af]/50 hover:border-[#C9971E] hover:shadow-[0_8px_30px_rgba(201,151,30,0.15)] transition-all duration-300 group cursor-default"
+                  className="bg-white aspect-square rounded-sm flex flex-col items-center justify-center p-4 text-center border border-[#d3c5af]/50 hover:border-[#C9971E] hover:shadow-[0_8px_30px_rgba(201,151,30,0.15)] transition-all duration-300 group cursor-default"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#f6f3f0] group-hover:bg-[#C9971E] flex items-center justify-center mb-4 transition-colors duration-300">
                     <Icon className="w-6 h-6 text-[#4f4635] group-hover:text-white transition-colors duration-300" />

@@ -46,7 +46,7 @@ export default function EventSubmissionForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-slate-800/80 backdrop-blur-xl rounded-lg p-10 border border-slate-700 shadow-2xl text-center flex flex-col items-center animate-in fade-in zoom-in duration-500">
+      <div className="bg-slate-800/80 backdrop-blur-xl rounded-sm p-10 border border-slate-700 shadow-2xl text-center flex flex-col items-center animate-in fade-in zoom-in duration-500">
         <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-10 h-10 text-emerald-400" />
         </div>
@@ -226,9 +226,9 @@ export default function EventSubmissionForm() {
             <label className="block text-sm font-medium text-slate-300 mb-2">16. Surat Kesediaan Laporan Pasca Event <span className="text-red-500">*</span></label>
             <p className="text-xs text-slate-400 mb-4">Mohon unggah file surat kesediaan (PDF/DOCX).</p>
             <div className="relative">
-              <input type="file" name="commitment_letter_file" accept=".pdf,.doc,.docx" required className="w-full px-4 py-2.5 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-amber-500 file:text-slate-900 hover:file:bg-amber-600 cursor-pointer" />
+              <input type="file" name="commitment_letter_file" accept=".pdf,.doc,.docx" required className="w-full px-4 py-2.5 bg-slate-900/50 data-[filled]:bg-slate-100 data-[filled]:text-slate-900 border border-slate-700 data-[filled]:border-amber-500 rounded-xl text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border-0 file:text-sm file:font-semibold file:bg-amber-500 file:text-slate-900 hover:file:bg-amber-600 cursor-pointer" />
             </div>
-            <a href="/ASET%20VISUAL/surat/FORMAT%20SURAT%20PERNYATAAN%20KESANGGUPAN%20COE.docx" download className="mt-4 inline-flex items-center gap-2 px-4 py-2.5 bg-amber-500 hover:bg-amber-600 rounded-lg text-xs text-slate-900 font-bold transition-colors shadow-sm">
+            <a href="/ASET%20VISUAL/surat/FORMAT%20SURAT%20PERNYATAAN%20KESANGGUPAN%20COE.docx" download className="mt-4 inline-flex items-center gap-2 px-4 py-2.5 bg-amber-500 hover:bg-amber-600 rounded-sm text-xs text-slate-900 font-bold transition-colors shadow-sm">
               <Download className="w-4 h-4" /> Unduh Template Surat Laporan
             </a>
           </div>

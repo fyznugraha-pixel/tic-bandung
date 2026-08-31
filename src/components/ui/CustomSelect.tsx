@@ -91,7 +91,7 @@ export const CustomSelect = forwardRef<HTMLSelectElement, CustomSelectProps>(
         {/* Custom UI */}
         <div 
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center justify-between w-full px-4 py-2 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-[#3D7A5E] transition-colors select-none ${className}`}
+          className={`flex items-center justify-between w-full px-4 py-2 bg-white border border-gray-200 rounded-sm cursor-pointer hover:border-[#3D7A5E] transition-colors select-none ${className}`}
         >
           <span className={selectedOption ? 'text-gray-900 line-clamp-1' : 'text-gray-400'}>
             {selectedOption ? selectedOption.label : placeholder}
@@ -100,7 +100,7 @@ export const CustomSelect = forwardRef<HTMLSelectElement, CustomSelectProps>(
         </div>
 
         {isOpen && (
-          <div className={`absolute z-50 w-full mt-1 bg-white border border-gray-100 rounded-lg shadow-lg max-h-60 overflow-y-auto ${dropdownClassName}`}>
+          <div className={`absolute z-50 w-full mt-1 bg-white border border-gray-100 rounded-sm shadow-lg max-h-60 overflow-y-auto ${dropdownClassName}`}>
             {!hidePlaceholderOption && (
               <div 
                 onClick={() => handleSelect('')}
