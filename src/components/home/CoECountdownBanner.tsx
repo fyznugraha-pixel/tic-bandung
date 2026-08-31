@@ -47,7 +47,7 @@ export default function CoECountdownBanner() {
   if (!isMounted) return null; // Avoid hydration mismatch
 
   return (
-    <section className="w-full bg-[#1b1c1a] relative overflow-hidden py-12 md:py-16">
+    <section className="w-full bg-white relative overflow-hidden py-12 md:py-16 border-y border-slate-100">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#C9971E]/10 rounded-full blur-[80px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#3D7A5E]/10 rounded-full blur-[80px] pointer-events-none"></div>
@@ -62,11 +62,11 @@ export default function CoECountdownBanner() {
             <span>Segera Dibuka</span>
           </div>
           
-          <h2 className={`${montserrat.className} text-3xl md:text-5xl font-bold text-white mb-4 leading-tight`}>
+          <h2 className={`${montserrat.className} text-3xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight`}>
             Pendaftaran Calendar of Event <span className="text-[#C9971E]">2027</span>
           </h2>
           
-          <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
             Punya event unggulan di Kota Bandung? Daftarkan segera untuk masuk ke dalam kurasi resmi Calendar of Event (CoE) Dinas Kebudayaan dan Pariwisata Kota Bandung tahun 2027.
           </p>
 
@@ -79,8 +79,8 @@ export default function CoECountdownBanner() {
         </div>
 
         {/* Right side: Countdown Timer Box */}
-        <div className="w-full lg:w-auto shrink-0 bg-white/5 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl relative">
-          <div className="flex items-center justify-center lg:justify-start gap-2 text-white/80 font-medium mb-6">
+        <div className="w-full lg:w-auto shrink-0 bg-[#fcf9f5] border border-slate-200 p-6 md:p-8 rounded-3xl shadow-xl relative">
+          <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-600 font-bold mb-6">
             <Clock className="w-5 h-5 text-[#C9971E]" />
             <span>Batas Waktu Pendaftaran:</span>
           </div>
@@ -88,41 +88,41 @@ export default function CoECountdownBanner() {
           {/* Countdown Grid */}
           <div className="flex justify-center gap-3 md:gap-6">
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-[#C9971E] shadow-inner border border-slate-700/50">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-[#C9971E] shadow-sm border border-slate-200">
                 {String(timeLeft.days).padStart(2, '0')}
               </div>
-              <span className="text-[10px] md:text-xs text-slate-400 mt-2 uppercase tracking-wider font-bold">Hari</span>
+              <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Hari</span>
             </div>
             
-            <div className="text-2xl md:text-4xl font-bold text-slate-600 mt-4 md:mt-5">:</div>
+            <div className="text-2xl md:text-4xl font-bold text-slate-300 mt-4 md:mt-5">:</div>
             
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-white shadow-inner border border-slate-700/50">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-slate-800 shadow-sm border border-slate-200">
                 {String(timeLeft.hours).padStart(2, '0')}
               </div>
-              <span className="text-[10px] md:text-xs text-slate-400 mt-2 uppercase tracking-wider font-bold">Jam</span>
+              <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Jam</span>
             </div>
             
-            <div className="text-2xl md:text-4xl font-bold text-slate-600 mt-4 md:mt-5">:</div>
+            <div className="text-2xl md:text-4xl font-bold text-slate-300 mt-4 md:mt-5">:</div>
 
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-white shadow-inner border border-slate-700/50">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-slate-800 shadow-sm border border-slate-200">
                 {String(timeLeft.minutes).padStart(2, '0')}
               </div>
-              <span className="text-[10px] md:text-xs text-slate-400 mt-2 uppercase tracking-wider font-bold">Menit</span>
+              <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Menit</span>
             </div>
 
-            <div className="text-2xl md:text-4xl font-bold text-slate-600 mt-4 md:mt-5">:</div>
+            <div className="text-2xl md:text-4xl font-bold text-slate-300 mt-4 md:mt-5">:</div>
 
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-[#3D7A5E] shadow-inner border border-slate-700/50">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold text-[#3D7A5E] shadow-sm border border-slate-200">
                 {String(timeLeft.seconds).padStart(2, '0')}
               </div>
-              <span className="text-[10px] md:text-xs text-slate-400 mt-2 uppercase tracking-wider font-bold">Detik</span>
+              <span className="text-[10px] md:text-xs text-slate-500 mt-2 uppercase tracking-wider font-bold">Detik</span>
             </div>
           </div>
           
-          <div className="mt-6 text-center text-xs text-slate-500 font-medium bg-black/20 py-2 rounded-lg">
+          <div className="mt-6 text-center text-xs text-slate-600 font-bold bg-slate-200/50 py-2 rounded-lg">
             Ditutup: 15 September 2026, 23:59 WIB
           </div>
         </div>
