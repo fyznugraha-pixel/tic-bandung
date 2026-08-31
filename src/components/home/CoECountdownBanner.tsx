@@ -47,7 +47,7 @@ export default function CoECountdownBanner() {
   if (!isMounted) return null; // Avoid hydration mismatch
 
   return (
-    <section className="w-full bg-white relative overflow-hidden py-12 md:py-16 border-y border-slate-100">
+    <section className="w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] bg-white relative overflow-hidden py-8 md:py-10 border border-slate-100 rounded-2xl md:rounded-3xl shadow-2xl max-w-[1400px] mx-auto -mt-16 md:-mt-24 z-40">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#C9971E]/10 rounded-full blur-[80px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#3D7A5E]/10 rounded-full blur-[80px] pointer-events-none"></div>
