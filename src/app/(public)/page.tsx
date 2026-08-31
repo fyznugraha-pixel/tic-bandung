@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Map, Utensils, Sun, Landmark, Calendar, MapPin, Bus, Star, Compass, Download, Heart, ArrowRight, Camera, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
 import HeroSlider from '@/components/home/HeroSlider';
+import PromoPopup from '@/components/home/PromoPopup';
 import { createClient } from '@/utils/supabase/server';
 import { Montserrat } from 'next/font/google';
 import { ScrollReveal } from '@/components/ui/animations/ScrollReveal';
