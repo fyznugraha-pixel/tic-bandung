@@ -45,8 +45,16 @@ export default function Navbar() {
     >
       <div className="flex justify-between items-center w-full px-6 md:px-12 lg:px-16 max-w-[1600px] mx-auto">
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105">
+        <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105 flex items-center gap-2 md:gap-3">
           <img src="/logo/tictransparan.png" alt="TIC Kota Bandung" className="h-10 md:h-12 w-auto" />
+          <div className="flex flex-col">
+            <span className={`text-sm md:text-lg font-bold leading-tight ${scrolled ? 'text-slate-900' : 'text-white'}`}>
+              KOTA BANDUNG
+            </span>
+            <span className={`text-[8px] md:text-[10px] font-bold tracking-[0.15em] ${scrolled ? 'text-[#3D7A5E]' : 'text-white/80'}`}>
+              TOURIST INFORMATION CENTER
+            </span>
+          </div>
         </Link>
         
         {/* Desktop Menu */}
